@@ -1422,7 +1422,7 @@ pre .javascript .function {
 .post-button .btn {
   color: #555;
   font-size: 14px;
-  background: #fff;
+  background: transparent;
   border-radius: 2px;
   line-height: 2;
   margin: 0 4px 8px 4px;
@@ -1746,7 +1746,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e58377;
+  background: #ffbd04;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2962,6 +2962,10 @@ header.post-header {
 }
 body {
   background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 .post {
   margin-top: 0px;
@@ -2982,4 +2986,12 @@ body {
 }
 .site-meta {
   background: #0684bd;
+}
+@font-face {
+  font-family: Zitiming;
+  src: url("/fonts/Zitiming.ttf");
+}
+.site-title {
+  font-size: 40px !important;
+  font-family: 'Zitiming' !important;
 }
