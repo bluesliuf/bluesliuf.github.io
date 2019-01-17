@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Bluesliuf</title>
+  
+  <subtitle>Though failed, Still keep smiling</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://bluesliuf.github.io/"/>
+  <updated>2019-01-15T03:09:02.403Z</updated>
+  <id>https://bluesliuf.github.io/</id>
+  
+  <author>
+    <name>bluesliuf</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习的发展</title>
+    <link href="https://bluesliuf.github.io/2019/01/14/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B1%95/"/>
+    <id>https://bluesliuf.github.io/2019/01/14/2019-1-14-深度学习发展/</id>
+    <published>2019-01-13T16:00:00.000Z</published>
+    <updated>2019-01-15T03:09:02.403Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;深度学习的发展历程&quot;&gt;&lt;a href=&quot;#深度学习的发展历程&quot; class=&quot;headerlink&quot; title=&quot;深度学习的发展历程&quot;&gt;&lt;/a&gt;深度学习的发展历程&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;人工智能&lt;/li&gt;
+&lt;li&gt;机器学习&lt;/li&gt;
+&lt;li&gt;深度学习&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://bluesliuf.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="deep learning" scheme="https://bluesliuf.github.io/tags/deep-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习的常见模型（CNN）</title>
+    <link href="https://bluesliuf.github.io/2019/01/14/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B-CNN/"/>
+    <id>https://bluesliuf.github.io/2019/01/14/2019-1-14-深度学习的常见模型-CNN/</id>
+    <published>2019-01-13T16:00:00.000Z</published>
+    <updated>2019-01-15T03:15:57.712Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;卷积神经网络&quot;&gt;&lt;a href=&quot;#卷积神经网络&quot; class=&quot;headerlink&quot; title=&quot;卷积神经网络&quot;&gt;&lt;/a&gt;卷积神经网络&lt;/h2&gt;&lt;h3 id=&quot;1-CNN的来源&quot;&gt;&lt;a href=&quot;#1-CNN的来源&quot; class=&quot;headerlink&quot; title=&quot;1.CNN的来源&quot;&gt;&lt;/a&gt;1.CNN的来源&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式，一方面减少了的权值的数量使得网络易于优化，另一方面降低了过拟合的风险。CNN是神经网络中的一种，它的权值共享网络结构使之更类似于生物神经网络，降低了网络模型的复杂度，减少了权值的数量。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://bluesliuf.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="deep learning model (CNN)" scheme="https://bluesliuf.github.io/tags/deep-learning-model-CNN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My First Blog</title>
+    <link href="https://bluesliuf.github.io/2019/01/13/2019-01-13-FirstBlog/"/>
+    <id>https://bluesliuf.github.io/2019/01/13/2019-01-13-FirstBlog/</id>
+    <published>2019-01-12T16:00:00.000Z</published>
+    <updated>2019-01-14T10:47:08.405Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Hey&quot;&gt;&lt;a href=&quot;#Hey&quot; class=&quot;headerlink&quot; title=&quot;Hey&quot;&gt;&lt;/a&gt;Hey&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;这是我的第一篇博客。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;大家好，我是一名在读的研一学生，现研究领域
+      
+    
+    </summary>
+    
+    
+      <category term="first" scheme="https://bluesliuf.github.io/tags/first/"/>
+    
+  </entry>
+  
+</feed>
