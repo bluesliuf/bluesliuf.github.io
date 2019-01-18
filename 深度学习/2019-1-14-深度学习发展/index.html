@@ -111,7 +111,13 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://bluesliuf.github.io/深度学习/2019-1-14-深度学习发展/machine.jpg">
 <meta property="og:image" content="https://bluesliuf.github.io/深度学习/2019-1-14-深度学习发展/deep.jpg">
-<meta property="og:updated_time" content="2019-01-17T04:36:49.724Z">
+<meta property="og:image" content="https://bluesliuf.github.io/深度学习/2019-1-14-深度学习发展/d1.png">
+<meta property="og:image" content="https://bluesliuf.github.io/深度学习/2019-1-14-深度学习发展/d2.jpg">
+<meta property="og:image" content="https://bluesliuf.github.io/深度学习/2019-1-14-深度学习发展/d2.png">
+<meta property="og:image" content="https://bluesliuf.github.io/深度学习/2019-1-14-深度学习发展/d3.png">
+<meta property="og:image" content="https://bluesliuf.github.io/深度学习/2019-1-14-深度学习发展/d4.png">
+<meta property="og:image" content="https://bluesliuf.github.io/深度学习/2019-1-14-深度学习发展/d5.png">
+<meta property="og:updated_time" content="2019-01-18T14:19:32.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习的发展">
 <meta name="twitter:description" content="深度学习的发展历程 人工智能 机器学习 深度学习">
@@ -384,8 +390,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-17T12:36:49+08:00">
-                2019-01-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-18T22:19:32+08:00">
+                2019-01-18
               </time>
             
           </span>
@@ -448,7 +454,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  935
+                  2k
                 </span>
               
 
@@ -464,7 +470,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  6
                 </span>
               
             </div>
@@ -510,6 +516,29 @@
 <blockquote>
 <p>上图是深度学习的简单结构图，主要包含三个部分：输入层（Visible layer）、隐藏层（hidden layer）和输出层（Output layer）。图中解决的是图片分类问题。<br>输入层输入图片，即像素矩阵；<br>对于隐藏层，第一层可以轻易地通过比较相邻像素的亮度来识别边缘。有了第一隐藏层描述的边缘，第二隐藏层可以容易地搜索可识别为角和扩展轮廓的边集合。给定第二隐藏层中关于角和轮廓的图像描述，第三隐藏层可以找到轮廓和角的特定集合来检测特定对象的整个部分；<br>最后根据图像描述中包含的对象部分，输出层输出图片中所包含的对象类别。</p>
 </blockquote>
+<h2 id="深度学习常见的编程框架"><a href="#深度学习常见的编程框架" class="headerlink" title="深度学习常见的编程框架"></a>深度学习常见的编程框架</h2><p><img src="/深度学习/2019-1-14-深度学习发展/d1.png" alt=""></p>
+<blockquote>
+<p>  观察发现，Google、Microsoft、Facebook等巨头都参与了这场深度学习框架大战，此外，还有毕业于伯克利大学的贾扬清主导开发的Caffe，蒙特利尔大学Lisa Lab团队开发的Theano，以及其他个人或商业组织贡献的框架。<br>  另外，可以看到各大主流框架基本都支持Python，目前Python在科学计算和数据挖掘领域可以说是独领风骚。虽然有来自R、Julia等语言的竞争压力，但是Python的各种库实在是太完善了，Web开发、数据可视化、数据预处理、数据库连接、爬虫等无所不能，有一个完美的生态环境。仅在数据挖据工具链上，Python就有NumPy、SciPy、Pandas、Scikit-learn、XGBoost等组件，做数据采集和预处理都非常方便，并且之后的模型训练阶段可以和TensorFlow等基于Python的深度学习框架完美衔接。</p>
+</blockquote>
+<h2 id="深度学习的应用"><a href="#深度学习的应用" class="headerlink" title="深度学习的应用"></a>深度学习的应用</h2><h3 id="无人驾驶"><a href="#无人驾驶" class="headerlink" title="无人驾驶"></a>无人驾驶</h3><blockquote>
+<p>  深度学习在无人驾驶领域主要用于图像处理， 也就是摄像头上面。 当然也可以用于雷达的数据处理， 但是基于图像极大丰富的信息以及难以手工建模的特性， 深度学习能最大限度的发挥其优势。<br>  在做无人车的公司中，他们都会用到三个传感器激光雷达（lidar），测距雷达（radar）和摄像头（camera），但还是会各有侧重。比如 Waymo（前谷歌无人车）以激光雷达为主，而特斯拉和中国的图森互联以摄像头为主。我们可以从特斯拉近期放出的一段无人驾驶的视频中看到特斯拉有三个摄像头传感器，左中右各一个。</p>
+</blockquote>
+<p><img src="/深度学习/2019-1-14-深度学习发展/d2.jpg" alt=""></p>
+<blockquote>
+<p>从上图我们可以看出，特斯拉成功识别了道路线（红色的线）前方整个路面（右中图），这个过程也可以用深度学习完成。</p>
+</blockquote>
+<h3 id="AlphaGo阿尔法狗"><a href="#AlphaGo阿尔法狗" class="headerlink" title="AlphaGo阿尔法狗"></a>AlphaGo阿尔法狗</h3><blockquote>
+<p>阿尔法狗（AlphaGo）是第一个击败人类职业围棋选手、第一个战胜围棋世界冠军的人工智能程序。它主要的原理就是深度学习。<br>早在1997年，IBM的国际象棋系统深蓝，击败了世界冠军卡斯帕罗夫时，采用的算法是通过暴力搜索的方式尝试更多的下棋方法从而战胜人类，其所依赖的更多是计算机的计算资源优势。但在围棋上，深蓝的方式完全不适用。为了战胜人类围棋选手，AlphaGo需要更加智能且强大的算法。深度学习为其提供了可能。</p>
+</blockquote>
+<h4 id="AlphaGo主要包括三个组成部分："><a href="#AlphaGo主要包括三个组成部分：" class="headerlink" title="AlphaGo主要包括三个组成部分："></a>AlphaGo主要包括三个组成部分：</h4><ul>
+<li>蒙特卡洛搜索树（MonteCarlo tree search，MCTS）</li>
+<li>估值网络（Value network）</li>
+<li>策略网络（Policy notebook）</li>
+</ul>
+<p>AlphaGo的一个大脑——策略网络，通过深度学习在当前给定棋盘条件下，预测下一步在哪里落子。通过大量对弈棋谱获取训练数据，该网络预测人类棋手下一步落子点的准确率可达57%以上（当年数据）并可以通过自己跟自己对弈的方式提高落子水平。<br>AlphaGo的另一个大脑——估值网络，判断在当前棋盘条件下黑子赢棋的概率。其使用的数据就是策略网络自己和自己对弈时产生的。<br>AlphaGo使用蒙特卡罗树算法，根据策略网络和估值网络对局势的评判结果来寻找最佳落子点。</p>
+<h3 id="人脸识别"><a href="#人脸识别" class="headerlink" title="人脸识别"></a>人脸识别</h3><p>   人脸识别的方法有很多，如face++，DeepFace，FaceNet……常规的人脸识别流程为：人脸检测—&gt;对齐—&gt;表达—&gt;分类。<br>   人脸对齐的方法包括以下几步：1.通过若干个特征点检测人脸；2.剪切；3.建立Delaunay triangulation;4.参考标准3d模型；5.讲3d模型比对到图片上；6.进行仿射变形；7.最终生成正面图像。</p>
+<p><img src="/深度学习/2019-1-14-深度学习发展/d2.png" alt=""><br><img src="/深度学习/2019-1-14-深度学习发展/d3.png" alt=""></p>
+<h2 id="学习深度学习所需的基础知识"><a href="#学习深度学习所需的基础知识" class="headerlink" title="学习深度学习所需的基础知识"></a>学习深度学习所需的基础知识</h2><p><img src="/深度学习/2019-1-14-深度学习发展/d4.png" alt=""><br><img src="/深度学习/2019-1-14-深度学习发展/d5.png" alt=""></p>
 
       
     </div>
@@ -806,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习的发展历程"><span class="nav-number">1.</span> <span class="nav-text">深度学习的发展历程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人工智能"><span class="nav-number">1.1.</span> <span class="nav-text">人工智能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习"><span class="nav-number">1.2.</span> <span class="nav-text">机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习"><span class="nav-number">1.3.</span> <span class="nav-text">深度学习</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习的发展历程"><span class="nav-number">1.</span> <span class="nav-text">深度学习的发展历程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人工智能"><span class="nav-number">1.1.</span> <span class="nav-text">人工智能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习"><span class="nav-number">1.2.</span> <span class="nav-text">机器学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习"><span class="nav-number">1.3.</span> <span class="nav-text">深度学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习常见的编程框架"><span class="nav-number">2.</span> <span class="nav-text">深度学习常见的编程框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习的应用"><span class="nav-number">3.</span> <span class="nav-text">深度学习的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无人驾驶"><span class="nav-number">3.1.</span> <span class="nav-text">无人驾驶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AlphaGo阿尔法狗"><span class="nav-number">3.2.</span> <span class="nav-text">AlphaGo阿尔法狗</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AlphaGo主要包括三个组成部分："><span class="nav-number">3.2.1.</span> <span class="nav-text">AlphaGo主要包括三个组成部分：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人脸识别"><span class="nav-number">3.3.</span> <span class="nav-text">人脸识别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习深度学习所需的基础知识"><span class="nav-number">4.</span> <span class="nav-text">学习深度学习所需的基础知识</span></a></li></ol></div>
             
 
           </div>
