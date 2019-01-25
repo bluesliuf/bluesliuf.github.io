@@ -149,8 +149,6 @@
   <title> My First Blog | Bluesliuf </title>
 </head>
 
-<script type="text/javascript" src="/lib/clipboard/clipboard.js"></script>
-<script type="text/javascript" src="/js/src/custom.js"></script>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -391,16 +389,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/uncategorized/2019-01-13-FirstBlog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="uncategorized/2019-01-13-FirstBlog/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -602,12 +590,7 @@
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
     
   </div>
 
@@ -894,26 +877,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://bluesliuf.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'https://bluesliuf.github.io/uncategorized/2019-01-13-FirstBlog/';
-          this.page.identifier = 'uncategorized/2019-01-13-FirstBlog/';
-          this.page.title = 'My First Blog';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://bluesliuf.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -1068,6 +1031,10 @@
 
   
 
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
 </body>
 </html>
 
