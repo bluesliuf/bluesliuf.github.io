@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="deep learning model (CNN),">
+  <meta name="keywords" content="deep learning model (GAN),">
 
 
 
@@ -101,29 +101,34 @@
 
 
 
-<meta name="description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
-<meta name="keywords" content="deep learning model (CNN)">
+<meta name="description" content="GAN的来源 14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。">
+<meta name="keywords" content="deep learning model (GAN)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习的常见模型（CNN）">
-<meta property="og:url" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/index.html">
+<meta property="og:title" content="深度学习的常见模型（GAN）">
+<meta property="og:url" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
+<meta property="og:description" content="GAN的来源 14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv2.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv3.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv5.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv6.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv7.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv8.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv9.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv10.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv11.png">
-<meta property="og:updated_time" content="2019-01-19T02:37:50.841Z">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/1.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/2.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/3.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/4.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/5.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/6.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/7.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/8.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/9.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/10.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/11.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/12.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/13.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/14.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/15.png">
+<meta property="og:updated_time" content="2019-02-20T09:00:24.897Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习的常见模型（CNN）">
-<meta name="twitter:description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
-<meta name="twitter:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png">
+<meta name="twitter:title" content="深度学习的常见模型（GAN）">
+<meta name="twitter:description" content="GAN的来源 14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。">
+<meta name="twitter:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/1.png">
 
 
 
@@ -151,13 +156,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/">
+  <link rel="canonical" href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/">
 
 
 
 
 
-  <title> 深度学习的常见模型（CNN） | Bluesliuf </title>
+  <title> 深度学习的常见模型（GAN） | Bluesliuf </title>
 </head>
 
 
@@ -338,7 +343,7 @@
   
 
   <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -359,7 +364,7 @@
             
             
               
-                深度学习的常见模型（CNN）
+                深度学习的常见模型（GAN）
               
             
           </h1>
@@ -374,8 +379,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T00:00:00+08:00">
-                2019-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T00:00:00+08:00">
+                2019-02-20
               </time>
             
 
@@ -390,8 +395,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-19T10:37:50+08:00">
-                2019-01-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-20T17:00:24+08:00">
+                2019-02-20
               </time>
             
           </span>
@@ -444,7 +449,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  954
+                  1.8k
                 </span>
               
 
@@ -460,7 +465,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  6
                 </span>
               
             </div>
@@ -479,54 +484,77 @@
       
 
       
-        <h3 id="CNN的来源"><a href="#CNN的来源" class="headerlink" title="CNN的来源"></a>CNN的来源</h3><blockquote>
-<p>CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。</p>
+        <h3 id="GAN的来源"><a href="#GAN的来源" class="headerlink" title="GAN的来源"></a>GAN的来源</h3><blockquote>
+<p>14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。</p>
 </blockquote>
 <a id="more"></a>
 <blockquote>
-<p>一方面减少了的权值的数量使得网络易于优化，另一方面降低了过拟合的风险。CNN是神经网络中的一种，它的权值共享网络结构使之更类似于生物神经网络，降低了网络模型的复杂度，减少了权值的数量。</p>
+<p>GANs简单的想法就是用两个模型，<font color="#FF0000"> 一个生成模型，一个判别模型。</font>判别模型用于判断一个给定的图片是不是真实的图片（从数据集里获取的图片），生成模型的任务是去创造一个看起来像真的图片一样的图片，有点拗口，就是说模型自己去产生一个图片，可以和你想要的图片很像。而在开始的时候这两个模型都是没有经过训练的，<font color="#FF0000">这两个模型一起对抗训练，生成模型产生一张图片去欺骗判别模型，然后判别模型去判断这张图片是真是假</font>，最终在这两个模型训练的过程中，两个模型的能力越来越强，最终达到稳态。</p>
+</blockquote>
+<h3 id="GAN的基本组成"><a href="#GAN的基本组成" class="headerlink" title="GAN的基本组成"></a>GAN的基本组成</h3><blockquote>
+<p>GAN 模型中的两位博弈方分别由<font color="#FF0000">生成式模型</font>（generative model）和<font color="#FF0000">判别式模型</font>（discriminative model）充当。</p>
 </blockquote>
 <blockquote>
-<p>权重共享：在卷积神经网络中，卷积层的每一个卷积滤波器重复的作用于整个感受野中，对输入图像进行卷积，卷积结果构成了输入图像的特征图，提取出图像的局部特征。每一个卷积滤波器共享相同的参数，包括相同的权重矩阵和偏置项。共享权重的好处是在对图像进行特征提取时不用考虑局部特征的位置。而且权重共享提供了一种有效的方式，使要学习的卷积神经网络模型参数数量大大降低。</p>
-</blockquote>
-<h3 id="CNN的网络架构"><a href="#CNN的网络架构" class="headerlink" title="CNN的网络架构"></a>CNN的网络架构</h3><blockquote>
-<p>卷积神经网络结构包括：卷积层，降采样层，全链接层。每一层有多个特征图，每个特征图通过一种卷积滤波器提取输入的一种特征，每个特征图有多个神经元。</p>
-</blockquote>
-<h4 id="卷积层（Conv）"><a href="#卷积层（Conv）" class="headerlink" title="卷积层（Conv）"></a>卷积层（Conv）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png" alt="示例图片"></p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv2.png" alt="示例图片"></p>
 <blockquote>
-<p>再举一个卷积过程的例子如下：我们有下面这个绿色的5<em>5输入矩阵，卷积核是一个下面这个黄色的3</em>3矩阵。卷积的步幅是一个像素。则卷积的过程如下面的动图。卷积的结果是一个3*3的矩阵。</p>
+<p>生成模型： G 捕捉样本数据的分布，用服从某一分布（均匀分布，高斯分布等）的噪声 z 生成一个类似真实训练数据的样本，追求效果是越像真实样本越好；</p>
 </blockquote>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv3.png" alt="示例图片"></p>
+</blockquote>
 <blockquote>
-<p>上面举的例子都是二维的输入，卷积的过程比较简单，那么如果输入是多维的呢？比如在前面一组卷积层+池化层的输出是3个矩阵，这3个矩阵作为输入呢，那么我们怎么去卷积呢？又比如输入的是对应RGB的彩色图像，即是三个分布对应R，G和B的矩阵呢？</p>
+<blockquote>
+<p>判别模型: D 是一个二分类器，估计一个样本来自于训练数据（而非生成数据）的概率，如果样本来自于真实的训练数据，D 输出大概率，否则，D 输出小概率。</p>
 </blockquote>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv5.png" alt="示例图片"></p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv6.png" alt="示例图片"></p>
-<h4 id="卷积层（Pooling）"><a href="#卷积层（Pooling）" class="headerlink" title="卷积层（Pooling）"></a>卷积层（Pooling）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv7.png" alt="示例图片"></p>
-<h4 id="全连接层（Full-Connecting）"><a href="#全连接层（Full-Connecting）" class="headerlink" title="全连接层（Full Connecting）"></a>全连接层（Full Connecting）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv8.png" alt="示例图片"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv9.png" alt="示例图片"></p>
-<h4 id="一般CNN的结构依次为"><a href="#一般CNN的结构依次为" class="headerlink" title="一般CNN的结构依次为"></a>一般CNN的结构依次为</h4><p>1、 input<br>2、 ((conv–&gt;relu)<em>N–&gt;pool?)</em>M<br>3、 (fc–&gt;relu)*K<br>4、 fc</p>
-<h4 id="卷积神经网络的训练算法"><a href="#卷积神经网络的训练算法" class="headerlink" title="卷积神经网络的训练算法"></a>卷积神经网络的训练算法</h4><ul>
-<li>与一般的机器学习算法相比，先定义Loss function,衡量和实际结果之间的差距；</li>
-<li>找到最小化损失函数的W（权重）和b（偏置），CNN里面最常见的算法为SGD（随机梯度下降）。</li>
-</ul>
-<h4 id="卷积神经网络的优缺点"><a href="#卷积神经网络的优缺点" class="headerlink" title="卷积神经网络的优缺点"></a>卷积神经网络的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
-<li>共享卷积核，便于处理高维数据；</li>
-<li>不像机器学习人为提取特征，网络训练权重自动提取特征，且分类效果好。</li>
-</ul>
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
-<li><p>需要大量训练样本和好的硬件支持（GPU、TPU…）;</p>
-</li>
-<li><p>物理含义模糊（神经网络是一种难以解释的“黑箱模型”，我们并不知道卷积层到底提取的是什么特征）。</p>
-</li>
-</ul>
-<h4 id="卷积神经网络的典型结构"><a href="#卷积神经网络的典型结构" class="headerlink" title="卷积神经网络的典型结构"></a>卷积神经网络的典型结构</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv10.png" alt="示例图片"></p>
-<h3 id="实战演练"><a href="#实战演练" class="headerlink" title="实战演练"></a>实战演练</h3><h4 id="猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"><a href="#猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型" class="headerlink" title="猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"></a>猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型</h4><blockquote>
-<p>训练集（共25000张图片，猫狗各12500张）<br>测试集（共3000张图片，猫狗各1500张） </p>
 </blockquote>
-<p>我们通过Tensorflow这个深度学习框架来构建我们的分类网络。通过其自带的可视化工具Tensorboard我们可以看到网络的详细结构，如下左图所示。<br>模型训练完成后，我们用测试集来测试模型的泛化能力，输入一张测试图片，导入模型，输出分类结果，示例见下右图。</p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv11.png" alt="示例图片"></p>
+<blockquote>
+<blockquote>
+<p>可以做如下类比：生成网络 G 好比假币制造团伙，专门制造假币，判别网络 D 好比警察，专门检测使用的货币是真币还是假币，G 的目标是想方设法生成和真币一样的货币，使得 D 判别不出来，D 的目标是想方设法检测出来 G 生成的假币。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/1.png" alt="示例图片"><br>上图是GAN网络的思想导图，我们用1代表真实数据，0来代表生成的假数据。对于判别器D来说，对于真实数据，它要尽可能判别正确输出值1；而对于生成器G，根据随机噪音向量z生成假数据也输入判别器D，对于这些假数据，判别器要尽可能输出值0。</p>
+</blockquote>
+<p>GAN的训练过程可以看成一个博弈的过程，也可以看成2个人在玩一个极大极小值游戏，可以用如下公式表示：</p>
+<blockquote>
+<p>$$<br>\min \limits_{G}\max\limits_{D}GAN(D,G)=E_{x\sim P_{data}(x)}[logD(x)]+E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$<br>其本质上是两个优化问题，把拆解就如同下面两个公式：</p>
+<blockquote>
+<p>优化D：<br>$$<br>\max\limits_{D}GAN(D,G)=E_{x\sim P_{data}(x)}[logD(x)]+E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$<br>优化G：<br>$$<br>\min\limits_{G}GAN(D,G)=E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>当优化D时，生成器确定,我们要让判别器尽可能输出高的值，所以要最大化公式(2)的值；当优化G的时候，判别器确定，我们要使判别器判断错误，尽可能使D(G(z))的值更大，所以要最小化公式(3)的值。</p>
+</blockquote>
+</blockquote>
+<h3 id="GAN的训练过程"><a href="#GAN的训练过程" class="headerlink" title="GAN的训练过程"></a>GAN的训练过程</h3><blockquote>
+<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/2.png" alt="示例图片"><br>上图是GAN的训练过程，解析见图中右边文字。</p>
+</blockquote>
+<p>GAN的算法流程和动态求解过程如下图所示：</p>
+<blockquote>
+<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/3.png" alt="示例图片"><br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/4.png" alt="示例图片"><br>一开始我们确定G，最大化D，让点沿着D变大的方向移动(红色箭头)，然后我们确定D，最小化G，让点沿着G变小的方向移动(蓝色箭头)。循环上述若干步后，达到期望的鞍点(理想最优解)。</p>
+</blockquote>
+<h3 id="GAN的网络结构"><a href="#GAN的网络结构" class="headerlink" title="GAN的网络结构"></a>GAN的网络结构</h3><h4 id="判别器-卷积"><a href="#判别器-卷积" class="headerlink" title="判别器(卷积)"></a><font color="#FF0000">判别器(卷积)</font></h4><blockquote>
+<p>卷积层大家应该都很熟悉了,为了方便说明，定义如下：</p>
+<blockquote>
+<p>二维的离散卷积（N=2）<br>方形的特征输入（i1=i2=i）<br>方形的卷积核尺寸（k1=k2=k ）<br>每个维度相同的步长（s1=s2=s）<br>每个维度相同的padding (p1=p2=p)<br>下图(左)表示参数为 (i=5,k=3,s=2,p=1)的卷积计算过程，从计算结果可以看出输出特征的尺寸为 (o1=o2=o=3)；下图(右)表示参为 (i=6,k=3,s=2,p=1)的卷积计算过程，从计算结果可以看出输出特征的尺寸为 (o1=o2=o=3)。</p>
+<blockquote>
+<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/5.png" alt="示例图片"><br>从上述2个例子我们可以总结出卷积层输入特征和输出特征尺寸和卷积核参数的关系为：<br>$$<br>o=\lfloor\frac{i+2p-k}{s}\rfloor+1<br>$$</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="生成器-反卷积"><a href="#生成器-反卷积" class="headerlink" title="生成器(反卷积)"></a><font color="#FF0000">生成器(反卷积)</font></h4><blockquote>
+<p>在介绍反卷积之前，我们先来看一下卷积运算和矩阵运算之间的关系。例有如下运算(i=4,k=3,s=1,p=0)，输出为o=2。</p>
+<blockquote>
+<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/6.png" alt="示例图片"><br>通过上述的分析，我们已经知道卷积层的前向操作可以表示为和矩阵C相乘，那么<font color="#FF0000">我们很容易得到卷积层的反向传播就是和C的转置相乘。</font></p>
+</blockquote>
+</blockquote>
+<font color="#FF00000">反卷积和卷积的关系如下：</font><br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/7.png" alt="示例图片"><br> 右上图表示的是参数为( i′=2,k′=3,s′=1,p′=2)的反卷积操作，其对应的卷积操作参数为 (i=4,k=3,s=1,p=0)。我们可以发现对应的卷积和非卷积操作其 (k=k′,s=s′)，但是反卷积却多了p′=2。通过对比我们可以发现卷积层中左上角的输入只对左上角的输出有贡献，所以反卷积层会出现 p′=k−p−1=2。通过示意图，我们可以发现，反卷积层的输入输出在 s=s′=1的情况下关系为：<br>$$<br>o′=i′-k′+2p′+1=i′+(k-1)-2p<br>$$<br><br>### GAN的优缺点<br>&gt; GAN 的优点：<br>&gt; &gt; ●GAN是一种生成式模型，相比较其他生成模型（玻尔兹曼机和GSNs）只用到了反向传播<br>&gt; &gt; ●相比其他所有模型, GAN可以产生更加清晰，真实的样本<br>&gt; &gt; ●GAN采用的是一种无监督的学习方式训练，可以被广泛用在无监督学习和半监督学习领域<br><br>&gt; GAN 的缺点：<br>&gt; &gt; ●训练GAN需要达到纳什均衡,有时候可以用梯度下降法做到,有时候做不到.我们还没有找到很好的达到纳什均衡的方法,所以训练GAN相比VAE或者PixelRNN是不稳定的<br>&gt; &gt; ●GAN不适合处理离散形式的数据，比如文本<br>&gt; &gt; ●GAN存在训练不稳定、梯度消失、模式崩溃的问题<br><br>### 实例 DCGAN网络<br>&gt; 网络结构 (判别器)<br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/8.png" alt="示例图片"><br><br>&gt; 网络结构 (生成器)<br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/9.png" alt="示例图片"><br><br>#### 二次元动漫人脸（共50个epoch）<br>&gt; 数据集：51223张动漫人脸<br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/10.png" alt="示例图片"><br>&gt; 图左为原始数据集，图右为训练过程<br><br><font color="#FF0000">训练过程生成效果图如下：</font>
+
+<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/11.png" alt="示例图片"><br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/12.png" alt="示例图片"></p>
+<h4 id="真实人脸（共100个epoch）"><a href="#真实人脸（共100个epoch）" class="headerlink" title="真实人脸（共100个epoch）"></a>真实人脸（共100个epoch）</h4><blockquote>
+<p>数据集：CelebA 是香港中文大学的开放数据集，包含10,177个名人身份的202,599张人脸图片。（选取了25600张）,数据集如下：<br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/13.png" alt="示例图片"> </p>
+</blockquote>
+<font color="#FF0000">训练过程生成效果图如下：</font>
+
+<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/14.png" alt="示例图片"><br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/15.png" alt="示例图片"> </p>
 
       
     </div>
@@ -580,7 +608,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/" title="深度学习的常见模型（CNN）">https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/</a>
+      <a href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/" title="深度学习的常见模型（GAN）">https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -596,7 +624,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/deep-learning-model-CNN/" rel="tag"><i class="fa fa-tag"></i> deep learning model (CNN)</a>
+            <a href="/tags/deep-learning-model-GAN/" rel="tag"><i class="fa fa-tag"></i> deep learning model (GAN)</a>
           
         </div>
       
@@ -609,8 +637,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/uncategorized/2019-01-13-FirstBlog/" rel="next" title="My First Blog">
-                <i class="fa fa-chevron-left"></i> My First Blog
+              <a href="/深度学习/2019-1-14-深度学习发展/" rel="next" title="深度学习的发展">
+                <i class="fa fa-chevron-left"></i> 深度学习的发展
               </a>
             
           </div>
@@ -618,10 +646,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/深度学习/2019-1-14-深度学习发展/" rel="prev" title="深度学习的发展">
-                深度学习的发展 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -818,7 +842,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的来源"><span class="nav-number">1.</span> <span class="nav-text">CNN的来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的网络架构"><span class="nav-number">2.</span> <span class="nav-text">CNN的网络架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积层（Conv）"><span class="nav-number">2.1.</span> <span class="nav-text">卷积层（Conv）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积层（Pooling）"><span class="nav-number">2.2.</span> <span class="nav-text">卷积层（Pooling）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全连接层（Full-Connecting）"><span class="nav-number">2.3.</span> <span class="nav-text">全连接层（Full Connecting）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般CNN的结构依次为"><span class="nav-number">3.1.</span> <span class="nav-text">一般CNN的结构依次为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的训练算法"><span class="nav-number">3.2.</span> <span class="nav-text">卷积神经网络的训练算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的优缺点"><span class="nav-number">3.3.</span> <span class="nav-text">卷积神经网络的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-number">3.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">3.3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的典型结构"><span class="nav-number">3.4.</span> <span class="nav-text">卷积神经网络的典型结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战演练"><span class="nav-number">4.</span> <span class="nav-text">实战演练</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"><span class="nav-number">4.1.</span> <span class="nav-text">猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的来源"><span class="nav-number">1.</span> <span class="nav-text">GAN的来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的基本组成"><span class="nav-number">2.</span> <span class="nav-text">GAN的基本组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的训练过程"><span class="nav-number">3.</span> <span class="nav-text">GAN的训练过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的网络结构"><span class="nav-number">4.</span> <span class="nav-text">GAN的网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#判别器-卷积"><span class="nav-number">4.1.</span> <span class="nav-text">判别器(卷积)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成器-反卷积"><span class="nav-number">4.2.</span> <span class="nav-text">生成器(反卷积)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#真实人脸（共100个epoch）"><span class="nav-number">4.3.</span> <span class="nav-text">真实人脸（共100个epoch）</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1158,6 +1182,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
