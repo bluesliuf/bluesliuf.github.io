@@ -8,6 +8,7 @@
         <category>深度学习</category>
       </categories>
       <tags>
+        <tag>deep learning</tag>
         <tag>tensorflow</tag>
       </tags>
   </entry>
@@ -30,7 +31,8 @@
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>deep learning model (GAN)</tag>
+        <tag>deep learning</tag>
+        <tag>GAN model</tag>
       </tags>
   </entry>
   <entry>
@@ -42,6 +44,7 @@
       </categories>
       <tags>
         <tag>deep learning</tag>
+        <tag>development</tag>
       </tags>
   </entry>
   <entry>
@@ -52,7 +55,8 @@
         <category>深度学习</category>
       </categories>
       <tags>
-        <tag>deep learning model (CNN)</tag>
+        <tag>deep learning</tag>
+        <tag>CNN model</tag>
       </tags>
   </entry>
   <entry>
