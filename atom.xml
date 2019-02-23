@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-02-23T10:16:45.305Z</updated>
+  <updated>2019-02-23T10:19:57.572Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -21,14 +21,11 @@
     <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-2-23-Tensorflow%E5%85%A5%E9%97%A8/"/>
     <id>https://liufan.vip/深度学习/2019-2-23-Tensorflow入门/</id>
     <published>2019-02-23T09:49:44.000Z</published>
-    <updated>2019-02-23T10:16:45.305Z</updated>
+    <updated>2019-02-23T10:19:57.572Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;TensorFlow-简介&quot;&gt;&lt;a href=&quot;#TensorFlow-简介&quot; class=&quot;headerlink&quot; title=&quot;TensorFlow 简介&quot;&gt;&lt;/a&gt;TensorFlow 简介&lt;/h2&gt;&lt;p&gt;TensorFlow是Google在2015年11月
-      
+      &lt;h2 id=&quot;TensorFlow-简介&quot;&gt;&lt;a href=&quot;#TensorFlow-简介&quot; class=&quot;headerlink&quot; title=&quot;TensorFlow 简介&quot;&gt;&lt;/a&gt;TensorFlow 简介&lt;/h2&gt;&lt;p&gt;TensorFlow是Google在2015年11月份开源的人工智能系统（&lt;a href=&quot;https://github.com/tensorflow/tensorflow&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;strong&gt;Github项目地址&lt;/strong&gt;&lt;/a&gt;），是之前所开发的深度学习基础架构DistBelief的改进版本，该系统可以被用于语音识别、图片识别等多个领域。&lt;/p&gt;
     
     </summary>
     
