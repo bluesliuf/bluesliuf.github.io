@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-02-23T14:07:02.390Z</updated>
+  <updated>2019-02-24T14:42:40.887Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Tensorflow入门学习2</title>
+    <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-2-24-Tensorflow%E5%85%A5%E9%97%A82/"/>
+    <id>https://liufan.vip/深度学习/2019-2-24-Tensorflow入门2/</id>
+    <published>2019-02-24T14:16:09.000Z</published>
+    <updated>2019-02-24T14:42:40.887Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-2-23-Tensorflow%E5%85%A5%E9%97%A8/&quot;&gt;&lt;strong&gt;这篇博文&lt;/strong&gt;&lt;/a&gt;主要是TensorFlow的一个简单入门，并介绍了如何实现Softmax Regression模型，来对MNIST数据集中的数字手写体进行识别。&lt;/p&gt;
+&lt;p&gt;然而，由于Softmax Regression模型相对简单，所以最终的识别准确率并不高。下面将针对MNIST数据集构建更加复杂精巧的模型，以进一步提高识别准确率。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://liufan.vip/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
+    
+      <category term="tensorflow" scheme="https://liufan.vip/tags/tensorflow/"/>
+    
+      <category term="cnn" scheme="https://liufan.vip/tags/cnn/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Tensorflow入门学习</title>
     <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-2-23-Tensorflow%E5%85%A5%E9%97%A8/"/>
     <id>https://liufan.vip/深度学习/2019-2-23-Tensorflow入门/</id>
     <published>2019-02-23T09:49:44.000Z</published>
-    <updated>2019-02-23T14:07:02.390Z</updated>
+    <updated>2019-02-24T14:39:34.428Z</updated>
     
     <summary type="html">
     
@@ -35,6 +60,8 @@
       <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
     
       <category term="tensorflow" scheme="https://liufan.vip/tags/tensorflow/"/>
+    
+      <category term="softmax" scheme="https://liufan.vip/tags/softmax/"/>
     
   </entry>
   
