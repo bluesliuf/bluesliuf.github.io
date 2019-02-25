@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="machine learning,deep learning,CNN model,">
+  <meta name="keywords" content="machine learning,knn,">
 
 
 
@@ -101,29 +101,21 @@
 
 
 
-<meta name="description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
-<meta name="keywords" content="machine learning,deep learning,CNN model">
+<meta name="description" content="K最近邻(k-Nearest Neighbor，KNN)分类算法，思路是：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。">
+<meta name="keywords" content="machine learning,knn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习的常见模型（CNN）">
-<meta property="og:url" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/index.html">
+<meta property="og:title" content="机器学习方法之KNN">
+<meta property="og:url" content="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
+<meta property="og:description" content="K最近邻(k-Nearest Neighbor，KNN)分类算法，思路是：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv2.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv3.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv5.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv6.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv7.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv8.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv9.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv10.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv11.png">
-<meta property="og:updated_time" content="2019-02-25T08:46:10.814Z">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/1.jpg">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/2.png">
+<meta property="og:updated_time" content="2019-02-25T08:47:58.410Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习的常见模型（CNN）">
-<meta name="twitter:description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
-<meta name="twitter:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png">
+<meta name="twitter:title" content="机器学习方法之KNN">
+<meta name="twitter:description" content="K最近邻(k-Nearest Neighbor，KNN)分类算法，思路是：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。">
+<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/1.jpg">
 
 
 
@@ -151,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/">
+  <link rel="canonical" href="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/">
 
 
 
 
 
-  <title> 深度学习的常见模型（CNN） | Bluesliuf </title>
+  <title> 机器学习方法之KNN | Bluesliuf </title>
 </head>
 
 
@@ -347,8 +339,8 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/">
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -369,7 +361,7 @@
             
             
               
-                深度学习的常见模型（CNN）
+                机器学习方法之KNN
               
             
           </h1>
@@ -384,8 +376,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T00:00:00+08:00">
-                2019-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T15:46:20+08:00">
+                2019-02-25
               </time>
             
 
@@ -400,7 +392,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T16:46:10+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T16:47:58+08:00">
                 2019-02-25
               </time>
             
@@ -419,8 +411,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -454,7 +446,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  954
+                  2.1k
                 </span>
               
 
@@ -470,7 +462,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  7
                 </span>
               
             </div>
@@ -489,54 +481,93 @@
       
 
       
-        <h3 id="CNN的来源"><a href="#CNN的来源" class="headerlink" title="CNN的来源"></a>CNN的来源</h3><blockquote>
-<p>CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。</p>
-</blockquote>
+        <p>K最近邻(k-Nearest Neighbor，KNN)分类算法，思路是：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。</p>
 <a id="more"></a>
+<h3 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h3><blockquote>
+<p>有两类不同的样本数据，分别用蓝色的小正方形和红色的小三角形表示，而图正中间的那个绿色的圆所标示的数据则是待分类的数据。也就是说，现在，我们不知道中间那个绿色的数据是从属于哪一类（蓝色小正方形or红色小三角形），下面，我们就要解决这个问题：给这个绿色的圆分类。</p>
 <blockquote>
-<p>一方面减少了的权值的数量使得网络易于优化，另一方面降低了过拟合的风险。CNN是神经网络中的一种，它的权值共享网络结构使之更类似于生物神经网络，降低了网络模型的复杂度，减少了权值的数量。</p>
+<blockquote>
+<p><img src="/机器学习/2019-2-25-机器学习方法之KNN/1.jpg" alt=""></p>
+</blockquote>
+</blockquote>
 </blockquote>
 <blockquote>
-<p>权重共享：在卷积神经网络中，卷积层的每一个卷积滤波器重复的作用于整个感受野中，对输入图像进行卷积，卷积结果构成了输入图像的特征图，提取出图像的局部特征。每一个卷积滤波器共享相同的参数，包括相同的权重矩阵和偏置项。共享权重的好处是在对图像进行特征提取时不用考虑局部特征的位置。而且权重共享提供了一种有效的方式，使要学习的卷积神经网络模型参数数量大大降低。</p>
+<p>俗话说物以类聚，人以群分，判别一个人是一个什么样品质特征的人，常常可以从他/她身边的朋友入手。我们不是要判别上图中那个绿色的圆是属于哪一类数据么，好说，从它的邻居下手。但一次性看多少个邻居呢？从上图中，你还能看到：</p>
+<ol>
+<li>若K=3，绿色圆点的最近的3个邻居是2个红色小三角形和1个蓝色小正方形，少数从属于多数，基于统计的方法，判定绿色的这个待分类点属于红色的三角形一类。</li>
+<li>若K=5，绿色圆点的最近的5个邻居是2个红色三角形和3个蓝色的正方形，还是少数从属于多数，基于统计的方法，判定绿色的这个待分类点属于蓝色的正方形一类。</li>
+</ol>
+<p>我们看到，当无法判定当前待分类点是从属于已知分类中的哪一类时，我们可以依据统计学的理论看它所处的位置特征，衡量它周围邻居的权重，而把它归为(或分配)到权重更大的那一类。这就是K近邻算法的核心思想。<br>KNN算法中，所选择的邻居都是已经正确分类的对象。<strong>该方法在定类决策上只依据最邻近的一个或者几个样本的类别来决定待分样本所属的类别</strong>。</p>
 </blockquote>
-<h3 id="CNN的网络架构"><a href="#CNN的网络架构" class="headerlink" title="CNN的网络架构"></a>CNN的网络架构</h3><blockquote>
-<p>卷积神经网络结构包括：卷积层，降采样层，全链接层。每一层有多个特征图，每个特征图通过一种卷积滤波器提取输入的一种特征，每个特征图有多个神经元。</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><blockquote>
+<p>KNN 算法本身简单有效，它是一种 lazy-learning 算法，分类器不需要使用训练集进行训练，训练时间复杂度为0。KNN 分类的计算复杂度和训练集中的文档数目成正比，也就是说，如果训练集中文档总数为 n，那么 KNN 的分类时间复杂度为<strong>O(n)</strong>。</p>
 </blockquote>
-<h4 id="卷积层（Conv）"><a href="#卷积层（Conv）" class="headerlink" title="卷积层（Conv）"></a>卷积层（Conv）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png" alt="示例图片"></p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv2.png" alt="示例图片"></p>
-<blockquote>
-<p>再举一个卷积过程的例子如下：我们有下面这个绿色的5<em>5输入矩阵，卷积核是一个下面这个黄色的3</em>3矩阵。卷积的步幅是一个像素。则卷积的过程如下面的动图。卷积的结果是一个3*3的矩阵。</p>
-</blockquote>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv3.png" alt="示例图片"></p>
-<blockquote>
-<p>上面举的例子都是二维的输入，卷积的过程比较简单，那么如果输入是多维的呢？比如在前面一组卷积层+池化层的输出是3个矩阵，这3个矩阵作为输入呢，那么我们怎么去卷积呢？又比如输入的是对应RGB的彩色图像，即是三个分布对应R，G和B的矩阵呢？</p>
-</blockquote>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv5.png" alt="示例图片"></p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv6.png" alt="示例图片"></p>
-<h4 id="卷积层（Pooling）"><a href="#卷积层（Pooling）" class="headerlink" title="卷积层（Pooling）"></a>卷积层（Pooling）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv7.png" alt="示例图片"></p>
-<h4 id="全连接层（Full-Connecting）"><a href="#全连接层（Full-Connecting）" class="headerlink" title="全连接层（Full Connecting）"></a>全连接层（Full Connecting）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv8.png" alt="示例图片"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv9.png" alt="示例图片"></p>
-<h4 id="一般CNN的结构依次为"><a href="#一般CNN的结构依次为" class="headerlink" title="一般CNN的结构依次为"></a>一般CNN的结构依次为</h4><p>1、 input<br>2、 ((conv–&gt;relu)<em>N–&gt;pool?)</em>M<br>3、 (fc–&gt;relu)*K<br>4、 fc</p>
-<h4 id="卷积神经网络的训练算法"><a href="#卷积神经网络的训练算法" class="headerlink" title="卷积神经网络的训练算法"></a>卷积神经网络的训练算法</h4><ul>
-<li>与一般的机器学习算法相比，先定义Loss function,衡量和实际结果之间的差距；</li>
-<li>找到最小化损失函数的W（权重）和b（偏置），CNN里面最常见的算法为SGD（随机梯度下降）。</li>
-</ul>
-<h4 id="卷积神经网络的优缺点"><a href="#卷积神经网络的优缺点" class="headerlink" title="卷积神经网络的优缺点"></a>卷积神经网络的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
-<li>共享卷积核，便于处理高维数据；</li>
-<li>不像机器学习人为提取特征，网络训练权重自动提取特征，且分类效果好。</li>
-</ul>
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
-<li><p>需要大量训练样本和好的硬件支持（GPU、TPU…）;</p>
+<h3 id="算法三要素"><a href="#算法三要素" class="headerlink" title="算法三要素"></a>算法三要素</h3><ol>
+<li><p><font color="#FF0000">K 值的选择</font>会对算法的结果产生重大影响。K值较小意味着只有与输入实例较近的训练实例才会对预测结果起作用，但容易发生过拟合；如果 K 值较大，优点是可以减少学习的估计误差，但缺点是学习的近似误差增大，这时与输入实例较远的训练实例也会对预测起作用，使预测发生错误。<br>在实际应用中，K 值一般选择一个较小的数值，通常采用交叉验证的方法来选择最优的 K 值。随着训练实例数目趋向于无穷和 K=1 时，误差率不会超过贝叶斯误差率的2倍，如果K也趋向于无穷，则误差率趋向于贝叶斯误差率。</p>
 </li>
-<li><p>物理含义模糊（神经网络是一种难以解释的“黑箱模型”，我们并不知道卷积层到底提取的是什么特征）。</p>
+<li><p><font color="#FF0000">分类决策</font>规则往往是多数表决，即由输入实例的 K 个最临近的训练实例中的多数类决定输入实例的类别。</p>
 </li>
-</ul>
-<h4 id="卷积神经网络的典型结构"><a href="#卷积神经网络的典型结构" class="headerlink" title="卷积神经网络的典型结构"></a>卷积神经网络的典型结构</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv10.png" alt="示例图片"></p>
-<h3 id="实战演练"><a href="#实战演练" class="headerlink" title="实战演练"></a>实战演练</h3><h4 id="猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"><a href="#猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型" class="headerlink" title="猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"></a>猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型</h4><blockquote>
-<p>训练集（共25000张图片，猫狗各12500张）<br>测试集（共3000张图片，猫狗各1500张） </p>
+<li><font color="#FF0000">距离度量</font>一般采用<a href="https://blog.csdn.net/w_peijian/article/details/79113020" target="_blank" rel="noopener">Lp 距离</a>，当p=2时，即为欧氏距离，在度量之前，应该将每个属性的值规范化，这样有助于防止具有较大初始值域的属性比具有较小初始值域的属性的权重过大。</li>
+</ol>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><blockquote>
+<p>算法步骤</p>
+<blockquote>
+<p>（1）计算已知类别数据集中的点与当前点之间的距离<br>（2）按照距离递增次序排序<br>（3）选取与当前点距离最小的K个点<br>（4）确定前K个点所在类别出现的频率<br>（5）返回前K个点出现频率最高的类别作为当前点的预测分类</p>
 </blockquote>
-<p>我们通过Tensorflow这个深度学习框架来构建我们的分类网络。通过其自带的可视化工具Tensorboard我们可以看到网络的详细结构，如下左图所示。<br>模型训练完成后，我们用测试集来测试模型的泛化能力，输入一张测试图片，导入模型，输出分类结果，示例见下右图。</p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv11.png" alt="示例图片"></p>
+</blockquote>
+<p>​      </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#k-近邻算法</span></span><br><span class="line"><span class="comment">#计算距离</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify0</span><span class="params">(inX,dataSet,labels,k)</span>:</span></span><br><span class="line">    dataSetSize=dataSet.shape[<span class="number">0</span>]   <span class="comment">#shape读取数据矩阵第一维度的长度</span></span><br><span class="line">    diffMat = tile(inX, (dataSetSize, <span class="number">1</span>)) - dataSet  <span class="comment">#tile重复数组inX，有dataSet行 1个dataSet列，减法计算差值</span></span><br><span class="line">    sqDiffMat=diffMat**<span class="number">2</span> <span class="comment">#**是幂运算的意思，这里用的欧式距离</span></span><br><span class="line">    sqDisttances=sqDiffMat.sum(axis=<span class="number">1</span>) <span class="comment">#普通sum默认参数为axis=0为普通相加，axis=1为一行的行向量相加</span></span><br><span class="line">    distances=sqDisttances**<span class="number">0.5</span></span><br><span class="line">    sortedDistIndicies=distances.argsort() <span class="comment">#argsort返回数值从小到大的索引值（数组索引0,1,2,3）</span></span><br><span class="line">    <span class="comment">#选择距离最小的k个点</span></span><br><span class="line">    classCount=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">        voteIlabel=labels[sortedDistIndicies[i]] <span class="comment">#根据排序结果的索引值返回靠近的前k个标签</span></span><br><span class="line">        classCount[voteIlabel]=classCount.get(voteIlabel,<span class="number">0</span>)+<span class="number">1</span> <span class="comment">#各个标签出现频率</span></span><br><span class="line">    sortedClassCount = sorted(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="keyword">True</span>) <span class="comment">#排序频率</span></span><br><span class="line">    <span class="comment">#sorted(iterable, cmp=None, key=None, reverse=False) --&gt; new sorted list。</span></span><br><span class="line">    <span class="comment"># reverse默认升序 key关键字排序itemgetter（1）按照第一维度排序(0,1,2,3)</span></span><br><span class="line">    <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]  <span class="comment">#找出频率最高的</span></span><br></pre></td></tr></table></figure>
+<h3 id="算法优缺点"><a href="#算法优缺点" class="headerlink" title="算法优缺点"></a>算法优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<ol>
+<li>精度高、对异常值不敏感、无数据输入假定。</li>
+<li>KNN算法不仅可以用于分类，还可以用于回归。通过找出一个样本的k个最近邻居，将这些邻居的属性的平均值赋给该样本，就可以得到该样本的属性。</li>
+</ol>
+</blockquote>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<ol>
+<li>样本分布不均衡时，如果一个类的样本容量很大，而其他类样本容量很小时，有可能导致当输入一个新样本时，该样本的K个邻居中大容量类的样本占多数。</li>
+<li>计算量较大，因为对每一个待分类的文本都要计算它到全体已知样本的距离，才能求得它的K个最近邻点。</li>
+</ol>
+</blockquote>
+<h4 id="适用的数据范围"><a href="#适用的数据范围" class="headerlink" title="适用的数据范围"></a>适用的数据范围</h4><blockquote>
+<p>数值型和标称型。<br><strong>标称型：</strong>一般在有限的数据中取，而且只存在‘是’和‘否’两种不同的结果（一般用于分类）<br><strong>数值型：</strong>可以在无限的数据中取，而且数值比较具体化，例如4.02,6.23这种值（一般用于回归分析）</p>
+</blockquote>
+<h3 id="K-Means简介"><a href="#K-Means简介" class="headerlink" title="K-Means简介"></a>K-Means简介</h3><blockquote>
+<p><img src="/机器学习/2019-2-25-机器学习方法之KNN/2.png" alt=""><br>如图所示，数据样本用圆点表示，每个簇的中心点用叉叉表示。<br>(a) 刚开始时是原始数据，杂乱无章，没有label，看起来都一样，都是绿色的。<br>(b) 假设数据集可以分为两类，令K=2，随机在坐标上选两个点，作为两个类的中心点。<br>(c-f) 演示了聚类的两种迭代。先划分，把每个数据样本划分到最近的中心点那一簇；划分完后，更新每个簇的中心，即把该簇的所有数据点的坐标加起来去平均值。这样不断进行”划分—更新—划分—更新”，直到每个簇的中心不在移动为止。</p>
+</blockquote>
+<h3 id="KNN和K-Means的区别"><a href="#KNN和K-Means的区别" class="headerlink" title="KNN和K-Means的区别"></a>KNN和K-Means的区别</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>KNN</strong></th>
+<th style="text-align:center"><strong>K-Means</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">KNN是分类算法</td>
+<td style="text-align:center">K-Means是聚类算法</td>
+</tr>
+<tr>
+<td style="text-align:center">监督学习</td>
+<td style="text-align:center">非监督学习</td>
+</tr>
+<tr>
+<td style="text-align:center">喂给它的数据集是带label的数据，已经是完全正确的数据</td>
+<td style="text-align:center">喂给它的数据集是无label的数据，是杂乱无章的，经过聚类后才变得有点顺序，先无序，后有序</td>
+</tr>
+<tr>
+<td style="text-align:center">没有明显的前期训练过程，属于memory-based learning</td>
+<td style="text-align:center">有明显的前期训练过程</td>
+</tr>
+<tr>
+<td style="text-align:center">K的含义：来了一个样本x，要给它分类，即求出它的y，就从数据集中，在x附近找离它最近的K个数据点，这K个数据点，类别c占的个数最多，就把x的label设为c</td>
+<td style="text-align:center">K的含义：K是人工固定好的数字，假设数据集合可以分为K个簇，由于是依靠人工定好，需要一点先验知识</td>
+</tr>
+</tbody>
+</table>
+<p><font color="#FF0000">两者相似点：</font><strong>都包含这样的过程，给定一个点，在数据集中找离它最近的点</strong>。即二者都用到了NN(Nears Neighbor)算法。</p>
+<p><strong>参考资料</strong></p>
+<p><a href="https://www.cnblogs.com/nucdy/p/6349172.html" target="_blank" rel="noopener">KNN与K-Means的区别</a></p>
 
       
     </div>
@@ -590,7 +621,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/" title="深度学习的常见模型（CNN）">https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/</a>
+      <a href="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/" title="机器学习方法之KNN">https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -608,9 +639,7 @@
           
             <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
           
-            <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
-          
-            <a href="/tags/CNN-model/" rel="tag"><i class="fa fa-tag"></i> CNN model</a>
+            <a href="/tags/knn/" rel="tag"><i class="fa fa-tag"></i> knn</a>
           
         </div>
       
@@ -623,8 +652,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/深度学习/2019-1-14-深度学习发展/" rel="next" title="深度学习的发展">
-                <i class="fa fa-chevron-left"></i> 深度学习的发展
+              <a href="/深度学习/2019-2-24-Tensorflow入门2/" rel="next" title="Tensorflow入门学习2">
+                <i class="fa fa-chevron-left"></i> Tensorflow入门学习2
               </a>
             
           </div>
@@ -632,10 +661,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/深度学习/2019-2-20-深度学习的常见模型-GAN/" rel="prev" title="深度学习的常见模型（GAN）">
-                深度学习的常见模型（GAN） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -832,7 +857,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的来源"><span class="nav-number">1.</span> <span class="nav-text">CNN的来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的网络架构"><span class="nav-number">2.</span> <span class="nav-text">CNN的网络架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积层（Conv）"><span class="nav-number">2.1.</span> <span class="nav-text">卷积层（Conv）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积层（Pooling）"><span class="nav-number">2.2.</span> <span class="nav-text">卷积层（Pooling）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全连接层（Full-Connecting）"><span class="nav-number">2.3.</span> <span class="nav-text">全连接层（Full Connecting）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般CNN的结构依次为"><span class="nav-number">3.1.</span> <span class="nav-text">一般CNN的结构依次为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的训练算法"><span class="nav-number">3.2.</span> <span class="nav-text">卷积神经网络的训练算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的优缺点"><span class="nav-number">3.3.</span> <span class="nav-text">卷积神经网络的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-number">3.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">3.3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的典型结构"><span class="nav-number">3.4.</span> <span class="nav-text">卷积神经网络的典型结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战演练"><span class="nav-number">4.</span> <span class="nav-text">实战演练</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"><span class="nav-number">4.1.</span> <span class="nav-text">猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例分析"><span class="nav-number">1.</span> <span class="nav-text">实例分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法三要素"><span class="nav-number">3.</span> <span class="nav-text">算法三要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现"><span class="nav-number">4.</span> <span class="nav-text">算法实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法优缺点"><span class="nav-number">5.</span> <span class="nav-text">算法优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">5.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">5.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用的数据范围"><span class="nav-number">5.3.</span> <span class="nav-text">适用的数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Means简介"><span class="nav-number">6.</span> <span class="nav-text">K-Means简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KNN和K-Means的区别"><span class="nav-number">7.</span> <span class="nav-text">KNN和K-Means的区别</span></a></li></ol></div>
             
 
           </div>
@@ -1172,6 +1197,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
