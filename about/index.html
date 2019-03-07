@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Bluesliuf">
 <meta property="og:description" content="基本信息   姓名 刘帆     性别 男   出生日期 1994.09.24   Email bluesliuf@163.com   GitHub https://github.com/bluesliuf   个人主页 http://liufan.vip     教育背景   时间 学校 专业 学历     2017.09~2020.03 天津工业大学 软件工程 硕士研究生   2013.09~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-23T09:25:51.632Z">
+<meta property="og:updated_time" content="2019-03-07T08:42:05.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刘 帆">
 <meta name="twitter:description" content="基本信息   姓名 刘帆     性别 男   出生日期 1994.09.24   Email bluesliuf@163.com   GitHub https://github.com/bluesliuf   个人主页 http://liufan.vip     教育背景   时间 学校 专业 学历     2017.09~2020.03 天津工业大学 软件工程 硕士研究生   2013.09~">
@@ -401,16 +401,45 @@
 </tbody>
 </table>
 <hr>
-<h3 id="技能描述"><a href="#技能描述" class="headerlink" title="技能描述"></a>技能描述</h3><ul>
-<li>Python</li>
-<li>Deep Learning</li>
-<li>TensorFlow</li>
-<li>Computer Vision</li>
+<h3 id="个人技能"><a href="#个人技能" class="headerlink" title="个人技能"></a>个人技能</h3><ul>
+<li>英语： CET4；</li>
+<li>编程语言： 熟悉Python；</li>
+<li>深度学习： 熟悉使用tensorflow、了解caffe、pytorch等深度学习框架；<br>熟悉计算机视觉相关的网络模型如：AlexNet，VGG，GoogleNet，ResNet，GAN，CGAN等；</li>
+<li>机器学习： 熟悉基本的机器学习算法（KNN，线性回归，Logistic回归，SVM等）；</li>
 </ul>
 <hr>
-<h3 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h3><hr>
-<h3 id="科研成果"><a href="#科研成果" class="headerlink" title="科研成果"></a>科研成果</h3><hr>
-<h3 id="个人评价"><a href="#个人评价" class="headerlink" title="个人评价"></a>个人评价</h3>
+<h3 id="项目经验"><a href="#项目经验" class="headerlink" title="项目经验"></a>项目经验</h3><h4 id="2017-11-2018-02-利用深度学习对医学CT图像中的肺结节进行良恶性判断（Python、Matlab）"><a href="#2017-11-2018-02-利用深度学习对医学CT图像中的肺结节进行良恶性判断（Python、Matlab）" class="headerlink" title="2017.11-2018.02 | 利用深度学习对医学CT图像中的肺结节进行良恶性判断（Python、Matlab）"></a><strong>2017.11-2018.02 | 利用深度学习对医学CT图像中的肺结节进行良恶性判断（Python、Matlab）</strong></h4><blockquote>
+<p><strong>简介</strong><br>针对LIDC-IDRI这一公开数据集进行预处理，按良恶性程度提取出肺结节，再设计CNN网络训练分类模型，对肺结节良恶性识别分类。<br><strong>职责</strong></p>
+<ol>
+<li>数据的预处理：根据数据集中的注释文件(.xml)定位到肺结节的位置，并按照其标注好的良恶性程度分类提取肺结节。</li>
+<li>辅助实验，对比不同的CNN网络，选取最优的分类模型。</li>
+</ol>
+</blockquote>
+<h4 id="2018-05-2018-08-基于深度学习框架的水声信号的扩充和分类识别（Python、Tensorflow）"><a href="#2018-05-2018-08-基于深度学习框架的水声信号的扩充和分类识别（Python、Tensorflow）" class="headerlink" title="2018.05-2018.08 | 基于深度学习框架的水声信号的扩充和分类识别（Python、Tensorflow）"></a><strong>2018.05-2018.08 | 基于深度学习框架的水声信号的扩充和分类识别（Python、Tensorflow）</strong></h4><blockquote>
+<p><strong>简介</strong><br>将原始水声信号音频数据转换为图片，先使用CGAN扩充水声图片数据集，再利用CNN网络训练分类模型，并对真实的水声信号图片进行识别分类。<br><strong>职责</strong></p>
+<ol>
+<li>数据的预处理：利用FFT(快速傅里叶变换)将原始音频数据(.wav)转换为图片存储(.png)。</li>
+<li>CGAN网络的设计实现：Discriminator：3Conv + 2FC + BatchNorm + Sigmoid/Lrelu<br>&emsp;&emsp;&emsp;&emsp;&emsp;                        Generator：3UpConv + 2FC+ BatchNorm + Lrelu</li>
+<li>CNN网络的设计实现：3Conv + 3Max_Pooling + 3FC + BatchNorm + Sigmoid/Lrelu。</li>
+</ol>
+</blockquote>
+<h4 id="2018-11-2019-02-基于深度神经网络的图像噪声分类与去噪（Python、Matlab、Tensorflow）"><a href="#2018-11-2019-02-基于深度神经网络的图像噪声分类与去噪（Python、Matlab、Tensorflow）" class="headerlink" title="2018.11-2019.02 | 基于深度神经网络的图像噪声分类与去噪（Python、Matlab、Tensorflow）"></a><strong>2018.11-2019.02 | 基于深度神经网络的图像噪声分类与去噪（Python、Matlab、Tensorflow）</strong></h4><blockquote>
+<p><strong>简介</strong><br>对图像所包含的噪音类型进行识别分类，然后根据噪音类型选择相应的去噪模型去除噪音，进而得到干净图像。<br><strong>职责</strong></p>
+<ol>
+<li>数据的预处理：在原始图像数据上添加各类噪音，得到包含各种噪音类型的数据。</li>
+<li>噪音分类网络设计：8Conv + 4Max_Pooling + 3FC + BatchNorm + Sigmoid/Lrelu。</li>
+<li>去噪网络设计：(Conv + Lrelu) + N*(Conv + BatchNorm + Lrelu) + Conv。</li>
+</ol>
+</blockquote>
+<h4 id="2018-11-2019-01-FaceNet在FPGA等硬件平台上的实现（Python、Tensorflow）"><a href="#2018-11-2019-01-FaceNet在FPGA等硬件平台上的实现（Python、Tensorflow）" class="headerlink" title="2018.11-2019.01 | FaceNet在FPGA等硬件平台上的实现（Python、Tensorflow）"></a><strong>2018.11-2019.01 | FaceNet在FPGA等硬件平台上的实现（Python、Tensorflow）</strong></h4><blockquote>
+<p><strong>简介</strong><br>将在服务器上训练好的FaceNet模型移植到FPGA等硬件平台上，实现人脸检测推断过程。<br><strong>职责</strong></p>
+<ol>
+<li>模型参数的提取：解析FaceNet的网络结构，Restore训练好的模型，提取各网络层参数。</li>
+<li>参数的量化压缩：模型参数量巨大(浮点)，为了节省空间及方便计算，将参数量化为8位的定点数。</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="科研成果"><a href="#科研成果" class="headerlink" title="科研成果"></a>科研成果</h3>
     
   </div>
 
