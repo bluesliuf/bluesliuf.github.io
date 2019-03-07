@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="machine learning,knn,">
+  <meta name="keywords" content="machine learning,desion tree,">
 
 
 
@@ -101,21 +101,27 @@
 
 
 
-<meta name="description" content="K最近邻(k-Nearest Neighbor，KNN)分类算法，思路是：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。">
-<meta name="keywords" content="machine learning,knn">
+<meta name="description" content="决策树是一个类似于流程图的树结构：其中，每个内部结点表示在一个属性上的测试，每个分支代表一个属性输出，而每个树叶结点代表类或类分布。树的最顶层是根结点。">
+<meta name="keywords" content="machine learning,desion tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习方法之KNN">
-<meta property="og:url" content="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/index.html">
+<meta property="og:title" content="2019-3-6-机器学习方法之决策树">
+<meta property="og:url" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="K最近邻(k-Nearest Neighbor，KNN)分类算法，思路是：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。">
+<meta property="og:description" content="决策树是一个类似于流程图的树结构：其中，每个内部结点表示在一个属性上的测试，每个分支代表一个属性输出，而每个树叶结点代表类或类分布。树的最顶层是根结点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/1.jpg">
-<meta property="og:image" content="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/2.png">
-<meta property="og:updated_time" content="2019-02-25T08:47:58.410Z">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/1.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/2.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/3.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/4.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/5.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/6.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/7.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/8.png">
+<meta property="og:updated_time" content="2019-03-07T03:23:43.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习方法之KNN">
-<meta name="twitter:description" content="K最近邻(k-Nearest Neighbor，KNN)分类算法，思路是：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。">
-<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/1.jpg">
+<meta name="twitter:title" content="2019-3-6-机器学习方法之决策树">
+<meta name="twitter:description" content="决策树是一个类似于流程图的树结构：其中，每个内部结点表示在一个属性上的测试，每个分支代表一个属性输出，而每个树叶结点代表类或类分布。树的最顶层是根结点。">
+<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/1.png">
 
 
 
@@ -143,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/">
+  <link rel="canonical" href="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/">
 
 
 
 
 
-  <title> 机器学习方法之KNN | Bluesliuf </title>
+  <title> 2019-3-6-机器学习方法之决策树 | Bluesliuf </title>
 </head>
 
 
@@ -340,7 +346,7 @@
   
 
   <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -361,7 +367,7 @@
             
             
               
-                机器学习方法之KNN
+                2019-3-6-机器学习方法之决策树
               
             
           </h1>
@@ -376,8 +382,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T15:46:20+08:00">
-                2019-02-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T21:29:57+08:00">
+                2019-03-06
               </time>
             
 
@@ -392,8 +398,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T16:47:58+08:00">
-                2019-02-25
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T11:23:43+08:00">
+                2019-03-07
               </time>
             
           </span>
@@ -446,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  1.9k
                 </span>
               
 
@@ -481,93 +487,102 @@
       
 
       
-        <p>K最近邻(k-Nearest Neighbor，KNN)分类算法，思路是：如果一个样本在特征空间中的k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别，则该样本也属于这个类别。</p>
+        <p>决策树是一个类似于流程图的树结构：其中，每个内部结点表示在一个属性上的测试，每个分支代表一个属性输出，而每个树叶结点代表类或类分布。树的最顶层是根结点。</p>
 <a id="more"></a>
-<h3 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h3><blockquote>
-<p>有两类不同的样本数据，分别用蓝色的小正方形和红色的小三角形表示，而图正中间的那个绿色的圆所标示的数据则是待分类的数据。也就是说，现在，我们不知道中间那个绿色的数据是从属于哪一类（蓝色小正方形or红色小三角形），下面，我们就要解决这个问题：给这个绿色的圆分类。</p>
+<p><img src="/机器学习/2019-3-6-机器学习方法之决策树/1.png" alt=""><br>上图中是否出去玩取决于天气情况（sunny、overcast、rain）和空气湿度（humidity、windy）这2个属性的值。</p>
+<h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h3><p>决策树算法种类很多，本文主要介绍<strong>ID3</strong>算法。ID3算法在1970-1980年，由J.Ross. Quinlan提出。在介绍决策树算法前，我们先引入<font size="4" color="#FF0000">熵（entropy）</font>的概念。</p>
+<p>信息和抽象，具体该如何度量呢？1948年，香农提出了<strong>信息熵（entropy）</strong>的概念。<br>一条信息的信息量大小和它的不确定性有直接的关系，要搞清楚一件非常非常不确定的事情，或者是我们一无所知的事情，需要了解大量信息==&gt;<font color="#FF0000">信息量的度量就等于不确定性的多少</font>。<br>我们用比特(bit)来衡量信息的多少，变量的不确定性越大，熵也就越大。计算公式如下，其中$P(x_i)$表示每种事件发生的可能性。<br>$$<br>H\left( x\right) =\sum ^{n}<em>{i=1}P\left( x</em>{i}\right) I\left( x_{i}\right) =-\sum ^{n}<em>{i=1}P\left( x</em>{i}\right) \log <em>{b}P\left( x</em>{i}\right)<br>$$</p>
+<h3 id="ID3算法"><a href="#ID3算法" class="headerlink" title="ID3算法"></a>ID3算法</h3><blockquote>
+<p>该算法在选择每一个属性判断结点的时候是根据<font color="#FF0000">信息增益(Information Gain)</font>。通过下面公式可以计算A来作为节点分类获取了多少信息。<br>$$<br>Gain(A) = Info(D) - InfoA(D)<br>$$<br><img src="/机器学习/2019-3-6-机器学习方法之决策树/2.png" alt=""><br>上图是一个买车的实例，一个人是否买车取决于他的年龄、收入、信用度和他是否是学生。下图（右）是原始数据，下图（左）是简单的决策树划分。那我们是如何确定<strong>age</strong>作为第一个属性结点的呢？<br>一共有14条数据，其中9人买车，5人没买车，所以根据公式（2）可以算出$Info(D)$的值。接着我们计算选择<strong>age</strong>作为属性结点的信息熵。age有三个取值，其中<strong>youth</strong>有5条信息（2人买车，3人没买），<strong>middle_aged</strong>有4条信息（全部买车），<strong>senior</strong>有5条信息（3人买车，2人没买），所以根据公式（2）可以算出$Info_{age}(D)$和$Gain(age)$的值，如下所示：</p>
 <blockquote>
 <blockquote>
-<p><img src="/机器学习/2019-2-25-机器学习方法之KNN/1.jpg" alt=""></p>
+<p><img src="/机器学习/2019-3-6-机器学习方法之决策树/3.png" alt=""><br><img src="/机器学习/2019-3-6-机器学习方法之决策树/4.png" alt=""><br><img src="/机器学习/2019-3-6-机器学习方法之决策树/5.png" alt=""><br>类似，$Gain(income) = 0.029, Gain(student) = 0.151, Gain(credit_rating)=0.048$<br>所以，选择age作为第一个根节点。重复。。。</p>
 </blockquote>
 </blockquote>
 </blockquote>
-<blockquote>
-<p>俗话说物以类聚，人以群分，判别一个人是一个什么样品质特征的人，常常可以从他/她身边的朋友入手。我们不是要判别上图中那个绿色的圆是属于哪一类数据么，好说，从它的邻居下手。但一次性看多少个邻居呢？从上图中，你还能看到：</p>
+<p>最终我们得到了如下所示的决策树。<br><img src="/机器学习/2019-3-6-机器学习方法之决策树/6.png" alt=""></p>
+<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><blockquote>
 <ol>
-<li>若K=3，绿色圆点的最近的3个邻居是2个红色小三角形和1个蓝色小正方形，少数从属于多数，基于统计的方法，判定绿色的这个待分类点属于红色的三角形一类。</li>
-<li>若K=5，绿色圆点的最近的5个邻居是2个红色三角形和3个蓝色的正方形，还是少数从属于多数，基于统计的方法，判定绿色的这个待分类点属于蓝色的正方形一类。</li>
-</ol>
-<p>我们看到，当无法判定当前待分类点是从属于已知分类中的哪一类时，我们可以依据统计学的理论看它所处的位置特征，衡量它周围邻居的权重，而把它归为(或分配)到权重更大的那一类。这就是K近邻算法的核心思想。<br>KNN算法中，所选择的邻居都是已经正确分类的对象。<strong>该方法在定类决策上只依据最邻近的一个或者几个样本的类别来决定待分样本所属的类别</strong>。</p>
+<li>从根节点出发，根节点包括所有的训练样本。</li>
+<li>一个节点（包括根节点），若节点内所有样本均属于同一类别，那么将该节点就成为叶节点，并将该节点标记为样本个数最多的类别。</li>
+<li>否则利用采用信息增益法来选择用于对样本进行划分的特征，该特征即为测试特征，特征的每一个值都对应着从该节点产生的一个分支及被划分的一个子集。在决策树中，所有的特征均为符号值，即离散值。如果某个特征的值为连续值，那么需要先将其离散化。</li>
+<li>递归上述划分子集及产生叶节点的过程，这样每一个子集都会产生一个决策（子）树，直到所有节点变成叶节点。</li>
+<li>递归操作的停止条件就是：<blockquote>
+<p>（1） 一个节点中所有的样本均为同一类别，那么产生叶节点<br>（2） 没有特征可以用来对该节点样本进行划分，这里用attribute_list=null为表示。此时也强制产生叶节点，该节点的类别为样本个数最多的类别<br>（3） 没有样本能满足剩余特征的取值，即test_attribute=a_i 对应的样本为空。此时也强制产生叶节点，该节点的类别为样本个数最多的类别</p>
 </blockquote>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><blockquote>
-<p>KNN 算法本身简单有效，它是一种 lazy-learning 算法，分类器不需要使用训练集进行训练，训练时间复杂度为0。KNN 分类的计算复杂度和训练集中的文档数目成正比，也就是说，如果训练集中文档总数为 n，那么 KNN 的分类时间复杂度为<strong>O(n)</strong>。</p>
-</blockquote>
-<h3 id="算法三要素"><a href="#算法三要素" class="headerlink" title="算法三要素"></a>算法三要素</h3><ol>
-<li><p><font color="#FF0000">K 值的选择</font>会对算法的结果产生重大影响。K值较小意味着只有与输入实例较近的训练实例才会对预测结果起作用，但容易发生过拟合；如果 K 值较大，优点是可以减少学习的估计误差，但缺点是学习的近似误差增大，这时与输入实例较远的训练实例也会对预测起作用，使预测发生错误。<br>在实际应用中，K 值一般选择一个较小的数值，通常采用交叉验证的方法来选择最优的 K 值。随着训练实例数目趋向于无穷和 K=1 时，误差率不会超过贝叶斯误差率的2倍，如果K也趋向于无穷，则误差率趋向于贝叶斯误差率。</p>
 </li>
-<li><p><font color="#FF0000">分类决策</font>规则往往是多数表决，即由输入实例的 K 个最临近的训练实例中的多数类决定输入实例的类别。</p>
-</li>
-<li><font color="#FF0000">距离度量</font>一般采用<a href="https://blog.csdn.net/w_peijian/article/details/79113020" target="_blank" rel="noopener">Lp 距离</a>，当p=2时，即为欧氏距离，在度量之前，应该将每个属性的值规范化，这样有助于防止具有较大初始值域的属性比具有较小初始值域的属性的权重过大。</li>
 </ol>
-<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><blockquote>
-<p>算法步骤</p>
-<blockquote>
-<p>（1）计算已知类别数据集中的点与当前点之间的距离<br>（2）按照距离递增次序排序<br>（3）选取与当前点距离最小的K个点<br>（4）确定前K个点所在类别出现的频率<br>（5）返回前K个点出现频率最高的类别作为当前点的预测分类</p>
 </blockquote>
-</blockquote>
-<p>​      </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#k-近邻算法</span></span><br><span class="line"><span class="comment">#计算距离</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify0</span><span class="params">(inX,dataSet,labels,k)</span>:</span></span><br><span class="line">    dataSetSize=dataSet.shape[<span class="number">0</span>]   <span class="comment">#shape读取数据矩阵第一维度的长度</span></span><br><span class="line">    diffMat = tile(inX, (dataSetSize, <span class="number">1</span>)) - dataSet  <span class="comment">#tile重复数组inX，有dataSet行 1个dataSet列，减法计算差值</span></span><br><span class="line">    sqDiffMat=diffMat**<span class="number">2</span> <span class="comment">#**是幂运算的意思，这里用的欧式距离</span></span><br><span class="line">    sqDisttances=sqDiffMat.sum(axis=<span class="number">1</span>) <span class="comment">#普通sum默认参数为axis=0为普通相加，axis=1为一行的行向量相加</span></span><br><span class="line">    distances=sqDisttances**<span class="number">0.5</span></span><br><span class="line">    sortedDistIndicies=distances.argsort() <span class="comment">#argsort返回数值从小到大的索引值（数组索引0,1,2,3）</span></span><br><span class="line">    <span class="comment">#选择距离最小的k个点</span></span><br><span class="line">    classCount=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">        voteIlabel=labels[sortedDistIndicies[i]] <span class="comment">#根据排序结果的索引值返回靠近的前k个标签</span></span><br><span class="line">        classCount[voteIlabel]=classCount.get(voteIlabel,<span class="number">0</span>)+<span class="number">1</span> <span class="comment">#各个标签出现频率</span></span><br><span class="line">    sortedClassCount = sorted(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="keyword">True</span>) <span class="comment">#排序频率</span></span><br><span class="line">    <span class="comment">#sorted(iterable, cmp=None, key=None, reverse=False) --&gt; new sorted list。</span></span><br><span class="line">    <span class="comment"># reverse默认升序 key关键字排序itemgetter（1）按照第一维度排序(0,1,2,3)</span></span><br><span class="line">    <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]  <span class="comment">#找出频率最高的</span></span><br></pre></td></tr></table></figure>
-<h3 id="算法优缺点"><a href="#算法优缺点" class="headerlink" title="算法优缺点"></a>算法优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>l流程图如下所示：<br><img src="/机器学习/2019-3-6-机器学习方法之决策树/7.png" alt=""></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_extraction <span class="keyword">import</span> DictVectorizer</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line"><span class="keyword">import</span> pydotplus</span><br><span class="line"></span><br><span class="line"><span class="comment">#读入csv文件</span></span><br><span class="line">Extradata = open(<span class="string">"G:/PycharmProjects/Machine_Learning/Decision_Tree/AllElectronics.csv"</span>,<span class="string">"r"</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">reader = csv.reader(Extradata)</span><br><span class="line">headers = next(reader) <span class="comment">#逐行读取数据 python3中为nex(),python2 中为reader.next()</span></span><br><span class="line"><span class="comment">#print(headers)</span></span><br><span class="line"></span><br><span class="line">featureList = [] <span class="comment">#特征列表</span></span><br><span class="line">labelList = [] <span class="comment">#标签列表</span></span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">    labelList.append(row[len(row)<span class="number">-1</span>]) <span class="comment">#读取每行数据最后一列的标签，存入标签列表</span></span><br><span class="line">    rowDict = &#123;&#125; <span class="comment">#创建字典，存储每行特征数据</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(row)<span class="number">-1</span>):<span class="comment">#从第2列开始到倒数第2列读取特征数据</span></span><br><span class="line">        rowDict[headers[i]] = row[i] <span class="comment">#对应键值对存储数据</span></span><br><span class="line">    featureList.append(rowDict) <span class="comment">#将每行特征数据字典存入特征列表</span></span><br><span class="line"><span class="comment">#print(featureList)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#向量化特征数据</span></span><br><span class="line">vec = DictVectorizer()</span><br><span class="line">dum_X = vec.fit_transform(featureList).toarray()</span><br><span class="line"><span class="comment"># print("dum_X: " + str(dum_X))</span></span><br><span class="line"><span class="comment"># print(vec.get_feature_names())</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># print("labelList: " + str(labelList))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##向量化标签数据</span></span><br><span class="line">label = preprocessing.LabelBinarizer()</span><br><span class="line">dum_Y = label.fit_transform(labelList)</span><br><span class="line"><span class="comment">#print("dum_Y: " + str(dum_Y))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#调用sklearn方法构建决策树</span></span><br><span class="line">classfiy = tree.DecisionTreeClassifier(criterion=<span class="string">'entropy'</span>)</span><br><span class="line">classfiy = classfiy.fit(dum_X,dum_Y)</span><br><span class="line"><span class="comment">#print("classfiy: " + str(classfiy))</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#将决策树存为dot文件</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"G:/PycharmProjects/Machine_Learning/Decision_Tree/AllElectronics.dot"</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f = tree.export_graphviz(classfiy,feature_names=vec.get_feature_names(),out_file=f)</span><br><span class="line"></span><br><span class="line"><span class="comment">#可视化决策树的模型，并存为pdf文件</span></span><br><span class="line">dot_data = tree.export_graphviz(classfiy,out_file=<span class="keyword">None</span>)</span><br><span class="line">graph = pydotplus.graph_from_dot_data(dot_data )</span><br><span class="line">graph.write_pdf(<span class="string">"aa.pdf"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#验证决策树分类模型</span></span><br><span class="line">oneRow_X = dum_X[<span class="number">0</span>,:]</span><br><span class="line"><span class="comment">#print("oneRow_X: " + str(oneRow_X))</span></span><br><span class="line">newRow_X = oneRow_X</span><br><span class="line"></span><br><span class="line"><span class="comment">#修改特征数据的值</span></span><br><span class="line">newRow_X[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">newRow_X[<span class="number">2</span>] = <span class="number">0</span></span><br><span class="line">newRow_X[<span class="number">3</span>] = <span class="number">1</span></span><br><span class="line">newRow_X[<span class="number">4</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment">#print("newRow_X: " + str(newRow_X))</span></span><br><span class="line"></span><br><span class="line">finalRow_X = newRow_X.reshape(<span class="number">1</span>,<span class="number">10</span>) <span class="comment">#将一位数组转换为二维数组</span></span><br><span class="line">predict_Y = classfiy.predict(finalRow_X) <span class="comment">#调用决策树模型预测，注意，finalRow_X要求二维</span></span><br><span class="line"><span class="comment">#predict_Y = classfiy.predict([[1., 0., 0., 0., 1., 1., 0., 0., 1., 0.]])</span></span><br><span class="line">print(<span class="string">"predict_Y: "</span> + str(predict_Y))</span><br></pre></td></tr></table></figure>
+<p>最后生成的决策树模型见下图：<br><img src="/机器学习/2019-3-6-机器学习方法之决策树/8.png" alt=""></p>
+<h3 id="其他决策树算法"><a href="#其他决策树算法" class="headerlink" title="其他决策树算法"></a>其他决策树算法</h3><blockquote>
 <ol>
-<li>精度高、对异常值不敏感、无数据输入假定。</li>
-<li>KNN算法不仅可以用于分类，还可以用于回归。通过找出一个样本的k个最近邻居，将这些邻居的属性的平均值赋给该样本，就可以得到该样本的属性。</li>
+<li>C4.5:  Quinlan<br>Classification and Regression Trees (CART): (L. Breiman, J. Friedman, R. Olshen, C. Stone)<br><strong>共同点：</strong>都是贪心算法，自上而下(Top-down approach)<br><strong>区别：</strong>属性选择度量方法不同： C4.5 （gain ratio), CART(gini index), ID3 (Information Gain)</li>
 </ol>
 </blockquote>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
-<ol>
-<li>样本分布不均衡时，如果一个类的样本容量很大，而其他类样本容量很小时，有可能导致当输入一个新样本时，该样本的K个邻居中大容量类的样本占多数。</li>
-<li>计算量较大，因为对每一个待分类的文本都要计算它到全体已知样本的距离，才能求得它的K个最近邻点。</li>
-</ol>
-</blockquote>
-<h4 id="适用的数据范围"><a href="#适用的数据范围" class="headerlink" title="适用的数据范围"></a>适用的数据范围</h4><blockquote>
-<p>数值型和标称型。<br><strong>标称型：</strong>一般在有限的数据中取，而且只存在‘是’和‘否’两种不同的结果（一般用于分类）<br><strong>数值型：</strong>可以在无限的数据中取，而且数值比较具体化，例如4.02,6.23这种值（一般用于回归分析）</p>
-</blockquote>
-<h3 id="K-Means简介"><a href="#K-Means简介" class="headerlink" title="K-Means简介"></a>K-Means简介</h3><blockquote>
-<p><img src="/机器学习/2019-2-25-机器学习方法之KNN/2.png" alt=""><br>如图所示，数据样本用圆点表示，每个簇的中心点用叉叉表示。<br>(a) 刚开始时是原始数据，杂乱无章，没有label，看起来都一样，都是绿色的。<br>(b) 假设数据集可以分为两类，令K=2，随机在坐标上选两个点，作为两个类的中心点。<br>(c-f) 演示了聚类的两种迭代。先划分，把每个数据样本划分到最近的中心点那一簇；划分完后，更新每个簇的中心，即把该簇的所有数据点的坐标加起来去平均值。这样不断进行”划分—更新—划分—更新”，直到每个簇的中心不在移动为止。</p>
-</blockquote>
-<h3 id="KNN和K-Means的区别"><a href="#KNN和K-Means的区别" class="headerlink" title="KNN和K-Means的区别"></a>KNN和K-Means的区别</h3><table>
+<table>
 <thead>
 <tr>
-<th style="text-align:center"><strong>KNN</strong></th>
-<th style="text-align:center"><strong>K-Means</strong></th>
+<th><strong>算法</strong></th>
+<th><strong>支持模型</strong></th>
+<th><strong>树结构</strong></th>
+<th><strong>特征选择</strong></th>
+<th><strong>连续值处理</strong></th>
+<th><strong>缺失值处理</strong></th>
+<th><strong>剪枝</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">KNN是分类算法</td>
-<td style="text-align:center">K-Means是聚类算法</td>
+<td>ID3</td>
+<td>分类</td>
+<td>多叉树</td>
+<td>信息增益</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
 </tr>
 <tr>
-<td style="text-align:center">监督学习</td>
-<td style="text-align:center">非监督学习</td>
+<td>C4.5</td>
+<td>分类</td>
+<td>多叉树</td>
+<td>信息增益比</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
 </tr>
 <tr>
-<td style="text-align:center">喂给它的数据集是带label的数据，已经是完全正确的数据</td>
-<td style="text-align:center">喂给它的数据集是无label的数据，是杂乱无章的，经过聚类后才变得有点顺序，先无序，后有序</td>
-</tr>
-<tr>
-<td style="text-align:center">没有明显的前期训练过程，属于memory-based learning</td>
-<td style="text-align:center">有明显的前期训练过程</td>
-</tr>
-<tr>
-<td style="text-align:center">K的含义：来了一个样本x，要给它分类，即求出它的y，就从数据集中，在x附近找离它最近的K个数据点，这K个数据点，类别c占的个数最多，就把x的label设为c</td>
-<td style="text-align:center">K的含义：K是人工固定好的数字，假设数据集合可以分为K个簇，由于是依靠人工定好，需要一点先验知识</td>
+<td>CART</td>
+<td>分类、回归</td>
+<td>二叉树</td>
+<td>基尼系数、均方差</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
 </tr>
 </tbody>
 </table>
-<p><font color="#FF0000">两者相似点：</font><strong>都包含这样的过程，给定一个点，在数据集中找离它最近的点</strong>。即二者都用到了NN(Nears Neighbor)算法。</p>
+<h3 id="决策树的优缺点"><a href="#决策树的优缺点" class="headerlink" title="决策树的优缺点"></a>决策树的优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<ol>
+<li>简单直观，生成的决策树很直观。 </li>
+<li>基本不需要预处理，不需要提前归一化，处理缺失值。  </li>
+<li>既可以处理离散值也可以处理连续值。很多算法只是专注于离散值或者连续值。 </li>
+<li>可以处理多维度输出的分类问题。 </li>
+<li>相比于神经网络之类的黑盒分类模型，决策树在逻辑上可以得到很好的解释 </li>
+<li>可以交叉验证的剪枝来选择模型，从而提高泛化能力。 </li>
+</ol>
+</blockquote>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><blockquote>
+<ol>
+<li>决策树算法非常容易过拟合，导致泛化能力不强。可以通过设置节点最少样本数量和限制决策树深度来改进。 </li>
+<li>决策树会因为样本发生一点点的改动，就会导致树结构的剧烈改变。这个可以通过集成学习之类的方法解决。 </li>
+<li>寻找最优的决策树是一个NP难的问题，我们一般是通过启发式方法，容易陷入局部最优。可以通过集成学习之类的方法来改善。<br>4.有些比较复杂的关系，决策树很难学习，比如异或。这个就没有办法了，一般这种关系可以换神经网络分类方法来解决。 </li>
+<li>如果某些特征的样本比例过大，生成决策树容易偏向于这些特征。这个可以通过调节样本权重来改善。</li>
+</ol>
+</blockquote>
 <p><strong>参考资料</strong></p>
-<p><a href="https://www.cnblogs.com/nucdy/p/6349172.html" target="_blank" rel="noopener">KNN与K-Means的区别</a></p>
+<p><a href="https://www.jianshu.com/p/59b510bafb4d" target="_blank" rel="noopener">Scikit-learn中的决策树</a></p>
 
       
     </div>
@@ -621,7 +636,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/" title="机器学习方法之KNN">https://liufan.vip/机器学习/2019-2-25-机器学习方法之KNN/</a>
+      <a href="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/" title="2019-3-6-机器学习方法之决策树">https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -639,7 +654,7 @@
           
             <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
           
-            <a href="/tags/knn/" rel="tag"><i class="fa fa-tag"></i> knn</a>
+            <a href="/tags/desion-tree/" rel="tag"><i class="fa fa-tag"></i> desion tree</a>
           
         </div>
       
@@ -652,8 +667,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/深度学习/2019-2-24-Tensorflow入门2/" rel="next" title="Tensorflow入门学习2">
-                <i class="fa fa-chevron-left"></i> Tensorflow入门学习2
+              <a href="/机器学习/2019-2-25-机器学习方法之KNN/" rel="next" title="机器学习方法之KNN">
+                <i class="fa fa-chevron-left"></i> 机器学习方法之KNN
               </a>
             
           </div>
@@ -661,10 +676,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/机器学习/2019-3-6-机器学习方法之决策树/" rel="prev" title="2019-3-6-机器学习方法之决策树">
-                2019-3-6-机器学习方法之决策树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -861,7 +872,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例分析"><span class="nav-number">1.</span> <span class="nav-text">实例分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法三要素"><span class="nav-number">3.</span> <span class="nav-text">算法三要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现"><span class="nav-number">4.</span> <span class="nav-text">算法实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法优缺点"><span class="nav-number">5.</span> <span class="nav-text">算法优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">5.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">5.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用的数据范围"><span class="nav-number">5.3.</span> <span class="nav-text">适用的数据范围</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Means简介"><span class="nav-number">6.</span> <span class="nav-text">K-Means简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KNN和K-Means的区别"><span class="nav-number">7.</span> <span class="nav-text">KNN和K-Means的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#信息熵"><span class="nav-number">1.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ID3算法"><span class="nav-number">2.</span> <span class="nav-text">ID3算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程"><span class="nav-number">3.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他决策树算法"><span class="nav-number">5.</span> <span class="nav-text">其他决策树算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决策树的优缺点"><span class="nav-number">6.</span> <span class="nav-text">决策树的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">6.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">6.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></div>
             
 
           </div>
