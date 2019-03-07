@@ -110,6 +110,7 @@
 <meta property="og:description" content="决策树是一个类似于流程图的树结构：其中，每个内部结点表示在一个属性上的测试，每个分支代表一个属性输出，而每个树叶结点代表类或类分布。树的最顶层是根结点。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/1.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/9.png">
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/2.png">
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/3.png">
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/4.png">
@@ -117,7 +118,7 @@
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/6.png">
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/7.png">
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/8.png">
-<meta property="og:updated_time" content="2019-03-07T03:47:42.104Z">
+<meta property="og:updated_time" content="2019-03-07T08:13:43.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习方法之决策树">
 <meta name="twitter:description" content="决策树是一个类似于流程图的树结构：其中，每个内部结点表示在一个属性上的测试，每个分支代表一个属性输出，而每个树叶结点代表类或类分布。树的最顶层是根结点。">
@@ -398,7 +399,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T11:47:42+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T16:13:43+08:00">
                 2019-03-07
               </time>
             
@@ -492,12 +493,16 @@
 <p><img src="/机器学习/2019-3-6-机器学习方法之决策树/1.png" alt=""><br>上图中是否出去玩取决于天气情况（sunny、overcast、rain）和空气湿度（humidity、windy）这2个属性的值。</p>
 <h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h3><p>决策树算法种类很多，本文主要介绍<strong>ID3</strong>算法。ID3算法在1970-1980年，由J.Ross. Quinlan提出。在介绍决策树算法前，我们先引入<font size="4" color="#FF0000">熵（entropy）</font>的概念。</p>
 <p>信息和抽象，具体该如何度量呢？1948年，香农提出了<strong>信息熵（entropy）</strong>的概念。<br>一条信息的信息量大小和它的不确定性有直接的关系，要搞清楚一件非常非常不确定的事情，或者是我们一无所知的事情，需要了解大量信息==&gt;<font color="#FF0000">信息量的度量就等于不确定性的多少</font>。<br>我们用比特(bit)来衡量信息的多少，变量的不确定性越大，熵也就越大。计算公式如下，其中$P(x_i)$表示每种事件发生的可能性。</p>
-<p>$$<br>H\left( x\right) =\sum ^{n}<em>{i=1}P\left( x</em>{i}\right) I\left( x_{i}\right) =-\sum ^{n}<em>{i=1}P\left( x</em>{i}\right) \log <em>{b}P\left( x</em>{i}\right)<br>$$</p>
+<blockquote>
+<blockquote>
+<p><img src="/机器学习/2019-3-6-机器学习方法之决策树/9.png" alt=""></p>
+</blockquote>
+</blockquote>
 <h3 id="ID3算法"><a href="#ID3算法" class="headerlink" title="ID3算法"></a>ID3算法</h3><blockquote>
-<p>该算法在选择每一个属性判断结点的时候是根据<font color="#FF0000">信息增益(Information Gain)</font>。通过下面公式可以计算A来作为节点分类获取了多少信息。<br>$$<br> Gain(A) = Info(D) - InfoA(D)<br>$$</p>
+<p>该算法在选择每一个属性判断结点的时候是根据<font color="#FF0000">信息增益(Information Gain)</font>。通过下面公式可以计算A来作为节点分类获取了多少信息。<br>$$<br>Gain(A) = Info(D) - InfoA(D)<br>$$</p>
 </blockquote>
 <blockquote>
-<p><img src="/机器学习/2019-3-6-机器学习方法之决策树/2.png" alt=""><br>上图是一个买车的实例，一个人是否买车取决于他的年龄、收入、信用度和他是否是学生。下图（右）是原始数据，下图（左）是简单的决策树划分。那我们是如何确定<strong>age</strong>作为第一个属性结点的呢？<br>一共有14条数据，其中9人买车，5人没买车，所以根据公式（2）可以算出$Info(D)$的值。接着我们计算选择<strong>age</strong>作为属性结点的信息熵。age有三个取值，其中<strong>youth</strong>有5条信息（2人买车，3人没买），<strong>middle_aged</strong>有4条信息（全部买车），<strong>senior</strong>有5条信息（3人买车，2人没买），所以根据公式（2）可以算出$Info_{age}(D)$和$Gain(age)$的值，如下所示：</p>
+<p><img src="/机器学习/2019-3-6-机器学习方法之决策树/2.png" alt=""><br>上图是一个买车的实例，一个人是否买车取决于他的年龄、收入、信用度和他是否是学生。下图（右）是原始数据，下图（左）是简单的决策树划分。那我们是如何确定<strong>age</strong>作为第一个属性结点的呢？<br>一共有14条数据，其中9人买车，5人没买车，所以根据公式可以算出$Info(D)$的值。接着我们计算选择<strong>age</strong>作为属性结点的信息熵。age有三个取值，其中<strong>youth</strong>有5条信息（2人买车，3人没买），<strong>middle_aged</strong>有4条信息（全部买车），<strong>senior</strong>有5条信息（3人买车，2人没买），所以根据公式可以算出$Info_{age}(D)$和$Gain(age)$的值，如下所示：</p>
 <blockquote>
 <blockquote>
 <p><img src="/机器学习/2019-3-6-机器学习方法之决策树/3.png" alt=""><br><img src="/机器学习/2019-3-6-机器学习方法之决策树/4.png" alt=""><br><img src="/机器学习/2019-3-6-机器学习方法之决策树/5.png" alt=""><br>类似，$Gain(income) = 0.029, Gain(student) = 0.151, Gain(credit_rating)=0.048​$<br>所以，选择age作为第一个根节点。重复。。。</p>
