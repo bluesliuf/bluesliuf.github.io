@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-07T12:46:43.280Z</updated>
+  <updated>2019-03-08T13:24:47.581Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习方法之SVM</title>
+    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-8-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E4%B9%8BSVM/"/>
+    <id>https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/</id>
+    <published>2019-03-08T11:16:23.000Z</published>
+    <updated>2019-03-08T13:24:47.581Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;支持向量机（&lt;font color=&quot;#FF0000&quot;&gt;support vector machine&lt;/font&gt;）,简称&lt;strong&gt;SVM&lt;/strong&gt;，最早在1963年，由 Vladimir N. Vapnik 和 Alexey Ya. Chervonenkis 提出。目前的版本(soft margin)是由Corinna Cortes 和 Vapnik在1993年提出，并在1995年发表。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="svm" scheme="https://liufan.vip/tags/svm/"/>
+    
+  </entry>
   
   <entry>
     <title>机器学习方法之决策树</title>
@@ -114,7 +136,7 @@
     <link href="https://liufan.vip/Docker%E5%AE%B9%E5%99%A8/2019-2-21-Docker%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/"/>
     <id>https://liufan.vip/Docker容器/2019-2-21-Docker集群使用文档/</id>
     <published>2019-02-21T06:27:31.000Z</published>
-    <updated>2019-02-23T09:42:43.298Z</updated>
+    <updated>2019-03-08T03:07:47.582Z</updated>
     
     <summary type="html">
     

@@ -149,7 +149,7 @@
 <meta property="og:image" content="https://liufan.vip/Docker容器/2019-2-21-Docker集群使用文档/36.png">
 <meta property="og:image" content="https://liufan.vip/Docker容器/2019-2-21-Docker集群使用文档/37.png">
 <meta property="og:image" content="https://liufan.vip/Docker容器/2019-2-21-Docker集群使用文档/38.png">
-<meta property="og:updated_time" content="2019-02-23T09:42:43.298Z">
+<meta property="og:updated_time" content="2019-03-08T03:07:47.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker集群使用文档">
 <meta name="twitter:description" content="用户管理 (管理员权限)添加docker用户组:1sudo groupadd -g 344 docker 添加用户到用户组：1sudo usermod -a -G 用户组 用户 从用户组中删除用户1gpasswd -d 用户 用户组">
@@ -430,8 +430,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-23T17:42:43+08:00">
-                2019-02-23
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-08T11:07:47+08:00">
+                2019-03-08
               </time>
             
           </span>
@@ -584,7 +584,7 @@
 </blockquote>
 <p><font color="#FF0000">–volumes-from</font>用来指定要从哪个数据卷来挂载数据。<br><img src="/Docker容器/2019-2-21-Docker集群使用文档/38.png" alt="示例图片"><br>我们可以发现通过wuhao这个容器（数据卷），我们成功的将本地目录也挂载到了lf这个容器内。</p>
 <p><font color="#FF0000">通过数据卷挂载目录更具有优势。</font><br>1）    我们只需先创建一个容器并挂载本地目录，将其看成数据卷，当我们其他容器也需要挂载同样目录的时候，我们只需要利用–volumes-from就可以实现。<br>2）    当我们需要挂载的本地目录发生改变时，我们只需要修改作为数据卷那个容器挂载的本地目录即可<font color="#FF0000">（类似一个全局变量）</font>，而无须一个个修改其他容器的本地挂载目录。</p>
-<p>挂载成功后。运行代码步骤与4.2.1中一样。</p>
+<p>挂载成功后。运行代码步骤与上面一样。</p>
 
       
     </div>
@@ -774,7 +774,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -796,7 +796,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

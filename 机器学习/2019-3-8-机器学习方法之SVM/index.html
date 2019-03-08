@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="machine learning,deep learning,GAN model,">
+  <meta name="keywords" content="machine learning,svm,">
 
 
 
@@ -101,34 +101,35 @@
 
 
 
-<meta name="description" content="GAN的来源 14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。">
-<meta name="keywords" content="machine learning,deep learning,GAN model">
+<meta name="description" content="支持向量机（support vector machine）,简称SVM，最早在1963年，由 Vladimir N. Vapnik 和 Alexey Ya. Chervonenkis 提出。目前的版本(soft margin)是由Corinna Cortes 和 Vapnik在1993年提出，并在1995年发表。">
+<meta name="keywords" content="machine learning,svm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习的常见模型（GAN）">
-<meta property="og:url" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/index.html">
+<meta property="og:title" content="机器学习方法之SVM">
+<meta property="og:url" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="GAN的来源 14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。">
+<meta property="og:description" content="支持向量机（support vector machine）,简称SVM，最早在1963年，由 Vladimir N. Vapnik 和 Alexey Ya. Chervonenkis 提出。目前的版本(soft margin)是由Corinna Cortes 和 Vapnik在1993年提出，并在1995年发表。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/1.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/2.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/3.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/4.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/5.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/6.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/7.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/8.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/9.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/10.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/11.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/12.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/13.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/14.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/15.png">
-<meta property="og:updated_time" content="2019-02-25T08:46:58.153Z">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/1.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/2.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/3.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/4.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/5.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/6.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/7.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/8.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/9.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/10.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/11.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/12.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/13.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/14.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/15.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/16.png">
+<meta property="og:updated_time" content="2019-03-08T13:24:47.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习的常见模型（GAN）">
-<meta name="twitter:description" content="GAN的来源 14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。">
-<meta name="twitter:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/1.png">
+<meta name="twitter:title" content="机器学习方法之SVM">
+<meta name="twitter:description" content="支持向量机（support vector machine）,简称SVM，最早在1963年，由 Vladimir N. Vapnik 和 Alexey Ya. Chervonenkis 提出。目前的版本(soft margin)是由Corinna Cortes 和 Vapnik在1993年提出，并在1995年发表。">
+<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/1.png">
 
 
 
@@ -156,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/">
+  <link rel="canonical" href="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/">
 
 
 
 
 
-  <title> 深度学习的常见模型（GAN） | Bluesliuf </title>
+  <title> 机器学习方法之SVM | Bluesliuf </title>
 </head>
 
 
@@ -352,8 +353,8 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/">
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -374,7 +375,7 @@
             
             
               
-                深度学习的常见模型（GAN）
+                机器学习方法之SVM
               
             
           </h1>
@@ -389,8 +390,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T00:00:00+08:00">
-                2019-02-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T19:16:23+08:00">
+                2019-03-08
               </time>
             
 
@@ -405,8 +406,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T16:46:58+08:00">
-                2019-02-25
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-08T21:24:47+08:00">
+                2019-03-08
               </time>
             
           </span>
@@ -424,8 +425,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -459,7 +460,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  1.9k
                 </span>
               
 
@@ -475,7 +476,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  7
                 </span>
               
             </div>
@@ -494,74 +495,70 @@
       
 
       
-        <h3 id="GAN的来源"><a href="#GAN的来源" class="headerlink" title="GAN的来源"></a>GAN的来源</h3><blockquote>
-<p>14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。</p>
-</blockquote>
+        <p>支持向量机（<font color="#FF0000">support vector machine</font>）,简称<strong>SVM</strong>，最早在1963年，由 Vladimir N. Vapnik 和 Alexey Ya. Chervonenkis 提出。目前的版本(soft margin)是由Corinna Cortes 和 Vapnik在1993年提出，并在1995年发表。</p>
 <a id="more"></a>
-<blockquote>
-<p>GANs简单的想法就是用两个模型，<font color="#FF0000"> 一个生成模型，一个判别模型。</font>判别模型用于判断一个给定的图片是不是真实的图片（从数据集里获取的图片），生成模型的任务是去创造一个看起来像真的图片一样的图片，有点拗口，就是说模型自己去产生一个图片，可以和你想要的图片很像。而在开始的时候这两个模型都是没有经过训练的，<font color="#FF0000">这两个模型一起对抗训练，生成模型产生一张图片去欺骗判别模型，然后判别模型去判断这张图片是真是假</font>，最终在这两个模型训练的过程中，两个模型的能力越来越强，最终达到稳态。</p>
-</blockquote>
-<h3 id="GAN的基本组成"><a href="#GAN的基本组成" class="headerlink" title="GAN的基本组成"></a>GAN的基本组成</h3><blockquote>
-<p>GAN 模型中的两位博弈方分别由<font color="#FF0000">生成式模型</font>（generative model）和<font color="#FF0000">判别式模型</font>（discriminative model）充当。</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>生成模型： G 捕捉样本数据的分布，用服从某一分布（均匀分布，高斯分布等）的噪声 z 生成一个类似真实训练数据的样本，追求效果是越像真实样本越好；</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>判别模型: D 是一个二分类器，估计一个样本来自于训练数据（而非生成数据）的概率，如果样本来自于真实的训练数据，D 输出大概率，否则，D 输出小概率。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>可以做如下类比：生成网络 G 好比假币制造团伙，专门制造假币，判别网络 D 好比警察，专门检测使用的货币是真币还是假币，G 的目标是想方设法生成和真币一样的货币，使得 D 判别不出来，D 的目标是想方设法检测出来 G 生成的假币。</p>
-</blockquote>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>深度学习（2012）出现之前，SVM被认为机器学习中近十几年来最成功，表现最好的算法。<strong>SVM</strong>本质上是一种二分类器，其基本模型定义为特征空间上的间隔最大的线性分类器，其学习策略便是间隔最大化，最终可转化为一个凸二次规划问题的求解。<br><strong>看下图</strong><br><img src="/机器学习/2019-3-8-机器学习方法之SVM/1.png" alt=""><br>在这个二维的平面中，用一条直线将上面的点分成两类，显然 H1 无法将点区分开，而H2 和 H3 都可以，但这两条哪个更好呢？作为分界线，H3 是更合适的，因为分界线其两边有尽可能大的间隙，这样的好处之一就是增强分类模型的泛化能力，能较为正确的分类预测新的实例。</p>
+<p>上面的例子是在二维平面，我们找的是一条直线。假如在三维空间，我们要找的就是一个平面。总的来说就是要寻找区分两类的超平面(<code>hyper plane</code> )，使边界(<code>margin</code> )最大。在一个 n 维空间中，超平面的方程定义为:</p>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;$a_1x_1+a_2x_2+…+a_nx_n = b$</p>
+<p><img src="/机器学习/2019-3-8-机器学习方法之SVM/2.png" alt=""></p>
+<p>总共可以有多少个可能的超平面？无数条。我们要寻找的超平面是到边界一测最近点的距离等于到另一侧最近点的距离，在这个边界中，边界两侧的超平面平行。</p>
+<h3 id="点到超平面的距离"><a href="#点到超平面的距离" class="headerlink" title="点到超平面的距离"></a>点到超平面的距离</h3><p>在二维平面中，计算点 (<code>x0, y0</code>) 到线<code>ax + by + c = 0</code>的距离是:<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/3.png" alt=""><br>在 n 维空间中，点到超平面的距离：<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/4.png" alt=""><br>将点的坐标和系数都向量化表示，距离公式可以视为:<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/5.png" alt=""><br>其中 <code>w = {w0, w1, w2,...,wn}</code><br>我们寻找超平面时，先寻找各分类到超平面的距离最小，再寻找距离之和最大的超平面。共N 个训练点，点的坐标记为<code>xi</code>，结果分类为<code>yi</code>，构成 <code>(xi, yi)</code>：<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/6.png" alt=""><br>常见的<strong>SVM</strong>是 二分类模型，因此一般<code>yi</code> 有两种取值为 1 和 -1，取这两个值可以简化求解过程。</p>
+<h3 id="超平面推导"><a href="#超平面推导" class="headerlink" title="超平面推导"></a>超平面推导</h3><p>在 <code>(xi, yi)</code> 中，我们用 <code>xi</code> 表示了点的坐标，<code>yi</code> 表示了分类结果。超平面表示如下：<br>$$<br>w^Tx + b = 0<br>$$<br>在超平面的上方的点满足：<br>$$<br>w^T + b &gt; 0<br>$$<br>在超平面的下方的点满足：<br>$$<br>w^T + b &lt; 0<br>$$<br>因为 <code>yi</code> 只有两种取值 1 和 -1。因此就满足：<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/7.png" alt=""><br>整合这两个等式（左右都乘以 yi，当yi是负值时，不等号要改方向）得：<br>$$<br>y_i(w^T + b)\geq1,\forall{i}<br>$$</p>
+<h3 id="支持向量"><a href="#支持向量" class="headerlink" title="支持向量"></a>支持向量</h3><p>所有坐落在边界的边缘上的点被称作是 “支持向量”。分界边缘上的任意一点到超平面的距离为:$\left|\frac{1}{w}\right|$。<br>其中，<code>||w||</code> 是向量的范数(<code>norm</code>)，或者说是向量的模。它的计算方式为：<br>$$<br>\left|{w}\right| = \sqrt{w * w} = \sqrt{w_1^2 + w_2^2 +…+ w_n^2}<br>$$<br>所以最大边界距离为$\left|\frac{2}{w}\right|$。</p>
+<h3 id="找出最大边界的超平面"><a href="#找出最大边界的超平面" class="headerlink" title="找出最大边界的超平面"></a>找出最大边界的超平面</h3><blockquote>
+<ol>
+<li><p>利用一些数学推导，把 <code>yi(w^T*x + b) &gt;= 1</code> 变为有限制的凸优化问题( <code>convex quadratic optimization</code> )；</p>
+</li>
+<li><p>利用<code>Karush-Kuhn-Tucker</code>( KKT ) 条件和拉格朗日公式，可以推出 MMH 可以被表示为以下的“决定边界( <code>decision boundary</code>)”</p>
+</li>
+</ol>
+<p>$$<br>d(X^T) = \sum_{i=1}^{l}y_ia_iX_iX^T + b_0<br>$$</p>
 </blockquote>
 <blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/1.png" alt="示例图片"><br>上图是GAN网络的思想导图，我们用1代表真实数据，0来代表生成的假数据。对于判别器D来说，对于真实数据，它要尽可能判别正确输出值1；而对于生成器G，根据随机噪音向量z生成假数据也输入判别器D，对于这些假数据，判别器要尽可能输出值0。</p>
+<p>上述公式中各个符号含义如下：</p>
+<ul>
+<li><code>l</code>：表示 支持向量点 的个数；</li>
+<li><code>yi</code> : 第i个支持向量点；</li>
+<li><code>Xi</code> ：支持向量的类别标记( class label )；</li>
+<li><code>ai</code> 与<code>b0</code>：都是单一数值型参数。</li>
+</ul>
 </blockquote>
-<p>GAN的训练过程可以看成一个博弈的过程，也可以看成2个人在玩一个极大极小值游戏，可以用如下公式表示：</p>
+<p>对于测试实例，代入以上公式，按得出结果的正负号来进行分类。</p>
 <blockquote>
-<p>$$<br>\min \limits_{G}\max\limits_{D}GAN(D,G)=E_{x\sim P_{data}(x)}[logD(x)]+E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$<br>其本质上是两个优化问题，把拆解就如同下面两个公式：</p>
+<p>SVM 算法有下面几个特性：</p>
+<ol>
+<li>训练好的模型的算法复杂度是由支持向量的个数决定的，而不是由数据的维度决定的。所以 SVM 不太容易产生过拟合(<code>overfitting</code> )的情况；</li>
+<li>SVM 训练出来的模型完全依赖于支持向量，即使训练集里所有非支持向量的点都被去除，重新训练，结果仍然会得到完全一样的模型；</li>
+<li>一个 SVM 如果训练得出的支持向量个数比较小，那训练出的模型比较容易被泛化</li>
+</ol>
+</blockquote>
+<h3 id="线性不可分"><a href="#线性不可分" class="headerlink" title="线性不可分"></a>线性不可分</h3><p>在有些情况下，我们无法用一条直线对实例进行划分。<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/8.png" alt=""><br>其实在很多情况下，数据集在空间中对应的向量不可被一个超平面区分开。这种时候我们要采取以下2个步骤：</p>
 <blockquote>
-<p>优化D：<br>$$<br>\max\limits_{D}GAN(D,G)=E_{x\sim P_{data}(x)}[logD(x)]+E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$<br>优化G：<br>$$<br>\min\limits_{G}GAN(D,G)=E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$</p>
+<ol>
+<li>利用一个非线性的映射把原数据集中的向量点转化到一个更高维度的空间中；</li>
+<li>在这个高维度的空间中找一个线性的超平面来进行可区分处理。<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/9.png" alt=""><br>如上图表示的，将其从一维转为二维空间，然后在二维空间进行求解。<a href="https://www.youtube.com/watch?v=3liCbRZPrZA" target="_blank" rel="noopener"><code>动态演示</code></a><br><img src="/机器学习/2019-3-8-机器学习方法之SVM/10.png" alt=""></li>
+</ol>
 </blockquote>
-</blockquote>
+<h3 id="高纬空间（核方法）"><a href="#高纬空间（核方法）" class="headerlink" title="高纬空间（核方法）"></a>高纬空间（核方法）</h3><p>我们如何将原始数据转化到高纬空间呢，举个例子，在三维空间中的向量 <code>X = (x1, x2, x3)</code>转化到六维空间 Z 中去，令:<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/11.png" alt=""><br>新的决策超平面为:<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/12.png" alt=""><br>其中，<code>W</code>和<code>Z</code> 都是向量，这个超平面是线性的，解出 <code>W</code> 和<code>b</code> 后，带回原方程：<br><img src="/机器学习/2019-3-8-机器学习方法之SVM/13.png" alt=""><br>上面转换的求解过程中，需要计算内积，而内积的复杂度非常高，这就需要使用到<code>核方法</code>。</p>
+<p><font size="4" color="#FF0000">核方法</font><br>在处理非线性的情况中，SVM 选择一个核函数 <code>( kernel trick )</code>，通过函数 <code>k(.,.)</code> 将数据映射到高维空间。支持向量机首先在低维空间中完成计算，然后通过核函数将输入空间映射到高维特征空间，最终在高维空间中构造出最优分离超平面。<br><strong>核函数例子：</strong> 假设两个向量：<code>x = (a1, a2, a3) y = (b1, b2, b3)</code> ，定义方程：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(x) = (x1x1, x1x2, x1x3, x2x1, x2x2, x2x3, x3x1, x3x2, x3x3)</span><br></pre></td></tr></table></figure></p>
+<p>假设核函数为:<code>K(x, y) = (&lt;x, y&gt;)^2</code> , 且设<code>x = (1, 2, 3) y=(4, 5, 6)</code> 则有：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f(x) = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>)</span><br><span class="line">f(y) = (<span class="number">16</span>, <span class="number">20</span>, <span class="number">24</span>, <span class="number">20</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">24</span>, <span class="number">30</span>, <span class="number">36</span>)</span><br><span class="line">&lt;f(x), f(y)&gt; = <span class="number">16</span> + <span class="number">40</span> + <span class="number">72</span> + <span class="number">40</span> + <span class="number">100</span> + <span class="number">180</span> + <span class="number">72</span> + <span class="number">180</span> + <span class="number">324</span> = <span class="number">1024</span></span><br></pre></td></tr></table></figure></p>
+<p>核函数计算为: <code>K(x, y) = (4 + 10 + 18 ) ^2 = 32^2 = 1024</code> ，相同的结果，使用核函数计算会快很多。</p>
+<p>核函数能很好的避开直接在高维空间中进行计算，而结果却是等价的。<br>常见的几个核函数 (<code>kernel functions</code>)有</p>
 <blockquote>
+<ol>
+<li><strong>h度多项式核函数(polynomial kernel of degree h)</strong><br><img src="/机器学习/2019-3-8-机器学习方法之SVM/14.png" alt=""></li>
+<li><strong>高斯径向基核函数(Gaussian radial basis function kernel)</strong><br><img src="/机器学习/2019-3-8-机器学习方法之SVM/15.png" alt=""></li>
+<li><strong>S型核函数(Sigmoid function kernel)</strong><br><img src="/机器学习/2019-3-8-机器学习方法之SVM/16.png" alt=""><br>如何选择使用哪个核函数？ 根据先验知识，比<code>如图像分类，使用RBF</code>，尝试不同的核函数，根据结果准确度而定。</li>
+</ol>
+</blockquote>
+<h3 id="多分类"><a href="#多分类" class="headerlink" title="多分类"></a>多分类</h3><p>SVM 常见的是二分类模型，如果空间中有多个分类，比方有猫，狗，鸟。那么SVM就需要对每个类别做一次模型，是猫还是不是猫？是狗还是不是狗？是鸟还是不是鸟？从中选出可能性最大的。也可以两两做一次SVM：是猫还是狗？是猫还是鸟？是狗还是鸟？最后三个分类器投票决定。因此，多分类情况有两种做法：</p>
 <blockquote>
-<p>当优化D时，生成器确定,我们要让判别器尽可能输出高的值，所以要最大化公式(2)的值；当优化G的时候，判别器确定，我们要使判别器判断错误，尽可能使D(G(z))的值更大，所以要最小化公式(3)的值。</p>
+<ol>
+<li>对于每个类，有一个当前类和其他类的二类分类器( <code>one-versus-the-rest approach</code>)</li>
+<li>两两做一次二类分类器( <code>one-versus-one approace</code> )</li>
+</ol>
 </blockquote>
-</blockquote>
-<h3 id="GAN的训练过程"><a href="#GAN的训练过程" class="headerlink" title="GAN的训练过程"></a>GAN的训练过程</h3><blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/2.png" alt="示例图片"><br>上图是GAN的训练过程，解析见图中右边文字。</p>
-</blockquote>
-<p>GAN的算法流程和动态求解过程如下图所示：</p>
-<blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/3.png" alt="示例图片"><br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/4.png" alt="示例图片"><br>一开始我们确定G，最大化D，让点沿着D变大的方向移动(红色箭头)，然后我们确定D，最小化G，让点沿着G变小的方向移动(蓝色箭头)。循环上述若干步后，达到期望的鞍点(理想最优解)。</p>
-</blockquote>
-<h3 id="GAN的网络结构"><a href="#GAN的网络结构" class="headerlink" title="GAN的网络结构"></a>GAN的网络结构</h3><h4 id="判别器-卷积"><a href="#判别器-卷积" class="headerlink" title="判别器(卷积)"></a><font color="#FF0000">判别器(卷积)</font></h4><blockquote>
-<p>卷积层大家应该都很熟悉了,为了方便说明，定义如下：</p>
-<blockquote>
-<p>二维的离散卷积（N=2）<br>方形的特征输入（i1=i2=i）<br>方形的卷积核尺寸（k1=k2=k ）<br>每个维度相同的步长（s1=s2=s）<br>每个维度相同的padding (p1=p2=p)<br>下图(左)表示参数为 (i=5,k=3,s=2,p=1)的卷积计算过程，从计算结果可以看出输出特征的尺寸为 (o1=o2=o=3)；下图(右)表示参为 (i=6,k=3,s=2,p=1)的卷积计算过程，从计算结果可以看出输出特征的尺寸为 (o1=o2=o=3)。</p>
-<blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/5.png" alt="示例图片"><br>从上述2个例子我们可以总结出卷积层输入特征和输出特征尺寸和卷积核参数的关系为：<br>$$<br>o=\lfloor\frac{i+2p-k}{s}\rfloor+1<br>$$</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h4 id="生成器-反卷积"><a href="#生成器-反卷积" class="headerlink" title="生成器(反卷积)"></a><font color="#FF0000">生成器(反卷积)</font></h4><blockquote>
-<p>在介绍反卷积之前，我们先来看一下卷积运算和矩阵运算之间的关系。例有如下运算(i=4,k=3,s=1,p=0)，输出为o=2。</p>
-<blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/6.png" alt="示例图片"><br>通过上述的分析，我们已经知道卷积层的前向操作可以表示为和矩阵C相乘，那么<font color="#FF0000">我们很容易得到卷积层的反向传播就是和C的转置相乘。</font></p>
-</blockquote>
-</blockquote>
-<font color="#FF00000">反卷积和卷积的关系如下：</font><br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/7.png" alt="示例图片"><br> 右上图表示的是参数为( i′=2,k′=3,s′=1,p′=2)的反卷积操作，其对应的卷积操作参数为 (i=4,k=3,s=1,p=0)。我们可以发现对应的卷积和非卷积操作其 (k=k′,s=s′)，但是反卷积却多了p′=2。通过对比我们可以发现卷积层中左上角的输入只对左上角的输出有贡献，所以反卷积层会出现 p′=k−p−1=2。通过示意图，我们可以发现，反卷积层的输入输出在 s=s′=1的情况下关系为：<br>$$<br>o′=i′-k′+2p′+1=i′+(k-1)-2p<br>$$<br><br><font color="#FF00000" size="4">GAN的优点</font><br> ●GAN是一种生成式模型，相比较其他生成模型（玻尔兹曼机和GSNs）只用到了反向传播<br> ●相比其他所有模型, GAN可以产生更加清晰，真实的样本<br> ●GAN采用的是一种无监督的学习方式训练，可以被广泛用在无监督学习和半监督学习领域<br><br><font color="#FF00000" size="4">GAN的缺点</font><br>●训练GAN需要达到纳什均衡,有时候可以用梯度下降法做到,有时候做不到.我们还没有找到很好的达到纳什均衡的方法,所以训练GAN相比VAE或者PixelRNN是不稳定的<br>●GAN不适合处理离散形式的数据，比如文本<br>●GAN存在训练不稳定、梯度消失、模式崩溃的问题<br><br><font color="#FF00000" size="4">实例DCGAN网络</font><br><font color="#FF00000" size="4">网络结构 (判别器)</font><br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/8.png" alt="示例图片"><br><br><font color="#FF00000" size="4">网络结构 (生成器)</font><br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/9.png" alt="示例图片"><br><br><font color="#FF00000" size="4"> 二次元动漫人脸（共50个epoch）</font><br>数据集：51223张动漫人脸<br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/10.png" alt="示例图片"><br>图左为原始数据集，图右为训练过程<br><br><font color="#FF0000">训练过程生成效果图如下：</font>
-
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/11.png" alt="示例图片"><br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/12.png" alt="示例图片"></p>
-<font color="#FF00000" size="4"> 真实人脸（共100个epoch）</font><br>数据集：CelebA 是香港中文大学的开放数据集，包含10,177个名人身份的202,599张人脸图片。（选取了25600张）,数据集如下：<br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/13.png" alt="示例图片"><br><br><font color="#FF0000">训练过程生成效果图如下：</font>
-
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/14.png" alt="示例图片"><br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/15.png" alt="示例图片"> </p>
+<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><p>待续。。。</p>
 
       
     </div>
@@ -615,7 +612,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/" title="深度学习的常见模型（GAN）">https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/</a>
+      <a href="https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/" title="机器学习方法之SVM">https://liufan.vip/机器学习/2019-3-8-机器学习方法之SVM/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -633,9 +630,7 @@
           
             <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
           
-            <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
-          
-            <a href="/tags/GAN-model/" rel="tag"><i class="fa fa-tag"></i> GAN model</a>
+            <a href="/tags/svm/" rel="tag"><i class="fa fa-tag"></i> svm</a>
           
         </div>
       
@@ -648,8 +643,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/深度学习/2019-1-14-深度学习发展/" rel="next" title="深度学习的发展">
-                <i class="fa fa-chevron-left"></i> 深度学习的发展
+              <a href="/机器学习/2019-3-6-机器学习方法之决策树/" rel="next" title="机器学习方法之决策树">
+                <i class="fa fa-chevron-left"></i> 机器学习方法之决策树
               </a>
             
           </div>
@@ -657,10 +652,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Docker容器/2019-2-21-Docker集群使用文档/" rel="prev" title="Docker集群使用文档">
-                Docker集群使用文档 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -857,7 +848,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的来源"><span class="nav-number">1.</span> <span class="nav-text">GAN的来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的基本组成"><span class="nav-number">2.</span> <span class="nav-text">GAN的基本组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的训练过程"><span class="nav-number">3.</span> <span class="nav-text">GAN的训练过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的网络结构"><span class="nav-number">4.</span> <span class="nav-text">GAN的网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#判别器-卷积"><span class="nav-number">4.1.</span> <span class="nav-text">判别器(卷积)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成器-反卷积"><span class="nav-number">4.2.</span> <span class="nav-text">生成器(反卷积)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#点到超平面的距离"><span class="nav-number">2.</span> <span class="nav-text">点到超平面的距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超平面推导"><span class="nav-number">3.</span> <span class="nav-text">超平面推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持向量"><span class="nav-number">4.</span> <span class="nav-text">支持向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找出最大边界的超平面"><span class="nav-number">5.</span> <span class="nav-text">找出最大边界的超平面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性不可分"><span class="nav-number">6.</span> <span class="nav-text">线性不可分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高纬空间（核方法）"><span class="nav-number">7.</span> <span class="nav-text">高纬空间（核方法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多分类"><span class="nav-number">8.</span> <span class="nav-text">多分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实例"><span class="nav-number">9.</span> <span class="nav-text">代码实例</span></a></li></ol></div>
             
 
           </div>
