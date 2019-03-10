@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="machine learning,deep learning,CNN model,">
+  <meta name="keywords" content="machine learning,neural network,">
 
 
 
@@ -101,29 +101,25 @@
 
 
 
-<meta name="description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
-<meta name="keywords" content="machine learning,deep learning,CNN model">
+<meta name="description" content="神经网络算法( Neural Network )是机器学习中非常非常重要的算法。它 以人脑中的神经网络为启发，是整个深度学习的核心算法。深度学习就是根据神经网络算法进行的一个延伸。">
+<meta name="keywords" content="machine learning,neural network">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习的常见模型（CNN）">
-<meta property="og:url" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/index.html">
+<meta property="og:title" content="机器学习方法之神经网络（NN）">
+<meta property="og:url" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
+<meta property="og:description" content="神经网络算法( Neural Network )是机器学习中非常非常重要的算法。它 以人脑中的神经网络为启发，是整个深度学习的核心算法。深度学习就是根据神经网络算法进行的一个延伸。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv2.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv3.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv5.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv6.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv7.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv8.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv9.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv10.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv11.png">
-<meta property="og:updated_time" content="2019-02-25T08:46:10.814Z">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/1.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/2.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/3.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/4.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/5.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/6.png">
+<meta property="og:updated_time" content="2019-03-10T09:42:13.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习的常见模型（CNN）">
-<meta name="twitter:description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
-<meta name="twitter:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png">
+<meta name="twitter:title" content="机器学习方法之神经网络（NN）">
+<meta name="twitter:description" content="神经网络算法( Neural Network )是机器学习中非常非常重要的算法。它 以人脑中的神经网络为启发，是整个深度学习的核心算法。深度学习就是根据神经网络算法进行的一个延伸。">
+<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/1.png">
 
 
 
@@ -151,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/">
+  <link rel="canonical" href="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/">
 
 
 
 
 
-  <title> 深度学习的常见模型（CNN） | Bluesliuf </title>
+  <title> 机器学习方法之神经网络（NN） | Bluesliuf </title>
 </head>
 
 
@@ -347,8 +343,8 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/">
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -369,7 +365,7 @@
             
             
               
-                深度学习的常见模型（CNN）
+                机器学习方法之神经网络（NN）
               
             
           </h1>
@@ -384,8 +380,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T00:00:00+08:00">
-                2019-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-10T16:17:36+08:00">
+                2019-03-10
               </time>
             
 
@@ -400,8 +396,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T16:46:10+08:00">
-                2019-02-25
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T17:42:13+08:00">
+                2019-03-10
               </time>
             
           </span>
@@ -419,8 +415,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -454,7 +450,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  954
+                  1.4k
                 </span>
               
 
@@ -470,7 +466,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -489,54 +485,35 @@
       
 
       
-        <h3 id="CNN的来源"><a href="#CNN的来源" class="headerlink" title="CNN的来源"></a>CNN的来源</h3><blockquote>
-<p>CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。</p>
-</blockquote>
+        <p>神经网络算法( <code>Neural Network</code> )是机器学习中非常非常重要的算法。它 以人脑中的神经网络为启发，是整个深度学习的核心算法。深度学习就是根据神经网络算法进行的一个延伸。</p>
 <a id="more"></a>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>神经网络是受神经元启发的，对于神经元的研究由来已久，1904年生物学家就已经知晓了神经元的组成结构。一个神经元通常具有多个<code>树突</code>，主要用来接受传入信息；而<code>轴突</code>只有一条，轴突尾端有许多<code>轴突末梢</code>可以给其他多个神经元传递信息。轴突末梢跟其他神经元的树突产生连接，从而传递信号。这个连接的位置在生物学上叫做“<code>突触</code>”。<br><img src="/机器学习/2019-3-10-机器学习方法之NN/1.png" alt=""></p>
 <blockquote>
-<p>一方面减少了的权值的数量使得网络易于优化，另一方面降低了过拟合的风险。CNN是神经网络中的一种，它的权值共享网络结构使之更类似于生物神经网络，降低了网络模型的复杂度，减少了权值的数量。</p>
+<ol>
+<li>1949年心理学家Hebb提出了Hebb学习率，认为人脑神经细胞的突触（也就是连接）上的强度上可以变化的。于是计算科学家们开始考虑用<code>调整权值</code>的方法来让机器学习。这为后面的学习算法奠定了基础。</li>
+<li>1958年，计算科学家Rosenblatt提出了由两层神经元组成的神经网络。他给它起了一个名字–<code>感知器（ Perceptron ）</code>。</li>
+<li>1986年，Rumelhar和Hinton等人提出了<code>反向传播（ Backpropagation ，BP）</code>算法，这是最著名的一个神经网络算法。</li>
+</ol>
 </blockquote>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><p>多层神经网咯主要由三部分组成：输入层(<code>input layer</code>), 隐藏层 (<code>hidden layers</code>), 输入层 (<code>output layers</code>)。</p>
+<p><img src="/机器学习/2019-3-10-机器学习方法之NN/2.png" alt=""><br>每层由单元(units)组成， 输入层(<code>input layer</code>)是由训练集的实例特征向量传入，经过连接结点的权重(<code>weight</code>)传入下一层，一层的输出是下一层的输入。 隐藏层(<code>hidden layers</code>)的个数可以是任意的，输入层有一层，输出层(<code>output layers</code>)有一层。每个单元(unit)也可以被称作神经结点。上图为2层的神经网络（<strong>一般输入层不算</strong>）。<br>一层中加权的求和，然后根据非线性方程转化输出。作为多层向前神经网络，<strong>理论上</strong>，如果有足够多的隐藏层(hidden layers) 和足够大的训练集, 可以<strong>模拟出任何方程</strong>。<br>神经网络可以用来解决分类(<code>classification</code>）问题，也可以解决回归( <code>regression</code> )问题。</p>
+<p><font size="4"><strong>单层到多层的神经网络</strong></font><br>由两层神经网络构成了单层神经网络，它还有个别名——— <code>感知机（Perceptron）</code>。</p>
+<p><img src="/机器学习/2019-3-10-机器学习方法之NN/3.png" alt=""><br>上图中，有3个输入，连接线的权值分别是 <code>w1</code>, <code>w2</code>, <code>w3</code>。将输入与权值进行乘积然后求和，作为 <code>z</code>单元的输入，如果 z 单元是函数 <code>g</code> ，那么就有 <code>z = g(a1 * w1 + a2 * w2 + a3 * w3)</code> 。</p>
+<p>单层神经网络的扩展(<strong>2个z单元</strong>)，也是一样的计算方式：</p>
+<p><img src="/机器学习/2019-3-10-机器学习方法之NN/4.png" alt=""></p>
+<p>在多层神经网络中，只不过是将输出作为下一层的输入，一样是乘以权重然后求和：</p>
+<p><img src="/机器学习/2019-3-10-机器学习方法之NN/5.png" alt=""></p>
+<h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><p>在使用神经网络训练数据之前，必须确定神经网络的层数以及每层单元的个数。特征向量在被传入输入层时通常被先标准化(<code>normalize</code>）到0和1之间 （<strong>为了加速学习过程</strong>）。<br><strong>离散型变量可以被编码成每一个输入单元对应一个特征值可能赋的值</strong><br>例如：特征值A可能取三个值（$a_0, a_1, a_2$), 可以使用3个输入单元来代表A。</p>
 <blockquote>
-<p>权重共享：在卷积神经网络中，卷积层的每一个卷积滤波器重复的作用于整个感受野中，对输入图像进行卷积，卷积结果构成了输入图像的特征图，提取出图像的局部特征。每一个卷积滤波器共享相同的参数，包括相同的权重矩阵和偏置项。共享权重的好处是在对图像进行特征提取时不用考虑局部特征的位置。而且权重共享提供了一种有效的方式，使要学习的卷积神经网络模型参数数量大大降低。</p>
+<ol>
+<li>如果$A=a_0$, 那么代表$a_0$的单元值就取1，其他取0，[1, 0, 0]</li>
+<li>如果$A=a_1$, 那么代表$a_1$的单元值就取1，其他取0，[0, 1, 0]</li>
+<li>如果$A=a_2$, 那么代表$a_2$的单元值就取1，其他取0，[0, 0, 1]</li>
+</ol>
 </blockquote>
-<h3 id="CNN的网络架构"><a href="#CNN的网络架构" class="headerlink" title="CNN的网络架构"></a>CNN的网络架构</h3><blockquote>
-<p>卷积神经网络结构包括：卷积层，降采样层，全链接层。每一层有多个特征图，每个特征图通过一种卷积滤波器提取输入的一种特征，每个特征图有多个神经元。</p>
-</blockquote>
-<h4 id="卷积层（Conv）"><a href="#卷积层（Conv）" class="headerlink" title="卷积层（Conv）"></a>卷积层（Conv）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png" alt="示例图片"></p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv2.png" alt="示例图片"></p>
-<blockquote>
-<p>再举一个卷积过程的例子如下：我们有下面这个绿色的5<em>5输入矩阵，卷积核是一个下面这个黄色的3</em>3矩阵。卷积的步幅是一个像素。则卷积的过程如下面的动图。卷积的结果是一个3*3的矩阵。</p>
-</blockquote>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv3.png" alt="示例图片"></p>
-<blockquote>
-<p>上面举的例子都是二维的输入，卷积的过程比较简单，那么如果输入是多维的呢？比如在前面一组卷积层+池化层的输出是3个矩阵，这3个矩阵作为输入呢，那么我们怎么去卷积呢？又比如输入的是对应RGB的彩色图像，即是三个分布对应R，G和B的矩阵呢？</p>
-</blockquote>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv5.png" alt="示例图片"></p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv6.png" alt="示例图片"></p>
-<h4 id="卷积层（Pooling）"><a href="#卷积层（Pooling）" class="headerlink" title="卷积层（Pooling）"></a>卷积层（Pooling）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv7.png" alt="示例图片"></p>
-<h4 id="全连接层（Full-Connecting）"><a href="#全连接层（Full-Connecting）" class="headerlink" title="全连接层（Full Connecting）"></a>全连接层（Full Connecting）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv8.png" alt="示例图片"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv9.png" alt="示例图片"></p>
-<h4 id="一般CNN的结构依次为"><a href="#一般CNN的结构依次为" class="headerlink" title="一般CNN的结构依次为"></a>一般CNN的结构依次为</h4><p>1、 input<br>2、 ((conv–&gt;relu)<em>N–&gt;pool?)</em>M<br>3、 (fc–&gt;relu)*K<br>4、 fc</p>
-<h4 id="卷积神经网络的训练算法"><a href="#卷积神经网络的训练算法" class="headerlink" title="卷积神经网络的训练算法"></a>卷积神经网络的训练算法</h4><ul>
-<li>与一般的机器学习算法相比，先定义Loss function,衡量和实际结果之间的差距；</li>
-<li>找到最小化损失函数的W（权重）和b（偏置），CNN里面最常见的算法为SGD（随机梯度下降）。</li>
-</ul>
-<h4 id="卷积神经网络的优缺点"><a href="#卷积神经网络的优缺点" class="headerlink" title="卷积神经网络的优缺点"></a>卷积神经网络的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
-<li>共享卷积核，便于处理高维数据；</li>
-<li>不像机器学习人为提取特征，网络训练权重自动提取特征，且分类效果好。</li>
-</ul>
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
-<li><p>需要大量训练样本和好的硬件支持（GPU、TPU…）;</p>
-</li>
-<li><p>物理含义模糊（神经网络是一种难以解释的“黑箱模型”，我们并不知道卷积层到底提取的是什么特征）。</p>
-</li>
-</ul>
-<h4 id="卷积神经网络的典型结构"><a href="#卷积神经网络的典型结构" class="headerlink" title="卷积神经网络的典型结构"></a>卷积神经网络的典型结构</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv10.png" alt="示例图片"></p>
-<h3 id="实战演练"><a href="#实战演练" class="headerlink" title="实战演练"></a>实战演练</h3><h4 id="猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"><a href="#猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型" class="headerlink" title="猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"></a>猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型</h4><blockquote>
-<p>训练集（共25000张图片，猫狗各12500张）<br>测试集（共3000张图片，猫狗各1500张） </p>
-</blockquote>
-<p>我们通过Tensorflow这个深度学习框架来构建我们的分类网络。通过其自带的可视化工具Tensorboard我们可以看到网络的详细结构，如下左图所示。<br>模型训练完成后，我们用测试集来测试模型的泛化能力，输入一张测试图片，导入模型，输出分类结果，示例见下右图。</p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv11.png" alt="示例图片"></p>
+<p>对于分类问题，如果是2类，可以用一个输出单元表示（0和1分别代表2类）。如果多余2类，每一个类别用一个输出单元表示，所以输入层的单元数量通常等于类别的数量。<br>一般没有明确的规则来设计最好有多少个隐藏层，通常是根据实验测试和误差，以及准确度来实验并做出改进。</p>
+<h3 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h3><p>模型训练结束后，如何来衡量我们模型的泛化能力（<strong>测试集上准确率</strong>）呢？常见的方法是将数据集分为两类，训练集和测试集，利用测试集的数据将模型的预测结果与真实测试标签作对比，得出准确度。下面介绍另一个常用但更科学的方法———<strong>交叉验证方法</strong><code>( Cross-Validation )</code>。<br><img src="/机器学习/2019-3-10-机器学习方法之NN/6.png" alt=""><br>这个方法不局限于将数据集分成两份。如上图所示，我们可以将原始数据集分成 k 份。第一次用第一份作为训练集，其余作为测试集，得出这一部分的准确度 ( evaluation )。第二次再用第二份作为训练集，其余作为测试集，得出这第二部分的准确度。以此类推，最后取各部分准确度的平均值作为最终的模型衡量指标。</p>
+<h3 id="BP算法"><a href="#BP算法" class="headerlink" title="BP算法"></a>BP算法</h3><p><strong>BP</strong> 算法 (<code>BackPropagation</code> )是多层神经网络的训练一个核心的算法。目的是更新每个连接点的权重，从而减小预测值(<code>predicted value</code> )与真实值 ( <code>target value</code> )之间的差距。输入一条训练数据就会更新一次权重，反方向（<strong>从输出层=&gt;隐藏层=&gt;输入层</strong>）来以最小化误差（<code>error</code>）来更新权重（<code>weitht</code>）。<br>在训练神经网络之前，需要初始化权重(<code>weights</code> )和偏向( <code>bias</code> )，初始化是随机值， -1 到 1 之间或者-0.5到0.5之间，每个单元有一个偏向。</p>
 
       
     </div>
@@ -590,7 +567,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/" title="深度学习的常见模型（CNN）">https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/</a>
+      <a href="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/" title="机器学习方法之神经网络（NN）">https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -608,9 +585,7 @@
           
             <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
           
-            <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
-          
-            <a href="/tags/CNN-model/" rel="tag"><i class="fa fa-tag"></i> CNN model</a>
+            <a href="/tags/neural-network/" rel="tag"><i class="fa fa-tag"></i> neural network</a>
           
         </div>
       
@@ -623,8 +598,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/深度学习/2019-1-14-深度学习发展/" rel="next" title="深度学习的发展">
-                <i class="fa fa-chevron-left"></i> 深度学习的发展
+              <a href="/机器学习/2019-3-8-机器学习方法之SVM/" rel="next" title="机器学习方法之SVM">
+                <i class="fa fa-chevron-left"></i> 机器学习方法之SVM
               </a>
             
           </div>
@@ -632,10 +607,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/深度学习/2019-2-20-深度学习的常见模型-GAN/" rel="prev" title="深度学习的常见模型（GAN）">
-                深度学习的常见模型（GAN） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -832,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的来源"><span class="nav-number">1.</span> <span class="nav-text">CNN的来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的网络架构"><span class="nav-number">2.</span> <span class="nav-text">CNN的网络架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积层（Conv）"><span class="nav-number">2.1.</span> <span class="nav-text">卷积层（Conv）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积层（Pooling）"><span class="nav-number">2.2.</span> <span class="nav-text">卷积层（Pooling）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全连接层（Full-Connecting）"><span class="nav-number">2.3.</span> <span class="nav-text">全连接层（Full Connecting）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般CNN的结构依次为"><span class="nav-number">3.1.</span> <span class="nav-text">一般CNN的结构依次为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的训练算法"><span class="nav-number">3.2.</span> <span class="nav-text">卷积神经网络的训练算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的优缺点"><span class="nav-number">3.3.</span> <span class="nav-text">卷积神经网络的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-number">3.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">3.3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的典型结构"><span class="nav-number">3.4.</span> <span class="nav-text">卷积神经网络的典型结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战演练"><span class="nav-number">4.</span> <span class="nav-text">实战演练</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"><span class="nav-number">4.1.</span> <span class="nav-text">猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成"><span class="nav-number">2.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计"><span class="nav-number">3.</span> <span class="nav-text">设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉验证"><span class="nav-number">4.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BP算法"><span class="nav-number">5.</span> <span class="nav-text">BP算法</span></a></li></ol></div>
             
 
           </div>
@@ -1172,6 +1143,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

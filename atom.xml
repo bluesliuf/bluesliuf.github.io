@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-09T09:10:51.842Z</updated>
+  <updated>2019-03-10T09:42:13.483Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习方法之神经网络（NN）</title>
+    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-10-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E4%B9%8BNN/"/>
+    <id>https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/</id>
+    <published>2019-03-10T08:17:36.000Z</published>
+    <updated>2019-03-10T09:42:13.483Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;神经网络算法( &lt;code&gt;Neural Network&lt;/code&gt; )是机器学习中非常非常重要的算法。它 以人脑中的神经网络为启发，是整个深度学习的核心算法。深度学习就是根据神经网络算法进行的一个延伸。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="neural network" scheme="https://liufan.vip/tags/neural-network/"/>
+    
+  </entry>
   
   <entry>
     <title>机器学习方法之SVM</title>
