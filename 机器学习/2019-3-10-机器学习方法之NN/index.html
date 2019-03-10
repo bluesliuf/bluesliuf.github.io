@@ -115,7 +115,14 @@
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/4.png">
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/5.png">
 <meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/6.png">
-<meta property="og:updated_time" content="2019-03-10T09:42:13.483Z">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/2.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/7.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/8.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/9.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/10.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/11.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-10-机器学习方法之NN/12.png">
+<meta property="og:updated_time" content="2019-03-10T13:19:14.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习方法之神经网络（NN）">
 <meta name="twitter:description" content="神经网络算法( Neural Network )是机器学习中非常非常重要的算法。它 以人脑中的神经网络为启发，是整个深度学习的核心算法。深度学习就是根据神经网络算法进行的一个延伸。">
@@ -396,7 +403,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T17:42:13+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-10T21:19:14+08:00">
                 2019-03-10
               </time>
             
@@ -450,7 +457,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  2.2k
                 </span>
               
 
@@ -466,7 +473,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5
+                  8
                 </span>
               
             </div>
@@ -514,6 +521,39 @@
 <p>对于分类问题，如果是2类，可以用一个输出单元表示（0和1分别代表2类）。如果多余2类，每一个类别用一个输出单元表示，所以输入层的单元数量通常等于类别的数量。<br>一般没有明确的规则来设计最好有多少个隐藏层，通常是根据实验测试和误差，以及准确度来实验并做出改进。</p>
 <h3 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h3><p>模型训练结束后，如何来衡量我们模型的泛化能力（<strong>测试集上准确率</strong>）呢？常见的方法是将数据集分为两类，训练集和测试集，利用测试集的数据将模型的预测结果与真实测试标签作对比，得出准确度。下面介绍另一个常用但更科学的方法———<strong>交叉验证方法</strong><code>( Cross-Validation )</code>。<br><img src="/机器学习/2019-3-10-机器学习方法之NN/6.png" alt=""><br>这个方法不局限于将数据集分成两份。如上图所示，我们可以将原始数据集分成 k 份。第一次用第一份作为训练集，其余作为测试集，得出这一部分的准确度 ( evaluation )。第二次再用第二份作为训练集，其余作为测试集，得出这第二部分的准确度。以此类推，最后取各部分准确度的平均值作为最终的模型衡量指标。</p>
 <h3 id="BP算法"><a href="#BP算法" class="headerlink" title="BP算法"></a>BP算法</h3><p><strong>BP</strong> 算法 (<code>BackPropagation</code> )是多层神经网络的训练一个核心的算法。目的是更新每个连接点的权重，从而减小预测值(<code>predicted value</code> )与真实值 ( <code>target value</code> )之间的差距。输入一条训练数据就会更新一次权重，反方向（<strong>从输出层=&gt;隐藏层=&gt;输入层</strong>）来以最小化误差（<code>error</code>）来更新权重（<code>weitht</code>）。<br>在训练神经网络之前，需要初始化权重(<code>weights</code> )和偏向( <code>bias</code> )，初始化是随机值， -1 到 1 之间或者-0.5到0.5之间，每个单元有一个偏向。</p>
+<p><strong>BP算法</strong>有2个过程，前向传播和<strong>反向传播</strong>，后者是关键。我们以下图为例，分析<strong>BP算法</strong>的整个过程。</p>
+<p><img src="/机器学习/2019-3-10-机器学习方法之NN/2.png" alt=""></p>
+<h4 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h4><p>利用上一层的输入，得到本层的输入:<br>$$<br>I_j = \sum_{i}w_{i,j}O_{i} + \theta_{j}<br>$$<br>其中$w_{i,j}$表示权重，$O_{j}$表示当前神经单元的值，$\theta_{j}$为当前神经单元的偏置向。$i=0$时，$O_{j}$即为输入单元的值。<br>得到输入值后，神经元要怎么做呢？我们先将单个神经元进行展开如图：</p>
+<p><img src="/机器学习/2019-3-10-机器学习方法之NN/7.png" alt=""><br>隐藏层单元得到值后进行累加求和，然后需要进行一个非线性转化，这个转化在神经网络中称为<strong>激活函数</strong>( <code>Activation function</code> )，这个激活函数是一个 S(<strong>下面会有所介绍</strong>) 函数，图中以 <code>f</code> 表示，它的函数为：<br>$$<br>O_{j} = \frac{1}{1+e^{-I_j}}<br>$$</p>
+<h4 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h4><p>前向传播结束后，我们要计算误差，然后根据<strong>误差</strong>(<code>error</code>)反向传送，更新权重和偏置向。<br><strong>对于输出层的误差：</strong><br>$$<br>Err_{j} = O_{j}(1-O_{j})(T_{j}-O_{j})<br>$$<br>其中$O_{j}$表示预测值，$T_{j}$表示真实值。</p>
+<p><strong>对于隐藏层的误差：</strong><br>$$<br>Err_{j} = O_{j}(1-O_{j})\sum_{k}Err_{k}w_{j,k}<br>$$<br>其中$Err_{k}$为后层单元误差，$w_{j,k}$为当前单元与后层单元的权重值。</p>
+<p><strong>更新权重：</strong><br>$$<br>\Delta w_{i,j} = (l)Err_{j}O_{i}<br>$$</p>
+<p>$$<br>w_{i,j} = w_{i,j} + \Delta w_{i,j}<br>$$<br><strong>更新偏置向：</strong><br>$$<br>\Delta\theta{j} = (l)Err_{j}<br>$$</p>
+<p>$$<br>\theta{j} = \theta_{j} + \Delta\theta_{j}<br>$$<br>上面$（l）$为学习率</p>
+<h4 id="终止条件"><a href="#终止条件" class="headerlink" title="终止条件"></a>终止条件</h4><blockquote>
+<ol>
+<li>权重的更新低于某个阈值，这个阈值是可以人工指定的；</li>
+<li>预测的错误率低于某个阈值；</li>
+<li>达到预设一定的循环次数。</li>
+</ol>
+</blockquote>
+<h4 id="S型函数（sigmod）"><a href="#S型函数（sigmod）" class="headerlink" title="S型函数（sigmod）"></a>S型函数（sigmod）</h4><p>神经元在对权重进行求和后，需要进行一个非线性转化，即作为参数传入激活函数去。这个激活函数是一个 S 型函数(<code>Sigmoid</code>)。S 函数不是指某个函数，而是一类函数,详解可参考 <a href="https://zh.wikipedia.org/wiki/S函数" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/S函数</a> 。下面有两个常见的S 函数：</p>
+<blockquote>
+<ol>
+<li>双曲函数（<code>tanh</code> ）</li>
+<li>逻辑函数（<code>logistic function</code> ）<br><strong>Sigmod函数</strong><br><img src="/机器学习/2019-3-10-机器学习方法之NN/8.png" alt=""><br>S 曲线函数可以将一个数值转为值域在 0 到 1 之间，广义上S 函数是满足y值在某个值域范围内渐变的一条曲线。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>双曲函数（<code>tanh</code>） 双曲函数是一类与常见的三角函数（也叫圆函数）类似的函数。详见<a href="https://zh.wikipedia.org/wiki/双曲函数" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/双曲函数</a> 。<br><img src="/机器学习/2019-3-10-机器学习方法之NN/9.png" alt=""><br>$$<br>tanhx = \frac{sinhx}{coshx}<br>$$<br><strong>导数为</strong><br>$$<br>\frac{d}{dx}tanhx = 1 - tanh^2x =sech^2x = \frac{1}{cosh^2x}<br>$$</p>
+</blockquote>
+<blockquote>
+<p>逻辑函数（<code>logistic function</code> ） 逻辑函数或逻辑曲线是一种常见的S函数，详见<a href="https://zh.wikipedia.org/wiki/逻辑函数" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/逻辑函数</a> 。<br><img src="/机器学习/2019-3-10-机器学习方法之NN/10.png" alt=""><br>一个常见的逻辑函数可以表示如下：<br>$$<br>f(x) = \frac{1}{1 + e^{-x}}<br>$$<br><strong>导数为</strong></p>
+</blockquote>
+<p>$$<br>\frac{d}{dx} = \frac{e^x}{(1+e^x)^2} = f(x)(1 - f(x))<br>$$</p>
+<h4 id="BP算法举例"><a href="#BP算法举例" class="headerlink" title="BP算法举例"></a>BP算法举例</h4><p>假设有一个两层的神经网络，结构，权重和数据集如下：<br><img src="/机器学习/2019-3-10-机器学习方法之NN/11.png" alt=""></p>
+<p>根据上述公式（3）到（8）计算误差和更新权重：<br><img src="/机器学习/2019-3-10-机器学习方法之NN/12.png" alt=""></p>
+<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><p>待续。。。</p>
 
       
     </div>
@@ -803,7 +843,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成"><span class="nav-number">2.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计"><span class="nav-number">3.</span> <span class="nav-text">设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉验证"><span class="nav-number">4.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BP算法"><span class="nav-number">5.</span> <span class="nav-text">BP算法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组成"><span class="nav-number">2.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计"><span class="nav-number">3.</span> <span class="nav-text">设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉验证"><span class="nav-number">4.</span> <span class="nav-text">交叉验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BP算法"><span class="nav-number">5.</span> <span class="nav-text">BP算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前向传播"><span class="nav-number">5.1.</span> <span class="nav-text">前向传播</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反向传播"><span class="nav-number">5.2.</span> <span class="nav-text">反向传播</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#终止条件"><span class="nav-number">5.3.</span> <span class="nav-text">终止条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#S型函数（sigmod）"><span class="nav-number">5.4.</span> <span class="nav-text">S型函数（sigmod）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BP算法举例"><span class="nav-number">5.5.</span> <span class="nav-text">BP算法举例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实例"><span class="nav-number">6.</span> <span class="nav-text">代码实例</span></a></li></ol></div>
             
 
           </div>
