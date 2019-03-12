@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-11T05:14:54.081Z</updated>
+  <updated>2019-03-12T13:17:03.290Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习方法之线性回归（LR）</title>
+    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-12-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E4%B9%8B%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
+    <id>https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/</id>
+    <published>2019-03-12T11:35:45.000Z</published>
+    <updated>2019-03-12T13:17:03.290Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;线性回归&lt;/strong&gt;(&lt;code&gt;linear regression&lt;/code&gt;)是利用数理统计和归回分析，来确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法。与之前的分类问题( &lt;code&gt;Classification&lt;/code&gt; )不一样的是，分类问题的结果是&lt;strong&gt;离散型&lt;/strong&gt;的；而回归问题中的结果是&lt;strong&gt;连续型&lt;/strong&gt;（数值）的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="linear regression" scheme="https://liufan.vip/tags/linear-regression/"/>
+    
+  </entry>
   
   <entry>
     <title>机器学习方法之神经网络（NN）</title>

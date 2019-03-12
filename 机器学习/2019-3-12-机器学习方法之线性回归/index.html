@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="machine learning,deep learning,GAN model,">
+  <meta name="keywords" content="machine learning,linear regression,">
 
 
 
@@ -101,34 +101,27 @@
 
 
 
-<meta name="description" content="GAN的来源 14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。">
-<meta name="keywords" content="machine learning,deep learning,GAN model">
+<meta name="description" content="线性回归(linear regression)是利用数理统计和归回分析，来确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法。与之前的分类问题( Classification )不一样的是，分类问题的结果是离散型的；而回归问题中的结果是连续型（数值）的。">
+<meta name="keywords" content="machine learning,linear regression">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习的常见模型（GAN）">
-<meta property="og:url" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/index.html">
+<meta property="og:title" content="机器学习方法之线性回归（LR）">
+<meta property="og:url" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="GAN的来源 14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。">
+<meta property="og:description" content="线性回归(linear regression)是利用数理统计和归回分析，来确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法。与之前的分类问题( Classification )不一样的是，分类问题的结果是离散型的；而回归问题中的结果是连续型（数值）的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/1.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/2.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/3.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/4.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/5.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/6.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/7.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/8.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/9.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/10.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/11.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/12.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/13.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/14.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/15.png">
-<meta property="og:updated_time" content="2019-02-25T08:46:58.153Z">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/1.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/2.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/3.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/4.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/5.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/6.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/7.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/8.png">
+<meta property="og:updated_time" content="2019-03-12T13:17:03.290Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习的常见模型（GAN）">
-<meta name="twitter:description" content="GAN的来源 14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。">
-<meta name="twitter:image" content="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/1.png">
+<meta name="twitter:title" content="机器学习方法之线性回归（LR）">
+<meta name="twitter:description" content="线性回归(linear regression)是利用数理统计和归回分析，来确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法。与之前的分类问题( Classification )不一样的是，分类问题的结果是离散型的；而回归问题中的结果是连续型（数值）的。">
+<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/1.png">
 
 
 
@@ -156,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/">
+  <link rel="canonical" href="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/">
 
 
 
 
 
-  <title> 深度学习的常见模型（GAN） | Bluesliuf </title>
+  <title> 机器学习方法之线性回归（LR） | Bluesliuf </title>
 </head>
 
 
@@ -352,8 +345,8 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/">
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -374,7 +367,7 @@
             
             
               
-                深度学习的常见模型（GAN）
+                机器学习方法之线性回归（LR）
               
             
           </h1>
@@ -389,8 +382,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T00:00:00+08:00">
-                2019-02-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-12T19:35:45+08:00">
+                2019-03-12
               </time>
             
 
@@ -405,8 +398,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T16:46:58+08:00">
-                2019-02-25
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-12T21:17:03+08:00">
+                2019-03-12
               </time>
             
           </span>
@@ -424,8 +417,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -459,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  1.5k
                 </span>
               
 
@@ -494,74 +487,49 @@
       
 
       
-        <h3 id="GAN的来源"><a href="#GAN的来源" class="headerlink" title="GAN的来源"></a>GAN的来源</h3><blockquote>
-<p>14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。</p>
-</blockquote>
+        <p><strong>线性回归</strong>(<code>linear regression</code>)是利用数理统计和归回分析，来确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法。与之前的分类问题( <code>Classification</code> )不一样的是，分类问题的结果是<strong>离散型</strong>的；而回归问题中的结果是<strong>连续型</strong>（数值）的。</p>
 <a id="more"></a>
+<h3 id="数据特征"><a href="#数据特征" class="headerlink" title="数据特征"></a>数据特征</h3><p>数理统计中，常用的描述数据特征的有：</p>
 <blockquote>
-<p>GANs简单的想法就是用两个模型，<font color="#FF0000"> 一个生成模型，一个判别模型。</font>判别模型用于判断一个给定的图片是不是真实的图片（从数据集里获取的图片），生成模型的任务是去创造一个看起来像真的图片一样的图片，有点拗口，就是说模型自己去产生一个图片，可以和你想要的图片很像。而在开始的时候这两个模型都是没有经过训练的，<font color="#FF0000">这两个模型一起对抗训练，生成模型产生一张图片去欺骗判别模型，然后判别模型去判断这张图片是真是假</font>，最终在这两个模型训练的过程中，两个模型的能力越来越强，最终达到稳态。</p>
+<ol>
+<li><strong>均值（mean）：</strong>又称平均数或平均值，是计算样本中算术平均数：<br>$$<br>\overline{x} = \frac{\sum_{i=1}^{n}x_i}{n}<br>$$</li>
+<li><p><strong>中位数（median）：</strong>将数据中的各个数值按照大小顺序排列，居于中间位置的变量。当n为基数的时候：直接取位置处于中间的变量；当n为偶数的时候，取中间两个量的平均值。</p>
+</li>
+<li><p><strong>众数（mode）：</strong>数据中出现次数最多的数。</p>
+</li>
+<li><p><strong>方差( variance )：</strong>一种描述离散程度的衡量方式：</p>
+</li>
+</ol>
 </blockquote>
-<h3 id="GAN的基本组成"><a href="#GAN的基本组成" class="headerlink" title="GAN的基本组成"></a>GAN的基本组成</h3><blockquote>
-<p>GAN 模型中的两位博弈方分别由<font color="#FF0000">生成式模型</font>（generative model）和<font color="#FF0000">判别式模型</font>（discriminative model）充当。</p>
-</blockquote>
+<p>$$<br>s^2 = \frac{\sum_{i=1}^{n}(x_{i}-\overline{x})^2}{n-1}<br>$$</p>
 <blockquote>
-<blockquote>
-<p>生成模型： G 捕捉样本数据的分布，用服从某一分布（均匀分布，高斯分布等）的噪声 z 生成一个类似真实训练数据的样本，追求效果是越像真实样本越好；</p>
+<ol start="5">
+<li><strong>标准差 （standard deviation） :</strong>将方差$s^2​$开方就能得到标准差。</li>
+</ol>
 </blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>判别模型: D 是一个二分类器，估计一个样本来自于训练数据（而非生成数据）的概率，如果样本来自于真实的训练数据，D 输出大概率，否则，D 输出小概率。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>可以做如下类比：生成网络 G 好比假币制造团伙，专门制造假币，判别网络 D 好比警察，专门检测使用的货币是真币还是假币，G 的目标是想方设法生成和真币一样的货币，使得 D 判别不出来，D 的目标是想方设法检测出来 G 生成的假币。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/1.png" alt="示例图片"><br>上图是GAN网络的思想导图，我们用1代表真实数据，0来代表生成的假数据。对于判别器D来说，对于真实数据，它要尽可能判别正确输出值1；而对于生成器G，根据随机噪音向量z生成假数据也输入判别器D，对于这些假数据，判别器要尽可能输出值0。</p>
-</blockquote>
-<p>GAN的训练过程可以看成一个博弈的过程，也可以看成2个人在玩一个极大极小值游戏，可以用如下公式表示：</p>
-<blockquote>
-<p>$$<br>\min \limits_{G}\max\limits_{D}GAN(D,G)=E_{x\sim P_{data}(x)}[logD(x)]+E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$<br>其本质上是两个优化问题，把拆解就如同下面两个公式：</p>
-<blockquote>
-<p>优化D：<br>$$<br>\max\limits_{D}GAN(D,G)=E_{x\sim P_{data}(x)}[logD(x)]+E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$<br>优化G：<br>$$<br>\min\limits_{G}GAN(D,G)=E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>当优化D时，生成器确定,我们要让判别器尽可能输出高的值，所以要最大化公式(2)的值；当优化G的时候，判别器确定，我们要使判别器判断错误，尽可能使D(G(z))的值更大，所以要最小化公式(3)的值。</p>
-</blockquote>
-</blockquote>
-<h3 id="GAN的训练过程"><a href="#GAN的训练过程" class="headerlink" title="GAN的训练过程"></a>GAN的训练过程</h3><blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/2.png" alt="示例图片"><br>上图是GAN的训练过程，解析见图中右边文字。</p>
-</blockquote>
-<p>GAN的算法流程和动态求解过程如下图所示：</p>
-<blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/3.png" alt="示例图片"><br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/4.png" alt="示例图片"><br>一开始我们确定G，最大化D，让点沿着D变大的方向移动(红色箭头)，然后我们确定D，最小化G，让点沿着G变小的方向移动(蓝色箭头)。循环上述若干步后，达到期望的鞍点(理想最优解)。</p>
-</blockquote>
-<h3 id="GAN的网络结构"><a href="#GAN的网络结构" class="headerlink" title="GAN的网络结构"></a>GAN的网络结构</h3><h4 id="判别器-卷积"><a href="#判别器-卷积" class="headerlink" title="判别器(卷积)"></a><font color="#FF0000">判别器(卷积)</font></h4><blockquote>
-<p>卷积层大家应该都很熟悉了,为了方便说明，定义如下：</p>
-<blockquote>
-<p>二维的离散卷积（N=2）<br>方形的特征输入（i1=i2=i）<br>方形的卷积核尺寸（k1=k2=k ）<br>每个维度相同的步长（s1=s2=s）<br>每个维度相同的padding (p1=p2=p)<br>下图(左)表示参数为 (i=5,k=3,s=2,p=1)的卷积计算过程，从计算结果可以看出输出特征的尺寸为 (o1=o2=o=3)；下图(右)表示参为 (i=6,k=3,s=2,p=1)的卷积计算过程，从计算结果可以看出输出特征的尺寸为 (o1=o2=o=3)。</p>
-<blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/5.png" alt="示例图片"><br>从上述2个例子我们可以总结出卷积层输入特征和输出特征尺寸和卷积核参数的关系为：<br>$$<br>o=\lfloor\frac{i+2p-k}{s}\rfloor+1<br>$$</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h4 id="生成器-反卷积"><a href="#生成器-反卷积" class="headerlink" title="生成器(反卷积)"></a><font color="#FF0000">生成器(反卷积)</font></h4><blockquote>
-<p>在介绍反卷积之前，我们先来看一下卷积运算和矩阵运算之间的关系。例有如下运算(i=4,k=3,s=1,p=0)，输出为o=2。</p>
-<blockquote>
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/6.png" alt="示例图片"><br>通过上述的分析，我们已经知道卷积层的前向操作可以表示为和矩阵C相乘，那么<font color="#FF0000">我们很容易得到卷积层的反向传播就是和C的转置相乘。</font></p>
-</blockquote>
-</blockquote>
-<font color="#FF00000">反卷积和卷积的关系如下：</font><br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/7.png" alt="示例图片"><br> 右上图表示的是参数为( i′=2,k′=3,s′=1,p′=2)的反卷积操作，其对应的卷积操作参数为 (i=4,k=3,s=1,p=0)。我们可以发现对应的卷积和非卷积操作其 (k=k′,s=s′)，但是反卷积却多了p′=2。通过对比我们可以发现卷积层中左上角的输入只对左上角的输出有贡献，所以反卷积层会出现 p′=k−p−1=2。通过示意图，我们可以发现，反卷积层的输入输出在 s=s′=1的情况下关系为：<br>$$<br>o′=i′-k′+2p′+1=i′+(k-1)-2p<br>$$<br><br><font color="#FF00000" size="4">GAN的优点</font><br> ●GAN是一种生成式模型，相比较其他生成模型（玻尔兹曼机和GSNs）只用到了反向传播<br> ●相比其他所有模型, GAN可以产生更加清晰，真实的样本<br> ●GAN采用的是一种无监督的学习方式训练，可以被广泛用在无监督学习和半监督学习领域<br><br><font color="#FF00000" size="4">GAN的缺点</font><br>●训练GAN需要达到纳什均衡,有时候可以用梯度下降法做到,有时候做不到.我们还没有找到很好的达到纳什均衡的方法,所以训练GAN相比VAE或者PixelRNN是不稳定的<br>●GAN不适合处理离散形式的数据，比如文本<br>●GAN存在训练不稳定、梯度消失、模式崩溃的问题<br><br><font color="#FF00000" size="4">实例DCGAN网络</font><br><font color="#FF00000" size="4">网络结构 (判别器)</font><br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/8.png" alt="示例图片"><br><br><font color="#FF00000" size="4">网络结构 (生成器)</font><br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/9.png" alt="示例图片"><br><br><font color="#FF00000" size="4"> 二次元动漫人脸（共50个epoch）</font><br>数据集：51223张动漫人脸<br> <img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/10.png" alt="示例图片"><br>图左为原始数据集，图右为训练过程<br><br><font color="#FF0000">训练过程生成效果图如下：</font>
+<h3 id="简单线性回归"><a href="#简单线性回归" class="headerlink" title="简单线性回归"></a>简单线性回归</h3><h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p><strong>简单线性回归</strong>(<code>Simple Linear Regression</code> ),，也就是一元线性回归，包含一个<strong>自变量</strong><code>x</code> 和一个<strong>因变量</strong><code>y</code> 。常被用来描述因变量(y)和自变量(X)以及偏差(error)之间关系的方程叫做回归模型，这个模型是：<br>$$<br>y = \beta_0 + \beta_1x + \epsilon<br>$$<br>其中偏差 $\epsilon$ 满足正态分布的。因此它的期望值是 0 。 $\epsilon$ 的方差(variance)对于所有的自变量 x 是一样的。</p>
+<p>等式两边求期望可得：</p>
+<p>$$<br>E(y) = \beta_0 + \beta_1x<br>$$<br>其中，β0 是回归线的截距，β1 是回归线的斜率，E(y) 是在一个给定 x 值下 y 的期望值（均值）。</p>
+<p>假设我们的估值函数（注意，是估计函数）:<br>$$<br>\widehat{y} = b_0 + b_1x<br>$$<br>b0是估计线性方程的纵截距，b1是估计线性方程的斜率，ŷ是在自变量x等于一个给定值的时候，y的估计值。b0和b1是对β0和β1的估计值。</p>
+<font size="4"><strong>线性回归的分析流程</strong></font>
 
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/11.png" alt="示例图片"><br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/12.png" alt="示例图片"></p>
-<font color="#FF00000" size="4"> 真实人脸（共100个epoch）</font><br>数据集：CelebA 是香港中文大学的开放数据集，包含10,177个名人身份的202,599张人脸图片。（选取了25600张）,数据集如下：<br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/13.png" alt="示例图片"><br><br><font color="#FF0000">训练过程生成效果图如下：</font>
+<p><img src="/机器学习/2019-3-12-机器学习方法之线性回归/1.png" alt=""></p>
+<font size="4"><strong>如何寻找最佳回归线</strong></font>
 
-<p><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/14.png" alt="示例图片"><br><img src="/深度学习/2019-2-20-深度学习的常见模型-GAN/15.png" alt="示例图片"> </p>
+<p><img src="/机器学习/2019-3-12-机器学习方法之线性回归/2.png" alt=""><br>寻找的回归方程，要求与真实值的离散程度是最小的：</p>
+<p>$$<br>min\sum_{i=0}^{n}(y_{i}-\widehat {y})^2<br>$$<br>$$<br>b_1 = \frac{\sum(x_{i}-\overline{x})(y_{i}-\overline{y})}{\sum(x_{i}-\overline{x})^2}<br>$$<br>$$<br>b_0 = \overline{y} - b_1\overline{x}<br>$$</p>
+<p>上面方法类似于数值分析中的最小二乘法，详细推导可见<a href="https://zh.wikipedia.org/wiki/最小二乘法" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/最小二乘法</a></p>
+<h4 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#简单现行回归：只有一个自变量 y=k*x+b 预测使 (y-y*)^2  最小</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">SLR</span><span class="params">(x:list,y:list)</span>:</span></span><br><span class="line">    n =len(x)</span><br><span class="line">    fenzi = <span class="number">0</span></span><br><span class="line">    fenmu = <span class="number">0</span></span><br><span class="line">    <span class="comment">#按照上面推导的公式计算出估计回归方程中的b0，b1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        fenzi += (x[i]-np.mean(x)) * (y[i]-np.mean(y))</span><br><span class="line">        fenmu += (x[i]-np.mean(x)) **<span class="number">2</span></span><br><span class="line">    <span class="comment">#print("fenzi: " + str(fenzi))</span></span><br><span class="line">    <span class="comment">#print("fenmu: " + str(fenmu))</span></span><br><span class="line">    b1 = fenzi/fenmu  <span class="comment"># 斜率</span></span><br><span class="line">    b0 = np.mean(y) - b1 * np.mean(x) <span class="comment"># 截距</span></span><br><span class="line">    <span class="keyword">return</span> b0,b1</span><br><span class="line"></span><br><span class="line"><span class="comment">#测试</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(x,b0,b1)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> b0 + b1*x</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    x = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line">    y = [<span class="number">14</span>,<span class="number">24</span>,<span class="number">18</span>,<span class="number">17</span>,<span class="number">27</span>]</span><br><span class="line">    b0,b1 = SLR(x,y)</span><br><span class="line">    y_predict = predict(<span class="number">6</span>,b0,b1)</span><br><span class="line">    print(<span class="string">"y_predict: "</span> + str(y_predict))</span><br></pre></td></tr></table></figure>
+<h3 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h3><h4 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h4><p>当自变量有多个时，回归模型就变成了:</p>
+<p>$$<br>E(y) = \beta0 + \beta_1x_1 +…+\beta_nx_n<br>$$<br>估值函数的自变量也变多：<br>$$<br>\widehat {y} = b_0 + b_1x_1+ b_2x_2+…+b_nx_n<br>$$<br>令矩阵：<br><img src="/机器学习/2019-3-12-机器学习方法之线性回归/3.png" alt=""><br>函数可以转换为：<br>$$<br>h(x) = B^TX<br>$$<br>如果有训练数据:<br>$$<br>D = (x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),…, (x^{(m)},y^{(m)}),<br>$$<br>损失函数( <code>cost function</code> )，寻找的目标函数应该尽可能让损失函数小，这个损失函数为：<br>$$<br>J(B) = \frac{1}{2m}\sum_{i=1}^{m}(h(x^{(i)})-y^{(i)})^2 = \frac{1}{2m}(XB-y)^T(XB-y)<br>$$<br>目的就是求解出一个使得代价(损失)函数最小的 B。</p>
+<p><font size="4"><strong>利用梯度下降求解估值函数</strong></font><br>梯度下降算法是一种求<strong>局部最优解</strong>的方法，详见<a href="https://www.cnblogs.com/pinard/p/5970503.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinard/p/5970503.html</a> ，今后的博客也会详细介绍。B 由多个元素组成，对于损失函数可以求偏导如下：</p>
+<p>$$<br>\frac{\partial}{\partial{B_j}} = \frac{1}{m}\sum_{i=1}^{m}(h(x^{(i)})-y^{(i)})x_{j}^{(i)}<br>$$<br>更新B：<br>$$<br>B_{j} = B_{j} - \alpha\frac{\partial}{\partial{B_j}}J(B)<br>$$<br>其中<code>α</code> 表示学习率，决定了在梯度下降迭代的过程中，每一步沿梯度负方向前进的长度。</p>
+<p><font size="4"><strong>最小二乘法求解估值函数</strong></font><br>多元多项式的情况一样可以利用最小二乘法来进行求解，将<code>m</code>条数据都带入估值函数可以得到线性方程组:<br><img src="/机器学习/2019-3-12-机器学习方法之线性回归/4.png" alt=""><br>向量化后可以表示为：<br><img src="/机器学习/2019-3-12-机器学习方法之线性回归/5.png" alt=""><br>我们要让<br>$$<br>\sum_{i=1}^{m} = (y_i-\widehat{y})^2<br>$$<br>的值最小，则系数矩阵中，各个参数的偏导的值都会0，因此可以得到 n 个等式：<br><img src="/机器学习/2019-3-12-机器学习方法之线性回归/6.png" alt=""><br>得到正规方程组：<br><img src="/机器学习/2019-3-12-机器学习方法之线性回归/7.png" alt=""></p>
+<p>写成矩阵表示为:<br>$$<br>X^TXB = X^TY<br>$$<br>解得：<br>$$<br>B = (X^TX)^{-1}X^TY<br>$$</p>
+<h4 id="代码实例-1"><a href="#代码实例-1" class="headerlink" title="代码实例"></a>代码实例</h4><p>本部分我们会用2种方式实现<strong>多元线性回归</strong>(<code>Multiple Linear Regression</code> )，一种是sklearn库包中自带的方法，一种是我们依据最小二乘法实现的求解方法。<br><strong>应用实例：</strong><br>一家快递公司送货：<code>X1</code>： 运输里程  <code>X2</code>： 运输次数  <code>Y</code>：总运输时间<br>将其数据存储为csv文件如下：<br><img src="/机器学习/2019-3-12-机器学习方法之线性回归/8.png" alt=""></p>
+<p><strong>sklearn实现</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> genfromtxt</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"></span><br><span class="line">datapath = <span class="string">'G:/PycharmProjects/Machine_Learning/Linear_Regression/data1.csv'</span></span><br><span class="line">data = genfromtxt(datapath,delimiter=<span class="string">','</span>)</span><br><span class="line">x = data[:,:<span class="number">-1</span>]</span><br><span class="line">y = data[:,<span class="number">-1</span>]</span><br><span class="line"><span class="comment"># print(x)</span></span><br><span class="line"><span class="comment"># print(y)</span></span><br><span class="line"></span><br><span class="line">mlr = linear_model.LinearRegression()</span><br><span class="line">mlr.fit(x,y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># print (mlr)</span></span><br><span class="line"><span class="comment"># print ("coef: " + str(mlr.coef_) )</span></span><br><span class="line"><span class="comment"># print ("intercept: " + str(mlr.intercept_))</span></span><br><span class="line"></span><br><span class="line">x_predict = [<span class="number">50</span>,<span class="number">3</span>]</span><br><span class="line">y1_predict = mlr.predict([x_predict])</span><br><span class="line">print(<span class="string">"y_predict: "</span> + str(y1_predict))</span><br><span class="line"><span class="comment">#output [4.95830457]</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>最小二乘法实现</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> genfromtxt</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyLinearRegression</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.b = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, x: list, y: list)</span>:</span></span><br><span class="line">        <span class="comment"># 为每条训练数据前都添加 1</span></span><br><span class="line">        tmpx = [[<span class="number">1</span>] <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(x))]</span><br><span class="line">        <span class="keyword">for</span> i, v <span class="keyword">in</span> enumerate(x):</span><br><span class="line">            tmpx[i] += v</span><br><span class="line"></span><br><span class="line">        x_mat = np.mat(tmpx)</span><br><span class="line">        y_mat = np.mat(y).T</span><br><span class="line">        xT = x_mat.T</span><br><span class="line">        self.b = (xT * x_mat).I * xT * y_mat</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> np.mat([<span class="number">1</span>] + x) * self.b</span><br><span class="line"></span><br><span class="line">datapath = <span class="string">'G:/PycharmProjects/Machine_Learning/Linear_Regression/data1.csv'</span></span><br><span class="line">data = genfromtxt(datapath,delimiter=<span class="string">','</span>)</span><br><span class="line">x = data[:,:<span class="number">-1</span>]</span><br><span class="line">y = data[:,<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">test_row = [<span class="number">50</span>, <span class="number">3</span>]</span><br><span class="line">linear = MyLinearRegression()</span><br><span class="line">linear.fit(x, y)</span><br><span class="line">print(linear.predict(test_row))</span><br><span class="line"><span class="comment">#output[ 4.95830457]</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>参考资料</strong><br><a href="https://blog.csdn.net/golden_xuhaifeng/article/details/79610947" target="_blank" rel="noopener">多元线性回归及其优化算法</a><br><a href="http://blog.sina.com.cn/s/blog_13eaccf160102xscv.html" target="_blank" rel="noopener">多元线性回归分析理论详解</a></p>
 
       
     </div>
@@ -615,7 +583,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/" title="深度学习的常见模型（GAN）">https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/</a>
+      <a href="https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/" title="机器学习方法之线性回归（LR）">https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -633,9 +601,7 @@
           
             <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
           
-            <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
-          
-            <a href="/tags/GAN-model/" rel="tag"><i class="fa fa-tag"></i> GAN model</a>
+            <a href="/tags/linear-regression/" rel="tag"><i class="fa fa-tag"></i> linear regression</a>
           
         </div>
       
@@ -648,8 +614,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/深度学习/2019-1-14-深度学习发展/" rel="next" title="深度学习的发展">
-                <i class="fa fa-chevron-left"></i> 深度学习的发展
+              <a href="/机器学习/2019-3-10-机器学习方法之NN/" rel="next" title="机器学习方法之神经网络（NN）">
+                <i class="fa fa-chevron-left"></i> 机器学习方法之神经网络（NN）
               </a>
             
           </div>
@@ -657,10 +623,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Docker容器/2019-2-21-Docker集群使用文档/" rel="prev" title="Docker集群使用文档">
-                Docker集群使用文档 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -857,7 +819,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的来源"><span class="nav-number">1.</span> <span class="nav-text">GAN的来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的基本组成"><span class="nav-number">2.</span> <span class="nav-text">GAN的基本组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的训练过程"><span class="nav-number">3.</span> <span class="nav-text">GAN的训练过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN的网络结构"><span class="nav-number">4.</span> <span class="nav-text">GAN的网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#判别器-卷积"><span class="nav-number">4.1.</span> <span class="nav-text">判别器(卷积)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成器-反卷积"><span class="nav-number">4.2.</span> <span class="nav-text">生成器(反卷积)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据特征"><span class="nav-number">1.</span> <span class="nav-text">数据特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单线性回归"><span class="nav-number">2.</span> <span class="nav-text">简单线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法"><span class="nav-number">2.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实例"><span class="nav-number">2.2.</span> <span class="nav-text">代码实例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多元线性回归"><span class="nav-number">3.</span> <span class="nav-text">多元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法-1"><span class="nav-number">3.1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实例-1"><span class="nav-number">3.2.</span> <span class="nav-text">代码实例</span></a></li></ol></li></ol></div>
             
 
           </div>
