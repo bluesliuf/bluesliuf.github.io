@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-13T08:02:59.131Z</updated>
+  <updated>2019-03-13T13:39:00.863Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>回归中的相关度和决定系数</title>
+    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-13-%E5%9B%9E%E5%BD%92%E4%B8%AD%E7%9A%84%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/"/>
+    <id>https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/</id>
+    <published>2019-03-13T12:55:37.000Z</published>
+    <updated>2019-03-13T13:39:00.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;训练集中可能是有若干维度的特征。但有时并不是所有特征都是有用的，有的特征其实和结果并没有关系。因此需要一个能衡量自变量和因变量之间的相关度。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="Conv&amp;&amp;R" scheme="https://liufan.vip/tags/Conv-R/"/>
+    
+  </entry>
   
   <entry>
     <title>机器学习方法之非线性回归（ Logistic Regression）</title>
@@ -246,32 +268,6 @@
   </entry>
   
   <entry>
-    <title>深度学习的常见模型（CNN）</title>
-    <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B-CNN/"/>
-    <id>https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/</id>
-    <published>2019-01-13T16:00:00.000Z</published>
-    <updated>2019-02-25T08:46:10.814Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;CNN的来源&quot;&gt;&lt;a href=&quot;#CNN的来源&quot; class=&quot;headerlink&quot; title=&quot;CNN的来源&quot;&gt;&lt;/a&gt;CNN的来源&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://liufan.vip/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
-    
-      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
-    
-      <category term="CNN model" scheme="https://liufan.vip/tags/CNN-model/"/>
-    
-  </entry>
-  
-  <entry>
     <title>深度学习的发展</title>
     <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B1%95/"/>
     <id>https://liufan.vip/深度学习/2019-1-14-深度学习发展/</id>
@@ -294,6 +290,32 @@
       <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
     
       <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习的常见模型（CNN）</title>
+    <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B-CNN/"/>
+    <id>https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/</id>
+    <published>2019-01-13T16:00:00.000Z</published>
+    <updated>2019-02-25T08:46:10.814Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;CNN的来源&quot;&gt;&lt;a href=&quot;#CNN的来源&quot; class=&quot;headerlink&quot; title=&quot;CNN的来源&quot;&gt;&lt;/a&gt;CNN的来源&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://liufan.vip/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
+    
+      <category term="CNN model" scheme="https://liufan.vip/tags/CNN-model/"/>
     
   </entry>
   

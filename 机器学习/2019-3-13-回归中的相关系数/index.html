@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="machine learning,Conv&&R,">
 
 
 
@@ -101,16 +101,23 @@
 
 
 
-<meta name="description" content="From Zero to Hero">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bluesliuf">
-<meta property="og:url" content="https://liufan.vip/page/2/index.html">
+<meta name="description" content="训练集中可能是有若干维度的特征。但有时并不是所有特征都是有用的，有的特征其实和结果并没有关系。因此需要一个能衡量自变量和因变量之间的相关度。">
+<meta name="keywords" content="machine learning,Conv&amp;&amp;R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回归中的相关度和决定系数">
+<meta property="og:url" content="https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="From Zero to Hero">
+<meta property="og:description" content="训练集中可能是有若干维度的特征。但有时并不是所有特征都是有用的，有的特征其实和结果并没有关系。因此需要一个能衡量自变量和因变量之间的相关度。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/1.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/2.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/3.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/4.png">
+<meta property="og:updated_time" content="2019-03-13T13:39:00.863Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bluesliuf">
-<meta name="twitter:description" content="From Zero to Hero">
+<meta name="twitter:title" content="回归中的相关度和决定系数">
+<meta name="twitter:description" content="训练集中可能是有若干维度的特征。但有时并不是所有特征都是有用的，有的特征其实和结果并没有关系。因此需要一个能衡量自变量和因变量之间的相关度。">
+<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/1.png">
 
 
 
@@ -138,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/page/2/">
+  <link rel="canonical" href="https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/">
 
 
 
 
 
-  <title> Bluesliuf </title>
+  <title> 回归中的相关度和决定系数 | Bluesliuf </title>
 </head>
 
 
@@ -189,9 +196,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -326,9 +331,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -337,7 +342,7 @@
   
 
   <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/Docker容器/2019-2-21-Docker集群使用文档/">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -358,10 +363,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/Docker容器/2019-2-21-Docker集群使用文档/" itemprop="url">
-                  Docker集群使用文档
-                </a>
+                回归中的相关度和决定系数
               
             
           </h1>
@@ -376,8 +378,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T14:27:31+08:00">
-                2019-02-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-13T20:55:37+08:00">
+                2019-03-13
               </time>
             
 
@@ -392,8 +394,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-08T11:07:47+08:00">
-                2019-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-13T21:39:00+08:00">
+                2019-03-13
               </time>
             
           </span>
@@ -411,8 +413,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Docker容器/" itemprop="url" rel="index">
-                    <span itemprop="name">Docker容器</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -430,207 +432,13 @@
           
 
           
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  3.1k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  11
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="用户管理-管理员权限"><a href="#用户管理-管理员权限" class="headerlink" title="用户管理 (管理员权限)"></a>用户管理<font color="#FF0000"> (管理员权限)</font></h3><h4 id="添加docker用户组"><a href="#添加docker用户组" class="headerlink" title="添加docker用户组:"></a>添加docker用户组:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd -g <span class="number">344</span> docker</span><br></pre></td></tr></table></figure>
-<h4 id="添加用户到用户组："><a href="#添加用户到用户组：" class="headerlink" title="添加用户到用户组："></a>添加用户到用户组：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -a -G 用户组 用户</span><br></pre></td></tr></table></figure>
-<h4 id="从用户组中删除用户"><a href="#从用户组中删除用户" class="headerlink" title="从用户组中删除用户"></a>从用户组中删除用户</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -d 用户 用户组</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Docker容器/2019-2-21-Docker集群使用文档/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-	<div>
-      
-	</div>
-	
-	<div>
-    
-    </div>
-	
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-2-20-深度学习的常见模型-GAN/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bluesliuf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bluesliuf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/深度学习/2019-2-20-深度学习的常见模型-GAN/" itemprop="url">
-                  深度学习的常见模型（GAN）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T00:00:00+08:00">
-                2019-02-20
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T16:46:58+08:00">
-                2019-02-25
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
             </span>
           
 
           
-            
-          
-
-          
-          
-
-          
-
-          
             <div class="post-wordcount">
               
                 <span class="post-meta-item-icon">
@@ -640,206 +448,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.8k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="GAN的来源"><a href="#GAN的来源" class="headerlink" title="GAN的来源"></a>GAN的来源</h3><blockquote>
-<p>14年Goodfellow提出Generative adversarial nets即生成式对抗网络，它要解决的问题是如何从训练样本中学习出新样本，训练样本是图片就生成新图片，训练样本是文章就输出新文章等等。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/深度学习/2019-2-20-深度学习的常见模型-GAN/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-	<div>
-      
-	</div>
-	
-	<div>
-    
-    </div>
-	
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bluesliuf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bluesliuf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/深度学习/2019-1-14-深度学习的常见模型-CNN/" itemprop="url">
-                  深度学习的常见模型（CNN）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T00:00:00+08:00">
-                2019-01-14
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T16:46:10+08:00">
-                2019-02-25
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  954
+                  863
                 </span>
               
 
@@ -874,265 +483,158 @@
       
 
       
-        
-          <h3 id="CNN的来源"><a href="#CNN的来源" class="headerlink" title="CNN的来源"></a>CNN的来源</h3><blockquote>
-<p>CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/深度学习/2019-1-14-深度学习的常见模型-CNN/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>训练集中可能是有若干维度的特征。但有时并不是所有特征都是有用的，有的特征其实和结果并没有关系。因此需要一个能衡量自变量和因变量之间的相关度。</p>
+<a id="more"></a>
+<h3 id="皮尔逊相关系数"><a href="#皮尔逊相关系数" class="headerlink" title="皮尔逊相关系数"></a>皮尔逊相关系数</h3><p>皮尔逊相关系数(<code>Pearson correlation coefficient</code>），是用于度量两个变量 X 和 Y 之间的相关（线性相关），其值介于<code>[-1,1]</code> 之间。有三种相关情况：</p>
+<ol>
+<li><strong>正向相关:</strong> &gt;0</li>
+<li><strong>负向相关：</strong>&lt;0</li>
+<li><strong>无相关性：</strong>=0</li>
+</ol>
+<p>下图从左到右分别代表了正向相关、无相关性和负向相关：</p>
+<p><img src="/机器学习/2019-3-13-回归中的相关系数/1.png" alt=""></p>
+<p>在介绍皮尔逊相关系数之前，要先理解<strong>协方差</strong>(<code>Covariance</code> ) ，<strong>协方差</strong>是一个反映两个随机变量相关程度的指标，如果一个变量跟随着另一个变量同时变大或者变小，那么这两个变量的协方差就是正值，反之相反，公式如下：<br>$$<br>Conv(X,Y) = \frac{\sum_{i=1}^{n}(X_i-\overline{X})(Y_i-\overline{Y})}{n-1}<br>$$<br>皮尔逊相关系数的公式如下：<br>$$<br>r_{xy} = \frac{Conv(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\sum(x-\overline{x})(y-\overline{y})}{\sqrt{\sum{(x-\overline{x})^2}\sum(y-\overline{y})^2}}<br>$$<br><code>Var</code>表示方差，相关度越高，皮尔逊相关系数其值趋于 1 或 -1 （趋于1表示它们呈正相关， 趋于 -1 表示它们呈负相关）；如果相关系数等于0，表明它们之间不存在线性相关关系。</p>
+<p><img src="/机器学习/2019-3-13-回归中的相关系数/2.png" alt=""></p>
+<h3 id="决定系数"><a href="#决定系数" class="headerlink" title="决定系数"></a>决定系数</h3><p><strong>决定系数</strong>即 <code>R 平方值</code>，反应因变量的全部变异能通过回归关系被自变量解释的比例。如R平方为0.8，则表示回归关系可以解释因变量80%的变异。换句话说，如果我们能控制自变量不变，则因变量的变异程度会减少 80%。 在<strong>简单线性回归</strong>中，决定系数可以是 <code>R^2 = r * r</code>。而更通用的是：</p>
+<p><img src="/机器学习/2019-3-13-回归中的相关系数/3.png" alt=""></p>
+<p><code>SST</code> 其实是两部分组成的，一部分是模型可预测的<code>SSR</code>，一部分是变异的<code>SSError</code>无法用模型解释的。它们之间的计算公式是:</p>
+<p><img src="/机器学习/2019-3-13-回归中的相关系数/4.png" alt=""></p>
+<p><font size="4"><strong>注意:</strong></font> R平方也有其局限性：R平方随着自变量的增加会变大，R平方和样本量是有关系的。因此，我们要到R平方进行修正。修正的方法：<br>$$<br>\overline{R^2} = 1-(1-R^2)\frac{n-1}{n-p-1}<br>$$<br>其中，<code>n</code> 表示<strong>样本大小</strong>，<code>p</code> 表示模型中<strong>解释变量的总数（不包括常数）</strong>。</p>
+<h3 id="代码实例"><a href="#代码实例" class="headerlink" title="代码实例"></a>代码实例</h3><p>代码完全按照上述中的公式计算<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"></span><br><span class="line"><span class="comment">#计算皮尔逊相关系数( Pearson correlation coefficient）</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computer_conv</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    var_x = <span class="number">0</span></span><br><span class="line">    var_y = <span class="number">0</span></span><br><span class="line">    SSR = <span class="number">0</span></span><br><span class="line">    x_bar = np.mean(x) <span class="comment"># x的方差</span></span><br><span class="line">    y_bar = np.mean(y) <span class="comment"># y的方差</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x)):</span><br><span class="line">        diff_xbar = x[i] - x_bar</span><br><span class="line">        diff_ybar = y[i] - y_bar</span><br><span class="line">        SSR += diff_xbar * diff_ybar</span><br><span class="line">        var_x += diff_xbar**<span class="number">2</span></span><br><span class="line">        var_y += diff_ybar**<span class="number">2</span></span><br><span class="line">    SST = math.sqrt(var_x*var_y)</span><br><span class="line">    <span class="keyword">return</span> SSR/SST</span><br><span class="line"></span><br><span class="line"><span class="comment">#计算决定系数R平方值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">computer_r</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    SSR = <span class="number">0</span></span><br><span class="line">    SST = <span class="number">0</span></span><br><span class="line">    linear = linear_model.LinearRegression() <span class="comment"># 创建线性模型</span></span><br><span class="line">    linear.fit(x,y)</span><br><span class="line">    y_hat = linear.predict(x)</span><br><span class="line">    y_mean = np.mean(y)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x)):</span><br><span class="line">        SSR += (y_hat[i] - y_mean)**<span class="number">2</span></span><br><span class="line">        SST += (y[i] - y_mean)**<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> SSR/SST</span><br><span class="line"></span><br><span class="line">test_x = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line">test_y = [<span class="number">10</span>,<span class="number">12</span>,<span class="number">24</span>,<span class="number">21</span>,<span class="number">34</span>]</span><br><span class="line">test_x2 = [[x] <span class="keyword">for</span> x <span class="keyword">in</span> test_x]</span><br><span class="line"></span><br><span class="line">print(<span class="string">"r: "</span>,computer_conv(test_x,test_y))</span><br><span class="line">print(<span class="string">"r平方: "</span>,computer_conv(test_x,test_y)**<span class="number">2</span>)</span><br><span class="line">print(<span class="string">"R平方: "</span>,computer_r(test_x2,test_y))</span><br></pre></td></tr></table></figure></p>
+<p><strong>程序运行结果</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r:  <span class="number">0.94031007654487</span></span><br><span class="line">r平方:  <span class="number">0.8841830400518192</span></span><br><span class="line">R平方:  <span class="number">0.8841830400518192</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>我们发现：</strong>在简单线性回归中，决定系数的确满足$ R^2 = r * r$</p>
+
       
     </div>
 
 	<div>
+      
+        
+
+
       
 	</div>
 	
 	<div>
     
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
     </div>
 	
     <div>
       
-    </div>
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持原创技术分享，欢迎大家扫码交流！</div>
+</div>
 
-    <div>
+
       
     </div>
 
     <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/" title="回归中的相关度和决定系数">https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-1-14-深度学习发展/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bluesliuf">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bluesliuf">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/深度学习/2019-1-14-深度学习发展/" itemprop="url">
-                  深度学习的发展
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T00:00:00+08:00">
-                2019-01-14
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-25T16:46:35+08:00">
-                2019-02-25
-              </time>
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
           
-
+            <a href="/tags/Conv-R/" rel="tag"><i class="fa fa-tag"></i> Conv&&R</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          <h2 id="深度学习的发展历程"><a href="#深度学习的发展历程" class="headerlink" title="深度学习的发展历程"></a>深度学习的发展历程</h2><ul>
-<li>人工智能</li>
-<li>机器学习</li>
-<li>深度学习</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/深度学习/2019-1-14-深度学习发展/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/机器学习/2019-3-13-机器学习方法之非线性回归/" rel="next" title="机器学习方法之非线性回归（ Logistic Regression）">
+                <i class="fa fa-chevron-left"></i> 机器学习方法之非线性回归（ Logistic Regression）
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-	<div>
-      
-	</div>
-	
-	<div>
-    
-    </div>
-	
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1140,6 +642,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
 
         </div>
         
@@ -1159,8 +667,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
           <p class="site-author-name" itemprop="name">bluesliuf</p>
@@ -1265,6 +782,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#皮尔逊相关系数"><span class="nav-number">1.</span> <span class="nav-text">皮尔逊相关系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#决定系数"><span class="nav-number">2.</span> <span class="nav-text">决定系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实例"><span class="nav-number">3.</span> <span class="nav-text">代码实例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1406,6 +939,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
