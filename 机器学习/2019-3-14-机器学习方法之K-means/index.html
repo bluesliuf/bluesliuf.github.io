@@ -1,0 +1,1183 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="machine learning,k-means,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bluesliuf" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/apple-touch-icon-next.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="聚类(Clustering)，就是将相似的事物聚集在一 起，而将不相似的事物划分到不同的类别的过程，是数据分析之中十分重要的一种手段。与此前介绍的决策树，支持向量机等监督学习不同，聚类算法是非监督学习(unsupervised learning )，在数据集中，并不清楚每条数据的具体类别。">
+<meta name="keywords" content="machine learning,k-means">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习方法之K-means聚类">
+<meta property="og:url" content="https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/index.html">
+<meta property="og:site_name" content="Bluesliuf">
+<meta property="og:description" content="聚类(Clustering)，就是将相似的事物聚集在一 起，而将不相似的事物划分到不同的类别的过程，是数据分析之中十分重要的一种手段。与此前介绍的决策树，支持向量机等监督学习不同，聚类算法是非监督学习(unsupervised learning )，在数据集中，并不清楚每条数据的具体类别。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/1.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/2.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/3.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/4.png">
+<meta property="og:updated_time" content="2019-03-14T11:07:50.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习方法之K-means聚类">
+<meta name="twitter:description" content="聚类(Clustering)，就是将相似的事物聚集在一 起，而将不相似的事物划分到不同的类别的过程，是数据分析之中十分重要的一种手段。与此前介绍的决策树，支持向量机等监督学习不同，聚类算法是非监督学习(unsupervised learning )，在数据集中，并不清楚每条数据的具体类别。">
+<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/">
+
+
+
+
+
+  <title> 机器学习方法之K-means聚类 | Bluesliuf </title>
+</head>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4287ae00cf6dc3cd776333fe30decd6a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bluesliuf</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Though failed, Still keep smiling</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            个人简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                机器学习方法之K-means聚类
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T18:15:01+08:00">
+                2019-03-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-14T19:07:50+08:00">
+                2019-03-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>聚类</strong>(<code>Clustering</code>)，就是将相似的事物聚集在一 起，而将不相似的事物划分到不同的类别的过程，是数据分析之中十分重要的一种手段。与此前介绍的<strong>决策树，支持向量机</strong>等<strong>监督学习</strong>不同，聚类算法是<strong>非监督学习</strong>(<code>unsupervised learning</code> )，在数据集中，并不清楚每条数据的具体类别。</p>
+<a id="more"></a>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p><code>K-means</code> 算法是数据挖掘十大经典算法之一。由于该算法的效率高，所以在对大规模数据进行聚类时被广泛应用。目前，许多算法均围绕着该算法进行扩展和改进。</p>
+<p><img src="/机器学习/2019-3-14-机器学习方法之K-means/1.png" alt=""></p>
+<p><strong>k-means</strong> 算法接受一个参数 <code>k</code> ，表示将数据集中的数据分成 k 个聚类。<strong>在同一个聚类中，数据的相似度较高</strong>；而不同聚类的数据相似度较低。</p>
+<font size="4"><strong>算法的步骤：</strong></font><br>1. 选择任意 k 个数据，作为各个聚类的质心，（质心也可以理解为中心的意思），执行<strong>步骤 2</strong>；<br>2. 对每个样本进行分类，将样本划分到最近的质心所在的类别（<strong>欧氏距离</strong>），执行<strong>步骤 3</strong>；<br>3. 取各个聚类的中心点作为新的质心，执行<strong>步骤 2</strong> 进行迭代。<br><br><font size="4"><strong>迭代结束的条件：</strong></font><br>1. 当新的迭代后的聚类结果没有发生变化；<br>2. 当迭代次数达到预设的值。<br><br><font size="4"><strong>算法流程图：</strong></font>
+
+<p><img src="/机器学习/2019-3-14-机器学习方法之K-means/2.png" alt=""></p>
+<h3 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h3><p>有如下4种药物，我们要根据其2个特征值对其进行分类，事先并不知道它们属于何种类别。聚类后分为2类（1 和 2）<br><img src="/机器学习/2019-3-14-机器学习方法之K-means/3.png" alt=""></p>
+<p>按照之前的算法流程，我们将4种药划分为了2类，聚类过程如下：</p>
+<p><img src="/机器学习/2019-3-14-机器学习方法之K-means/4.png" alt=""></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>本部分我们将使用和上面实例分析中一致的数据，采用2种方法实现k-means聚类。</p>
+<h4 id="自己实现"><a href="#自己实现" class="headerlink" title="自己实现"></a>自己实现</h4><p>代码主要包含4个小方法，分别是：</p>
+<ol>
+<li><code>shouldStop()</code>：聚类迭代的终止条件</li>
+<li><code>updateLabels()</code>：更新迭代后数据的类标签</li>
+<li><code>getLabelFromClosestCenterpoints()</code>：计算各数据到中心点的距离，选取最近距离更新数据类标签</li>
+<li><code>getCenterpoints()</code>：根据聚类结果选取新的中心点<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kmeans</span><span class="params">(x,k,maxIt)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param x: 待分类数据</span></span><br><span class="line"><span class="string">    :param k: 最终分为几类</span></span><br><span class="line"><span class="string">    :param maxIt: 最大迭代次数</span></span><br><span class="line"><span class="string">    :return: 分好类的数据</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    numpoints,numDim = x.shape <span class="comment">#数据行数和列数</span></span><br><span class="line">    dataSet = np.zeros((numpoints,numDim+<span class="number">1</span>)) <span class="comment"># 创建一个新数组存储分类好的数据</span></span><br><span class="line">    dataSet[:,:<span class="number">-1</span>] = x <span class="comment"># 将数据x赋值给dataSet的前n-列</span></span><br><span class="line"></span><br><span class="line">    centerpoints = dataSet[np.random.randint(numpoints,size=k),:] <span class="comment"># 随机选取k个中心点</span></span><br><span class="line">    centerpoints = dataSet[<span class="number">0</span>:<span class="number">2</span>, :] <span class="comment"># 强制选取前2条数据作为中心点，为了对照实例分析</span></span><br><span class="line">    centerpoints[:,<span class="number">-1</span>] = range(<span class="number">1</span>,k+<span class="number">1</span>) <span class="comment"># 为选好的中心点数据打上标签</span></span><br><span class="line"></span><br><span class="line">    iterations = <span class="number">0</span> <span class="comment"># 迭代次数</span></span><br><span class="line">    oldCenterpoints = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 调用函数循环迭代，实现聚类</span></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> shouldStop(oldCenterpoints,centerpoints,iterations,maxIt):</span><br><span class="line">        <span class="comment"># 输出每次迭代的聚类过程</span></span><br><span class="line">         print(<span class="string">"iterations: \n"</span>,iterations)</span><br><span class="line">         print(<span class="string">"dataSet: \n"</span>,dataSet)</span><br><span class="line">         print(<span class="string">"centerpoints: \n"</span>,centerpoints)</span><br><span class="line">        <span class="comment"># 将原始中心点复制存储，方便迭代完后，比较新旧中心点是否发生变化</span></span><br><span class="line">         oldCenterpoints =np.copy(centerpoints)</span><br><span class="line">         iterations += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 调用方法更新每条数据的类标签</span></span><br><span class="line">         updateLabels(dataSet,centerpoints)</span><br><span class="line">        <span class="comment"># 根据每一次迭代后的聚类结果，重新选取新的中心点</span></span><br><span class="line">         centerpoints = getCenterpoints(dataSet,k)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dataSet</span><br><span class="line"></span><br><span class="line"><span class="comment"># 聚类迭代的终止条件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shouldStop</span><span class="params">(oldCenterpoints,centerpoints,iterations,maxIt)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param oldCenterpoints: 迭代前的中心点</span></span><br><span class="line"><span class="string">    :param centerpoints: 迭代后的中心点</span></span><br><span class="line"><span class="string">    :param iterations: 当前迭代次数</span></span><br><span class="line"><span class="string">    :param maxIt: 最大迭代次数</span></span><br><span class="line"><span class="string">    :return: True或False</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> iterations &gt; maxIt: <span class="comment"># 超出设定好的最大迭代次数</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">return</span> np.array_equal(oldCenterpoints,centerpoints) <span class="comment"># 判断迭代前后中心点是否发生了变化</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新迭代后数据的类标签</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">updateLabels</span><span class="params">(dataSet,centerpoints)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param dataSet: 数据</span></span><br><span class="line"><span class="string">    :param centerpoints: 中心点</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    numpoints,numDim = dataSet.shape</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,numpoints):</span><br><span class="line">        <span class="comment"># 调用方法循环更新数据的类标签</span></span><br><span class="line">        dataSet[i,<span class="number">-1</span>] = getLabelFromClosestCenterpoints(dataSet[i,:<span class="number">-1</span>],centerpoints)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据计算各数据到中心点的距离，选取最近距离更新数据类标签</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getLabelFromClosestCenterpoints</span><span class="params">(dataSetRow,centerpoints)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param dataSetRow: 待更新类标签的数据</span></span><br><span class="line"><span class="string">    :param centerpoints: 中心点</span></span><br><span class="line"><span class="string">    :return: 数据新的类标签</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    label = centerpoints[<span class="number">0</span>,<span class="number">-1</span>] <span class="comment"># 选取初始类标签</span></span><br><span class="line">    minDist = np.linalg.norm(dataSetRow - centerpoints[<span class="number">0</span>,:<span class="number">-1</span>]) <span class="comment"># 计算和当前中心点的距离</span></span><br><span class="line">    <span class="comment"># 循环计算数据和每个中心点的距离，选取最近的更新类标签</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,centerpoints.shape[<span class="number">0</span>]):</span><br><span class="line">        dist =  np.linalg.norm(dataSetRow - centerpoints[i,:<span class="number">-1</span>]) <span class="comment"># 计算距离</span></span><br><span class="line">        <span class="keyword">if</span> dist &lt; minDist:</span><br><span class="line">            minDist = dist</span><br><span class="line">            label = centerpoints[i,<span class="number">-1</span>]</span><br><span class="line">    print(<span class="string">"minDist: "</span>,minDist)</span><br><span class="line">    <span class="keyword">return</span> label</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据聚类结果选取新的中心点</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getCenterpoints</span><span class="params">(dataSet,k)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param dataSet: 数据</span></span><br><span class="line"><span class="string">    :param k: 最终分为几类</span></span><br><span class="line"><span class="string">    :return: 新的中心点</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    result = np.zeros((k,dataSet.shape[<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,k+<span class="number">1</span>):</span><br><span class="line">        oneCluster = dataSet[dataSet[:,<span class="number">-1</span>]==i,:<span class="number">-1</span>] <span class="comment"># 同类数据按行求均值，算出新的中心点</span></span><br><span class="line">        result[i<span class="number">-1</span>,:<span class="number">-1</span>] = np.mean(oneCluster,axis=<span class="number">0</span>)</span><br><span class="line">        result[i<span class="number">-1</span>,<span class="number">-1</span>] = i <span class="comment"># 打上标签</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建测试数据</span></span><br><span class="line">x1 = np.array([<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">x2 = np.array([<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line">x3 = np.array([<span class="number">4</span>,<span class="number">3</span>])</span><br><span class="line">x4 = np.array([<span class="number">5</span>,<span class="number">4</span>])</span><br><span class="line">test_x = np.vstack((x1,x2,x3,x4)) <span class="comment">#沿着列方向将矩阵堆叠起来</span></span><br><span class="line">result = kmeans(test_x,<span class="number">2</span>,<span class="number">10</span>)</span><br><span class="line">print(<span class="string">"final result: \n"</span>,result)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>程序运行结果如下：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">iterations: </span><br><span class="line"> <span class="number">0</span></span><br><span class="line">dataSet: </span><br><span class="line"> [[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">2.</span> <span class="number">1.</span> <span class="number">2.</span>]</span><br><span class="line"> [<span class="number">4.</span> <span class="number">3.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">5.</span> <span class="number">4.</span> <span class="number">0.</span>]]</span><br><span class="line">centerpoints: </span><br><span class="line"> [[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">2.</span> <span class="number">1.</span> <span class="number">2.</span>]]</span><br><span class="line">minDist:  <span class="number">0.0</span></span><br><span class="line">minDist:  <span class="number">0.0</span></span><br><span class="line">minDist:  <span class="number">2.8284271247461903</span></span><br><span class="line">minDist:  <span class="number">4.242640687119285</span></span><br><span class="line">iterations: </span><br><span class="line"> <span class="number">1</span></span><br><span class="line">dataSet: </span><br><span class="line"> [[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">2.</span> <span class="number">1.</span> <span class="number">2.</span>]</span><br><span class="line"> [<span class="number">4.</span> <span class="number">3.</span> <span class="number">2.</span>]</span><br><span class="line"> [<span class="number">5.</span> <span class="number">4.</span> <span class="number">2.</span>]]</span><br><span class="line">centerpoints: </span><br><span class="line"> [[<span class="number">1.</span>         <span class="number">1.</span>         <span class="number">1.</span>        ]</span><br><span class="line"> [<span class="number">3.66666667</span> <span class="number">2.66666667</span> <span class="number">2.</span>        ]]</span><br><span class="line">minDist:  <span class="number">0.0</span></span><br><span class="line">minDist:  <span class="number">1.0</span></span><br><span class="line">minDist:  <span class="number">0.4714045207910319</span></span><br><span class="line">minDist:  <span class="number">1.885618083164127</span></span><br><span class="line">iterations: </span><br><span class="line"> <span class="number">2</span></span><br><span class="line">dataSet: </span><br><span class="line"> [[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">2.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">4.</span> <span class="number">3.</span> <span class="number">2.</span>]</span><br><span class="line"> [<span class="number">5.</span> <span class="number">4.</span> <span class="number">2.</span>]]</span><br><span class="line">centerpoints: </span><br><span class="line"> [[<span class="number">1.5</span> <span class="number">1.</span>  <span class="number">1.</span> ]</span><br><span class="line"> [<span class="number">4.5</span> <span class="number">3.5</span> <span class="number">2.</span> ]]</span><br><span class="line">minDist:  <span class="number">0.5</span></span><br><span class="line">minDist:  <span class="number">0.5</span></span><br><span class="line">minDist:  <span class="number">0.7071067811865476</span></span><br><span class="line">minDist:  <span class="number">0.7071067811865476</span></span><br><span class="line">final result: </span><br><span class="line"> [[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">2.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">4.</span> <span class="number">3.</span> <span class="number">2.</span>]</span><br><span class="line"> [<span class="number">5.</span> <span class="number">4.</span> <span class="number">2.</span>]]</span><br></pre></td></tr></table></figure></p>
+<p><strong>通过比较，可以发现结果和我们在实例分析中的一致。</strong></p>
+<h4 id="Sklearn实现"><a href="#Sklearn实现" class="headerlink" title="Sklearn实现"></a>Sklearn实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> cluster</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建测试数据</span></span><br><span class="line">x1 = np.array([<span class="number">1</span>,<span class="number">1</span>])</span><br><span class="line">x2 = np.array([<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line">x3 = np.array([<span class="number">4</span>,<span class="number">3</span>])</span><br><span class="line">x4 = np.array([<span class="number">5</span>,<span class="number">4</span>])</span><br><span class="line">test_x = np.vstack((x1,x2,x3,x4)) <span class="comment">#沿着列方向将矩阵堆叠起来</span></span><br><span class="line"></span><br><span class="line">sk = cluster.KMeans(<span class="number">2</span>)</span><br><span class="line">sk.fit(test_x)</span><br><span class="line">print(<span class="string">"中心点：\n"</span>,sk.cluster_centers_)</span><br><span class="line">print(<span class="string">"类别：\n"</span>,sk.labels_)</span><br></pre></td></tr></table></figure>
+<p><strong>程序运行结果如下：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">中心点：</span><br><span class="line"> [[<span class="number">4.5</span> <span class="number">3.5</span>]</span><br><span class="line"> [<span class="number">1.5</span> <span class="number">1.</span> ]]</span><br><span class="line">类别：</span><br><span class="line"> [<span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
+<p><strong>最后的中心点一致，也成功分为了2类</strong></p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p><strong>优点：</strong></p>
+<ol>
+<li>速度快，复杂度低，为 <code>O(Nkq)</code>，<code>N</code>是<strong>数据总量</strong>，<code>k</code>是<strong>类别数</strong>，<code>q</code>是<strong>迭代次数</strong>。一般来讲k、q会比N小得多，那么此时复杂度相当于<code>O(N)</code> ，在各种算法中是算很小的；</li>
+<li>原理简单，易于理解。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>对异常点敏感；</li>
+<li>局部最优解而不是全局优，(<strong>分类结果与初始点选取有关</strong>);<br>不能发现非凸形状的聚类。</li>
+</ol>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持原创技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/" title="机器学习方法之K-means聚类">https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
+          
+            <a href="/tags/k-means/" rel="tag"><i class="fa fa-tag"></i> k-means</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/机器学习/2019-3-13-回归中的相关系数/" rel="next" title="回归中的相关度和决定系数">
+                <i class="fa fa-chevron-left"></i> 回归中的相关度和决定系数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
+          <p class="site-author-name" itemprop="name">bluesliuf</p>
+           
+              <p class="site-description motion-element" itemprop="description">From Zero to Hero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3978502624/home" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bluesliuf" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:bluesliuf@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/bluesliuf/" target="_blank" title="INS">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  INS
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法"><span class="nav-number">1.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例分析"><span class="nav-number">2.</span> <span class="nav-text">实例分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自己实现"><span class="nav-number">3.1.</span> <span class="nav-text">自己实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sklearn实现"><span class="nav-number">3.2.</span> <span class="nav-text">Sklearn实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">4.</span> <span class="nav-text">优缺点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bluesliuf</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

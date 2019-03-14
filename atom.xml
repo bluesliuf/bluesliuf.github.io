@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-13T13:39:00.863Z</updated>
+  <updated>2019-03-14T11:07:50.257Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习方法之K-means聚类</title>
+    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-14-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E4%B9%8BK-means/"/>
+    <id>https://liufan.vip/机器学习/2019-3-14-机器学习方法之K-means/</id>
+    <published>2019-03-14T10:15:01.000Z</published>
+    <updated>2019-03-14T11:07:50.257Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;聚类&lt;/strong&gt;(&lt;code&gt;Clustering&lt;/code&gt;)，就是将相似的事物聚集在一 起，而将不相似的事物划分到不同的类别的过程，是数据分析之中十分重要的一种手段。与此前介绍的&lt;strong&gt;决策树，支持向量机&lt;/strong&gt;等&lt;strong&gt;监督学习&lt;/strong&gt;不同，聚类算法是&lt;strong&gt;非监督学习&lt;/strong&gt;(&lt;code&gt;unsupervised learning&lt;/code&gt; )，在数据集中，并不清楚每条数据的具体类别。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="k-means" scheme="https://liufan.vip/tags/k-means/"/>
+    
+  </entry>
   
   <entry>
     <title>回归中的相关度和决定系数</title>
@@ -298,7 +320,7 @@
     <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B-CNN/"/>
     <id>https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/</id>
     <published>2019-01-13T16:00:00.000Z</published>
-    <updated>2019-02-25T08:46:10.814Z</updated>
+    <updated>2019-03-14T10:13:39.012Z</updated>
     
     <summary type="html">
     
