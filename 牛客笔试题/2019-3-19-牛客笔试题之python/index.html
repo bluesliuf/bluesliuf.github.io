@@ -1,0 +1,1210 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bluesliuf" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/apple-touch-icon-next.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="这几天做完了牛客网上的Python试题，下面是对一些错题的分析，并总结了一些python中应该注意的知识点。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牛客笔试题之Python">
+<meta property="og:url" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/index.html">
+<meta property="og:site_name" content="Bluesliuf">
+<meta property="og:description" content="这几天做完了牛客网上的Python试题，下面是对一些错题的分析，并总结了一些python中应该注意的知识点。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/1.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/2.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/3.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/4.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/5.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/6.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/7.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/8.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/9.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/10.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/11.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/12.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/13.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/14.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/15.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/16.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/17.png">
+<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/18.png">
+<meta property="og:updated_time" content="2019-03-19T07:48:30.947Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="牛客笔试题之Python">
+<meta name="twitter:description" content="这几天做完了牛客网上的Python试题，下面是对一些错题的分析，并总结了一些python中应该注意的知识点。">
+<meta name="twitter:image" content="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/">
+
+
+
+
+
+  <title> 牛客笔试题之Python | Bluesliuf </title>
+</head>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4287ae00cf6dc3cd776333fe30decd6a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bluesliuf</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Though failed, Still keep smiling</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            个人简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                牛客笔试题之Python
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T14:14:24+08:00">
+                2019-03-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-19T15:48:30+08:00">
+                2019-03-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/牛客笔试题/" itemprop="url" rel="index">
+                    <span itemprop="name">牛客笔试题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这几天做完了<a href="https://www.nowcoder.com" target="_blank" rel="noopener">牛客网</a>上的Python试题，下面是对一些错题的分析，并总结了一些python中应该注意的知识点。</p>
+<a id="more"></a>
+<h3 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/1.png" alt=""><br><strong>解析：</strong><br>a,b为<strong>字符串不可变类型，所以指向相同地址</strong>，所以  a is b<br><code>is</code>：指地址相同<br><code>==</code>:   内容相同<br><code>a+b</code>:字符串连接为’123123’</p>
+<h3 id="LEGB规则"><a href="#LEGB规则" class="headerlink" title="LEGB规则"></a>LEGB规则</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/2.png" alt=""><br><strong>解析：</strong><br><strong>Python一切皆对象，所以在Python中变量名是字符串对象</strong>。Python的命名空间是一个字典，字典内保存了变量名称与对象之间的映射关系，因此，查找变量名就是在命名空间字典中查找键-值对。LEGB就是用来规定命名空间查找顺序的规则。LEGB规定了查找一个名称的顺序为：<br><strong>local–&gt;enclosing function locals–&gt;global–&gt;builtin</strong><br><code>Local</code>: 即函数内部命名空间；<br><code>Enclosing function locals</code>: 外部嵌套函数的名字空间<br><code>module(文件本身)：Global(module)</code>: 函数定义所在模块（文件）的名字空间<br><code>Builtin</code>: Python内置模块的名字空间<br><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/3.png" alt=""></p>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/4.png" alt=""><br><strong>解析：</strong><br>集合（set）是一个<strong>无序的不重复元素序列</strong>。<br>可以使用大括号 { } 或者 set() 函数创建集合，注意：<strong>创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典</strong>。<br>本题中列表转集合，集合没有重复元素。</p>
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/5.png" alt=""><br><strong>解析：</strong><br>python里面<code>%d</code>表数字，<code>%s</code>表示字符串，%%表示一个%；<br>单引号内嵌套单引号需要转义字符/;单引号内嵌套双引号不需要嵌套；<br>双引号内嵌套双引号需要转义字符/；双引号内引用单引号不需要转义字符；</p>
+<h3 id="类实例关系"><a href="#类实例关系" class="headerlink" title="类实例关系"></a>类实例关系</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/6.png" alt=""><br><strong>解析：</strong><br><code>isinstance（object，classinfo）</code>: 用于判断object是否是classinfo的一个实例，或者object是否是classinfo类的子类的一个实例，如果是返回True.<br><code>issubclass（class，classinfo）</code>: 用于判断class是否是classinfo类的子类，如果是返回True.</p>
+<h3 id="new和init的区别"><a href="#new和init的区别" class="headerlink" title="new和init的区别"></a><strong>new</strong>和<strong>init</strong>的区别</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/7.png" alt=""><br><strong>解析：</strong></p>
+<ol>
+<li><strong>init</strong>是当实例对象创建完成后被调用的，然后设置对象属性的一些初始值。</li>
+<li><strong>new</strong>是在实例创建之前被调用的，因为它的任务就是创建实例然后返回该实例，是个静态方法。</li>
+<li><strong>new</strong>在<strong>init</strong>之前被调用，<strong>new</strong>的返回值（实例）将传递给<strong>init</strong>方法的第一个参数，然后<strong>init</strong>给这个实例设置一些参数。</li>
+</ol>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/8.png" alt=""><br><strong>解析：</strong><br>字典是python中唯一的映射类型，阐述了键与键值之间的对应关系。<strong>字典中键必须是唯一的</strong>。列表中的项目包括在方括号中。<strong>列表是可变的数据类型</strong>（可以增加或删除项目）。所以，列表中的项目不能用来作为字典的键。</p>
+<h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/9.png" alt=""><br><strong>解析见上图中注释</strong></p>
+<h3 id="try-else-finally"><a href="#try-else-finally" class="headerlink" title="try else finally"></a>try else finally</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/10.png" alt=""><br><strong>解析：</strong><br><strong>try</strong>的语句出现异常才会执行<strong>except</strong>后的语句，如果正常，则执行完try后执行<strong>else</strong>。另外，<strong>finally语句不管有无异常都会执行</strong>。所以上图中答案为4。</p>
+<h3 id="name"><a href="#name" class="headerlink" title="name"></a><strong>name</strong></h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/11.png" alt=""><br><strong>解析：</strong></p>
+<ol>
+<li><strong>name</strong>定义在一个模块中，当解释器执行这个py文件时，<strong>name</strong>的值就为<strong>main</strong>； </li>
+<li>当这个模块被引用即被其他模块import时，<strong>name</strong>的值就是模块名，也就是运行的py文件名。</li>
+</ol>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/12.png" alt=""><br><strong>解析：</strong><br>在函数中可以定义另一个函数时，如果内部的函数引用了外部的函数的变量，则可能产生闭包。所以若a=2,b=3,则程序运行值为8。</p>
+<h3 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/13.png" alt=""><br><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/14.png" alt=""><br><strong>解析见上图</strong></p>
+<h3 id="大小比较"><a href="#大小比较" class="headerlink" title="大小比较"></a>大小比较</h3><p>类似元组、字符串、列表这类格式，在进行两者之间的比较时，先<strong>从第一个元素开始比较 ASCII 码值大小，如果相等，则依次向后比较，如果全部相等，则比较数量大小</strong>。<br>ASCII 码值大小：<br>数字： 0-9: 48-57<br>字母：A-Z：65-90.<br>a-z： 97-122</p>
+<h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><p><strong>所有标准对象均可以用于布尔测试，下列对象的布尔值是False:</strong><br>•    None<br>•    False<br>•    所有值为零的数：0（整型），（浮点型），0L（长整型），0.0+0.0j(复数)<br>•      “”（空字符串），[ ] (空列表)， （）（空元祖），{} (空字典)</p>
+<h3 id="语言类型"><a href="#语言类型" class="headerlink" title="语言类型"></a>语言类型</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/15.png" alt=""></p>
+<h3 id="语言特性"><a href="#语言特性" class="headerlink" title="语言特性"></a>语言特性</h3><p><strong>解释性语言的特性是非独立和效率低</strong>。<br>Python是解释性语言，在此以Python举例。<br><strong>非独立性：</strong> Python代码解释执行结果依赖于IDLE的版本，其中大版本有Python2和Python3之分，Python2最经典的版本为Python2.7，Python3有Python3.4，Python3.6等等。<br><strong>效率低：</strong> 由于Python是解释性语言，动态编译，直到代码执行时，才加以解释，相比于编译型语言，可以生成编译代码，执行效率低。</p>
+<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><p>$max = x &gt; y ? x : y$ Java和    C中正确，<br>在Python中的三元运算符不是这样的，是$max=x \ if \ x&gt;y \  else\ y​$</p>
+<h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>python标识符可以使用<strong>下划线 字母 数字组成</strong>,但是数字不允许作为标识符的开头出现。</p>
+<h3 id="线程协程"><a href="#线程协程" class="headerlink" title="线程协程"></a>线程协程</h3><p>线程由操作系统控制，协程由程序自身控制。</p>
+<h3 id="编译及解码"><a href="#编译及解码" class="headerlink" title="编译及解码"></a>编译及解码</h3><ol>
+<li>Python中字符串编译的过程：gbk=&gt;unicode=&gt;utf16=&gt;url 解码</li>
+<li>字符串解码顺序为：url解码=&gt;utf16=&gt;unicode=&gt;gbk</li>
+</ol>
+<h3 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h3><p>map() 会根据提供的函数对指定序列做映射。<br>第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表。<strong>例如：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="function"><span class="keyword">def</span> <span class="title">square</span><span class="params">(x)</span> :</span>            <span class="comment"># 计算平方数</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> x ** <span class="number">2</span></span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(square, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])   <span class="comment"># 计算列表各个元素的平方</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])  <span class="comment"># 使用 lambda 匿名函数</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 提供了两个列表，对相同位置的列表数据进行相加</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(<span class="keyword">lambda</span> x, y: x + y, [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>])</span><br><span class="line">[<span class="number">3</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>, <span class="number">19</span>]</span><br></pre></td></tr></table></figure></p>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/16.png" alt=""></p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/17.png" alt=""></p>
+<h3 id="结束符"><a href="#结束符" class="headerlink" title="结束符"></a>结束符</h3><p>C语言中字符串使用<strong>‘\0’</strong>作为结束符以防止越界，但python中字符串其实是<strong>一个固定长度的字符数组，并不需要结束符</strong>。</p>
+<h3 id="math-floor函数及除法"><a href="#math-floor函数及除法" class="headerlink" title="math.floor函数及除法"></a>math.floor函数及除法</h3><ol>
+<li>Python3 中math.floor() 函数的返回值应为整型，而Python2 的 math.floor() 函数返回值是浮点型。</li>
+<li>Python2 中除法默认向下取整，为整型；Python3 中的除法为正常除法，会保留小数位，为浮点型。</li>
+</ol>
+<p><strong>Python 中万物皆为对象</strong>，函数也不例外，函数作为对象可以赋值给一个变量、可以作为元素添加到集合对象中、可作为参数值传递给其它函数，还可以当做函数的返回值。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ol>
+<li>Python 是弱类型脚本语言，变量就是变量，没有特定类型，因此不需要声明。</li>
+<li>但每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。</li>
+<li>用 del 语句可以释放已创建的变量（已占用的资源）。</li>
+</ol>
+<h3 id="切片slice"><a href="#切片slice" class="headerlink" title="切片slice"></a>切片slice</h3><p>Python 中 切片（Slice）功能的理解：L[start : stop [ : step]]<br><code>start</code> 默认值是 0；<code>stop</code> 默认值为 L 的长度；<code>step</code> 默认值是 1。</p>
+<h3 id="命名方式"><a href="#命名方式" class="headerlink" title="命名方式"></a>命名方式</h3><p><img src="/牛客笔试题/2019-3-19-牛客笔试题之python/18.png" alt=""></p>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持原创技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/" title="牛客笔试题之Python">https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/机器学习/2019-3-14-机器学习方法之K-means/" rel="next" title="机器学习方法之K-means聚类">
+                <i class="fa fa-chevron-left"></i> 机器学习方法之K-means聚类
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
+          <p class="site-author-name" itemprop="name">bluesliuf</p>
+           
+              <p class="site-description motion-element" itemprop="description">From Zero to Hero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3978502624/home" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bluesliuf" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:bluesliuf@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/bluesliuf/" target="_blank" title="INS">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  INS
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串比较"><span class="nav-number">1.</span> <span class="nav-text">字符串比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LEGB规则"><span class="nav-number">2.</span> <span class="nav-text">LEGB规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">3.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转义字符"><span class="nav-number">4.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类实例关系"><span class="nav-number">5.</span> <span class="nav-text">类实例关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new和init的区别"><span class="nav-number">6.</span> <span class="nav-text">new和init的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">7.</span> <span class="nav-text">字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浅拷贝和深拷贝"><span class="nav-number">8.</span> <span class="nav-text">浅拷贝和深拷贝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-else-finally"><span class="nav-number">9.</span> <span class="nav-text">try else finally</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#name"><span class="nav-number">10.</span> <span class="nav-text">name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">11.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装饰器"><span class="nav-number">12.</span> <span class="nav-text">装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大小比较"><span class="nav-number">13.</span> <span class="nav-text">大小比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔值"><span class="nav-number">14.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语言类型"><span class="nav-number">15.</span> <span class="nav-text">语言类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语言特性"><span class="nav-number">16.</span> <span class="nav-text">语言特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三元运算符"><span class="nav-number">17.</span> <span class="nav-text">三元运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标识符"><span class="nav-number">18.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程协程"><span class="nav-number">19.</span> <span class="nav-text">线程协程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译及解码"><span class="nav-number">20.</span> <span class="nav-text">编译及解码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map函数"><span class="nav-number">21.</span> <span class="nav-text">map函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">22.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">23.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结束符"><span class="nav-number">24.</span> <span class="nav-text">结束符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#math-floor函数及除法"><span class="nav-number">25.</span> <span class="nav-text">math.floor函数及除法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">26.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切片slice"><span class="nav-number">27.</span> <span class="nav-text">切片slice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名方式"><span class="nav-number">28.</span> <span class="nav-text">命名方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bluesliuf</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

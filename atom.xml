@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-16T09:06:27.473Z</updated>
+  <updated>2019-03-19T07:48:30.947Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>牛客笔试题之Python</title>
+    <link href="https://liufan.vip/%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98/2019-3-19-%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98%E4%B9%8Bpython/"/>
+    <id>https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/</id>
+    <published>2019-03-19T06:14:24.000Z</published>
+    <updated>2019-03-19T07:48:30.947Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这几天做完了&lt;a href=&quot;https://www.nowcoder.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;牛客网&lt;/a&gt;上的Python试题，下面是对一些错题的分析，并总结了一些python中应该注意的知识点。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="牛客笔试题" scheme="https://liufan.vip/categories/%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="python" scheme="https://liufan.vip/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>机器学习方法之K-means聚类</title>
