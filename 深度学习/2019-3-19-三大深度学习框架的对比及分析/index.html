@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="machine learning,deep learning,CNN model,">
+  <meta name="keywords" content="deep learning,tensorflow,architecture,">
 
 
 
@@ -101,29 +101,22 @@
 
 
 
-<meta name="description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
-<meta name="keywords" content="machine learning,deep learning,CNN model">
+<meta name="description" content="本文主要介绍了现在主流的三大深度学习框架Tensorflow、Caffe和Pytorch的组成结构，并对其特点进行了简要分析。">
+<meta name="keywords" content="deep learning,tensorflow,architecture">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习的常见模型（CNN）">
-<meta property="og:url" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/index.html">
+<meta property="og:title" content="深度学习框架的对比及分析">
+<meta property="og:url" content="https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
+<meta property="og:description" content="本文主要介绍了现在主流的三大深度学习框架Tensorflow、Caffe和Pytorch的组成结构，并对其特点进行了简要分析。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv2.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv3.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv5.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv6.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv7.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv8.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv9.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv10.png">
-<meta property="og:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv11.png">
-<meta property="og:updated_time" content="2019-03-14T10:13:39.012Z">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/1.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/2.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/3.png">
+<meta property="og:updated_time" content="2019-03-19T13:13:49.335Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习的常见模型（CNN）">
-<meta name="twitter:description" content="CNN的来源 CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。">
-<meta name="twitter:image" content="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png">
+<meta name="twitter:title" content="深度学习框架的对比及分析">
+<meta name="twitter:description" content="本文主要介绍了现在主流的三大深度学习框架Tensorflow、Caffe和Pytorch的组成结构，并对其特点进行了简要分析。">
+<meta name="twitter:image" content="https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/1.png">
 
 
 
@@ -151,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/">
+  <link rel="canonical" href="https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/">
 
 
 
 
 
-  <title> 深度学习的常见模型（CNN） | Bluesliuf </title>
+  <title> 深度学习框架的对比及分析 | Bluesliuf </title>
 </head>
 
 
@@ -347,8 +340,8 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/">
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -369,7 +362,7 @@
             
             
               
-                深度学习的常见模型（CNN）
+                深度学习框架的对比及分析
               
             
           </h1>
@@ -384,8 +377,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T00:00:00+08:00">
-                2019-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-19T20:28:47+08:00">
+                2019-03-19
               </time>
             
 
@@ -400,8 +393,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-14T18:13:39+08:00">
-                2019-03-14
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-19T21:13:49+08:00">
+                2019-03-19
               </time>
             
           </span>
@@ -454,7 +447,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  954
+                  2.8k
                 </span>
               
 
@@ -470,7 +463,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3
+                  9
                 </span>
               
             </div>
@@ -489,54 +482,118 @@
       
 
       
-        <h3 id="CNN的来源"><a href="#CNN的来源" class="headerlink" title="CNN的来源"></a>CNN的来源</h3><blockquote>
-<p>CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。</p>
-</blockquote>
+        <p>本文主要介绍了现在主流的三大深度学习框架<code>Tensorflow</code>、<code>Caffe</code>和<code>Pytorch</code>的组成结构，并对其特点进行了简要分析。</p>
 <a id="more"></a>
+<h3 id="Tensorflow"><a href="#Tensorflow" class="headerlink" title="Tensorflow"></a>Tensorflow</h3><blockquote>
+<p>TensorFlow是一个使用数据流图进行数值计算的开源软件库。图中的节点表示数学运算，而图边表示节点之间传递的多维数据阵列（又称张量）。灵活的体系结构允许使用单个API将计算部署到服务器或移动设备中的某个或多个CPU或GPU。它是一个静态图模型，一旦图被构建后，结构不变，每次输入不同的数据。<br>Tensorflow一般先定义各种变量,然后建立一个计算图(数据流图),计算图指定了各个变量之间的计算关系,若此时对计算图进行编译,没有任何输出,计算图还是一个空壳,只有把需要运算的输入放入后,才会在模型中形成数据流，形成输出。<br>Tensorflow中的运算都要放在图中,图中的运算进行发生在回话启动后<code>(session)</code>,给节点填充数据,然后进行运算,关闭会话,最后结束运算。</p>
+</blockquote>
+<h4 id="张量"><a href="#张量" class="headerlink" title="张量"></a>张量</h4><blockquote>
+<p>所有的数据都通过张量的形式来表示，它可以被简单的理解为多为数组。张量的使用主要可以分为2大类：</p>
+<ol>
+<li>对中间计算结果的引用</li>
+<li>当计算图构造完成后，张量可以用来获取计算结果</li>
+</ol>
+</blockquote>
+<h4 id="OP操作"><a href="#OP操作" class="headerlink" title="OP操作"></a>OP操作</h4><blockquote>
+<p>计算图中每一个节点代表着一个操作<code>(operation,Op)</code>,一般用来表示施加的的数学运算,也可以表示数据输入的起点以及输出的终点,或者是读取/写入持久变量<code>(persistent veriable)</code>的终点,Op也可用于状态初始化的任务。</p>
+</blockquote>
+<p><strong>类比：</strong> 一个神经元有多个输入，一个或者多个输出。这里的OP可以看作神经元，tensor可以看作输入的数据。</p>
+<h4 id="计算图中的边"><a href="#计算图中的边" class="headerlink" title="计算图中的边"></a>计算图中的边</h4><blockquote>
+<p>计算图中的边包含这两种关系:<strong>数据依赖和控制依赖</strong>。(不需要对计算图中的边进行定义,因为在tensorflow中创建节点是已包含了相应的Op完成计算所需的全部输入,tensorflow会自动绘制必要的连接) 。</p>
+<ol>
+<li><strong>实线的边代表着数据依赖：</strong>标识连接的两个节点之间有tensor的流动(传递) </li>
+<li><strong>虚线的边代表着控制依赖：</strong>用于控制操作的运行,确保发生前关系, 连接的节点之间没有tensor的传递,但是源节点必须在目的节点执行前完成执行。</li>
+</ol>
+</blockquote>
+<h4 id="TensorFlow程序的阶段"><a href="#TensorFlow程序的阶段" class="headerlink" title="TensorFlow程序的阶段"></a>TensorFlow程序的阶段</h4><blockquote>
+<p>TensorFlow程序通常被组织成一个<strong>构建阶段</strong>和一个<strong>执行阶段</strong>。在构建阶段，op 的执行步骤被描述成一个图。在执行阶段，使用会话执行图中的op。</p>
+</blockquote>
+<p><strong>阶段一：如何构建图？</strong></p>
 <blockquote>
-<p>一方面减少了的权值的数量使得网络易于优化，另一方面降低了过拟合的风险。CNN是神经网络中的一种，它的权值共享网络结构使之更类似于生物神经网络，降低了网络模型的复杂度，减少了权值的数量。</p>
+<ol>
+<li>构建图从创建op开始。有些op的创建是不需要input的，比如Constant。这样的op被成为源op（source op）。</li>
+<li>在python中op对象是由op构造器（ops constructors）创建的。op构造器创建一个op对象时可以传递一个源op作为待构造op对象的输入。</li>
+<li>op对象被op构造器创建后是作为一个node加入到graph中的。TensorFlow Python 库有一个默认图 (default graph), op 构造器可以为其增加节点。</li>
+</ol>
 </blockquote>
+<p><strong>总结：</strong>因为graph是由op对象组成的，所以构建图的过程其实就是创建op对象的过程，以及如果将这些个op对象连接起来（比如某个op对象作为另外某个op对象的输入）的过程。</p>
+<p><strong>阶段二：图构建好了，如何执行？</strong></p>
 <blockquote>
-<p>权重共享：在卷积神经网络中，卷积层的每一个卷积滤波器重复的作用于整个感受野中，对输入图像进行卷积，卷积结果构成了输入图像的特征图，提取出图像的局部特征。每一个卷积滤波器共享相同的参数，包括相同的权重矩阵和偏置项。共享权重的好处是在对图像进行特征提取时不用考虑局部特征的位置。而且权重共享提供了一种有效的方式，使要学习的卷积神经网络模型参数数量大大降低。</p>
+<ol>
+<li>因为graph需要在session中启动。所以为了启动一个graph，第一步就是创建session对象。</li>
+<li>sessoin对象创建的时候如果不制定graph，则使用默认图（<code>default graph</code>）。</li>
+</ol>
 </blockquote>
-<h3 id="CNN的网络架构"><a href="#CNN的网络架构" class="headerlink" title="CNN的网络架构"></a>CNN的网络架构</h3><blockquote>
-<p>卷积神经网络结构包括：卷积层，降采样层，全链接层。每一层有多个特征图，每个特征图通过一种卷积滤波器提取输入的一种特征，每个特征图有多个神经元。</p>
+<h4 id="Variable及Constant"><a href="#Variable及Constant" class="headerlink" title="Variable及Constant"></a>Variable及Constant</h4><blockquote>
+<ol>
+<li>变量用于维护图执行过程中的状态信息。通常会将一个统计模型中的参数表示为一组变量。 例如, 你可以将一个神经网络的权重作为一个tensor存储在某个变量中。在训练过程中, 通过重复运行训练图，更新这个 tensor。</li>
+<li>tensor存储在Constants或者Variables。就像数据可以放在常量和变量中一样。放在变量中的数据是可以修改的，放在常量中的数据是不可以修改的。</li>
+</ol>
 </blockquote>
-<h4 id="卷积层（Conv）"><a href="#卷积层（Conv）" class="headerlink" title="卷积层（Conv）"></a>卷积层（Conv）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv.png" alt="示例图片"></p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv2.png" alt="示例图片"></p>
-<blockquote>
-<p>再举一个卷积过程的例子如下：我们有下面这个绿色的5<em>5输入矩阵，卷积核是一个下面这个黄色的3</em>3矩阵。卷积的步幅是一个像素。则卷积的过程如下面的动图。卷积的结果是一个3*3的矩阵。</p>
+<h4 id="搭建神经网络步骤"><a href="#搭建神经网络步骤" class="headerlink" title="搭建神经网络步骤"></a>搭建神经网络步骤</h4><blockquote>
+<ol>
+<li>定义添加神经层的函数；</li>
+<li>准备训练的数据；</li>
+<li>定义节点准备接收数据；</li>
+<li>定义神经层：隐藏层和预测层；</li>
+<li>定义loss表达式；</li>
+<li>选择optimizer使loss达到最小；</li>
+<li>对所有变量进行初始化，通过sess.run optimizer，迭代多次进行学习。</li>
+</ol>
 </blockquote>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv3.png" alt="示例图片"></p>
-<blockquote>
-<p>上面举的例子都是二维的输入，卷积的过程比较简单，那么如果输入是多维的呢？比如在前面一组卷积层+池化层的输出是3个矩阵，这3个矩阵作为输入呢，那么我们怎么去卷积呢？又比如输入的是对应RGB的彩色图像，即是三个分布对应R，G和B的矩阵呢？</p>
-</blockquote>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv5.png" alt="示例图片"></p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv6.png" alt="示例图片"></p>
-<h4 id="池化层（Pooling）"><a href="#池化层（Pooling）" class="headerlink" title="池化层（Pooling）"></a>池化层（Pooling）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv7.png" alt="示例图片"></p>
-<h4 id="全连接层（Full-Connecting）"><a href="#全连接层（Full-Connecting）" class="headerlink" title="全连接层（Full Connecting）"></a>全连接层（Full Connecting）</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv8.png" alt="示例图片"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv9.png" alt="示例图片"></p>
-<h4 id="一般CNN的结构依次为"><a href="#一般CNN的结构依次为" class="headerlink" title="一般CNN的结构依次为"></a>一般CNN的结构依次为</h4><p>1、 input<br>2、 ((conv–&gt;relu)<em>N–&gt;pool?)</em>M<br>3、 (fc–&gt;relu)*K<br>4、 fc</p>
-<h4 id="卷积神经网络的训练算法"><a href="#卷积神经网络的训练算法" class="headerlink" title="卷积神经网络的训练算法"></a>卷积神经网络的训练算法</h4><ul>
-<li>与一般的机器学习算法相比，先定义Loss function,衡量和实际结果之间的差距；</li>
-<li>找到最小化损失函数的W（权重）和b（偏置），CNN里面最常见的算法为SGD（随机梯度下降）。</li>
+<h4 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h4><blockquote>
+<ol>
+<li>TensorFlow有内置的<code>TF.Learn</code>和<code>TF.Slim</code>等上层组件可以帮助快速地设计新网络，并且兼容<code>Scikit-learn estimato</code>r接口，可以方便地实现<code>evaluate</code>、<code>grid search</code>、<code>cross validation</code>等功能。同时TensorFlow不只局限于神经网络，其数据流式图支持非常自由的算法表达，当然也可以轻松实现深度学习以外的机器学习算法。事实上，只要可以将计算表示成计算图的形式，就可以使用TensorFlow。用户可以写内层循环代码控制计算图分支的计算，TensorFlow会自动将相关的分支转为子图并执行迭代运算。TensorFlow也可以将计算图中的各个节点分配到不同的设备执行，充分利用硬件资源。</li>
+<li>在可视化方面，Tensorboard非常棒。该工具包含在TensorFlow里，它对于调试和比较不同的训练过程非常有用。例如，在训练模型的时候，你可以在调整某些超参数之后再训练一遍。两次运行过程可以同时显示在Tensorboard上，以显示它们之间存在的差异。Tensorboard能够：<blockquote>
+<ul>
+<li>显示模型图</li>
+<li>绘制标量变量</li>
+<li>使分布和直方图可视化</li>
+<li>使图像可视化</li>
+<li>使嵌入可视化</li>
+<li>播放音频<br>Tensorboard能够显示通过<code>tf.summary</code>模块收集的各种摘要。我们将为前面提到的那个指数例子定义摘要操作，并使用<code>tf.summary.FileWriter</code>将其保存到磁盘上。<br>执行<code>tensorboard --logdir=./tensorboard</code>以启动Tensorboard。这个工具对于云实例来说非常方便，因为它是一个<code>webapp</code>。</li>
 </ul>
-<h4 id="卷积神经网络的优缺点"><a href="#卷积神经网络的优缺点" class="headerlink" title="卷积神经网络的优缺点"></a>卷积神经网络的优缺点</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
-<li>共享卷积核，便于处理高维数据；</li>
-<li>不像机器学习人为提取特征，网络训练权重自动提取特征，且分类效果好。</li>
-</ul>
-<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ul>
-<li><p>需要大量训练样本和好的硬件支持（GPU、TPU…）;</p>
+</blockquote>
 </li>
-<li><p>物理含义模糊（神经网络是一种难以解释的“黑箱模型”，我们并不知道卷积层到底提取的是什么特征）。</p>
-</li>
-</ul>
-<h4 id="卷积神经网络的典型结构"><a href="#卷积神经网络的典型结构" class="headerlink" title="卷积神经网络的典型结构"></a>卷积神经网络的典型结构</h4><p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv10.png" alt="示例图片"></p>
-<h3 id="实战演练"><a href="#实战演练" class="headerlink" title="实战演练"></a>实战演练</h3><h4 id="猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"><a href="#猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型" class="headerlink" title="猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"></a>猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型</h4><blockquote>
-<p>训练集（共25000张图片，猫狗各12500张）<br>测试集（共3000张图片，猫狗各1500张） </p>
+</ol>
 </blockquote>
-<p>我们通过Tensorflow这个深度学习框架来构建我们的分类网络。通过其自带的可视化工具Tensorboard我们可以看到网络的详细结构，如下左图所示。<br>模型训练完成后，我们用测试集来测试模型的泛化能力，输入一张测试图片，导入模型，输出分类结果，示例见下右图。</p>
-<p><img src="/深度学习/2019-1-14-深度学习的常见模型-CNN/conv11.png" alt="示例图片"></p>
+<h3 id="Caffe"><a href="#Caffe" class="headerlink" title="Caffe"></a>Caffe</h3><h4 id="优势及劣势"><a href="#优势及劣势" class="headerlink" title="优势及劣势"></a>优势及劣势</h4><p>Caffe是一个清晰而高效的深度学习框架，主要优势为：</p>
+<ol>
+<li>上手容易，网络结构都是以配置文件形式定义，不需要用代码设计网络</li>
+<li>训练速度快，组件模块化，可以方便的拓展到新的模型和学习任务上</li>
+<li>拥有大量的训练好的经典模型（<code>AlexNet、VGG、Inception</code>）乃至其他<code>state-of-the-art</code>（<code>ResNet等</code>）的模型，收藏在它的<a href="https://github.com/BVLC/caffe/wiki/Model-Zoo" target="_blank" rel="noopener">Model Zoo</a><br><strong>劣势：</strong></li>
+<li>但是Caffe最开始设计时的目标只针对于图像，<strong>没有考虑文本、语音或者时间序列的数据</strong>，因此Caffe对卷积神经网络的支持非常好，但是<strong>对于时间序列RNN，LSTM等支持的不是特别充分</strong>。</li>
+<li>Caffe 的配置文件不能用编程的方式调整超参数，也没有提供像 <code>Scikit-learn</code> 那样好用的 <code>estimator</code> 可以方便地进行交叉验证、超参数的 <code>Grid Search</code> 等操作。</li>
+</ol>
+<h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><p>Caffe<strong>由低到高</strong>依次把网络中的数据抽象成<code>Blob</code>, 各层网络抽象成<code>Layer</code> ，整个网络抽象成<code>Net</code>，网络模型的求解方法抽象成<code>Solver</code>。</p>
+<ol>
+<li><strong>Blob:</strong> 表示网络中的数据，包括训练数据，网络各层自身的参数，网络之间传递的数据都是通过Blob来实现的，同时Blob数据也支持在CPU与GPU上存储，能够在两者之间做同步。</li>
+<li><strong>Layer:</strong>对神经网络中各种层的抽象，包括卷积层和下采样层，还有全连接层和各种激活函数层等。同时每种Layer都实现了前向传播和反向传播，并通过Blob来传递数据。</li>
+<li><strong>Net:</strong> 是对整个网络的表示，由各种Layer前后连接组合而成，也是所构建的网络模型。</li>
+<li><strong>Solver:</strong> 定义了针对Net网络模型的求解方法，记录网络的训练过程，保存网络模型参数，中断并恢复网络的训练过程。自定义Solver能够实现不同的网络求解方式。</li>
+</ol>
+<h4 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h4><p>Caffe 的核心概念是<code>Layer</code>，每一个神经网络的模块都是一个<code>Layer</code>。<code>Layer</code> 接收输入数据，同时经过内部计算产生输出数据。设计网络结构时，只需要把各个<code>Layer</code> 拼接在一起构成完整的网络（通过写 <code>protobuf</code>配置文件定义）。比如卷积的<code>Layer</code>，它的输入就是图片的全部像素点，内部进行的操作是各种像素值与<code>Layer</code> 参数的 <code>convolution</code> 操作，最后输出的是所有卷积核<code>filter</code> 的结果。每一个<code>Layer</code> 需要定义两种运算，一种是正向<code>（forward）</code>的运算，即从输入数据计算输出结果，也就是模型的预测过程；另一种是反向<code>（backward）</code>的运算，从输出端的<code>gradient</code> 求解相对于输入的<code>gradient</code>，即反向传播算法，这部分也就是模型的训练过程。实现新<code>Layer</code> 时，需要将正向和反向两种计算过程的函数都实现, <strong>这部分计算需要用户自己写 C++或者 CUDA （当需要运行在 GPU 时）代码，较为困难</strong>。</p>
+<h3 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h3><h4 id="新颖处"><a href="#新颖处" class="headerlink" title="新颖处"></a>新颖处</h4><p>不同于tensorflow的静态图，<strong>pytorch是一个动态的框架</strong>，这就和python的逻辑是一样的，<strong>对变量做任何操作都是灵活的。</strong></p>
+<h4 id="组成-1"><a href="#组成-1" class="headerlink" title="组成"></a>组成</h4><p>Pytorch的设计追求最少的封装，不像tensorflow中充斥着<code>session、graph、operation、variable、layer</code>等全新概念。Pytorch的设计遵循<code>tensor—&gt;variable(autograd) —&gt;nn.Model</code>三个由低到高的抽象层次，分别代表<strong>高维数组（张量）、自动求导（变量）和神经网络（层/模块）</strong>，三者紧密联系，可以同时进行修改和操作。</p>
+<ol>
+<li><p><strong>tensor</strong><br><img src="/深度学习/2019-3-19-三大深度学习框架的对比及分析/1.png" alt=""></p>
+</li>
+<li><p><strong>variable</strong><br><img src="/深度学习/2019-3-19-三大深度学习框架的对比及分析/2.png" alt=""></p>
+</li>
+<li><p><strong>nn.Model</strong><br><img src="/深度学习/2019-3-19-三大深度学习框架的对比及分析/3.png" alt=""></p>
+</li>
+</ol>
+<h4 id="优势及劣势-1"><a href="#优势及劣势-1" class="headerlink" title="优势及劣势"></a>优势及劣势</h4><p><strong>优势：</strong></p>
+<blockquote>
+<ol>
+<li><strong>动态图的思想直观明了</strong>，更符合人的思考过程。动态图的方式可以使得我们可以任意修改前向传播，还可以随时查看变量的值。如果静态图框架比作<code>C++</code>,每次运行都要编译（<code>sess.run</code>）,那么动态图框架就是python，动态执行，可以交互式查看修改。</li>
+<li><strong>动态图调试更容易</strong>，pytorch中，代码报错的地方，一般就是你写错代码的地方，而静态图需要先根据你的代码生成Graph对象，然后在<code>session.run()</code>时报错，找到错误很难。</li>
+</ol>
+</blockquote>
+<p><strong>劣势：</strong></p>
+<blockquote>
+<p>PyTorch并没有一个类似于Tensorboard的工具，但有一个可以将<a href="https://github.com/torrvision/crayon?spm=a2c4e.11153940.blogcont183473.17.736059fbCUcceN" target="_blank" rel="noopener">Tensorboard集成</a>进来的工具。或者，也可以免费使用标准绘图工具：matplotlib和seaborn。</p>
+</blockquote>
 
       
     </div>
@@ -590,7 +647,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/" title="深度学习的常见模型（CNN）">https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/</a>
+      <a href="https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/" title="深度学习框架的对比及分析">https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -606,11 +663,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
-          
             <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
           
-            <a href="/tags/CNN-model/" rel="tag"><i class="fa fa-tag"></i> CNN model</a>
+            <a href="/tags/tensorflow/" rel="tag"><i class="fa fa-tag"></i> tensorflow</a>
+          
+            <a href="/tags/architecture/" rel="tag"><i class="fa fa-tag"></i> architecture</a>
           
         </div>
       
@@ -623,8 +680,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/uncategorized/2019-01-13-FirstBlog/" rel="next" title="欢迎访问我的博客">
-                <i class="fa fa-chevron-left"></i> 欢迎访问我的博客
+              <a href="/牛客笔试题/2019-3-19-牛客笔试题之python/" rel="next" title="牛客笔试题之Python">
+                <i class="fa fa-chevron-left"></i> 牛客笔试题之Python
               </a>
             
           </div>
@@ -632,10 +689,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/深度学习/2019-1-14-深度学习发展/" rel="prev" title="深度学习的发展">
-                深度学习的发展 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -832,7 +885,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的来源"><span class="nav-number">1.</span> <span class="nav-text">CNN的来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的网络架构"><span class="nav-number">2.</span> <span class="nav-text">CNN的网络架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积层（Conv）"><span class="nav-number">2.1.</span> <span class="nav-text">卷积层（Conv）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#池化层（Pooling）"><span class="nav-number">2.2.</span> <span class="nav-text">池化层（Pooling）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全连接层（Full-Connecting）"><span class="nav-number">2.3.</span> <span class="nav-text">全连接层（Full Connecting）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般CNN的结构依次为"><span class="nav-number">3.1.</span> <span class="nav-text">一般CNN的结构依次为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的训练算法"><span class="nav-number">3.2.</span> <span class="nav-text">卷积神经网络的训练算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的优缺点"><span class="nav-number">3.3.</span> <span class="nav-text">卷积神经网络的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-number">3.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">3.3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卷积神经网络的典型结构"><span class="nav-number">3.4.</span> <span class="nav-text">卷积神经网络的典型结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实战演练"><span class="nav-number">4.</span> <span class="nav-text">实战演练</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型"><span class="nav-number">4.1.</span> <span class="nav-text">猫狗大战，即一个简单的二分类问题，训练出一个自动判别猫狗的模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tensorflow"><span class="nav-number">1.</span> <span class="nav-text">Tensorflow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#张量"><span class="nav-number">1.1.</span> <span class="nav-text">张量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OP操作"><span class="nav-number">1.2.</span> <span class="nav-text">OP操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算图中的边"><span class="nav-number">1.3.</span> <span class="nav-text">计算图中的边</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TensorFlow程序的阶段"><span class="nav-number">1.4.</span> <span class="nav-text">TensorFlow程序的阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Variable及Constant"><span class="nav-number">1.5.</span> <span class="nav-text">Variable及Constant</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搭建神经网络步骤"><span class="nav-number">1.6.</span> <span class="nav-text">搭建神经网络步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优势"><span class="nav-number">1.7.</span> <span class="nav-text">优势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Caffe"><span class="nav-number">2.</span> <span class="nav-text">Caffe</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优势及劣势"><span class="nav-number">2.1.</span> <span class="nav-text">优势及劣势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组成"><span class="nav-number">2.2.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#核心概念"><span class="nav-number">2.3.</span> <span class="nav-text">核心概念</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pytorch"><span class="nav-number">3.</span> <span class="nav-text">Pytorch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新颖处"><span class="nav-number">3.1.</span> <span class="nav-text">新颖处</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组成-1"><span class="nav-number">3.2.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优势及劣势-1"><span class="nav-number">3.3.</span> <span class="nav-text">优势及劣势</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1172,6 +1225,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

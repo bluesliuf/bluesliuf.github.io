@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-19T07:48:30.947Z</updated>
+  <updated>2019-03-19T13:13:49.335Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习框架的对比及分析</title>
+    <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-3-19-%E4%B8%89%E5%A4%A7%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AF%B9%E6%AF%94%E5%8F%8A%E5%88%86%E6%9E%90/"/>
+    <id>https://liufan.vip/深度学习/2019-3-19-三大深度学习框架的对比及分析/</id>
+    <published>2019-03-19T12:28:47.000Z</published>
+    <updated>2019-03-19T13:13:49.335Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍了现在主流的三大深度学习框架&lt;code&gt;Tensorflow&lt;/code&gt;、&lt;code&gt;Caffe&lt;/code&gt;和&lt;code&gt;Pytorch&lt;/code&gt;的组成结构，并对其特点进行了简要分析。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://liufan.vip/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
+    
+      <category term="tensorflow" scheme="https://liufan.vip/tags/tensorflow/"/>
+    
+      <category term="architecture" scheme="https://liufan.vip/tags/architecture/"/>
+    
+  </entry>
   
   <entry>
     <title>牛客笔试题之Python</title>
