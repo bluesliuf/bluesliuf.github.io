@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-19T13:13:49.335Z</updated>
+  <updated>2019-03-21T09:06:23.965Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>牛客笔试题之机器学习</title>
+    <link href="https://liufan.vip/%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98/2019-3-21-%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98%E4%B9%8B%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://liufan.vip/牛客笔试题/2019-3-21-牛客笔试题之机器学习/</id>
+    <published>2019-03-21T01:42:05.000Z</published>
+    <updated>2019-03-21T09:06:23.965Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;昨天做完了&lt;a href=&quot;https://www.nowcoder.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;牛客网&lt;/a&gt;上的机器学习试题，下面是对一些错题的分析，并简要总结了一些机器学习中应该注意的知识点，过段时间会对其中的一些方法进行更加详细的分析介绍。题中&lt;font color=&quot;#FF0000&quot;&gt;&lt;strong&gt;打问号？&lt;/strong&gt;&lt;/font&gt;代表该题答案存在争议，不一定准确。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="牛客笔试题" scheme="https://liufan.vip/categories/%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习框架的对比及分析</title>
@@ -334,32 +354,6 @@
   </entry>
   
   <entry>
-    <title>深度学习的发展</title>
-    <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B1%95/"/>
-    <id>https://liufan.vip/深度学习/2019-1-14-深度学习发展/</id>
-    <published>2019-01-13T16:00:00.000Z</published>
-    <updated>2019-02-25T08:46:35.052Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;深度学习的发展历程&quot;&gt;&lt;a href=&quot;#深度学习的发展历程&quot; class=&quot;headerlink&quot; title=&quot;深度学习的发展历程&quot;&gt;&lt;/a&gt;深度学习的发展历程&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;人工智能&lt;/li&gt;
-&lt;li&gt;机器学习&lt;/li&gt;
-&lt;li&gt;深度学习&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://liufan.vip/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
-    
-      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
-    
-  </entry>
-  
-  <entry>
     <title>深度学习的常见模型（CNN）</title>
     <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B-CNN/"/>
     <id>https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/</id>
@@ -382,6 +376,32 @@
       <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
     
       <category term="CNN model" scheme="https://liufan.vip/tags/CNN-model/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习的发展</title>
+    <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B1%95/"/>
+    <id>https://liufan.vip/深度学习/2019-1-14-深度学习发展/</id>
+    <published>2019-01-13T16:00:00.000Z</published>
+    <updated>2019-02-25T08:46:35.052Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;深度学习的发展历程&quot;&gt;&lt;a href=&quot;#深度学习的发展历程&quot; class=&quot;headerlink&quot; title=&quot;深度学习的发展历程&quot;&gt;&lt;/a&gt;深度学习的发展历程&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;人工智能&lt;/li&gt;
+&lt;li&gt;机器学习&lt;/li&gt;
+&lt;li&gt;深度学习&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://liufan.vip/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
     
   </entry>
   
