@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-22T03:30:12.080Z</updated>
+  <updated>2019-03-22T13:59:58.581Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>准确率，精确率，召回率和F1值</title>
+    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-22-%E5%87%86%E7%A1%AE%E7%8E%87%EF%BC%8C%E7%B2%BE%E7%A1%AE%E7%8E%87%EF%BC%8C%E5%8F%AC%E5%9B%9E%E7%8E%87%E5%92%8CF1%E5%80%BC/"/>
+    <id>https://liufan.vip/机器学习/2019-3-22-准确率，精确率，召回率和F1值/</id>
+    <published>2019-03-22T11:54:35.000Z</published>
+    <updated>2019-03-22T13:59:58.581Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;机器学习(ML),自然语言处理(NLP),信息检索(IR)&lt;/strong&gt;等领域,&lt;strong&gt;评估&lt;/strong&gt;&lt;code&gt;(Evaluation)&lt;/code&gt;是一个必要的 工作,而其评价指标往往有如下几点:&lt;strong&gt;准确率&lt;/strong&gt;&lt;code&gt;(Accuracy)&lt;/code&gt;&lt;strong&gt;,精确率&lt;/strong&gt;&lt;code&gt;(Precision)&lt;/code&gt;,&lt;strong&gt;召回率&lt;/strong&gt;&lt;code&gt;(Recall)&lt;/code&gt;和&lt;code&gt;F1-Measure&lt;/code&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="evaluation" scheme="https://liufan.vip/tags/evaluation/"/>
+    
+  </entry>
   
   <entry>
     <title>牛客笔试题之顺丰机器学习真题</title>
@@ -446,28 +468,6 @@
       <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
     
       <category term="CNN model" scheme="https://liufan.vip/tags/CNN-model/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>欢迎访问我的博客</title>
-    <link href="https://liufan.vip/uncategorized/2019-01-13-FirstBlog/"/>
-    <id>https://liufan.vip/uncategorized/2019-01-13-FirstBlog/</id>
-    <published>2019-01-12T16:00:00.000Z</published>
-    <updated>2019-03-21T12:05:31.638Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Hey&quot;&gt;&lt;a href=&quot;#Hey&quot; class=&quot;headerlink&quot; title=&quot;Hey&quot;&gt;&lt;/a&gt;Hey&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;大家好，我是一名计算机领域的在读研究生，现研究方向为Deep Learning、Computer visi
-      
-    
-    </summary>
-    
-    
-      <category term="first" scheme="https://liufan.vip/tags/first/"/>
     
   </entry>
   
