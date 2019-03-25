@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-22T13:59:58.581Z</updated>
+  <updated>2019-03-25T09:24:33.168Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数字图像处理的常用方法</title>
+    <link href="https://liufan.vip/Computer-vision/2019-3-25-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>https://liufan.vip/Computer-vision/2019-3-25-数字图像处理的常用方法/</id>
+    <published>2019-03-25T08:59:56.000Z</published>
+    <updated>2019-03-25T09:24:33.168Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数字图像处理是指将图像信号转换成数字信号并利用计算机对其进行处理的过程。图像处理中，输入的是质量低的图像，输出的是改善质量后的图像，常用的图像处理方法有图像增强、复原、编码、压缩等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Computer vision" scheme="https://liufan.vip/categories/Computer-vision/"/>
+    
+    
+      <category term="Image processing" scheme="https://liufan.vip/tags/Image-processing/"/>
+    
+  </entry>
   
   <entry>
     <title>准确率，精确率，召回率和F1值</title>
@@ -416,32 +436,6 @@
       <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
     
       <category term="GAN model" scheme="https://liufan.vip/tags/GAN-model/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习的常见模型（CNN）</title>
-    <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B-CNN/"/>
-    <id>https://liufan.vip/深度学习/2019-1-14-深度学习的常见模型-CNN/</id>
-    <published>2019-01-13T16:00:00.000Z</published>
-    <updated>2019-03-14T10:13:39.012Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;CNN的来源&quot;&gt;&lt;a href=&quot;#CNN的来源&quot; class=&quot;headerlink&quot; title=&quot;CNN的来源&quot;&gt;&lt;/a&gt;CNN的来源&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;CNN由纽约大学的Yann LeCun于1998年提出。CNN本质上是一个多层感知机，其成功的原因关键在于它所采用的局部连接和共享权值的方式。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://liufan.vip/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
-    
-      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
-    
-      <category term="CNN model" scheme="https://liufan.vip/tags/CNN-model/"/>
     
   </entry>
   
