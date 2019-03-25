@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="machine learning,computer basis,">
+  <meta name="keywords" content="machine learning,ensemble learning,">
 
 
 
@@ -101,25 +101,24 @@
 
 
 
-<meta name="description" content="昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。">
-<meta name="keywords" content="machine learning,computer basis">
+<meta name="description" content="在机器学习和统计学习中, 集成学习(Ensemble Learning)是一种将多种学习算法组合在一起以取得更好表现的一种方法。它本身不是一个单独的机器学习算法，而是通过构建并结合多个机器学习器来完成学习任务。">
+<meta name="keywords" content="machine learning,ensemble learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="牛客笔试题之顺丰机器学习真题">
-<meta property="og:url" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/index.html">
+<meta property="og:title" content="集成学习中的Bagging和Boosting">
+<meta property="og:url" content="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。">
+<meta property="og:description" content="在机器学习和统计学习中, 集成学习(Ensemble Learning)是一种将多种学习算法组合在一起以取得更好表现的一种方法。它本身不是一个单独的机器学习算法，而是通过构建并结合多个机器学习器来完成学习任务。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/1.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/2.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/3.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/4.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/5.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/6.png">
-<meta property="og:updated_time" content="2019-03-22T03:30:12.080Z">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/1.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/2.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/3.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/4.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/5.png">
+<meta property="og:updated_time" content="2019-03-25T13:42:51.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="牛客笔试题之顺丰机器学习真题">
-<meta name="twitter:description" content="昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。">
-<meta name="twitter:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/1.png">
+<meta name="twitter:title" content="集成学习中的Bagging和Boosting">
+<meta name="twitter:description" content="在机器学习和统计学习中, 集成学习(Ensemble Learning)是一种将多种学习算法组合在一起以取得更好表现的一种方法。它本身不是一个单独的机器学习算法，而是通过构建并结合多个机器学习器来完成学习任务。">
+<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/1.png">
 
 
 
@@ -147,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/">
+  <link rel="canonical" href="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/">
 
 
 
 
 
-  <title> 牛客笔试题之顺丰机器学习真题 | Bluesliuf </title>
+  <title> 集成学习中的Bagging和Boosting | Bluesliuf </title>
 </head>
 
 
@@ -344,7 +343,7 @@
   
 
   <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -365,7 +364,7 @@
             
             
               
-                牛客笔试题之顺丰机器学习真题
+                集成学习中的Bagging和Boosting
               
             
           </h1>
@@ -380,8 +379,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T09:48:30+08:00">
-                2019-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T19:51:38+08:00">
+                2019-03-25
               </time>
             
 
@@ -396,8 +395,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T11:30:12+08:00">
-                2019-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-25T21:42:51+08:00">
+                2019-03-25
               </time>
             
           </span>
@@ -415,8 +414,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/牛客笔试题/" itemprop="url" rel="index">
-                    <span itemprop="name">牛客笔试题</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -450,7 +449,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  2.6k
                 </span>
               
 
@@ -466,7 +465,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  8
                 </span>
               
             </div>
@@ -485,158 +484,108 @@
       
 
       
-        <p>昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。</p>
-<a id="more"></a>
-<h3 id="Java中的String"><a href="#Java中的String" class="headerlink" title="Java中的String"></a>Java中的String</h3><p><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/1.png" alt=""><br><strong>解析：</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/2.png" alt=""></p>
-<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>链表的特性，使其在某些操作上比数组更加高效。</p>
-<ol>
-<li><strong>增删不必挪动元素</strong>。当进行插入和删除操作时，链表操作的时间复杂度仅为O(1)。</li>
-<li><strong>无需实现估计空间</strong>。链表在内存中不是连续存储的，所以可以充分利用内存中碎片空间。</li>
-</ol>
-<h3 id="UDP与TCP"><a href="#UDP与TCP" class="headerlink" title="UDP与TCP"></a>UDP与TCP</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">TCP</th>
-<th style="text-align:center">面向有连接</th>
-<th style="text-align:center">可靠</th>
-<th style="text-align:center">面向字节流</th>
-<th style="text-align:center">数据无边界</th>
-<th style="text-align:center">速度慢</th>
-<th style="text-align:center">一对一</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">UDP</td>
-<td style="text-align:center">无连接</td>
-<td style="text-align:center">不可靠会丢包</td>
-<td style="text-align:center">面向报文</td>
-<td style="text-align:center">有边界</td>
-<td style="text-align:center">速度块</td>
-<td style="text-align:center">一对一或一对多</td>
-</tr>
-</tbody>
-</table>
-<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p><strong>产生必要条件：</strong></p>
+        <p>在机器学习和统计学习中, <strong>集成学习</strong>(<code>Ensemble Learning</code>)是一种将多种学习算法组合在一起以取得更好表现的一种方法。它本身不是一个单独的机器学习算法，而是通过构建并结合多个机器学习器来完成学习任务。<a id="more"></a>也就是我们常说的“博采众长”。集成学习可以用于<strong>分类问题集成</strong>，<strong>回归问题集成</strong>，<strong>特征选取集成</strong>，<strong>异常点检测集成</strong>等。</p>
+<h3 id="集成学习概述"><a href="#集成学习概述" class="headerlink" title="集成学习概述"></a>集成学习概述</h3><p><font size="4"><strong>什么是集成学习</strong></font>(此处以分类为例)</p>
 <blockquote>
 <ol>
-<li>互斥</li>
-<li>请求与保持</li>
-<li>循环等待</li>
-<li>非剥夺</li>
+<li>将<strong>多个分类方法聚集在一起</strong>，以提高分类的准确率（可以是相同or不同算法）</li>
+<li>集成学习法<strong>由训练数据构建一组基分类器</strong>，然后通过对每个基分类器的预测进行投票来进行分类</li>
+<li>严格来说，集成学习并不算是一种分类器，而是一种分类器结合的方法。</li>
+<li>如果把单个分类器比作一个决策者的话，集成学习的方法就相当于多个决策者共同进行一项决策。</li>
 </ol>
 </blockquote>
-<h3 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h3><p>OSI（<code>Open System Interconnect</code>），即开放式系统互联。 一般都叫OSI参考模型，是ISO（国际标准化组织）组织在1985年研究的网络互连模型。它定义了网络互连的七层框架：<br><strong>物理层、数据链路层、网络层、传输层、会话层、表示层、应用层</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/3.png" alt=""></p>
-<p><strong>TCP/IP五层协议和OSI的七层协议对应关系如下，在每一层都工作着不同的设备：</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/4.png" alt=""></p>
-<p><strong>在每一层实现的协议也各不同，即每一层的服务也不同：</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/5.png" alt=""></p>
-<h3 id="数据库索引"><a href="#数据库索引" class="headerlink" title="数据库索引"></a>数据库索引</h3><ol>
-<li>通过创建<strong>唯一性索引</strong>，可以保证数据库表中<strong>每一行数据的唯一性</strong></li>
-<li>当用户查询索引字段时，索引可以快速地执行检索操作，借助索引，在执行查询的时候不需要扫描整个表就可以快速地找到所需要的数据。</li>
-<li>创建索引和维护索引要耗费时间、空间,当对表中的数据进行增加、删除和修改的时候,会降低数据的维护速度</li>
-</ol>
-<h3 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h3><p><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/6.png" alt=""><br><strong>解析：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">numpy.repeat(a, repeats, axis=None)</span></span><br><span class="line"><span class="string">将a重复b次</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>x = np.array([[1,2],[3,4]])</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>np.repeat(x, 2)</span></span><br><span class="line"><span class="string">array([1, 1, 2, 2, 3, 3, 4, 4])</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>np.repeat(x, 3, axis=1)</span></span><br><span class="line"><span class="string">array([[1, 1, 1, 2, 2, 2],</span></span><br><span class="line"><span class="string">       [3, 3, 3, 4, 4, 4]])</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>np.repeat(x, [1, 2], axis=0)</span></span><br><span class="line"><span class="string">array([[1, 2],</span></span><br><span class="line"><span class="string">       [3, 4],</span></span><br><span class="line"><span class="string">       [3, 4]])</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">a = np.repeat(np.arange(<span class="number">5</span>).reshape([<span class="number">1</span>,<span class="number">-1</span>]),<span class="number">10</span>,axis = <span class="number">0</span>)+<span class="number">10.0</span></span><br><span class="line">b = np.random.randint(<span class="number">5</span>, size= a.shape) <span class="comment"># 生成[0,5)随机矩阵，大小和矩阵a相同</span></span><br><span class="line">c = np.argmin(a*b, axis=<span class="number">1</span>) <span class="comment">#矩阵a和b乘积，返回每行最小值位置</span></span><br><span class="line">b = np.zeros(a.shape) <span class="comment">#与矩阵a相同大小的全零矩阵</span></span><br><span class="line">print(<span class="string">"b变之前："</span>,str(b))</span><br><span class="line">print(<span class="string">"c的值："</span>,str(c))</span><br><span class="line">b[np.arange(b.shape[<span class="number">0</span>]), c] = <span class="number">1</span> <span class="comment">#将b中每一行的c位置处赋值为1</span></span><br><span class="line">print(<span class="string">"b变之后："</span>,str(b))</span><br><span class="line">print(b.shape)</span><br></pre></td></tr></table></figure></p>
-<p><strong>输出结果：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">b变之前： [[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line">c的值： [<span class="number">0</span> <span class="number">3</span> <span class="number">4</span> <span class="number">3</span> <span class="number">1</span> <span class="number">3</span> <span class="number">4</span> <span class="number">2</span> <span class="number">2</span> <span class="number">0</span>]</span><br><span class="line">b变之后： [[<span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line">(<span class="number">10</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="RF-GBDT-XgBoost"><a href="#RF-GBDT-XgBoost" class="headerlink" title="RF GBDT XgBoost"></a>RF GBDT XgBoost</h3><p><strong>RF、GBDT、XgBoost</strong> 三者都是<strong>集成学习</strong>中的方法，其中RF属于<code>Bagging</code>方法，GBDT和XgBoost属于<code>Boosting</code>方法。过段时间会专门写一篇有关Bagging和Boosting介绍的博文。</p>
+<p>我们可以对集成学习的思想做一个概括（<strong>见下图</strong>）。对于训练集数据，我们通过训练若干个个体学习器，通过一定的结合策略，就可以最终形成一个强学习器，以达到博采众长的目的。</p>
+<p><img src="/机器学习/2019-3-25-集成学习中的Bagging和Boosting/1.png" alt=""></p>
+<p>也就是说，集成学习有两个主要的问题需要解决:</p>
+<blockquote>
 <ol>
-<li><strong>RF（Random Forest）</strong><blockquote>
-<p>随机森林主要运用到的方法是bagging，采用Bootstrap的随机有放回的抽样，抽样出N份数据集，训练出N个决策树。然后根据N个决策树输出的结果决定最终结果（<strong>离散型的输出：取最多的类别，连续型的输出：取平均数</strong>）。</p>
-</blockquote>
-</li>
+<li>如何得到若干个个体学习器</li>
+<li>如何选择一种结合策略，将这些个体学习器集合成一个强学习器。</li>
 </ol>
-<p><strong>优势：</strong></p>
+</blockquote>
+<p>对于第一个问题，<strong>如何得到若干个个体学习器</strong>，一般有2种选择</p>
 <blockquote>
-<blockquote>
-<ul>
-<li>容易理解和解释</li>
-<li>不需要太多的数据预处理工作</li>
-<li>隐含地创造了多个联合特征，并<strong>能够解决非线性问题</strong></li>
-<li>随机森林模型<strong>不容易过拟合</strong></li>
-<li>自带out-of-bag (oob)错误评估功能</li>
-<li>并行化容易实现</li>
-</ul>
-</blockquote>
-</blockquote>
-<p><strong>劣势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>不适合小样本，只适合大样本</li>
-<li>精度较低</li>
-<li>适合决策边界是矩形的，不适合对角线型的</li>
-</ul>
-</blockquote>
-</blockquote>
-<ol start="2">
-<li><strong>GBDT</strong><blockquote>
-<p>通过采用<strong>加法模型</strong>（即基函数的线性组合），以及不断<strong>减小训练过程产生的残差</strong>来达到将数据分类或者回归的算法。通过多轮迭代,每轮迭代产生一个弱分类器，每个分类器在上一轮分类器的残差基础上进行训练。<strong>对弱分类器的要求一般是足够简单，并且是低方差和高偏差的</strong>。一般选择<code>cart tree</code>且树的深度不会很深。</p>
-</blockquote>
-</li>
-</ol>
-<p><strong>优势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>精度高</li>
-<li><strong>能处理非线性数据</strong></li>
-<li><strong>能处理多特征类型</strong></li>
-<li>适合低维稠密数据</li>
-<li>模型可解释性好</li>
-<li><strong>不需要做特征的归一化，可以自动选择特征</strong></li>
-<li><strong>能适应多种损失函数</strong></li>
-</ul>
-</blockquote>
-</blockquote>
-<p><strong>劣势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>不太适合并发执行</li>
-<li>计算复杂度高</li>
-<li>不适用高维稀疏特征</li>
-</ul>
-</blockquote>
-</blockquote>
-<ol start="3">
-<li><strong>XgBoost</strong><blockquote>
-<p>简单来说<strong>XgBoost是GBDT的一种高效实现</strong>，主要具有以下几个优势：</p>
-<ul>
-<li><strong>显式的把树模型复杂度作为正则项加到优化目标中</strong>。</li>
-<li>实现了分裂点寻找近似算法。</li>
-<li>可以并行执行</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<p><strong>RF和GBDT的比较:</strong></p>
-<blockquote>
-<p><strong>相同点：</strong></p>
-<blockquote>
-<ul>
-<li>都是由多棵树组成</li>
-<li>最终的结果都是由多棵树一起决定</li>
-</ul>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>不同点：</strong></p>
-<blockquote>
-<ul>
-<li>组成RF的树可以是分类树，也可以是回归树；而<strong>GBDT只由回归树组成</strong></li>
-<li>组成RF的树可以并行生成；而<strong>GBDT只能是串行生成</strong></li>
-<li>对于最终的输出结果而言，RF采用多数投票等；而GBDT则是将所有结果累加起来，或者加权累加起来</li>
-<li>RF对异常值不敏感，<strong>GBDT对异常值非常敏感</strong></li>
-<li>RF对训练集一视同仁，GBDT是基于权值的弱分类器的集成</li>
-<li>RF是通过减少模型方差<code>(variance)</code>提高性能，GBDT是通过减少模型偏差<code>(bias)</code>提高性能</li>
-</ul>
-</blockquote>
-</blockquote>
-<h3 id="Boosting和Bagging的差别"><a href="#Boosting和Bagging的差别" class="headerlink" title="Boosting和Bagging的差别"></a>Boosting和Bagging的差别</h3><p><strong>过拟合的模型</strong>，通常<code>variance</code>比较大，这时应该用<strong>bagging</strong>对其进行修正。<br><strong>欠拟合的模型</strong>，通常<code>bias</code>比较大，这时应该可以用<strong>boosting</strong>进行修正。使用boosting时， 每一个模型可以简单一些。</p>
 <ol>
-<li><p><strong>bagging</strong>中的模型是<strong>强模型，偏差低，方差高。目标是降低方差(variance)</strong>。在bagging中，每个模型的bias和variance近似相同，但是互相相关性不太高，因此一般不能降低bias，而一定程度上能降低variance。<strong>典型的bagging是random forest (RF)</strong>。</p>
+<li>所有的<strong>个体学习器都是一个种类的</strong>,或者说是同质的。比如都是决策树个体学习器，或者都是神经网络个体学习器。（<strong>广泛</strong>）</li>
+<li>所有的<strong>个体学习器不全是一个种类的</strong>，或者说是异质的。比如我们有一个分类问题，对训练集采用支持向量机个体学习器，逻辑回归个体学习器和朴素贝叶斯个体学习器来学习，再通过某种结合策略来确定最终的分类强学习器。</li>
+</ol>
+</blockquote>
+<p>目前来说，同质个体学习器的应用是最广泛的，<strong>一般我们常说的集成学习的方法都是指的同质个体学习器。而同质个体学习器使用最多的模型是CART决策树和神经网络</strong>。同质个体学习器按照个体学习器之间是否存在依赖关系可以分为两类：</p>
+<blockquote>
+<ol>
+<li>第一个是个体学习器之间<strong>存在强依赖关系</strong>，一系列个体学习器基本都需要<strong>串行生成</strong>，代表算法是<strong>Boosting</strong>系列算法;</li>
+<li>第二个是个体学习器之间<strong>不存在强依赖关系</strong>，一系列个体学习器可以<strong>并行生成</strong>，代表算法是<strong>Bagging和随机森林</strong>（Random Forest）系列算法。</li>
+</ol>
+</blockquote>
+<h3 id="集成学习之Boosting"><a href="#集成学习之Boosting" class="headerlink" title="集成学习之Boosting"></a>集成学习之Boosting</h3><p>Boosting的算法原理图如下：<br><img src="/机器学习/2019-3-25-集成学习中的Bagging和Boosting/2.png" alt=""></p>
+<p>从图中可以看出，Boosting算法的工作机制是首先从训练集用初始权重训练出一个弱学习器1，根据弱学习的学习误差率表现来更新训练样本的权重，使得之前弱学习器1学习误差率高的训练样本点的权重变高，让这些误差率高的点在后面的弱学习器2中得到更多的重视。然后基于调整权重后的训练集来训练弱学习器2.，如此重复进行，直到弱学习器数达到事先指定的数目T，最终将这T个弱学习器通过集合策略进行整合，得到最终的强学习器。<br>Boosting系列算法里最著名算法主要有<strong>AdaBoost算法和提升树</strong>(boosting tree)系列算法。提升树系列算法里面应用最广泛的是<strong>梯度提升树</strong>(Gradient Boosting Tree)。</p>
+<h3 id="集成学习之Bagging"><a href="#集成学习之Bagging" class="headerlink" title="集成学习之Bagging"></a>集成学习之Bagging</h3><p>Bagging的算法原理和 Boosting不同，它的弱学习器之间没有依赖关系，可以并行生成，原理图如下：<br><img src="/机器学习/2019-3-25-集成学习中的Bagging和Boosting/3.png" alt=""></p>
+<p>从上图可以看出，bagging的个体弱学习器的训练集是通过随机采样得到的。通过T次的随机采样，我们就可以得到T个采样集，对于这T个采样集，我们可以分别独立的训练出T个弱学习器，再对这T个弱学习器通过集合策略来得到最终的强学习器。<br><strong>详细算法过程描述如下：</strong></p>
+<blockquote>
+<ol>
+<li>从原始样本集中抽取训练集。每轮从原始样本集中使用<strong>Bootstraping</strong>的方法抽取n个训练样本（在训练集中，有些样本可能被多次抽取到，而有些样本可能一次都没有被抽中）。共进行k轮抽取，得到k个训练集。（k个训练集之间是相互独立的）</li>
+<li>每次使用一个训练集得到一个模型，k个训练集共得到k个模型。（注：这里并没有具体的分类算法或回归方法，我们可以根据具体问题采用不同的分类或回归方法，如决策树、感知器等）</li>
+<li>对<strong>分类</strong>问题：将上步得到的k个模型采用<strong>投票的方式</strong>得到分类结果；对<strong>回归</strong>问题，计算上述模型的<strong>均值</strong>作为最后的结果。（所有模型的重要性相同）</li>
+</ol>
+</blockquote>
+<p><strong>随机森林（RF）</strong>是bagging的一个特化进阶版，所谓的特化是因为随机森林的弱学习器都是决策树。所谓的进阶是随机森林在bagging的样本随机采样基础上，又加上了特征的随机选择。<br><strong>对于Bagging需要注意的是，每次训练集可以取全部的特征进行训练，也可以随机选取部分特征训练，例如随机森林就是每次随机选取部分特征</strong></p>
+<h3 id="集成学习之结合策略"><a href="#集成学习之结合策略" class="headerlink" title="集成学习之结合策略"></a>集成学习之结合策略</h3><ol>
+<li><p><strong>平均法</strong><br>对于数值类的回归预测问题，通常使用的结合策略是平均法，也就是说，对于若干个弱学习器的输出进行平均得到最终的预测输出。</p>
+<blockquote>
+<p>最简单的平均是算术平均，也就是说最终预测是<br>$$<br>H(x) = \frac{1}{T}\sum\limits_{1}^{T}h_i(x)<br>$$</p>
+<p>如果每个个体学习器有一个权重w，则最终预测是<br>$$<br>H(x) = \sum\limits_{i=1}^{T}w_ih_i(x)<br>$$<br>其中wi是个体学习器hi的权重，通常有<br>$$<br>w_i \geq 0 ,\;\;\; \sum\limits_{i=1}^{T}w_i = 1<br>$$</p>
+</blockquote>
 </li>
-<li><p><strong>boosting</strong>中每个模型是<strong>弱模型，偏差高，方差低。目标是通过平均降低偏差(bias)</strong>。boosting的基本思想就是<strong>用贪心法最小化损失函数</strong>，显然能降低偏差，但是通常模型的相关性很强，因此不能显著降低variance。<strong>典型的Boosting是Adaboost，另外一个常用的并行Boosting算法是GBDT（gradient boosting decision tree）。这一类算法通常不容易出现过拟合</strong>。</p>
+<li><p><strong>投票法</strong></p>
+<blockquote>
+<p>对于分类问题的预测，我们通常使用的是投票法。假设我们的预测类别是${c_1,c_2,…c_K}​$,对于任意一个预测样本x，我们的T个弱学习器的预测结果分别是$(h_1(x),h_2(x)…h_T(x))$。</p>
+<p>最简单的投票法是相对多数投票法，也就是我们常说的少数服从多数，也就是T个弱学习器的对样本x的预测结果中，数量最多的类别ci为最终的分类类别。如果不止一个类别获得最高票，则随机选择一个做最终类别。</p>
+<p>稍微复杂的投票法是绝对多数投票法，也就是我们常说的要票过半数。在相对多数投票法的基础上，不光要求获得最高票，还要求票过半数。否则会拒绝预测。</p>
+<p>更加复杂的是加权投票法，和加权平均法一样，每个弱学习器的分类票数要乘以一个权重，最终将各个类别的加权票数求和，最大的值对应的类别为最终类别。</p>
+</blockquote>
+</li>
+<li><p><strong>学习法</strong></p>
+<blockquote>
+<p>前2种方法都是对弱学习器的结果做平均或者投票，相对比较简单，但是可能学习误差较大，于是就有了学习法这种方法，对于<strong>学习法</strong>，代表方法是<strong>stacking</strong>，当使用stacking的结合策略时， 我们不是对弱学习器的结果做简单的逻辑处理，而是再加上一层学习器，也就是说，我们<strong>将训练集弱学习器的学习结果作为输入，将训练集的输出作为输出，重新训练一个学习器来得到最终结果</strong>。</p>
+<p>在这种情况下，我们将弱学习器称为初级学习器，将用于结合的学习器称为次级学习器。对于测试集，我们首先用初级学习器预测一次，得到次级学习器的输入样本，再用次级学习器预测一次，得到最终的预测结果。</p>
+</blockquote>
 </li>
 </ol>
+<h3 id="对比Bagging和Boosting"><a href="#对比Bagging和Boosting" class="headerlink" title="对比Bagging和Boosting"></a>对比Bagging和Boosting</h3><ol>
+<li><p><strong>样本选择上：</strong></p>
+<blockquote>
+<p><strong>Bagging：</strong>训练集是在原始集中有放回选取的，从原始集中选出的各轮训练集之间是独立的。</p>
+<p><strong>Boosting：</strong>每一轮的训练集不变，只是训练集中每个样例在分类器中的权重发生变化。而权值是根据上一轮的分类结果进行调整。</p>
+</blockquote>
+</li>
+<li><p><strong>样例权重：</strong></p>
+<blockquote>
+<p><strong>Bagging：</strong>使用均匀取样，每个样例的权重相等</p>
+<p><strong>Boosting：</strong>根据错误率不断调整样例的权值，错误率越大则权重越大。</p>
+</blockquote>
+</li>
+<li><p><strong>预测函数：</strong></p>
+<blockquote>
+<p><strong>Bagging：</strong>所有预测函数的权重相等。</p>
+<p><strong>Boosting：</strong>每个弱分类器都有相应的权重，对于分类误差小的分类器会有更大的权重。</p>
+</blockquote>
+</li>
+<li><p><strong>并行计算：</strong></p>
+<blockquote>
+<p><strong>Bagging：</strong>各个预测函数可以并行生成</p>
+<p><strong>Boosting：</strong>各个预测函数只能顺序生成，因为后一个模型参数需要前一轮模型的结果。</p>
+</blockquote>
+</li>
+<li><p><strong>偏差和方差</strong></p>
+<blockquote>
+<p><strong>Bagging：</strong>主要关注<strong>降低偏差（bias）</strong>，因为他更加关注分类错误的样本</p>
+<p><strong>Boosting：</strong>更加关注<strong>降低方差（variance）</strong>，因为他不容易受极值点影响<br>详细的解释可参考<a href="https://www.cnblogs.com/earendil/p/8872001.html" target="_blank" rel="noopener">Bagging和Boosting的区别</a><br><strong>偏差相当于预测准确性，而方差相当于预测稳定性</strong>，下图就能明显的说明偏差和方差。</p>
+<p><img src="/机器学习/2019-3-25-集成学习中的Bagging和Boosting/4.png" alt=""></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="/机器学习/2019-3-25-集成学习中的Bagging和Boosting/5.png" alt=""></p>
+<p><strong>参考资料</strong><br><a href="https://blog.csdn.net/Mr_tyting/article/details/72957853" target="_blank" rel="noopener">Bagging,Boosting,Stacking</a><br><a href="https://www.cnblogs.com/earendil/p/8872001.html" target="_blank" rel="noopener">Bagging和Boosting的区别</a></p>
 
       
     </div>
@@ -690,7 +639,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/" title="牛客笔试题之顺丰机器学习真题">https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/</a>
+      <a href="https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/" title="集成学习中的Bagging和Boosting">https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -708,7 +657,7 @@
           
             <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
           
-            <a href="/tags/computer-basis/" rel="tag"><i class="fa fa-tag"></i> computer basis</a>
+            <a href="/tags/ensemble-learning/" rel="tag"><i class="fa fa-tag"></i> ensemble learning</a>
           
         </div>
       
@@ -721,8 +670,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/机器学习/2019-3-21-机器学习正则化之L0、L1与L2范数/" rel="next" title="机器学习正则化之L0、L1与L2范数">
-                <i class="fa fa-chevron-left"></i> 机器学习正则化之L0、L1与L2范数
+              <a href="/Computer-vision/2019-3-25-数字图像处理的常用方法/" rel="next" title="数字图像处理的常用方法">
+                <i class="fa fa-chevron-left"></i> 数字图像处理的常用方法
               </a>
             
           </div>
@@ -730,10 +679,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/机器学习/2019-3-22-准确率，精确率，召回率和F1值/" rel="prev" title="准确率，精确率，召回率和F1值">
-                准确率，精确率，召回率和F1值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -930,7 +875,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中的String"><span class="nav-number">1.</span> <span class="nav-text">Java中的String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表"><span class="nav-number">2.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP与TCP"><span class="nav-number">3.</span> <span class="nav-text">UDP与TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁"><span class="nav-number">4.</span> <span class="nav-text">死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">5.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库索引"><span class="nav-number">6.</span> <span class="nav-text">数据库索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy"><span class="nav-number">7.</span> <span class="nav-text">Numpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RF-GBDT-XgBoost"><span class="nav-number">8.</span> <span class="nav-text">RF GBDT XgBoost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boosting和Bagging的差别"><span class="nav-number">9.</span> <span class="nav-text">Boosting和Bagging的差别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#集成学习概述"><span class="nav-number">1.</span> <span class="nav-text">集成学习概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成学习之Boosting"><span class="nav-number">2.</span> <span class="nav-text">集成学习之Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成学习之Bagging"><span class="nav-number">3.</span> <span class="nav-text">集成学习之Bagging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成学习之结合策略"><span class="nav-number">4.</span> <span class="nav-text">集成学习之结合策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比Bagging和Boosting"><span class="nav-number">5.</span> <span class="nav-text">对比Bagging和Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-25T09:24:33.168Z</updated>
+  <updated>2019-03-25T13:42:51.717Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>集成学习中的Bagging和Boosting</title>
+    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-25-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84Bagging%E5%92%8CBoosting/"/>
+    <id>https://liufan.vip/机器学习/2019-3-25-集成学习中的Bagging和Boosting/</id>
+    <published>2019-03-25T11:51:38.000Z</published>
+    <updated>2019-03-25T13:42:51.717Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在机器学习和统计学习中, &lt;strong&gt;集成学习&lt;/strong&gt;(&lt;code&gt;Ensemble Learning&lt;/code&gt;)是一种将多种学习算法组合在一起以取得更好表现的一种方法。它本身不是一个单独的机器学习算法，而是通过构建并结合多个机器学习器来完成学习任务。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="ensemble learning" scheme="https://liufan.vip/tags/ensemble-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>数字图像处理的常用方法</title>
@@ -436,32 +458,6 @@
       <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
     
       <category term="GAN model" scheme="https://liufan.vip/tags/GAN-model/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习的发展</title>
-    <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-1-14-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B1%95/"/>
-    <id>https://liufan.vip/深度学习/2019-1-14-深度学习发展/</id>
-    <published>2019-01-13T16:00:00.000Z</published>
-    <updated>2019-02-25T08:46:35.052Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;深度学习的发展历程&quot;&gt;&lt;a href=&quot;#深度学习的发展历程&quot; class=&quot;headerlink&quot; title=&quot;深度学习的发展历程&quot;&gt;&lt;/a&gt;深度学习的发展历程&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;人工智能&lt;/li&gt;
-&lt;li&gt;机器学习&lt;/li&gt;
-&lt;li&gt;深度学习&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://liufan.vip/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
-    
-      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
     
   </entry>
   
