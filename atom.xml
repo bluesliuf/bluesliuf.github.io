@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-28T02:13:41.918Z</updated>
+  <updated>2019-03-28T03:57:39.432Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CNN网络发展史</title>
+    <link href="https://liufan.vip/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2019-3-28-CNN%E7%BD%91%E7%BB%9C%E5%8F%91%E5%8F%91%E5%B1%95%E5%8F%B2/"/>
+    <id>https://liufan.vip/深度学习/2019-3-28-CNN网络发发展史/</id>
+    <published>2019-03-28T03:47:58.000Z</published>
+    <updated>2019-03-28T03:57:39.432Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;卷积神经网络可谓是现在深度学习领域中大红大紫的网络框架，尤其在计算机视觉领域更是一枝独秀。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://liufan.vip/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="CNN" scheme="https://liufan.vip/tags/CNN/"/>
+    
+  </entry>
   
   <entry>
     <title>马氏距离和欧式距离详解</title>
@@ -432,28 +454,6 @@
       <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
     
       <category term="tensorflow" scheme="https://liufan.vip/tags/tensorflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker集群使用文档</title>
-    <link href="https://liufan.vip/Docker%E5%AE%B9%E5%99%A8/2019-2-21-Docker%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3/"/>
-    <id>https://liufan.vip/Docker容器/2019-2-21-Docker集群使用文档/</id>
-    <published>2019-02-21T06:27:31.000Z</published>
-    <updated>2019-03-08T03:07:47.582Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;用户管理-管理员权限&quot;&gt;&lt;a href=&quot;#用户管理-管理员权限&quot; class=&quot;headerlink&quot; title=&quot;用户管理 (管理员权限)&quot;&gt;&lt;/a&gt;用户管理&lt;font color=&quot;#FF0000&quot;&gt; (管理员权限)&lt;/font&gt;&lt;/h3&gt;&lt;h4 id=&quot;添加docker用户组&quot;&gt;&lt;a href=&quot;#添加docker用户组&quot; class=&quot;headerlink&quot; title=&quot;添加docker用户组:&quot;&gt;&lt;/a&gt;添加docker用户组:&lt;/h4&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo groupadd -g &lt;span class=&quot;number&quot;&gt;344&lt;/span&gt; docker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&quot;添加用户到用户组：&quot;&gt;&lt;a href=&quot;#添加用户到用户组：&quot; class=&quot;headerlink&quot; title=&quot;添加用户到用户组：&quot;&gt;&lt;/a&gt;添加用户到用户组：&lt;/h4&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo usermod -a -G 用户组 用户&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&quot;从用户组中删除用户&quot;&gt;&lt;a href=&quot;#从用户组中删除用户&quot; class=&quot;headerlink&quot; title=&quot;从用户组中删除用户&quot;&gt;&lt;/a&gt;从用户组中删除用户&lt;/h4&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gpasswd -d 用户 用户组&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Docker容器" scheme="https://liufan.vip/categories/Docker%E5%AE%B9%E5%99%A8/"/>
-    
-    
-      <category term="docker使用" scheme="https://liufan.vip/tags/docker%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
