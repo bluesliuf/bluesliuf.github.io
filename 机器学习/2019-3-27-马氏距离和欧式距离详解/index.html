@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="machine learning,distance,">
 
 
 
@@ -101,16 +101,23 @@
 
 
 
-<meta name="description" content="From Zero to Hero">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bluesliuf">
-<meta property="og:url" content="https://liufan.vip/archives/2019/01/index.html">
+<meta name="description" content="一般在机器学习模型中会涉及到衡量两个样本间的距离，如聚类、KNN，K-means等，使用的距离为欧式距离。其实，除了欧氏距离之外，还有很多的距离计算标准，本文主要介绍欧氏距离和马氏距离。">
+<meta name="keywords" content="machine learning,distance">
+<meta property="og:type" content="article">
+<meta property="og:title" content="马氏距离和欧式距离详解">
+<meta property="og:url" content="https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="From Zero to Hero">
+<meta property="og:description" content="一般在机器学习模型中会涉及到衡量两个样本间的距离，如聚类、KNN，K-means等，使用的距离为欧式距离。其实，除了欧氏距离之外，还有很多的距离计算标准，本文主要介绍欧氏距离和马氏距离。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/3.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/4.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/1.png">
+<meta property="og:image" content="https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/2.png">
+<meta property="og:updated_time" content="2019-03-28T02:13:41.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bluesliuf">
-<meta name="twitter:description" content="From Zero to Hero">
+<meta name="twitter:title" content="马氏距离和欧式距离详解">
+<meta name="twitter:description" content="一般在机器学习模型中会涉及到衡量两个样本间的距离，如聚类、KNN，K-means等，使用的距离为欧式距离。其实，除了欧氏距离之外，还有很多的距离计算标准，本文主要介绍欧氏距离和马氏距离。">
+<meta name="twitter:image" content="https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/3.png">
 
 
 
@@ -138,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/archives/2019/01/">
+  <link rel="canonical" href="https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/">
 
 
 
 
 
-  <title> 归档 | Bluesliuf </title>
+  <title> 马氏距离和欧式距离详解 | Bluesliuf </title>
 </head>
 
 
@@ -189,7 +196,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -325,134 +332,325 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 24 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/深度学习/2019-1-14-深度学习发展/" itemprop="url">
-              
-                <span itemprop="name">深度学习的发展</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-14T00:00:00+08:00" content="2019-01-14">
-          01-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/深度学习/2019-1-14-深度学习的常见模型-CNN/" itemprop="url">
-              
-                <span itemprop="name">深度学习的常见模型（CNN）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-14T00:00:00+08:00" content="2019-01-14">
-          01-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/uncategorized/2019-01-13-FirstBlog/" itemprop="url">
-              
-                <span itemprop="name">欢迎访问我的博客</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-13T00:00:00+08:00" content="2019-01-13">
-          01-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                马氏距离和欧式距离详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-27T21:27:21+08:00">
+                2019-03-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-28T10:13:41+08:00">
+                2019-03-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一般在机器学习模型中会涉及到衡量两个样本间的距离，如<strong>聚类、KNN，K-means</strong>等，使用的距离为<strong>欧式距离</strong>。其实，除了欧氏距离之外，还有很多的距离计算标准，本文主要介绍欧氏距离和马氏距离。</p>
+<a id="more"></a>
+<h3 id="欧氏距离"><a href="#欧氏距离" class="headerlink" title="欧氏距离"></a>欧氏距离</h3><p>最常见的两点之间或多点之间的距离表示法，又称之为欧几里得度量，它定义于欧几里得空间中，如点 $x = (x_1,…,x_n)$ 和 $y = (y_1,…,y_n)$ 之间的距离为：<br>$$<br>d(x,y) = \sqrt{(x_1-y_1)^2+(x_2-y_2)^2+…+(x_n-y_n)^2} = \sqrt{\sum_{i=1}^{n}(x_i-y_i)^2}<br>$$</p>
+<ol>
+<li><p>二维平面上两点a(x1,y1)与b(x2,y2)间的欧氏距离：<br>$$<br>d_{12} = \sqrt{(x_1-y_1)^2+(x_2-y_2)^2}<br>$$</p>
+</li>
+<li><p>两个n维向量$a(x_{11},x_{12},…,x_{1n})$与 $b(x_{21},x_{22},…,x_{2n})$间的欧氏距离：<br>$$<br>d_{12} = \sqrt{\sum_{k=1}^{n}(x_{1k}-x_{2k})^2}<br>$$</p>
+</li>
+</ol>
+<h3 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h3><p>在介绍马氏距离之前，我们先来看如下几个概念：</p>
+<ol>
+<li><p><strong>方差：</strong>方差是<strong>标准差</strong>的平方，而标准差的意义是<strong>数据集中各个点到均值点距离的平均值</strong>。反应的是数据的离散程度。 </p>
+</li>
+<li><p><strong>协方差：</strong>标准差与方差是描述一维数据的，当存在多维数据时，我们通常需要知道每个维数的变量中间是否存在关联。<strong>协方差就是衡量多维数据集中，变量之间相关性的统计量</strong>。比如说，一个人的身高与他的体重的关系，这就需要用协方差来衡量。如果两个变量之间的协方差为正值，则这两个变量之间存在正相关，若为负值，则为负相关。 </p>
+</li>
+<li><p><strong>协方差矩阵：</strong>当变量多了，超过两个变量了。那么，就用协方差矩阵来衡量这么多变量之间的相关性。假设 $X$ 是以 $n$个随机变数（其中的每个随机变数是也是一个向量，当然是一个行向量）组成的列向量： </p>
+</li>
+<li><img src="/机器学习/2019-3-27-马氏距离和欧式距离详解/3.png" alt=""></li>
+</ol>
+<p>其中，$μ_i$是第i个元素的期望值，即$μ_i=E(X_i)$。协方差矩阵的第$i,j$项（第$i,j$项是一个协方差）被定义为如下形式：<br>$$<br>\sum_{ij} = cov(X_i,X_j = E[(X_i-\mu_i)(X_j-\mu_j)])<br>$$<br>即：<br><img src="/机器学习/2019-3-27-马氏距离和欧式距离详解/4.png" alt=""></p>
+<p>矩阵中的第 $(i,j)$ 个元素是 $X_i$ 与 $X_j$ 的协方差。 </p>
+<p><strong>马氏距离的定义：</strong><br><strong>马氏距离（Mahalanobis Distance）</strong>是由马哈拉诺比斯（P. C. Mahalanobis）提出的，表示数据的协方差距离。它是一种有效的计算两个未知样本集的相似度的方法。与欧氏距离不同的是<strong>它考虑到各种特性之间的联系</strong>（例如：一条关于身高的信息会带来一条关于体重的信息，因为两者是有关联的）并且是尺度无关的（scale-invariant），即独立于测量尺度。<br>对于一个均值为$μ=(μ_1,μ_2,μ_3,…,μ_p)^T$，协方差矩阵为$S$的多变量$x=(x_1,x_2,x_3,…,x_p)^T$，其马氏距离为：<br>$$<br>D_M(x) = \sqrt{(x-\mu)^T {S}^{-1}(x-\mu)}<br>$$<br>我们可以<strong>发现如果$S^{-1}$是单位阵的时候，马氏距离简化为欧氏距离</strong>。 </p>
+<p><strong>那我们为什么要用马氏距离呢？</strong><br>马氏距离有很多<strong>优点：</strong> <strong>马氏距离不受量纲的影响</strong>，两点之间的马氏距离与原始数据的测量单位无关；由标准化数据和中心化数据(即原始数据与均值之差）计算出的二点之间的马氏距离相同。<strong>马氏距离还可以排除变量之间的相关性的干扰</strong>。 </p>
+<p><strong>下面我们来看一个例子：</strong><br>如果我们以厘米为单位来测量人的身高，以克（g）为单位测量人的体重。每个人被表示为一个两维向量，如一个人身高173cm，体重50000g，表示为（173,50000），根据身高体重的信息来判断体型的相似程度。</p>
+<p>我们已知小明（160,60000）；小王（160,59000）；小李（170，60000）。根据常识可以知道小明和小王体型相似。但是如果根据欧几里得距离来判断，小明和小王的距离要远远大于小明和小李之间的距离，即小明和小李体型相似。这是因为<strong>不同特征的度量标准之间存在差异而导致判断出错</strong>。</p>
+<p>以克（g）为单位测量人的体重，数据分布比较分散，即方差大，而以厘米为单位来测量人的身高，数据分布就相对集中，方差小。<strong>马氏距离的目的就是把方差归一化，使得特征之间的关系更加符合实际情况</strong>。</p>
+<p>下图（a）展示了三个数据集的初始分布，看起来竖直方向上的那两个集合比较接近。在我们根据数据的协方差归一化空间之后，如图（b），实际上水平方向上的两个集合比较接近。</p>
+<p><img src="/机器学习/2019-3-27-马氏距离和欧式距离详解/1.png" alt=""></p>
+<p><strong>深入分析：</strong><br>当求距离的时候，由于随机向量的每个分量之间量级不一样，比如说x1可能取值范围只有零点几，而x2有可能时而是2000，时而是3000，因此两个变量的离散度具有很大差异<br>马氏距离除以了一个方差矩阵，这就把各个分量之间的方差都除掉了，消除了量纲性，更加科学合理。</p>
+<p><img src="/机器学习/2019-3-27-马氏距离和欧式距离详解/2.png" alt=""></p>
+<p>如上图，看左下方的图，比较中间那个绿色的和另外一个绿色的距离，以及中间绿色到蓝色的距离</p>
+<p>如果不考虑数据的分布，就是直接计算欧式距离，那就是蓝色距离更近</p>
+<p>但实际上需要考虑各分量的分布的，呈椭圆形分布</p>
+<p>蓝色的在椭圆外，绿色的在椭圆内，因此绿色的实际上更近</p>
+<p>马氏距离除以了协方差矩阵，实际上就是把右上角的图变成了右下角</p>
+<p><strong>参考资料：</strong><br><a href="https://blog.csdn.net/AffectiveComputing/article/details/82763011" target="_blank" rel="noopener">马氏距离通俗理解</a></p>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持原创技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/" title="马氏距离和欧式距离详解">https://liufan.vip/机器学习/2019-3-27-马氏距离和欧式距离详解/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
+          
+            <a href="/tags/distance/" rel="tag"><i class="fa fa-tag"></i> distance</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/机器学习/2019-3-25-集成学习中的Bagging和Boosting/" rel="next" title="集成学习中的Bagging和Boosting">
+                <i class="fa fa-chevron-left"></i> 集成学习中的Bagging和Boosting
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -460,6 +658,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
 
         </div>
         
@@ -479,8 +683,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
           <p class="site-author-name" itemprop="name">bluesliuf</p>
@@ -585,6 +798,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#欧氏距离"><span class="nav-number">1.</span> <span class="nav-text">欧氏距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#马氏距离"><span class="nav-number">2.</span> <span class="nav-text">马氏距离</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -726,11 +955,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
