@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-30T02:22:51.703Z</updated>
+  <updated>2019-03-30T06:53:16.244Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据结构之线性表（顺序存储）</title>
+    <link href="https://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-3-30-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E8%A1%A8/"/>
+    <id>https://liufan.vip/数据结构/2019-3-30-数据结构之线性表/</id>
+    <published>2019-03-30T02:54:23.000Z</published>
+    <updated>2019-03-30T06:53:16.244Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;线性表&lt;/strong&gt;是具有&lt;strong&gt;相同&lt;/strong&gt;数据类型的$n(n&amp;gt;=0)$个数据元素的&lt;strong&gt;有限序列&lt;/strong&gt;。其中$n$为表长，当$n=0$时，线性表是一个空表。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://liufan.vip/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="data structure" scheme="https://liufan.vip/tags/data-structure/"/>
+    
+      <category term="linear list" scheme="https://liufan.vip/tags/linear-list/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构之绪论</title>
@@ -425,28 +447,6 @@
       <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
     
       <category term="svm" scheme="https://liufan.vip/tags/svm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习方法之决策树</title>
-    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-6-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E4%B9%8B%E5%86%B3%E7%AD%96%E6%A0%91/"/>
-    <id>https://liufan.vip/机器学习/2019-3-6-机器学习方法之决策树/</id>
-    <published>2019-03-06T13:29:57.000Z</published>
-    <updated>2019-03-07T12:46:43.280Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;决策树是一个类似于流程图的树结构：其中，每个内部结点表示在一个属性上的测试，每个分支代表一个属性输出，而每个树叶结点代表类或类分布。树的最顶层是根结点。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
-    
-      <category term="desion tree" scheme="https://liufan.vip/tags/desion-tree/"/>
     
   </entry>
   
