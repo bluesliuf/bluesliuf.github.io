@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="machine learning,computer basis,">
+  <meta name="keywords" content="data structure,stack queue,">
 
 
 
@@ -101,25 +101,25 @@
 
 
 
-<meta name="description" content="昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。">
-<meta name="keywords" content="machine learning,computer basis">
+<meta name="description" content="在上篇博文中，我们了解了栈的节本原理和操作。本文主要介绍另外一种操作受限的线性表，队列（Queue）。">
+<meta name="keywords" content="data structure,stack queue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="牛客笔试题之顺丰机器学习真题">
-<meta property="og:url" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/index.html">
+<meta property="og:title" content="数据结构之栈和队列（二）">
+<meta property="og:url" content="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。">
+<meta property="og:description" content="在上篇博文中，我们了解了栈的节本原理和操作。本文主要介绍另外一种操作受限的线性表，队列（Queue）。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/1.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/2.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/3.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/4.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/5.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/6.png">
-<meta property="og:updated_time" content="2019-03-22T03:30:12.080Z">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/1.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/2.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/3.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/4.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/5.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/6.png">
+<meta property="og:updated_time" content="2019-03-31T13:29:04.730Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="牛客笔试题之顺丰机器学习真题">
-<meta name="twitter:description" content="昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。">
-<meta name="twitter:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/1.png">
+<meta name="twitter:title" content="数据结构之栈和队列（二）">
+<meta name="twitter:description" content="在上篇博文中，我们了解了栈的节本原理和操作。本文主要介绍另外一种操作受限的线性表，队列（Queue）。">
+<meta name="twitter:image" content="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/1.png">
 
 
 
@@ -147,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/">
+  <link rel="canonical" href="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/">
 
 
 
 
 
-  <title> 牛客笔试题之顺丰机器学习真题 | Bluesliuf </title>
+  <title> 数据结构之栈和队列（二） | Bluesliuf </title>
 </head>
 
 
@@ -344,7 +344,7 @@
   
 
   <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -365,7 +365,7 @@
             
             
               
-                牛客笔试题之顺丰机器学习真题
+                数据结构之栈和队列（二）
               
             
           </h1>
@@ -380,8 +380,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T09:48:30+08:00">
-                2019-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T19:33:55+08:00">
+                2019-03-31
               </time>
             
 
@@ -396,8 +396,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T11:30:12+08:00">
-                2019-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-31T21:29:04+08:00">
+                2019-03-31
               </time>
             
           </span>
@@ -415,8 +415,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/牛客笔试题/" itemprop="url" rel="index">
-                    <span itemprop="name">牛客笔试题</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
                   </a>
                 </span>
 
@@ -450,7 +450,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  1.3k
                 </span>
               
 
@@ -466,7 +466,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  5
                 </span>
               
             </div>
@@ -485,158 +485,62 @@
       
 
       
-        <p>昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。</p>
+        <p>在上篇博文中，我们了解了栈的节本原理和操作。本文主要介绍另外一种操作受限的线性表，<strong>队列（Queue）</strong>。</p>
 <a id="more"></a>
-<h3 id="Java中的String"><a href="#Java中的String" class="headerlink" title="Java中的String"></a>Java中的String</h3><p><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/1.png" alt=""><br><strong>解析：</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/2.png" alt=""></p>
-<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>链表的特性，使其在某些操作上比数组更加高效。</p>
+<p><strong>队列（Queue）</strong>也是一种操作受限的线性表，它只允许在表的一端进行插入，而在另外一端进行删除，满足<strong>先进先出（FIFO）</strong>。</p>
+<h3 id="队列的基本操作"><a href="#队列的基本操作" class="headerlink" title="队列的基本操作"></a>队列的基本操作</h3><ol>
+<li><code>InitQueue(&amp;Q)</code>：初始化</li>
+<li><code>QueueEmpty(Q)</code>：判断队列是否为空</li>
+<li><code>EnQueue(&amp;Q,x)</code>：入队，若Q未满，将x加入，使之成为新的队尾</li>
+<li><code>DeQueue(&amp;Q,&amp;x)</code>：出队，若Q非空，删除队头元素，并用x返回</li>
+<li><code>GetHead(Q,&amp;x)</code>：读队头元素，若Q非空，将队头元素赋值给x</li>
+</ol>
+<h3 id="队列的顺序存储结构"><a href="#队列的顺序存储结构" class="headerlink" title="队列的顺序存储结构"></a>队列的顺序存储结构</h3><p>分配一块<strong>连续的存储单元</strong>存放队列中的元素，并附设<strong>两个指针front和rear</strong>分别指向队头元素和队尾元素的位置。设队头指针指向队头元素，<strong>队尾指针指向队尾的下一个位置</strong>。</p>
+<p><strong>队列的顺序存储类型可描述如下：</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 50</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    ElemType data[MaxSize];    <span class="comment">//存放队列元素</span></span><br><span class="line">    <span class="keyword">int</span> front,rear;           <span class="comment">//队头指针和队尾指针</span></span><br><span class="line">&#125;SqQueue;</span><br></pre></td></tr></table></figure></p>
+<p><strong>初始状态</strong>（队空条件）$Q.front==Q.rear==0$<br><strong>进队操作</strong>：队不满时，先送值到队尾元素，再将队尾指针<strong>加1</strong><br><strong>出队操作</strong>：队不空时，先取队头元素，再将队头指针<strong>加1</strong></p>
+<p><img src="/数据结构/2019-3-31-数据结构之栈和队列2/1.png" alt=""></p>
+<p>如上图所示，我们可以用$Q.front==Q.rear==0$来判断队列是否为空，但是我们不能用$Q.rear==MaxSize$作队满的条件，如上图(d)所示。</p>
+<h3 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h3><p>为了克服顺序队列的缺点，引出了循环队列，将顺序队列臆造为一个环状空间。</p>
+<p><img src="/数据结构/2019-3-31-数据结构之栈和队列2/2.png" alt=""></p>
+<p><strong>出队入队时，指针按顺时针方向进1</strong>，如下图所示：</p>
+<p><img src="/数据结构/2019-3-31-数据结构之栈和队列2/3.png" alt=""></p>
+<p>为了区分$Q.front==Q.rear$为队空还是队满，有三种处理方式：</p>
 <ol>
-<li><strong>增删不必挪动元素</strong>。当进行插入和删除操作时，链表操作的时间复杂度仅为O(1)。</li>
-<li><strong>无需实现估计空间</strong>。链表在内存中不是连续存储的，所以可以充分利用内存中碎片空间。</li>
-</ol>
-<h3 id="UDP与TCP"><a href="#UDP与TCP" class="headerlink" title="UDP与TCP"></a>UDP与TCP</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">TCP</th>
-<th style="text-align:center">面向有连接</th>
-<th style="text-align:center">可靠</th>
-<th style="text-align:center">面向字节流</th>
-<th style="text-align:center">数据无边界</th>
-<th style="text-align:center">速度慢</th>
-<th style="text-align:center">一对一</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">UDP</td>
-<td style="text-align:center">无连接</td>
-<td style="text-align:center">不可靠会丢包</td>
-<td style="text-align:center">面向报文</td>
-<td style="text-align:center">有边界</td>
-<td style="text-align:center">速度块</td>
-<td style="text-align:center">一对一或一对多</td>
-</tr>
-</tbody>
-</table>
-<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p><strong>产生必要条件：</strong></p>
+<li><p>入队时，少用一个队列单元，<strong>队头指针在队尾指针的下一个位置时队满</strong></p>
 <blockquote>
+<p><strong>队满条件</strong>：$(Q.rear+1)$%$MaxSize==Q.front$<br><strong>队空条件</strong>：$Q.front==Q.rear$<br><strong>队列中元素个数</strong>：$(Q.rear-Q.front+MaxSize)$%$MaxSize​$</p>
+</blockquote>
+</li>
+<li><p>增设表示元素个数的数据成员</p>
+<blockquote>
+<p><strong>队空</strong>：$Q.size==0$<br><strong>队满</strong>：$Q.size==MaxSize​$</p>
+</blockquote>
+</li>
+<li><p>增设tag成员，区分队满还是队空（<strong>tag表示下一个存储空间是否为空</strong>）</p>
+<blockquote>
+<p><strong>tag=0,出队：</strong>因为删除导致$Q.front==Q.rear$ (<strong>队空</strong>)<br><strong>tag=1,进队：</strong>因为插入导致$Q.front==Q.rear$ (<strong>队满</strong>)</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>循环队列的基本操作如下：</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitQueue</span><span class="params">(&amp;Q)</span></span>&#123;</span><br><span class="line">    Q.rear=Q.front=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断队列是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isEmpty</span><span class="params">(Q)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q.rear==Q.front)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//入队</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">EnQueue</span><span class="params">(SqQueue &amp;Q,ElemType x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((Q.rear+<span class="number">1</span>)%MaxSize==Q.front)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        Q.data[Q.rear]=x;</span><br><span class="line">    	Q.rear=(Q.rear+<span class="number">1</span>)%MaxSize;</span><br><span class="line">    	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">DeQueue</span><span class="params">(SqQueue &amp;Q,ElemType &amp;x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q,rear==Q.front)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    x=Q.data[Q.front];</span><br><span class="line">    Q.front=(Q.front+<span class="number">1</span>)%MaxSize;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="队列的链式存储结构"><a href="#队列的链式存储结构" class="headerlink" title="队列的链式存储结构"></a>队列的链式存储结构</h3><p>本质上是一个<strong>同时带有队头指针和队尾指针的单链表</strong>。头指针指向队头结点，尾指针指向队尾结点。</p>
+<p><strong>队列的链式存储类型可以描述如下：</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;LinkNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    LinkNode *front,*rear;</span><br><span class="line">&#125;LinkQueue;</span><br></pre></td></tr></table></figure></p>
+<p>$Q.front==NULL$且$Q.rear==NULL$,链式队列为空<br><strong>出队：</strong>首先判空，若队列不为空，取出队头元素，删除，让$Q.front$指向下一个结点<br><strong>进队：</strong>建立新结点，将该结点插入链表尾部，并让$Q.rear$指向这个新插入的结点</p>
+<p><strong>通常将链式队列设计成一个带头结点的单链表，这样可以统一插入和删除操作</strong>。</p>
+<p><strong>链式队列的基本操作</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitQueue</span><span class="params">(LinkQueue &amp;Q)</span></span>&#123;</span><br><span class="line">    Q.front=Q.rear=(LinkNode *) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(LinkNode));</span><br><span class="line">    Q.front-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//判断队列是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(LinkQueue Q)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q.front==Q.rear)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//入队</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EnQueue</span><span class="params">(LinkQueue &amp;Q,ElemType x)</span></span>&#123;</span><br><span class="line">    s=(LinkNode *) <span class="built_in">malloc</span> (<span class="keyword">sizeof</span>(LinkNode));</span><br><span class="line">    s-&gt;data=x; </span><br><span class="line">    s-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    Q.rear-&gt;next=s;</span><br><span class="line">    Q.rear=s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">DeQueue</span><span class="params">(LinkQueue &amp;Q,ElemType &amp;x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q.front==Q.rear)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    p=Q.front-&gt;next;</span><br><span class="line">    x=p-&gt;next;</span><br><span class="line">    Q.front-&gt;next=p-&gt;next;</span><br><span class="line">    <span class="keyword">if</span>(Q.rear==p)</span><br><span class="line">        Q.rear=Q.front;</span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h3><p>双端队列是指允许两端都可以进行入队和出队操作的队列。</p>
+<p><img src="/数据结构/2019-3-31-数据结构之栈和队列2/4.png" alt=""></p>
+<p><strong>进队：</strong>前端进的元素在后端进的元素前面<br><strong>出队：</strong>无论前端还是后端出队，先出的元素排在后出的元素前面<br><strong>输出受限：</strong>允许一端进行插入和删除，另外一端只能插入<br><strong>输入受限：</strong>允许一端进行插入和删除，另外一端只能删除</p>
+<p><strong>栈和队列的应用：</strong>（以后会详细讲解）</p>
 <ol>
-<li>互斥</li>
-<li>请求与保持</li>
-<li>循环等待</li>
-<li>非剥夺</li>
+<li>栈：<strong>括号匹配</strong>、<strong>表达式求值</strong>、<strong>递归</strong>、进制转换、迷宫求解…</li>
+<li>队列：<strong>二叉树的层次遍历</strong>、缓冲区、页面替换算法、广度优先搜索图</li>
 </ol>
-</blockquote>
-<h3 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h3><p>OSI（<code>Open System Interconnect</code>），即开放式系统互联。 一般都叫OSI参考模型，是ISO（国际标准化组织）组织在1985年研究的网络互连模型。它定义了网络互连的七层框架：<br><strong>物理层、数据链路层、网络层、传输层、会话层、表示层、应用层</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/3.png" alt=""></p>
-<p><strong>TCP/IP五层协议和OSI的七层协议对应关系如下，在每一层都工作着不同的设备：</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/4.png" alt=""></p>
-<p><strong>在每一层实现的协议也各不同，即每一层的服务也不同：</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/5.png" alt=""></p>
-<h3 id="数据库索引"><a href="#数据库索引" class="headerlink" title="数据库索引"></a>数据库索引</h3><ol>
-<li>通过创建<strong>唯一性索引</strong>，可以保证数据库表中<strong>每一行数据的唯一性</strong></li>
-<li>当用户查询索引字段时，索引可以快速地执行检索操作，借助索引，在执行查询的时候不需要扫描整个表就可以快速地找到所需要的数据。</li>
-<li>创建索引和维护索引要耗费时间、空间,当对表中的数据进行增加、删除和修改的时候,会降低数据的维护速度</li>
-</ol>
-<h3 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h3><p><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/6.png" alt=""><br><strong>解析：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">numpy.repeat(a, repeats, axis=None)</span></span><br><span class="line"><span class="string">将a重复b次</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>x = np.array([[1,2],[3,4]])</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>np.repeat(x, 2)</span></span><br><span class="line"><span class="string">array([1, 1, 2, 2, 3, 3, 4, 4])</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>np.repeat(x, 3, axis=1)</span></span><br><span class="line"><span class="string">array([[1, 1, 1, 2, 2, 2],</span></span><br><span class="line"><span class="string">       [3, 3, 3, 4, 4, 4]])</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>np.repeat(x, [1, 2], axis=0)</span></span><br><span class="line"><span class="string">array([[1, 2],</span></span><br><span class="line"><span class="string">       [3, 4],</span></span><br><span class="line"><span class="string">       [3, 4]])</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">a = np.repeat(np.arange(<span class="number">5</span>).reshape([<span class="number">1</span>,<span class="number">-1</span>]),<span class="number">10</span>,axis = <span class="number">0</span>)+<span class="number">10.0</span></span><br><span class="line">b = np.random.randint(<span class="number">5</span>, size= a.shape) <span class="comment"># 生成[0,5)随机矩阵，大小和矩阵a相同</span></span><br><span class="line">c = np.argmin(a*b, axis=<span class="number">1</span>) <span class="comment">#矩阵a和b乘积，返回每行最小值位置</span></span><br><span class="line">b = np.zeros(a.shape) <span class="comment">#与矩阵a相同大小的全零矩阵</span></span><br><span class="line">print(<span class="string">"b变之前："</span>,str(b))</span><br><span class="line">print(<span class="string">"c的值："</span>,str(c))</span><br><span class="line">b[np.arange(b.shape[<span class="number">0</span>]), c] = <span class="number">1</span> <span class="comment">#将b中每一行的c位置处赋值为1</span></span><br><span class="line">print(<span class="string">"b变之后："</span>,str(b))</span><br><span class="line">print(b.shape)</span><br></pre></td></tr></table></figure></p>
-<p><strong>输出结果：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">b变之前： [[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line">c的值： [<span class="number">0</span> <span class="number">3</span> <span class="number">4</span> <span class="number">3</span> <span class="number">1</span> <span class="number">3</span> <span class="number">4</span> <span class="number">2</span> <span class="number">2</span> <span class="number">0</span>]</span><br><span class="line">b变之后： [[<span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line">(<span class="number">10</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="RF-GBDT-XgBoost"><a href="#RF-GBDT-XgBoost" class="headerlink" title="RF GBDT XgBoost"></a>RF GBDT XgBoost</h3><p><strong>RF、GBDT、XgBoost</strong> 三者都是<strong>集成学习</strong>中的方法，其中RF属于<code>Bagging</code>方法，GBDT和XgBoost属于<code>Boosting</code>方法。过段时间会专门写一篇有关Bagging和Boosting介绍的博文。</p>
-<ol>
-<li><strong>RF（Random Forest）</strong><blockquote>
-<p>随机森林主要运用到的方法是bagging，采用Bootstrap的随机有放回的抽样，抽样出N份数据集，训练出N个决策树。然后根据N个决策树输出的结果决定最终结果（<strong>离散型的输出：取最多的类别，连续型的输出：取平均数</strong>）。</p>
-</blockquote>
-</li>
-</ol>
-<p><strong>优势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>容易理解和解释</li>
-<li>不需要太多的数据预处理工作</li>
-<li>隐含地创造了多个联合特征，并<strong>能够解决非线性问题</strong></li>
-<li>随机森林模型<strong>不容易过拟合</strong></li>
-<li>自带out-of-bag (oob)错误评估功能</li>
-<li>并行化容易实现</li>
-</ul>
-</blockquote>
-</blockquote>
-<p><strong>劣势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>不适合小样本，只适合大样本</li>
-<li>精度较低</li>
-<li>适合决策边界是矩形的，不适合对角线型的</li>
-</ul>
-</blockquote>
-</blockquote>
-<ol start="2">
-<li><strong>GBDT</strong><blockquote>
-<p>通过采用<strong>加法模型</strong>（即基函数的线性组合），以及不断<strong>减小训练过程产生的残差</strong>来达到将数据分类或者回归的算法。通过多轮迭代,每轮迭代产生一个弱分类器，每个分类器在上一轮分类器的残差基础上进行训练。<strong>对弱分类器的要求一般是足够简单，并且是低方差和高偏差的</strong>。一般选择<code>cart tree</code>且树的深度不会很深。</p>
-</blockquote>
-</li>
-</ol>
-<p><strong>优势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>精度高</li>
-<li><strong>能处理非线性数据</strong></li>
-<li><strong>能处理多特征类型</strong></li>
-<li>适合低维稠密数据</li>
-<li>模型可解释性好</li>
-<li><strong>不需要做特征的归一化，可以自动选择特征</strong></li>
-<li><strong>能适应多种损失函数</strong></li>
-</ul>
-</blockquote>
-</blockquote>
-<p><strong>劣势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>不太适合并发执行</li>
-<li>计算复杂度高</li>
-<li>不适用高维稀疏特征</li>
-</ul>
-</blockquote>
-</blockquote>
-<ol start="3">
-<li><strong>XgBoost</strong><blockquote>
-<p>简单来说<strong>XgBoost是GBDT的一种高效实现</strong>，主要具有以下几个优势：</p>
-<ul>
-<li><strong>显式的把树模型复杂度作为正则项加到优化目标中</strong>。</li>
-<li>实现了分裂点寻找近似算法。</li>
-<li>可以并行执行</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<p><strong>RF和GBDT的比较:</strong></p>
-<blockquote>
-<p><strong>相同点：</strong></p>
-<blockquote>
-<ul>
-<li>都是由多棵树组成</li>
-<li>最终的结果都是由多棵树一起决定</li>
-</ul>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>不同点：</strong></p>
-<blockquote>
-<ul>
-<li>组成RF的树可以是分类树，也可以是回归树；而<strong>GBDT只由回归树组成</strong></li>
-<li>组成RF的树可以并行生成；而<strong>GBDT只能是串行生成</strong></li>
-<li>对于最终的输出结果而言，RF采用多数投票等；而GBDT则是将所有结果累加起来，或者加权累加起来</li>
-<li>RF对异常值不敏感，<strong>GBDT对异常值非常敏感</strong></li>
-<li>RF对训练集一视同仁，GBDT是基于权值的弱分类器的集成</li>
-<li>RF是通过减少模型方差<code>(variance)</code>提高性能，GBDT是通过减少模型偏差<code>(bias)</code>提高性能</li>
-</ul>
-</blockquote>
-</blockquote>
-<h3 id="Boosting和Bagging的差别"><a href="#Boosting和Bagging的差别" class="headerlink" title="Boosting和Bagging的差别"></a>Boosting和Bagging的差别</h3><p><strong>过拟合的模型</strong>，通常<code>variance</code>比较大，这时应该用<strong>bagging</strong>对其进行修正。<br><strong>欠拟合的模型</strong>，通常<code>bias</code>比较大，这时应该可以用<strong>boosting</strong>进行修正。使用boosting时， 每一个模型可以简单一些。</p>
-<ol>
-<li><p><strong>bagging</strong>中的模型是<strong>强模型，偏差低，方差高。目标是降低方差(variance)</strong>。在bagging中，每个模型的bias和variance近似相同，但是互相相关性不太高，因此一般不能降低bias，而一定程度上能降低variance。<strong>典型的bagging是random forest (RF)</strong>。</p>
-</li>
-<li><p><strong>boosting</strong>中每个模型是<strong>弱模型，偏差高，方差低。目标是通过平均降低偏差(bias)</strong>。boosting的基本思想就是<strong>用贪心法最小化损失函数</strong>，显然能降低偏差，但是通常模型的相关性很强，因此不能显著降低variance。<strong>典型的Boosting是Adaboost，另外一个常用的并行Boosting算法是GBDT（gradient boosting decision tree）。这一类算法通常不容易出现过拟合</strong>。</p>
-</li>
-</ol>
+<h3 id="特殊矩阵的压缩存储"><a href="#特殊矩阵的压缩存储" class="headerlink" title="特殊矩阵的压缩存储"></a>特殊矩阵的压缩存储</h3><p><strong>数组与线性表的关系：</strong>数组是线性表的推广。一维数组可以看做是一个线性表，二维数组可以看做元素是线性表的线性表。<strong>数组只有存取元素和修改元素操作</strong>。</p>
+<p><strong>数组的存储结构</strong></p>
+<p><img src="/数据结构/2019-3-31-数据结构之栈和队列2/5.png" alt=""></p>
+<p><strong>矩阵的压缩存储</strong></p>
+<p><img src="/数据结构/2019-3-31-数据结构之栈和队列2/6.png" alt=""></p>
 
       
     </div>
@@ -690,7 +594,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/" title="牛客笔试题之顺丰机器学习真题">https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/</a>
+      <a href="https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/" title="数据结构之栈和队列（二）">https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -706,9 +610,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
+            <a href="/tags/data-structure/" rel="tag"><i class="fa fa-tag"></i> data structure</a>
           
-            <a href="/tags/computer-basis/" rel="tag"><i class="fa fa-tag"></i> computer basis</a>
+            <a href="/tags/stack-queue/" rel="tag"><i class="fa fa-tag"></i> stack queue</a>
           
         </div>
       
@@ -721,8 +625,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/机器学习/2019-3-21-机器学习正则化之L0、L1与L2范数/" rel="next" title="机器学习正则化之L0、L1与L2范数">
-                <i class="fa fa-chevron-left"></i> 机器学习正则化之L0、L1与L2范数
+              <a href="/数据结构/2019-3-31-数据结构之栈和队列/" rel="next" title="数据结构之栈和队列（一）">
+                <i class="fa fa-chevron-left"></i> 数据结构之栈和队列（一）
               </a>
             
           </div>
@@ -730,10 +634,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/机器学习/2019-3-22-准确率，精确率，召回率和F1值/" rel="prev" title="准确率，精确率，召回率和F1值">
-                准确率，精确率，召回率和F1值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -930,7 +830,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中的String"><span class="nav-number">1.</span> <span class="nav-text">Java中的String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表"><span class="nav-number">2.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP与TCP"><span class="nav-number">3.</span> <span class="nav-text">UDP与TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁"><span class="nav-number">4.</span> <span class="nav-text">死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">5.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库索引"><span class="nav-number">6.</span> <span class="nav-text">数据库索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy"><span class="nav-number">7.</span> <span class="nav-text">Numpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RF-GBDT-XgBoost"><span class="nav-number">8.</span> <span class="nav-text">RF GBDT XgBoost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boosting和Bagging的差别"><span class="nav-number">9.</span> <span class="nav-text">Boosting和Bagging的差别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#队列的基本操作"><span class="nav-number">1.</span> <span class="nav-text">队列的基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列的顺序存储结构"><span class="nav-number">2.</span> <span class="nav-text">队列的顺序存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环队列"><span class="nav-number">3.</span> <span class="nav-text">循环队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列的链式存储结构"><span class="nav-number">4.</span> <span class="nav-text">队列的链式存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双端队列"><span class="nav-number">5.</span> <span class="nav-text">双端队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊矩阵的压缩存储"><span class="nav-number">6.</span> <span class="nav-text">特殊矩阵的压缩存储</span></a></li></ol></div>
             
 
           </div>

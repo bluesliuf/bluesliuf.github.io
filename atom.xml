@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-03-31T06:37:11.657Z</updated>
+  <updated>2019-03-31T13:29:04.730Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据结构之栈和队列（二）</title>
+    <link href="https://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-3-31-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%972/"/>
+    <id>https://liufan.vip/数据结构/2019-3-31-数据结构之栈和队列2/</id>
+    <published>2019-03-31T11:33:55.000Z</published>
+    <updated>2019-03-31T13:29:04.730Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在上篇博文中，我们了解了栈的节本原理和操作。本文主要介绍另外一种操作受限的线性表，&lt;strong&gt;队列（Queue）&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://liufan.vip/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="data structure" scheme="https://liufan.vip/tags/data-structure/"/>
+    
+      <category term="stack queue" scheme="https://liufan.vip/tags/stack-queue/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构之栈和队列（一）</title>
@@ -425,28 +447,6 @@
       <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
     
       <category term="Unlinear regression" scheme="https://liufan.vip/tags/Unlinear-regression/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习方法之线性回归（LR）</title>
-    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-12-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E4%B9%8B%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
-    <id>https://liufan.vip/机器学习/2019-3-12-机器学习方法之线性回归/</id>
-    <published>2019-03-12T11:35:45.000Z</published>
-    <updated>2019-03-13T01:17:05.891Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;线性回归&lt;/strong&gt;(&lt;code&gt;linear regression&lt;/code&gt;)是利用数理统计和归回分析，来确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法。与之前的分类问题( &lt;code&gt;Classification&lt;/code&gt; )不一样的是，分类问题的结果是&lt;strong&gt;离散型&lt;/strong&gt;的；而回归问题中的结果是&lt;strong&gt;连续型&lt;/strong&gt;（数值）的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
-    
-      <category term="linear regression" scheme="https://liufan.vip/tags/linear-regression/"/>
     
   </entry>
   
