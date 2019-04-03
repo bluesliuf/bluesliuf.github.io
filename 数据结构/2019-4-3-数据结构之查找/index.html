@@ -1,0 +1,1252 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="data structure,searching,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bluesliuf" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/apple-touch-icon-next.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="本文主要介绍数据结构中的查找算法，主要介绍顺序查找、折半查找（二分查找）、树表查找、分块查找、哈希查找（散列）。">
+<meta name="keywords" content="data structure,searching">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构之查找（一）">
+<meta property="og:url" content="https://liufan.vip/数据结构/2019-4-3-数据结构之查找/index.html">
+<meta property="og:site_name" content="Bluesliuf">
+<meta property="og:description" content="本文主要介绍数据结构中的查找算法，主要介绍顺序查找、折半查找（二分查找）、树表查找、分块查找、哈希查找（散列）。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-3-数据结构之查找/1.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-3-数据结构之查找/2.png">
+<meta property="og:updated_time" content="2019-04-03T06:55:19.362Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构之查找（一）">
+<meta name="twitter:description" content="本文主要介绍数据结构中的查找算法，主要介绍顺序查找、折半查找（二分查找）、树表查找、分块查找、哈希查找（散列）。">
+<meta name="twitter:image" content="https://liufan.vip/数据结构/2019-4-3-数据结构之查找/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liufan.vip/数据结构/2019-4-3-数据结构之查找/">
+
+
+
+
+
+  <title> 数据结构之查找（一） | Bluesliuf </title>
+</head>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4287ae00cf6dc3cd776333fe30decd6a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bluesliuf</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Though failed, Still keep smiling</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            个人简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/数据结构/2019-4-3-数据结构之查找/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据结构之查找（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-03T09:59:20+08:00">
+                2019-04-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-03T14:55:19+08:00">
+                2019-04-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要介绍数据结构中的查找算法，主要介绍<strong>顺序查找</strong>、<strong>折半查找（二分查找）</strong>、<strong>树表查找</strong>、<strong>分块查找</strong>、<strong>哈希查找（散列）</strong>。<a id="more"></a>其他的一些查找算法也会有所介绍。</p>
+<p>查找（Searching）就是根据给定的某个值，在查找表中确定一个其关键字等于给定值的数据元素。</p>
+<ol>
+<li><strong>查找表（Search Table）</strong>：由同一类型的数据元素构成的集合</li>
+<li><strong>关键字（Key）</strong>：数据元素中某个数据项的值，又称为键值</li>
+<li><strong>主键（Primary Key）</strong>：可唯一的标识某个数据元素或记录的关键字</li>
+</ol>
+<p><strong>查找表按照操作方式可分为：</strong></p>
+<ol>
+<li><p><strong>静态查找表（Static Search Table）：</strong>只做查找操作的查找表。它的主要操作是：</p>
+<blockquote>
+<ul>
+<li>查询某个“特定的”数据元素是否在表中</li>
+<li>检索某个“特定的”数据元素和各种属性</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>动态查找表（Dynamic Search Table）：</strong>在查找中同时进行插入或删除等操作：</p>
+<blockquote>
+<ul>
+<li>查找时插入数据</li>
+<li>查找时删除数据</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>平均查找长度（Average Search Length，ASL）：</strong>在所有的查找过程中进行关键字的比较次数的平均值。<br>对于含有n个数据元素的查找表，查找成功的平均查找长度计算公式如下：<br>$$<br>ASL = \sum_{i=1}^{n}P_{i}C_{i}<br>$$<br>　　$P_i$：查找表中第i个数据元素的概率,一般等概率为$\frac{1}{n}$<br>　　$C_i​$：找到第i个数据元素时已经比较过的次数。</p>
+<h3 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h3><p><strong>算法简介</strong></p>
+<blockquote>
+<p>顺序查找又称为线性查找，是一种最简单的查找方法。<strong>适用于线性表的顺序存储结构和链式存储结构</strong>。<strong>时间复杂度为$O（n）$</strong>。</p>
+</blockquote>
+<p><strong>基本思路</strong></p>
+<blockquote>
+<p>从第一个元素m开始逐个与需要查找的元素x进行比较，当比较到元素值相同(即m=x)时返回元素m的下标，如果比较到最后都没有找到，则返回-1。</p>
+</blockquote>
+<p><strong>优缺点</strong></p>
+<blockquote>
+<ul>
+<li><strong>缺点：</strong>当n 很大时，平均查找长度较大，效率低；</li>
+<li><strong>优点：</strong>对表中数据元素的存储没有要求。另外，<strong>对于线性链表，只能进行顺序查找</strong>。</li>
+</ul>
+</blockquote>
+<p><strong>算法实现</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顺序查找，n为数组a的长度</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SequenceSearch</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> value, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">        <span class="keyword">if</span>(a[i]==value)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h3><p><strong>算法简介</strong></p>
+<blockquote>
+<p>折半查找，也称二分查找（Binary Search），是一种在<strong>有序数组</strong>中查找某一特定元素的查找算法。查找过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则查找过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。<br>这种查找算法每一次比较都使查找范围缩小一半。<strong>时间复杂度为$O（log_2^n）$</strong>。</p>
+</blockquote>
+<p><strong>基本思路</strong><br>给予一个包含 n个带值元素的数组A<br>1、 令 L为0 ， R为 n-1 ；<br>2、 如果L&gt;R，则搜索以失败告终 ；<br>3、 令 m (中间值元素)为  ⌊(L+R)/2⌋ <strong>(向下取整)</strong>；<br>4、 如果 $A_m&lt;T$，令 L为 m + 1 并回到步骤二 ；<br>5、 如果 $A_m&gt;T​$，令 R为 m - 1 并回到步骤二；</p>
+<p><strong>注意：</strong><br><strong>折半查找的前提条件是需要有序表顺序存储</strong>，对于静态查找表，一次排序后不再变化，折半查找能得到不错的效率。但对于需要频繁执行插入或删除操作的数据集来说，维护有序的排序会带来不小的工作量，那就不建议使用。</p>
+<p><strong>算法实现</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二分查找（折半查找）,一般方法，n为数组a的长度</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinarySearch1</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> value, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> low, high, mid;</span><br><span class="line">    low = <span class="number">0</span>;</span><br><span class="line">    high = n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (low+high)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]==value)             <span class="comment">//取中间量</span></span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[mid]&gt;value)</span><br><span class="line">            high = mid<span class="number">-1</span>;            <span class="comment">//从前半部分查找</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            low = mid+<span class="number">1</span>;            <span class="comment">//从后半部分查找</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二分查找，递归方法</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinarySearch2</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> value, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(low&gt;high)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = (low+high)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(a[mid]==value)</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a[mid]&gt;value)</span><br><span class="line">        <span class="keyword">return</span> BinarySearch2(a, value, low, mid<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> BinarySearch2(a, value, mid+<span class="number">1</span>, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="插值查找"><a href="#插值查找" class="headerlink" title="插值查找"></a>插值查找</h3><p><strong>算法简介</strong><br>在介绍插值查找之前，首先考虑一个新问题，为什么上述算法一定要是折半，而不是折四分之一或者折更多呢？<br>打个比方，在英文字典里面查“apple”，你下意识翻开字典是翻前面的书页还是后面的书页呢？如果再让你查“zoo”，你又怎么查？很显然，这里你绝对不会是从中间开始查起，而是有一定目的的往前或往后翻。<br>经过以上分析，折半查找这种查找方式，不是自适应的（也就是说是傻瓜式的）。二分查找中查找点计算如下：　<br>$$<br>mid=(low+high)/2, 即mid=low+1/2(high-low)<br>$$<br>通过类比，我们可以将查找的点改进为如下：<br>　　                                               mid=low+<font color="#FF0000">(key-a[low])/(a[high]-a[low])</font>*(high-low)，<br>也就是将上述的<strong>比例参数1/2</strong>改进为自适应的，根据关键字在整个有序表中所处的位置，让mid值的变化更靠近关键字key，这样也就间接地减少了比较次数。<br><strong>查找成功或者失败的时间复杂度均为$O(log_2(log_2^n))$,最坏情况可能需要$O（n）$</strong>。<br>　<br><strong>算法思想</strong><br>基于二分查找算法，<strong>将查找点的选择改进为自适应选择</strong>，可以提高查找效率。当然，<strong>插值查找也属于有序查找</strong>。</p>
+<p><font color="#FF0000">注：</font>对于表长较大，而关键字分布又比较均匀的查找表来说，插值查找算法的平均性能比折半查找要好的多。反之，数组中如果分布非常不均匀，那么插值查找未必是很合适的选择。</p>
+<p><strong>算法实现</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插值查找，类似二分查找，只是mid计算方式不同，此处给出递归方法，一般方法也和上述二分查找类似</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">InsertionSearch</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> value, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(low&gt;high)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = low+(value-a[low])/(a[high]-a[low])*(high-low);</span><br><span class="line">    <span class="keyword">if</span>(a[mid]==value)</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a[mid]&gt;value)</span><br><span class="line">        <span class="keyword">return</span> InsertionSearch(a, value, low, mid<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> InsertionSearch(a, value, mid+<span class="number">1</span>, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h3><p><strong>算法简介</strong><br>要求是<strong>顺序表</strong>，分块查找又称<strong>索引顺序查找</strong>，它是顺序查找的一种改进方法。<br>时间复杂度：$O(log(m)+n/m)$</p>
+<p><strong>算法思想</strong></p>
+<ol>
+<li>将n个数据元素”按块有序”划分为m块（m ≤ n）。</li>
+<li>每一块中的结点不必有序，但块与块之间必须”按块有序”；</li>
+<li>即第1块中任一元素的关键字都必须小于第2块中任一元素的关键字；</li>
+<li>而第2块中任一元素又都必须小于第3块中的任一元素，……</li>
+</ol>
+<p><img src="/数据结构/2019-4-3-数据结构之查找/1.png" alt=""></p>
+<p><strong>算法流程</strong></p>
+<ol>
+<li>先选取各块中的最大关键字构成一个索引表；</li>
+<li>查找分两个部分：先对索引表进行二分查找或顺序查找，以确定待查记录在哪一块中；</li>
+<li>在已确定的块中用顺序法进行查找。</li>
+</ol>
+<p><strong>平均查找长度</strong><br>将长度为n的查找表均匀分为m块，每块有s个记录，在等概率的情况，平均查找长度计算如下：</p>
+<ol>
+<li><p><strong>索引和块内均用顺序查找</strong><br>$$<br>ASL= \frac{m+1}{2} + \frac{s+1}{2} = \frac{s^2+2s+n}{2s},(ms=n)<br>$$<br>特殊的<br>$$<br>当 s =\sqrt{n}时，ASL_{min} = \sqrt{n}+1<br>$$</p>
+</li>
+<li><p><strong>索引折半查找，块内顺序查找</strong></p>
+</li>
+</ol>
+<p>$$<br>ASL =     \left \lceil log_2^(m+1) \right \rceil + \frac{s+1}{2}<br>$$</p>
+<h3 id="斐波那契查找"><a href="#斐波那契查找" class="headerlink" title="斐波那契查找"></a>斐波那契查找</h3><p>这部分大致知道过程，先记录下来，以后有时间在认真研究一下=-=，主要参考<a href="https://baike.baidu.com/item/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%90%9C%E7%B4%A2/19131306?fr=aladdin" target="_blank" rel="noopener">百度百科</a></p>
+<p><strong>算法简介</strong><br>斐波那契数列，又称黄金分割数列，指的是这样一个数列：$1、1、2、3、5、8、13、21、····$，在数学上，斐波那契被递归方法如下定义：$F(1)=1，F(2)=1，F(n)=f(n-1)+F(n-2) （n&gt;=2）$。该数列越往后相邻的两个数的比值越趋向于黄金比例值（0.618）。</p>
+<p>黄金比例又称黄金分割，是指事物各部分间一定的数学比例关系，即将整体一分为二，较大部分与较小部分之比等于整体与较大部分之比，其比值约为1:0.618或1.618:1。</p>
+<p><strong>斐波那契查找的时间复杂度还是$O(log_2^n )$</strong>，但是与折半查找相比，<strong>斐波那契查找的优点是它只涉及加法和减法运算，而不用除法</strong>，而除法比加减法要占用更多的时间，因此，斐波那契查找的运行时间理论上比折半查找小，但是还是得视具体情况而定。</p>
+<p><strong>算法思想</strong><br>也是二分查找的一种提升算法，通过运用黄金比例的概念在数列中选择查找点进行查找，提高查找效率。同样地，斐波那契查找也属于一种有序查找算法。<br>相对于折半查找，一般将待比较的key值与第$mid=（low+high/2$位置的元素比较，比较结果分三种情况：</p>
+<ol>
+<li>相等，mid位置的元素即为所求;</li>
+<li>大于，$low=mid+1$;</li>
+<li>小于，$high=mid-1$。</li>
+</ol>
+<p>斐波那契查找与折半查找很相似，他是根据斐波那契序列的特点对有序表进行分割的。<strong>要求开始表中记录的个数为某个斐波那契数小1</strong>，及$n=F(k)-1$;</p>
+<p>开始将k值与第$F(k-1)$位置的记录进行比较(及$mid=low+F(k-1)-1$),比较结果也分为三种</p>
+<ol>
+<li>相等，mid位置的元素即为所求</li>
+<li>大于，$low=mid+1,k-=2$;</li>
+</ol>
+<p>　　<strong>说明：</strong>$low=mid+1$说明待查找的元素在$[mid+1,high]$范围内，$k-=2$ 说明范围$[mid+1,high]$内的元素个数为$n-(F(k-1))= F(k)-1-F(k-1)=F(k)-F(k-1)-1=F(k-2)-1$个，所以可以递归的应用斐波那契查找。</p>
+<ol start="3">
+<li>小于，$high=mid-1,k-=1​$。</li>
+</ol>
+<p>　　<strong>说明：</strong>$low=mid+1$说明待查找的元素在$[low,mid-1]$范围内，$k-=1$ 说明范围$[low,mid-1]$内的元素个数为$F(k-1)-1$个，所以可以递归 的应用斐波那契查找。<br>　　<br><strong>$n=F(k)-1$， 表中记录的个数为某个斐波那契数小1。这是为什么呢？</strong></p>
+<blockquote>
+<p>是为了格式上的统一，以方便递归或者循环程序的编写。表中的数据是$F(k)-1$个，使用$mid$值进行分割又用掉一个，那么剩下$F(k)-2$个。正好分给两个子序列，每个子序列的个数分别是$F(k-1)-1$与$F(k-2)-1$个，格式上与之前是统一的。不然的话，每个子序列的元素个数有可能是$F(k-1)，F(k-1)-1，F(k-2)，F(k-2)-1$个，写程序会非常麻烦。</p>
+</blockquote>
+<p><strong>算法举例</strong><br>对于斐波那契数列：$1、1、2、3、5、8、13、21、34、55、89……$（也可以从0开始），前后两个数字的比值随着数列的增加，越来越接近黄金比值0.618。比如这里的89，把它想象成整个有序表的元素个数，而89是由前面的两个斐波那契数34和55相加之后的和，也就是说把元素个数为89的有序表分成由前55个数据元素组成的前半段和由后34个数据元素组成的后半段，那么前半段元素个数和整个有序表长度的比值就接近黄金比值0.618，假如要查找的元素在前半段，那么继续按照斐波那契数列来看，55 = 34 + 21，所以继续把前半段分成前34个数据元素的前半段和后21个元素的后半段，继续查找，如此反复，直到查找成功或失败，这样就把斐波那契数列应用到查找算法中了。</p>
+<p><img src="/数据结构/2019-4-3-数据结构之查找/2.png" alt=""></p>
+<p>从图中可以看出，当有序表的元素个数不是斐波那契数列中的某个数字时，需要把有序表的元素个数长度补齐，让它成为斐波那契数列中的一个数值，当然把原有序表截断肯定是不可能的，不然还怎么查找。然后图中标识每次取斐波那契数列中的某个值时(F[k])，都会进行-1操作，这是因为有序表数组位序从0开始的，纯粹是为了迎合位序从0开始。</p>
+<p><strong>算法实现</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 斐波那契查找.cpp   </span></span><br><span class="line">   </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span>  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>  <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line">   </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> max_size=<span class="number">20</span>;<span class="comment">//斐波那契数组的长度  </span></span><br><span class="line">   </span><br><span class="line"><span class="comment">/*构造一个斐波那契数组*/</span>   </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> * F)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    F[<span class="number">0</span>]=<span class="number">0</span>;  </span><br><span class="line">    F[<span class="number">1</span>]=<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;max_size;++i)  </span><br><span class="line">        F[i]=F[i<span class="number">-1</span>]+F[i<span class="number">-2</span>];  </span><br><span class="line">&#125;  </span><br><span class="line">   </span><br><span class="line"><span class="comment">/*定义斐波那契查找法*/</span>    </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Fibonacci_Search</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> n, <span class="keyword">int</span> key)</span>  <span class="comment">//a为要查找的数组,n为要查找的数组长度,key为要查找的关键字  </span></span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">  <span class="keyword">int</span> low=<span class="number">0</span>;  </span><br><span class="line">  <span class="keyword">int</span> high=n<span class="number">-1</span>;  </span><br><span class="line">     </span><br><span class="line">  <span class="keyword">int</span> F[max_size];  </span><br><span class="line">  Fibonacci(F);<span class="comment">//构造一个斐波那契数组F   </span></span><br><span class="line">   </span><br><span class="line">  <span class="keyword">int</span> k=<span class="number">0</span>;  </span><br><span class="line">  <span class="keyword">while</span>(n&gt;F[k]<span class="number">-1</span>)<span class="comment">//计算n位于斐波那契数列的位置  </span></span><br><span class="line">      ++k;  </span><br><span class="line">   </span><br><span class="line">  <span class="keyword">int</span>  * temp;<span class="comment">//将数组a扩展到F[k]-1的长度  </span></span><br><span class="line">  temp=<span class="keyword">new</span> <span class="keyword">int</span> [F[k]<span class="number">-1</span>];  </span><br><span class="line">  <span class="built_in">memcpy</span>(temp,a,n*<span class="keyword">sizeof</span>(<span class="keyword">int</span>));  </span><br><span class="line">   </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&lt;F[k]<span class="number">-1</span>;++i)  </span><br><span class="line">     temp[i]=a[n<span class="number">-1</span>];  </span><br><span class="line">     </span><br><span class="line">  <span class="keyword">while</span>(low&lt;=high)  </span><br><span class="line">  &#123;  </span><br><span class="line">    <span class="keyword">int</span> mid=low+F[k<span class="number">-1</span>]<span class="number">-1</span>;  </span><br><span class="line">    <span class="keyword">if</span>(key&lt;temp[mid])  </span><br><span class="line">    &#123;  </span><br><span class="line">      high=mid<span class="number">-1</span>;  </span><br><span class="line">      k-=<span class="number">1</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(key&gt;temp[mid])  </span><br><span class="line">    &#123;  </span><br><span class="line">     low=mid+<span class="number">1</span>;  </span><br><span class="line">     k-=<span class="number">2</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">    &#123;  </span><br><span class="line">       <span class="keyword">if</span>(mid&lt;n)  </span><br><span class="line">           <span class="keyword">return</span> mid; <span class="comment">//若相等则说明mid即为查找到的位置  </span></span><br><span class="line">       <span class="keyword">else</span>  </span><br><span class="line">           <span class="keyword">return</span> n<span class="number">-1</span>; <span class="comment">//若mid&gt;=n则说明是扩展的数值,返回n-1  </span></span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;    </span><br><span class="line">  <span class="keyword">delete</span> [] temp;  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">   </span><br><span class="line"><span class="keyword">int</span> _tmain(<span class="keyword">int</span> argc, _TCHAR* argv[])  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">0</span>,<span class="number">16</span>,<span class="number">24</span>,<span class="number">35</span>,<span class="number">47</span>,<span class="number">59</span>,<span class="number">62</span>,<span class="number">73</span>,<span class="number">88</span>,<span class="number">99</span>&#125;;  </span><br><span class="line">    <span class="keyword">int</span> key=<span class="number">100</span>;  </span><br><span class="line">    <span class="keyword">int</span> index=Fibonacci_Search(a,<span class="keyword">sizeof</span>(a)/<span class="keyword">sizeof</span>(<span class="keyword">int</span>),key);  </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;key&lt;&lt;<span class="string">" is located at:"</span>&lt;&lt;index;  </span><br><span class="line">    system(<span class="string">"PAUSE"</span>);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>总结：</strong>本文主要介绍了5种常见的查找算法，在接下来的文章中，将继续介绍另外2种更重要的查找算法，<strong>树表查找和哈希查找</strong>。</p>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持原创技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/数据结构/2019-4-3-数据结构之查找/" title="数据结构之查找（一）">https://liufan.vip/数据结构/2019-4-3-数据结构之查找/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/data-structure/" rel="tag"><i class="fa fa-tag"></i> data structure</a>
+          
+            <a href="/tags/searching/" rel="tag"><i class="fa fa-tag"></i> searching</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/数据结构/2019-3-31-数据结构之栈和队列2/" rel="next" title="数据结构之栈和队列（二）">
+                <i class="fa fa-chevron-left"></i> 数据结构之栈和队列（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
+          <p class="site-author-name" itemprop="name">bluesliuf</p>
+           
+              <p class="site-description motion-element" itemprop="description">From Zero to Hero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3978502624/home" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bluesliuf" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:bluesliuf@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/bluesliuf/" target="_blank" title="INS">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  INS
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序查找"><span class="nav-number">1.</span> <span class="nav-text">顺序查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#折半查找"><span class="nav-number">2.</span> <span class="nav-text">折半查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插值查找"><span class="nav-number">3.</span> <span class="nav-text">插值查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分块查找"><span class="nav-number">4.</span> <span class="nav-text">分块查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斐波那契查找"><span class="nav-number">5.</span> <span class="nav-text">斐波那契查找</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bluesliuf</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
