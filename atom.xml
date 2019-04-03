@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-04-03T07:00:49.954Z</updated>
+  <updated>2019-04-03T13:10:54.179Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据结构之查找（二）</title>
+    <link href="https://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-4-3-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%9F%A5%E6%89%BE2/"/>
+    <id>https://liufan.vip/数据结构/2019-4-3-数据结构之查找2/</id>
+    <published>2019-04-03T09:00:30.000Z</published>
+    <updated>2019-04-03T13:10:54.179Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在前面的博文中，我们介绍了5种查找算法，本文主要介绍哈希表及哈希查找算法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://liufan.vip/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="data structure" scheme="https://liufan.vip/tags/data-structure/"/>
+    
+      <category term="searching" scheme="https://liufan.vip/tags/searching/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构之查找（一）</title>
@@ -425,28 +447,6 @@
       <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
     
       <category term="k-means" scheme="https://liufan.vip/tags/k-means/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>回归中的相关度和决定系数</title>
-    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-13-%E5%9B%9E%E5%BD%92%E4%B8%AD%E7%9A%84%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/"/>
-    <id>https://liufan.vip/机器学习/2019-3-13-回归中的相关系数/</id>
-    <published>2019-03-13T12:55:37.000Z</published>
-    <updated>2019-03-13T13:39:00.863Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;训练集中可能是有若干维度的特征。但有时并不是所有特征都是有用的，有的特征其实和结果并没有关系。因此需要一个能衡量自变量和因变量之间的相关度。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
-    
-      <category term="Conv&amp;&amp;R" scheme="https://liufan.vip/tags/Conv-R/"/>
     
   </entry>
   
