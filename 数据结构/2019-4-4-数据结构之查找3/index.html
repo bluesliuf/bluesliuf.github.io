@@ -1,0 +1,1271 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="data structure,searching,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bluesliuf" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/apple-touch-icon-next.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="上一篇博文主要介绍了哈希查找算法，本文主要介绍树表查找算法。">
+<meta name="keywords" content="data structure,searching">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构之查找（三）">
+<meta property="og:url" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/index.html">
+<meta property="og:site_name" content="Bluesliuf">
+<meta property="og:description" content="上一篇博文主要介绍了哈希查找算法，本文主要介绍树表查找算法。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/1.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/3.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/2.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/4.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/5.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/6.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/7.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/8.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/9.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/10.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/11.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/12.png">
+<meta property="og:updated_time" content="2019-04-04T11:19:02.247Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构之查找（三）">
+<meta name="twitter:description" content="上一篇博文主要介绍了哈希查找算法，本文主要介绍树表查找算法。">
+<meta name="twitter:image" content="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/">
+
+
+
+
+
+  <title> 数据结构之查找（三） | Bluesliuf </title>
+</head>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4287ae00cf6dc3cd776333fe30decd6a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bluesliuf</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Though failed, Still keep smiling</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            个人简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据结构之查找（三）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T15:17:05+08:00">
+                2019-04-04
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-04T19:19:02+08:00">
+                2019-04-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上一篇博文主要介绍了哈希查找算法，本文主要介绍<strong>树表查找算法</strong>。<a id="more"></a>这是一类算法，主要包含<strong>二叉查找树</strong>、<strong>平衡查找树之2-3查找树</strong>、<strong>平衡查找树之红黑树（Red-Black Tree）</strong>、<strong>B树和B+树</strong>。<br>本文主要弄懂各种查找树的思想，也附上了部分实现代码。代码有时间在详细研读，此处先记录下来。红黑树、B树和B+树还是有点难懂~ ~ ~，本文只是简要介绍了思想，具体实现见<strong>参考资料</strong></p>
+<h2 id="二叉树查找算法"><a href="#二叉树查找算法" class="headerlink" title="二叉树查找算法"></a>二叉树查找算法</h2><h3 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h3><p>二叉查找树是先对待查找的数据进行生成树，确保树的左分支的值小于右分支的值，然后在就行和每个节点的父节点比较大小，查找最适合的范围。 这个算法的查找效率很高，但是如果使用这种查找方法要首先创建树。 </p>
+<h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p><strong>二叉查找树</strong>（BinarySearch Tree，也叫二叉搜索树，或称二叉排序树Binary Sort Tree）或者是一棵空树，或者是具有下列性质的二叉树：</p>
+<ol>
+<li>若任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</li>
+<li>若任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li>
+<li>任意节点的左、右子树也分别为二叉查找树。</li>
+</ol>
+<p><font color="#FF0000">二叉查找树性质：</font><strong>对二叉查找树进行中序遍历，即可得到有序的数列</strong>。</p>
+<p><strong>不同形态的二叉查找树如下图所示：</strong></p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/1.png" alt=""></p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>它和二分查找一样，<strong>插入和查找的时间复杂度均为$O(logn)$</strong>，但是在最坏的情况下仍然会有$O(n)$的时间复杂度。原因在于插入和删除元素的时候，树没有保持平衡。</p>
+<h3 id="查找过程"><a href="#查找过程" class="headerlink" title="查找过程"></a>查找过程</h3><p>查找操作和二分查找类似，将key和节点的key比较，如果小于，那么就在Left Node节点查找,如果大于，则在Right Node节点查找，如果相等，直接返回Value。</p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/3.png" alt=""></p>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><p>本部分主要介绍两种二叉查找树的实现方式：递归和非递归。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//非递归查找算法</span></span><br><span class="line"><span class="function">BSTNode *<span class="title">BST_Search</span><span class="params">(BiTree T,ElemType key,BSTNode *&amp;p)</span></span>&#123;</span><br><span class="line">    <span class="comment">//查找函数返回指向关键字值为key的结点指针，不存在则返回NULL</span></span><br><span class="line">    p=<span class="literal">NULL</span>;     </span><br><span class="line">    <span class="keyword">while</span>(T!=<span class="literal">NULL</span>&amp;&amp;key!=T-&gt;data)&#123;</span><br><span class="line">        p=T;                          <span class="comment">//指向被查找结点的双亲  </span></span><br><span class="line">        <span class="keyword">if</span>(key&lt;T-&gt;data)</span><br><span class="line">            T=T-&gt;lchild;              <span class="comment">//查找左子树</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            T=T-&gt;rchild;              <span class="comment">//查找右子树</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//递归算法</span></span><br><span class="line"><span class="function">Status <span class="title">Search_BST</span><span class="params">(BiTree T, <span class="keyword">int</span> key, BiTree f, BiTree *p)</span></span>&#123;</span><br><span class="line">    <span class="comment">//查找BST中是否存在key，f指向T双亲，其初始值为NULL</span></span><br><span class="line">    <span class="comment">//若查找成功，指针p指向数据元素结点，返回true；</span></span><br><span class="line">    <span class="comment">//若失败，p指向查找路径上访问的最后一个结点并返回false</span></span><br><span class="line">    <span class="keyword">if</span>(!T)&#123;</span><br><span class="line">        *p=f;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(key==T-&gt;data)&#123;                      <span class="comment">//查找成功</span></span><br><span class="line">        *p=T;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(key&lt;T-&gt;data)</span><br><span class="line">        <span class="keyword">return</span> Search_BST(T-&gt;lchild,key,T,p);   <span class="comment">//递归查找左子树</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> Search_BST(T-&gt;rchild,key,T,p);   <span class="comment">//递归查找右子树</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>基于二叉查找树进行优化，可以得到其他的树表查找算法，如平衡树、红黑树等</strong></p>
+<h2 id="平衡查找树之2-3查找树"><a href="#平衡查找树之2-3查找树" class="headerlink" title="平衡查找树之2-3查找树"></a>平衡查找树之2-3查找树</h2><p><strong>平衡二叉树：</strong>BST中左右子树高度差的绝对值不超过1，平衡因子取值为｛-1，0，1｝</p>
+<h3 id="2-3查找树定义"><a href="#2-3查找树定义" class="headerlink" title="2-3查找树定义"></a>2-3查找树定义</h3><p>和二叉树不一样，2-3树运行每个节点保存1个或者两个的值。对于普通的2节点(2-node)，他保存1个key和左右两个自己点。对应3节点(3-node)，保存两个Key，2-3查找树的定义如下：</p>
+<ol>
+<li>要么为空，要么：</li>
+<li>对于2节点，该节点保存一个key及对应value，以及两个指向左右节点的节点，左节点也是一个2-3节点，所有的值都比key要小，右节点也是一个2-3节点，所有的值比key要大。</li>
+<li>对于3节点，该节点保存两个key及对应value，以及三个指向左中右的节点。左节点也是一个2-3节点，所有的值均比两个key中的最小的key还要小；中间节点也是一个2-3节点，中间节点的key值在两个跟节点key值之间；右节点也是一个2-3节点，节点的所有key值比两个key中的最大的key还要大。</li>
+</ol>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/2.png" alt=""></p>
+<h3 id="2-3查找树的性质"><a href="#2-3查找树的性质" class="headerlink" title="2-3查找树的性质"></a>2-3查找树的性质</h3><ol>
+<li>如果中序遍历2-3查找树，就可以得到排好序的序列；</li>
+<li>在一个完全平衡的2-3查找树中，根节点到每一个为空节点的距离都相同。</li>
+</ol>
+<h3 id="复杂度分析-1"><a href="#复杂度分析-1" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>2-3树的查找效率与树的高度息息相关。</p>
+<ul>
+<li>在最坏的情况下，也就是所有的节点都是2-node节点，查找效率为$log_2^N$</li>
+<li>在最好的情况下，所有的节点都是3-node节点，查找效率为$log_3^N$约等于0.631$log_2^N$</li>
+</ul>
+<p>对于插入来说，只需要常数次操作即可完成，因为他只需要修改与该节点关联的节点即可，不需要检查其他节点，所以效率和查找类似。</p>
+<h3 id="查找过程-1"><a href="#查找过程-1" class="headerlink" title="查找过程"></a>查找过程</h3><p><img src="/数据结构/2019-4-4-数据结构之查找3/4.png" alt=""></p>
+<h3 id="算法实现-1"><a href="#算法实现-1" class="headerlink" title="算法实现"></a>算法实现</h3><p>直接实现2-3树比较复杂，因为：</p>
+<ol>
+<li>需要处理不同的节点类型，非常繁琐</li>
+<li>需要多次比较操作来将节点下移</li>
+<li>需要上移来拆分4-node节点</li>
+<li>拆分4-node节点的情况有很多种</li>
+</ol>
+<p>2-3查找树实现起来比较复杂，在某些情况插入后的平衡操作可能会使得效率降低。<strong>在2-3查找树基础上改进的红黑树</strong>不仅具有较高的效率，并且实现起来较2-3查找树简单。</p>
+<h2 id="平衡查找树之红黑树（Red-Black-Tree）"><a href="#平衡查找树之红黑树（Red-Black-Tree）" class="headerlink" title="平衡查找树之红黑树（Red-Black Tree）"></a>平衡查找树之红黑树（Red-Black Tree）</h2><p>2-3查找树能保证在插入元素之后能保持树的平衡状态，最坏情况下即所有的子节点都是2-node，树的高度为lgn，从而保证了最坏情况下的时间复杂度。但是2-3树实现起来比较复杂，于是就有了一种简单实现2-3树的数据结构，即红黑树（Red-Black Tree）。</p>
+<h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>红黑树的思想就是对2-3查找树进行编码，尤其是对2-3查找树中的3-nodes节点添加额外的信息。红黑树中将节点之间的链接分为两种不同类型，红色链接，他用来链接两个2-nodes节点来表示一个3-nodes节点。黑色链接用来链接普通的2-3节点。特别的，使用红色链接的两个2-nodes来表示一个3-nodes节点，并且向左倾斜，即一个2-node是另一个2-node的左子节点。这种做法的好处是查找的时候不用做任何修改，和普通的二叉查找树相同。</p>
+<h3 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h3><p>红黑树是一种具有红色和黑色链接的平衡查找树，同时满足：</p>
+<ol>
+<li>红色节点向左倾斜</li>
+<li>一个节点不可能有两个红色链接</li>
+<li>整个树完全黑色平衡，即从根节点到所以叶子结点的路径上，黑色链接的个数都相同。</li>
+</ol>
+<p>下图可以看到红黑树其实是2-3树的另外一种表现形式：如果我们将红色的连线水平绘制，那么他链接的两个2-node节点（E和J）就是2-3树中的一个3-node节点了。</p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/5.png" alt=""></p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>红黑树是每个节点都带有颜色属性的二叉查找树，颜色为红色或黑色。在二叉查找树强制的一般要求以外，对于任何有效的红黑树我们增加了如下的额外要求:</p>
+<ol>
+<li>节点是红色或黑色。</li>
+<li>根是黑色。</li>
+<li>所有叶子都是黑色（叶子是NIL节点）。</li>
+<li>每个红色节点必须有两个黑色的子节点。(从每个叶子到根的所有路径上不能有两个连续的红色节点。)</li>
+<li>从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点。</li>
+</ol>
+<p>下面是一个具体的红黑树的图例：</p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/6.png" alt=""></p>
+<p><strong>复杂度分析：</strong>最坏的情况就是，红黑树中除了最左侧路径全部是由3-node节点组成，即红黑相间的路径长度是全黑路径长度的2倍。</p>
+<p>下图是一个典型的红黑树，从中可以看到最长的路径(红黑相间的路径)是最短路径的2倍：</p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/7.png" alt=""></p>
+<p>详细的红黑树介绍可参见<a href="https://www.cnblogs.com/maybe2030/p/4732377.html" target="_blank" rel="noopener">数据结构中各种树</a>和<a href="https://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html" target="_blank" rel="noopener">平衡查找树之红黑树</a></p>
+<h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2><p><strong>B树（B-tree）</strong>，也称多路平衡查找树，是一种树状数据结构，能够用来存储排序后的数据。这种数据结构能够让查找数据、循序存取、插入数据及删除的动作，都在对数时间内完成。B树，概括来说是一个一般化的二叉查找树，可以拥有多于2个子节点。</p>
+<h3 id="B树的定义"><a href="#B树的定义" class="headerlink" title="B树的定义"></a>B树的定义</h3><p>B树作为一种多路搜索树（并不是二叉的），B树中所有结点的<strong>孩子结点数的最大值成为B树的阶</strong>，通常记做M。</p>
+<ol>
+<li>树中每个结点至多有M棵子树，（M&gt;2）；</li>
+<li>若根结点不是终端结点，则其子树数目为$[2, M]$；</li>
+<li>除根结点以外的非叶子结点的子树数目为$[\lceil M/2 \rceil, M]$(向上取整)；</li>
+<li>每个结点存放至少$\lceil M/2 \rceil-1$和至多$M-1$个关键字；</li>
+<li>非叶子结点的关键字个数=指向子树的指针个数-1；</li>
+<li>非叶子结点的关键字：$K[1], K[2], …, K[M-1]$；且$K[i] &lt; K[i+1]$；</li>
+<li>非叶子结点的指针：$P[1], P[2], …, P[M]$；其中$P[1]$指向关键字小于$K[1]$的子树，$P[M]$指向关键字大于$K[M-1]$的子树，其它$P[i]$指向关键字属于($K[i-1], K[i]$)的子树；</li>
+<li>所有叶子结点位于同一层；</li>
+</ol>
+<p>对于任意一棵包含n个关键字，高度为h，阶数为m的B树，其高度满足：<br><strong>B树的高度：</strong>$log_{m}^{n+1}\leq h \leq log_{\lceil m/2 \rceil}^{[(n+1)/2]}+1$</p>
+<p>下图是一个M=3 阶的B树:</p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/8.png" alt=""></p>
+<h3 id="B树的构造"><a href="#B树的构造" class="headerlink" title="B树的构造"></a>B树的构造</h3><p>可以看到B树是2-3树的一种扩展，他允许一个节点有多于2个的元素。B树的插入及平衡化操作和2-3树很相似，这里就不介绍了。下面是往B树中依次插入</p>
+<p>6 10 4 14 5 11 15 3 2 12 1 7 8 8 6 3 6 21 5 15 15 6 32 23 45 65 7 8 6 5 4</p>
+<p>的演示动画(<a href="https://files-cdn.cnblogs.com/files/yangecnu/btreebuild.gif)：" target="_blank" rel="noopener">https://files-cdn.cnblogs.com/files/yangecnu/btreebuild.gif)：</a></p>
+<p>最后结果如下：</p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/9.png" alt=""></p>
+<h3 id="B树的查找"><a href="#B树的查找" class="headerlink" title="B树的查找"></a>B树的查找</h3><p>在B树中查找给定关键字的方法是，首先把根结点取来，在根结点所包含的关键字$K_1,…,K_n$查找给定的关键字（可用顺序查找或二分查找法），若找到等于给定值的关键字，则查找成功；否则，一定可以确定要查找的关键字在$K_i与K_{i+1}$之间，$P_i$为指向子树根节点的指针，此时取指针$P_i$所指的结点继续查找，直至找到，或指针$P_i$为空时查找失败。</p>
+<p>B-树为系统最优化大块数据的读和写操作。B-tree算法减少定位记录时所经历的中间过程，从而加快存取速度。这种数据结构常被应用在<strong>数据库</strong>和<strong>文件系统</strong>的实作上。</p>
+<h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p><strong>B+树</strong>是应数据库所需出现的一种B树的变形树。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>一棵M阶的B+树需满足以下条件：</p>
+<ol>
+<li>其定义基本与B-树相同，除了：</li>
+<li><strong>非叶子结点的子树指针与关键字个数相同</strong>；</li>
+<li>非叶子结点的子树指针$P[i]$，指向关键字值属于$[K[i], K[i+1])$的子树（B-树是开区间）；</li>
+<li><strong>为所有叶子结点增加一个链指针</strong>；</li>
+<li><strong>所有关键字都在叶子结点出现</strong>；</li>
+</ol>
+<p>下图是一个M=3 阶的B+树:</p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/10.png" alt=""></p>
+<h3 id="B树的构造-1"><a href="#B树的构造-1" class="headerlink" title="B树的构造"></a>B树的构造</h3><p>(<a href="https://files-cdn.cnblogs.com/files/yangecnu/Bplustreebuild.gif" target="_blank" rel="noopener">https://files-cdn.cnblogs.com/files/yangecnu/Bplustreebuild.gif</a>) 为一个B+树创建的示意图：</p>
+<p>最后结果如下：</p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/11.png" alt=""></p>
+<h3 id="B-树的查找"><a href="#B-树的查找" class="headerlink" title="B+树的查找"></a>B+树的查找</h3><p>　B+树的搜索与B树也基本相同，区别是B+树只有达到叶子结点才命中（B树可以在非叶子结点命中），其性能也等价于在关键字全集做一次二分查找；<br>　<br><strong>B树与B+树的对比</strong><br>B和B+树的区别在于，<strong>B+树的非叶子结点只包含导航信息，不包含实际的值</strong>，所有的叶子结点和相连的节点使用链表相连，便于区间查找和遍历。</p>
+<p><strong>B树的优点</strong><br>由于B树的每一个节点都包含key和value，因此经常访问的元素可能离根节点更近，因此访问也更迅速。</p>
+<p><strong>B+树的优点</strong></p>
+<ol>
+<li>由于B+树在内部节点上不好含数据信息，因此在内存页中能够存放更多的key。 数据存放的更加紧密，具有更好的空间局部性。因此访问叶子几点上关联的数据也具有更好的缓存命中率。</li>
+<li>B+树的叶子结点都是相链的，因此对整棵树的便利只需要一次线性遍历叶子结点即可。而且由于数据顺序排列并且相连，所以便于区间查找和搜索。而B树则需要进行每一层的递归遍历。相邻的元素可能在内存中不相邻，所以缓存命中性没有B+树好。</li>
+</ol>
+<p>下面是B 树和B+树的区别图：</p>
+<p><img src="/数据结构/2019-4-4-数据结构之查找3/12.png" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>二叉查找树平均查找性能不错，为$O(logn)$，但是最坏情况会退化为$O(n)$。在二叉查找树的基础上进行优化，我们可以使用平衡查找树。平衡查找树中的2-3查找树，这种数据结构在插入之后能够进行自平衡操作，从而保证了树的高度在一定的范围内进而能够保证最坏情况下的时间复杂度。但是2-3查找树实现起来比较困难，红黑树是2-3树的一种简单高效的实现，他巧妙地使用颜色标记来替代2-3树中比较难处理的3-node节点问题。红黑树是一种比较高效的平衡查找树，应用非常广泛，很多编程语言的内部实现都或多或少的采用了红黑树。</p>
+<p>　　除此之外，2-3查找树的另一个扩展——B/B+平衡树，在文件系统和数据库系统中有着广泛的应用。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.cnblogs.com/lsqin/p/9342929.html" target="_blank" rel="noopener">七大查找算法</a><br><a href="https://www.cnblogs.com/maybe2030/p/4715035.html" target="_blank" rel="noopener">Data Structure</a><br><a href="https://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html" target="_blank" rel="noopener">平衡查找树之红黑树</a><br><a href="https://www.cnblogs.com/yangecnu/p/Introduce-B-Tree-and-B-Plus-Tree.html" target="_blank" rel="noopener">平衡查找树之B树</a></p>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持原创技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/" title="数据结构之查找（三）">https://liufan.vip/数据结构/2019-4-4-数据结构之查找3/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/data-structure/" rel="tag"><i class="fa fa-tag"></i> data structure</a>
+          
+            <a href="/tags/searching/" rel="tag"><i class="fa fa-tag"></i> searching</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/数据结构/2019-4-3-数据结构之查找2/" rel="next" title="数据结构之查找（二）">
+                <i class="fa fa-chevron-left"></i> 数据结构之查找（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
+          <p class="site-author-name" itemprop="name">bluesliuf</p>
+           
+              <p class="site-description motion-element" itemprop="description">From Zero to Hero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3978502624/home" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bluesliuf" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:bluesliuf@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/bluesliuf/" target="_blank" title="INS">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  INS
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树查找算法"><span class="nav-number">1.</span> <span class="nav-text">二叉树查找算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法简介"><span class="nav-number">1.1.</span> <span class="nav-text">算法简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法思想"><span class="nav-number">1.2.</span> <span class="nav-text">算法思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂度分析"><span class="nav-number">1.3.</span> <span class="nav-text">复杂度分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找过程"><span class="nav-number">1.4.</span> <span class="nav-text">查找过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现"><span class="nav-number">1.5.</span> <span class="nav-text">算法实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡查找树之2-3查找树"><span class="nav-number">2.</span> <span class="nav-text">平衡查找树之2-3查找树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3查找树定义"><span class="nav-number">2.1.</span> <span class="nav-text">2-3查找树定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3查找树的性质"><span class="nav-number">2.2.</span> <span class="nav-text">2-3查找树的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂度分析-1"><span class="nav-number">2.3.</span> <span class="nav-text">复杂度分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找过程-1"><span class="nav-number">2.4.</span> <span class="nav-text">查找过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现-1"><span class="nav-number">2.5.</span> <span class="nav-text">算法实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平衡查找树之红黑树（Red-Black-Tree）"><span class="nav-number">3.</span> <span class="nav-text">平衡查找树之红黑树（Red-Black Tree）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想"><span class="nav-number">3.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本定义"><span class="nav-number">3.2.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质"><span class="nav-number">3.3.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B树"><span class="nav-number">4.</span> <span class="nav-text">B树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B树的定义"><span class="nav-number">4.1.</span> <span class="nav-text">B树的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树的构造"><span class="nav-number">4.2.</span> <span class="nav-text">B树的构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树的查找"><span class="nav-number">4.3.</span> <span class="nav-text">B树的查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-树"><span class="nav-number">5.</span> <span class="nav-text">B+树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树的构造-1"><span class="nav-number">5.2.</span> <span class="nav-text">B树的构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-树的查找"><span class="nav-number">5.3.</span> <span class="nav-text">B+树的查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bluesliuf</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
