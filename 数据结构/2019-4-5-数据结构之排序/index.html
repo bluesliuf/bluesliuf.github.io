@@ -1,0 +1,1240 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="data structure,sort,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bluesliuf" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/apple-touch-icon-next.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="本文主要介绍数据结构中常见的八大排序算法，冒泡排序、快速排序、直接插入排序、希尔排序、简单选择排序、堆排序、归并排序和基数排序。">
+<meta name="keywords" content="data structure,sort">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构之八大排序算法">
+<meta property="og:url" content="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/index.html">
+<meta property="og:site_name" content="Bluesliuf">
+<meta property="og:description" content="本文主要介绍数据结构中常见的八大排序算法，冒泡排序、快速排序、直接插入排序、希尔排序、简单选择排序、堆排序、归并排序和基数排序。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/1.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/2.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/3.png">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/4.jpg">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/5.jpg">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/6.jpg">
+<meta property="og:updated_time" content="2019-04-05T07:10:53.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构之八大排序算法">
+<meta name="twitter:description" content="本文主要介绍数据结构中常见的八大排序算法，冒泡排序、快速排序、直接插入排序、希尔排序、简单选择排序、堆排序、归并排序和基数排序。">
+<meta name="twitter:image" content="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/">
+
+
+
+
+
+  <title> 数据结构之八大排序算法 | Bluesliuf </title>
+</head>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4287ae00cf6dc3cd776333fe30decd6a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bluesliuf</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Though failed, Still keep smiling</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            个人简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据结构之八大排序算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T09:57:31+08:00">
+                2019-04-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-05T15:10:53+08:00">
+                2019-04-05
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要介绍数据结构中常见的八大排序算法，冒泡排序、快速排序、直接插入排序、希尔排序、简单选择排序、堆排序、归并排序和基数排序。<br><a id="more"></a></p>
+<h2 id="排序相描述"><a href="#排序相描述" class="headerlink" title="排序相描述"></a>排序相描述</h2><ol>
+<li><strong>排序分类：</strong>若排序过程中，所有的文件都是放在内存中处理的，不涉及数据的内外存交换，则称该排序算法是<strong>内部排序算法</strong>; 若排序过程中涉及内外存交换，则是<strong>外部排序</strong>。内部排序适合小文间，外部排序适用于不能一次性把所有记录放入内存的大文件。常见的分类算法还可以根据排序方式分为两大类：<strong>比较排序</strong>和<strong>非比较排序</strong>。</li>
+<li><strong>排序算法的稳定性：</strong> 若排序对象中存在多个关键字相同的记录，经过排序后，相同关键字的记录之间的相对次序保持不变，则该排序方法是稳定的，若次序发生变化(哪怕只有两条记录之间)，则该排序方法是不稳定的。关于哪些算法是稳定的，哪些不稳定，下面会详细介绍。</li>
+<li><strong>时间复杂度：</strong>一般情况下，算法中基本操作重复执行的次数是问题规模$n$的某个函数，用$T(n)$表示，若有某个辅助函数$f(n)$，使得$T(n)/f(n)$的极限值（当$n$趋近于无穷大时）为不等于零的常数，则称$f(n)$是$T(n)$的同数量级函数。记作$T(n)=O(f(n))$，称$O(f(n)) ​$为算法的渐进时间复杂度，简称时间复杂度。</li>
+<li><strong>空间复杂度：</strong>空间复杂度(Space Complexity)是对一个算法在运行过程中临时占用存储空间大小的量度，它是问题规模$n$的函数，记做$S(n)=O(f(n))$。比如直接插入排序的时间复杂度是$O(n^2)$,空间复杂度是$O(1) $。而一般的递归算法就要有$O(n)$的空间复杂度了，因为每次递归都要存储返回信息，需要辅助空间的大小随着$n$的增大线性增大。</li>
+<li><strong>就地排序：</strong>若一个排序算法所需的辅助空间并不依赖于问题的规模n，即时间复杂度是$O(1)$,则称该排序算法为就地排序。非就地排序算法的时间复杂度一般为$O(n)$。</li>
+</ol>
+<p><font color="#FF0000">注：</font><strong>算法是否稳定并不能衡量一个算法的优劣</strong>，排序算法主要包含2种操作：<strong>比较和移动</strong>，但并不是所有的排序都基于比较操作，比如基数排序。</p>
+<p><strong>下图为排序算法体系结构图：</strong></p>
+<p><img src="/数据结构/2019-4-5-数据结构之排序/1.png" alt=""></p>
+<p><strong>各大排序算法的时间复杂度、空间复杂度及稳定性见下表：</strong></p>
+<p><img src="/数据结构/2019-4-5-数据结构之排序/2.png" alt=""></p>
+<h2 id="直接插入排序（Insertion-Sort）"><a href="#直接插入排序（Insertion-Sort）" class="headerlink" title="直接插入排序（Insertion Sort）"></a>直接插入排序（Insertion Sort）</h2><h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>将待排序的无序数列看成是一个仅含有<strong>一个元素的有序数列和一个无序数列</strong>，将无序数列中的元素逐次插入到有序数列中，从而获得最终的有序数列。</p>
+<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><ol>
+<li>初始时， $a[0]$自成一个有序区， 无序区为$a[1, … , n-1]$, 令$i=1$;</li>
+<li>将$a[i]$并入当前的有序区$a[0, … , i-1]$;</li>
+<li>$i++$并重复步骤2，直到$i=n-1$, 排序完成。</li>
+</ol>
+<p><strong>详细描述如下：</strong></p>
+<ol>
+<li>从第一个元素开始，该元素可以认为已经被排序</li>
+<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
+<li>如果该元素（已排序）大于新元素，将该元素移到下一位置</li>
+<li>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置 </li>
+<li>将新元素插入到该位置中 </li>
+<li>重复步骤2</li>
+</ol>
+<p><strong>复杂度分析：</strong><br>第1个元素，需要进行 0 次比较;<br>第2个元素，需要进行 1 次比较;<br>第3个元素，需要进行 2 次比较;<br>第n个元素，需要进行n-1次比较;</p>
+<p>所以<strong>插入排序的时间复杂度是$O(n^2)$，空间复杂度是$O(1)$，稳定</strong>。</p>
+<p><img src="/数据结构/2019-4-5-数据结构之排序/3.png" alt=""></p>
+<p><strong>动态实例见：</strong><a href="https://img-blog.csdnimg.cn/20181108191925813.gif" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20181108191925813.gif</a></p>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//直接插入法一</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort1</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;n; i++)</span><br><span class="line">        <span class="keyword">if</span>(a[i] &lt; a[i<span class="number">-1</span>])   </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = a[i];                       <span class="comment">//保存要比较的值</span></span><br><span class="line">            <span class="keyword">for</span>(j=i<span class="number">-1</span>; j&gt;=<span class="number">0</span> &amp;&amp; a[j]&gt;temp; j--)    <span class="comment">//从后向前查找待插入位置</span></span><br><span class="line">                a[j+<span class="number">1</span>] = a[j];                    <span class="comment">//挪位</span></span><br><span class="line">            a[j+<span class="number">1</span>] = temp;                       <span class="comment">//复制到插入位置</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//直接插入法二：用数据交换代替法一的数据后移(比较对象只考虑两个元素)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort2</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=i<span class="number">-1</span>; j&gt;=<span class="number">0</span> &amp;&amp; a[j]&gt;a[j+<span class="number">1</span>]; j--)</span><br><span class="line">            Swap(a[j], a[j+<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Swap</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    temp=a;</span><br><span class="line">    a=b;</span><br><span class="line">    b=temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拓展（折半插入排序）"><a href="#拓展（折半插入排序）" class="headerlink" title="拓展（折半插入排序）"></a>拓展（折半插入排序）</h3><p><strong>仅适用于顺序存储的线性表</strong><br><strong>直接插入排序</strong>是边比较，边移动元素；<br><strong>折半插入排序</strong>是先折半查找到插入位置，再统一移动元素</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ZhebanInsertSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,low,high,mid;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        temp=a[i];</span><br><span class="line">        low=<span class="number">1</span>,high=i;            <span class="comment">//设置折半查找范围</span></span><br><span class="line">        <span class="keyword">while</span>(low&lt;=high)&#123;</span><br><span class="line">            mid=(low+high)/<span class="number">2</span>;  </span><br><span class="line">            <span class="keyword">if</span>(a[mid]&gt;temp) </span><br><span class="line">                high=mid<span class="number">-1</span>;        <span class="comment">//查找左半部分</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                low=mid+<span class="number">1</span>;        <span class="comment">//查找右半部分</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&gt;=high+<span class="number">1</span>;--j)</span><br><span class="line">            a[j+<span class="number">1</span>]=a[j];          <span class="comment">//统一后移元素，空出插入位置</span></span><br><span class="line">        a[high+<span class="number">1</span>]=temp;           <span class="comment">//插入</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="希尔排序（Shell-Sort）"><a href="#希尔排序（Shell-Sort）" class="headerlink" title="希尔排序（Shell Sort）"></a>希尔排序（Shell Sort）</h2><p>希尔排序是第一个突破$O(n^2)$的排序算法，是<strong>简单插入排序的优化，实质是分组的简单插入排序</strong>。它与插入排序的不同之处在于，它<strong>会优先比较距离较远的元素</strong>(每次取相隔一定间隔gap的元素作为一组，在组内执行简单插入排序)。希尔排序又叫<strong>缩小增量排序</strong>（<strong>不断减小间隔gap的数组，直到gap=1</strong>）。</p>
+<h3 id="基本思想-1"><a href="#基本思想-1" class="headerlink" title="基本思想"></a>基本思想</h3><ol>
+<li>希尔排序是把记录按下标的一定量分组，对每组使用直接插入算法排序；</li>
+<li>随着增量逐渐减少，每组包1含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法被终止。</li>
+</ol>
+<h3 id="算法流程-1"><a href="#算法流程-1" class="headerlink" title="算法流程"></a>算法流程</h3><ol>
+<li>选择一个增量序列$t_1，t_2，…，t_k$，其中$t_i&gt;t_j，t_k=1$；</li>
+<li>按增量序列个数$k$，对序列进行$k $趟排序；</li>
+<li>每趟排序，根据对应的增量$t_i$，将待排序列分割成若干长度为$m$ 的子序列，分别对各子表进行直接插入排序。仅增量因子为1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。</li>
+</ol>
+<p><strong>时间复杂度为$O(n^{1+e})$(其中0&lt;e&lt;1)，空间复杂度$O(1)$，不稳定</strong>。</p>
+<p><img src="/数据结构/2019-4-5-数据结构之排序/4.jpg" alt=""></p>
+<p><strong>动态实例见：</strong><a href="https://img-blog.csdnimg.cn/20181108192122882.gif" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20181108192122882.gif</a></p>
+<h3 id="算法实现-1"><a href="#算法实现-1" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//希尔排序法一</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shellSort1</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,gap,temp;</span><br><span class="line">    <span class="keyword">for</span>(gap = n/<span class="number">2</span>;gap&gt;<span class="number">0</span>;gap/=<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(i=gap;i&lt;n;i+=gap)&#123;</span><br><span class="line">            temp = a[i];</span><br><span class="line">            <span class="keyword">for</span>(j = i-gap;j&gt;=<span class="number">0</span>&amp;&amp;a[j]&gt;temp;j-=gap)&#123;</span><br><span class="line">                a[j+gap] = a[j];</span><br><span class="line">            &#125;</span><br><span class="line">            a[j+gap] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//希尔排序法二，和上面的直接插入排序类似，用数据交换代替法一的数据后移(比较对象只考虑两个元素)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort2</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, gap;</span><br><span class="line">    <span class="comment">//分组</span></span><br><span class="line">    <span class="keyword">for</span>(gap=n/<span class="number">2</span>; gap&gt;<span class="number">0</span>; gap/=<span class="number">2</span>)</span><br><span class="line">        <span class="comment">//直接插入排序</span></span><br><span class="line">        <span class="keyword">for</span>(i=gap; i&lt;n; i++)</span><br><span class="line">            <span class="keyword">for</span>(j=i-gap; j&gt;=<span class="number">0</span> &amp;&amp; a[j]&gt;a[j+gap]; j-=gap)</span><br><span class="line">                Swap(a[j], a[j+gap]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="冒泡排序（Bubble-Sort）"><a href="#冒泡排序（Bubble-Sort）" class="headerlink" title="冒泡排序（Bubble Sort）"></a>冒泡排序（Bubble Sort）</h2><h3 id="基本思想-2"><a href="#基本思想-2" class="headerlink" title="基本思想"></a>基本思想</h3><p>在要排序的一组数中，对当前还未排好序的范围内的全部数，自上而下<strong>对相邻的两个数依次进行比较和调整，让较大的数往下沉，较小的往上冒</strong>。即：每当两相邻的数比较后发现它们的排序与排序要求相反时，就将它们互换。每一趟排序后的效果都是讲没有沉下去的元素给沉下去。</p>
+<h3 id="算法流程-（递增为例）"><a href="#算法流程-（递增为例）" class="headerlink" title="算法流程 （递增为例）"></a>算法流程 （递增为例）</h3><ol>
+<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个</li>
+<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数</li>
+<li>针对所有的元素重复以上的步骤，除了最后一个</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ol>
+<p><strong>复杂度分析</strong><br>第一次排序的比较次数：$ n-1$  n个元素相邻两两比较，需要n-1次比较;<br>第二次排序的比较次数：$ n-2$  第一次排序后最后一个元素可以确定为最大值，不再需要参与第二次排序;<br>第三次排序的比较次数： $n-3$  同理，最后两个数已经确定，不再需要参与排序;<br>第 n-1 次排序的比较次数： $1$ ;</p>
+<p><strong>所以冒泡排序的时间复杂度是 $O(n^2)$。 空间复杂度是 $O(1)$，稳定</strong> 。</p>
+<p><img src="/数据结构/2019-4-5-数据结构之排序/5.jpg" alt=""></p>
+<p><strong>动态实例见：</strong><a href="https://img-blog.csdnimg.cn/20181108191123628.gif" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20181108191123628.gif</a></p>
+<h3 id="算法实现-2"><a href="#算法实现-2" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//冒泡排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        <span class="keyword">bool</span> flag=<span class="literal">false</span>;              <span class="comment">//表示本趟冒泡是否发生交换的标志</span></span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">1</span>; j&lt;n-i; j++)&#123;         <span class="comment">//j的起始位置为1，终止位置为n-i  </span></span><br><span class="line">            <span class="keyword">if</span>(a[j]&lt;a[j<span class="number">-1</span>])&#123;</span><br><span class="line">               Swap(a[j<span class="number">-1</span>], a[j]);</span><br><span class="line">                flag=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag==<span class="literal">false</span>)             <span class="comment">//未交换，说明已经有序，停止排序</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">    &#125;          </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拓展-（冒泡排序的改进-—-鸡尾酒排序）"><a href="#拓展-（冒泡排序的改进-—-鸡尾酒排序）" class="headerlink" title="拓展 （冒泡排序的改进 —- 鸡尾酒排序）"></a>拓展 （冒泡排序的改进 —- 鸡尾酒排序）</h3><p><strong>鸡尾酒排序</strong>与冒泡排序的不同处在于<strong>排序时是以首尾双向在序列中进行排序</strong>。</p>
+<ol>
+<li>先对数组从左到右进行升序的冒泡排序；</li>
+<li>再对数组进行从右到左的降序的冒泡排序；</li>
+<li>以此类推，持续的、依次的改变冒泡的方向，并不断缩小没有排序的数组范围；</li>
+</ol>
+<p><strong>鸡尾酒排序的优点是能够在特定条件下（如集合中大部分元素有序），减少排序的回合数</strong>。</p>
+<p>实现鸡尾酒排序需要分别定义一个从最左边开始的index_left和从最右边开始的index_reight，当两个index相等的时候循环结束。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//鸡尾酒排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CocktailSort</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=left;i&lt;right<span class="number">-1</span>;i++)&#123;       <span class="comment">//从前往后排</span></span><br><span class="line">            <span class="keyword">if</span>(a[i]&gt;a[i+<span class="number">1</span>])&#123;</span><br><span class="line">                Swap(a[i],a[i+<span class="number">1</span>]);</span><br><span class="line">            &#125;           </span><br><span class="line">            right-=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=right;j&gt;left;j--)&#123;     <span class="comment">//从后往前排</span></span><br><span class="line">                <span class="keyword">if</span>(a[j]&lt;a[j<span class="number">-1</span>])&#123;</span><br><span class="line">                    Swap(a[j],a[j<span class="number">-1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            left+=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="快速排序（Quick-Sort）"><a href="#快速排序（Quick-Sort）" class="headerlink" title="快速排序（Quick Sort）"></a><font color="#FF0000">快速排序（Quick Sort）</font></h2><p><strong>快速排序</strong>是目前所有<strong>内部排序</strong>算法中<strong>平均性能最优</strong>的排序算法。</p>
+<h3 id="基本思想-3"><a href="#基本思想-3" class="headerlink" title="基本思想"></a>基本思想</h3><p>快速排序算法的基本思想为分治思想。</p>
+<ol>
+<li>先从数列中取出一个数作<strong>轴值（基准数）pivot</strong>；</li>
+<li>根据基准数将数列进行分区，小于基准数的放左边，大于基准数的放右边；</li>
+<li>重复分区操作，知道各区间只有一个数为止。</li>
+</ol>
+<h3 id="算法流程（递归-挖坑填数）"><a href="#算法流程（递归-挖坑填数）" class="headerlink" title="算法流程（递归+挖坑填数）"></a>算法流程<font color="#FF0000">（递归+挖坑填数）</font></h3><ol>
+<li>$i=L，j=R$，将基准数挖出形成第一个坑$a[i]$；</li>
+<li>$j–$由后向前找出比它小的数，找到后挖出此数$a[j]$填到前一个坑$a[i]$中；</li>
+<li>$i++$从前向后找出比它大的数，找到后也挖出此数填到前一个坑$a[j]$中；</li>
+<li>再重复2,3，直到$i=j$，将基准数填到$a[i]​$。</li>
+</ol>
+<p><strong>复杂度分析：</strong><br><strong>时间复杂度为$O(nlog_{2}^{n})$，空间复杂度为$O(log_2^n)$，不稳定</strong>。</p>
+<p>下面是一个我手写的详细分析实例：</p>
+<p><img src="/数据结构/2019-4-5-数据结构之排序/6.jpg" alt=""></p>
+<p><strong>动态实例见：</strong><a href="https://img-blog.csdnimg.cn/20181108192522752.gif" target="_blank" rel="noopener">https://img-blog.csdnimg.cn/20181108192522752.gif</a></p>
+<h3 id="算法实现-3"><a href="#算法实现-3" class="headerlink" title="算法实现"></a>算法实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//快速排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left&lt;right)&#123;</span><br><span class="line">        <span class="keyword">int</span> i=left,j=right；</span><br><span class="line">        <span class="keyword">int</span> base=a[left];             <span class="comment">//基准</span></span><br><span class="line">        <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j&amp;&amp;a[j]&gt;=base)    <span class="comment">//从右往左找小于base的元素</span></span><br><span class="line">                j--;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;j)</span><br><span class="line">                a[i++]=a[j];</span><br><span class="line">            <span class="keyword">while</span>(i&lt;j&amp;&amp;a[i]&lt;base)    <span class="comment">//从左往右找大于base的值</span></span><br><span class="line">                i++;</span><br><span class="line">            <span class="keyword">if</span>(i&lt;j)</span><br><span class="line">                a[j--]=a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        a[i]=base;                  <span class="comment">//将基准base填入最后的坑中</span></span><br><span class="line">        QuickSort(a,left,i<span class="number">-1</span>);      <span class="comment">//递归调用，分治</span></span><br><span class="line">        QuickSort(a,i+<span class="number">1</span>,right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>如果基准不是选第一个数，可以用Swap()函数将基准调整至第一个位置，再执行上述程序。</p>
+<p><strong>总结：</strong>本文主要介绍了2大类排序算法：<strong>插入排序</strong>（直接插入、希尔排序）和<strong>交换排序</strong>（冒泡排序、快速排序）。在下一篇博文中，我将介绍剩下的4种排序（简单选择排序、堆排序、归并排序、基数排序），并对所有的排序算法做一个比较。</p>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/数据结构/2019-4-5-数据结构之排序/" title="数据结构之八大排序算法">https://liufan.vip/数据结构/2019-4-5-数据结构之排序/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/data-structure/" rel="tag"><i class="fa fa-tag"></i> data structure</a>
+          
+            <a href="/tags/sort/" rel="tag"><i class="fa fa-tag"></i> sort</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Computer-vision/2019-4-4-春实习-百度-计算机视觉算法研发工程师/" rel="next" title="2019春实习-百度-计算机视觉算法研发工程师真题">
+                <i class="fa fa-chevron-left"></i> 2019春实习-百度-计算机视觉算法研发工程师真题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
+          <p class="site-author-name" itemprop="name">bluesliuf</p>
+           
+              <p class="site-description motion-element" itemprop="description">From Zero to Hero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://blog.csdn.net/bluesliuf" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-copyright"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bluesliuf" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:bluesliuf@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/bluesliuf/" target="_blank" title="INS">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  INS
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#排序相描述"><span class="nav-number">1.</span> <span class="nav-text">排序相描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接插入排序（Insertion-Sort）"><span class="nav-number">2.</span> <span class="nav-text">直接插入排序（Insertion Sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想"><span class="nav-number">2.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程"><span class="nav-number">2.2.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现"><span class="nav-number">2.3.</span> <span class="nav-text">算法实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展（折半插入排序）"><span class="nav-number">2.4.</span> <span class="nav-text">拓展（折半插入排序）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#希尔排序（Shell-Sort）"><span class="nav-number">3.</span> <span class="nav-text">希尔排序（Shell Sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想-1"><span class="nav-number">3.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程-1"><span class="nav-number">3.2.</span> <span class="nav-text">算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现-1"><span class="nav-number">3.3.</span> <span class="nav-text">算法实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序（Bubble-Sort）"><span class="nav-number">4.</span> <span class="nav-text">冒泡排序（Bubble Sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想-2"><span class="nav-number">4.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程-（递增为例）"><span class="nav-number">4.2.</span> <span class="nav-text">算法流程 （递增为例）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现-2"><span class="nav-number">4.3.</span> <span class="nav-text">算法实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓展-（冒泡排序的改进-—-鸡尾酒排序）"><span class="nav-number">4.4.</span> <span class="nav-text">拓展 （冒泡排序的改进 —- 鸡尾酒排序）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序（Quick-Sort）"><span class="nav-number">5.</span> <span class="nav-text">快速排序（Quick Sort）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想-3"><span class="nav-number">5.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法流程（递归-挖坑填数）"><span class="nav-number">5.2.</span> <span class="nav-text">算法流程（递归+挖坑填数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现-3"><span class="nav-number">5.3.</span> <span class="nav-text">算法实现</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bluesliuf</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
