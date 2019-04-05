@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-04-04T11:19:02.247Z</updated>
+  <updated>2019-04-04T13:56:49.477Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019春实习-百度-计算机视觉算法研发工程师真题</title>
+    <link href="https://liufan.vip/Computer-vision/2019-4-4-%E6%98%A5%E5%AE%9E%E4%B9%A0-%E7%99%BE%E5%BA%A6-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E7%AE%97%E6%B3%95%E7%A0%94%E5%8F%91%E5%B7%A5%E7%A8%8B%E5%B8%88/"/>
+    <id>https://liufan.vip/Computer-vision/2019-4-4-春实习-百度-计算机视觉算法研发工程师/</id>
+    <published>2019-04-04T13:27:53.000Z</published>
+    <updated>2019-04-04T13:56:49.477Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前两天刚参加完百度计算机视觉算法实习岗的远程笔试，下面是我记忆中的一些考题，先记录下来，等答案公布再来详细分析。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Computer vision" scheme="https://liufan.vip/categories/Computer-vision/"/>
+    
+    
+      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
+    
+      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构之查找（三）</title>
@@ -427,26 +449,6 @@
       <category term="tensorflow" scheme="https://liufan.vip/tags/tensorflow/"/>
     
       <category term="architecture" scheme="https://liufan.vip/tags/architecture/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>牛客笔试题之Python</title>
-    <link href="https://liufan.vip/%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98/2019-3-19-%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98%E4%B9%8Bpython/"/>
-    <id>https://liufan.vip/牛客笔试题/2019-3-19-牛客笔试题之python/</id>
-    <published>2019-03-19T06:14:24.000Z</published>
-    <updated>2019-03-19T07:48:30.947Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这几天做完了&lt;a href=&quot;https://www.nowcoder.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;牛客网&lt;/a&gt;上的Python试题，下面是对一些错题的分析，并总结了一些python中应该注意的知识点。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="牛客笔试题" scheme="https://liufan.vip/categories/%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="python" scheme="https://liufan.vip/tags/python/"/>
     
   </entry>
   
