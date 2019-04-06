@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-04-06T10:56:13.746Z</updated>
+  <updated>2019-04-06T13:19:55.043Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据结构之树（二）</title>
+    <link href="https://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-4-6-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%A0%912/"/>
+    <id>https://liufan.vip/数据结构/2019-4-6-数据结构之树2/</id>
+    <published>2019-04-06T11:01:55.000Z</published>
+    <updated>2019-04-06T13:19:55.043Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍&lt;strong&gt;二叉树的各种遍历方法&lt;/strong&gt;和如何&lt;strong&gt;线索化二叉树&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://liufan.vip/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="data structure" scheme="https://liufan.vip/tags/data-structure/"/>
+    
+      <category term="tree" scheme="https://liufan.vip/tags/tree/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构之树（一）</title>
@@ -427,28 +449,6 @@
       <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
     
       <category term="evaluation" scheme="https://liufan.vip/tags/evaluation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>牛客笔试题之顺丰机器学习真题</title>
-    <link href="https://liufan.vip/%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98/2019-3-22-%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98%E4%B9%8B%E9%A1%BA%E4%B8%B0%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9C%9F%E9%A2%98/"/>
-    <id>https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/</id>
-    <published>2019-03-22T01:48:30.000Z</published>
-    <updated>2019-03-22T03:30:12.080Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="牛客笔试题" scheme="https://liufan.vip/categories/%E7%89%9B%E5%AE%A2%E7%AC%94%E8%AF%95%E9%A2%98/"/>
-    
-    
-      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
-    
-      <category term="computer basis" scheme="https://liufan.vip/tags/computer-basis/"/>
     
   </entry>
   
