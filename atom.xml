@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-04-07T08:22:28.257Z</updated>
+  <updated>2019-04-07T12:20:06.680Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>树和二叉树的应用</title>
+    <link href="https://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-4-7-%E6%A0%91%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+    <id>https://liufan.vip/数据结构/2019-4-7-树和二叉树的应用/</id>
+    <published>2019-04-07T08:49:05.000Z</published>
+    <updated>2019-04-07T12:20:06.680Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍树和二叉树的应用，主要包含3个部分：&lt;strong&gt;二叉排序树&lt;/strong&gt;、&lt;strong&gt;平衡二叉树&lt;/strong&gt;和&lt;strong&gt;哈夫曼树和哈夫曼编码&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://liufan.vip/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="data structure" scheme="https://liufan.vip/tags/data-structure/"/>
+    
+      <category term="tree" scheme="https://liufan.vip/tags/tree/"/>
+    
+  </entry>
   
   <entry>
     <title>线索二叉树</title>
@@ -429,26 +451,6 @@
       <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
     
       <category term="ensemble learning" scheme="https://liufan.vip/tags/ensemble-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字图像处理的常用方法</title>
-    <link href="https://liufan.vip/Computer-vision/2019-3-25-%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-    <id>https://liufan.vip/Computer-vision/2019-3-25-数字图像处理的常用方法/</id>
-    <published>2019-03-25T08:59:56.000Z</published>
-    <updated>2019-03-25T09:24:33.168Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;数字图像处理是指将图像信号转换成数字信号并利用计算机对其进行处理的过程。图像处理中，输入的是质量低的图像，输出的是改善质量后的图像，常用的图像处理方法有图像增强、复原、编码、压缩等。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Computer vision" scheme="https://liufan.vip/categories/Computer-vision/"/>
-    
-    
-      <category term="Image processing" scheme="https://liufan.vip/tags/Image-processing/"/>
     
   </entry>
   
