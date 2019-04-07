@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-04-07T06:43:52.893Z</updated>
+  <updated>2019-04-07T08:22:28.257Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>线索二叉树</title>
+    <link href="https://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-4-7-%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://liufan.vip/数据结构/2019-4-7-线索二叉树/</id>
+    <published>2019-04-07T07:04:12.000Z</published>
+    <updated>2019-04-07T08:22:28.257Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍&lt;strong&gt;线索二叉树&lt;/strong&gt;和&lt;strong&gt;树、二叉树、森林&lt;/strong&gt;三者之间的相互转换。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://liufan.vip/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="data structure" scheme="https://liufan.vip/tags/data-structure/"/>
+    
+      <category term="tree" scheme="https://liufan.vip/tags/tree/"/>
+    
+  </entry>
   
   <entry>
     <title>C语言实现二叉树遍历的递归和非递归算法</title>
@@ -427,28 +449,6 @@
     
     
       <category term="Image processing" scheme="https://liufan.vip/tags/Image-processing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>准确率，精确率，召回率和F1值</title>
-    <link href="https://liufan.vip/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2019-3-22-%E5%87%86%E7%A1%AE%E7%8E%87%EF%BC%8C%E7%B2%BE%E7%A1%AE%E7%8E%87%EF%BC%8C%E5%8F%AC%E5%9B%9E%E7%8E%87%E5%92%8CF1%E5%80%BC/"/>
-    <id>https://liufan.vip/机器学习/2019-3-22-准确率，精确率，召回率和F1值/</id>
-    <published>2019-03-22T11:54:35.000Z</published>
-    <updated>2019-03-22T13:59:58.581Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;机器学习(ML),自然语言处理(NLP),信息检索(IR)&lt;/strong&gt;等领域,&lt;strong&gt;评估&lt;/strong&gt;&lt;code&gt;(Evaluation)&lt;/code&gt;是一个必要的 工作,而其评价指标往往有如下几点:&lt;strong&gt;准确率&lt;/strong&gt;&lt;code&gt;(Accuracy)&lt;/code&gt;&lt;strong&gt;,精确率&lt;/strong&gt;&lt;code&gt;(Precision)&lt;/code&gt;,&lt;strong&gt;召回率&lt;/strong&gt;&lt;code&gt;(Recall)&lt;/code&gt;和&lt;code&gt;F1-Measure&lt;/code&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="https://liufan.vip/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine learning" scheme="https://liufan.vip/tags/machine-learning/"/>
-    
-      <category term="evaluation" scheme="https://liufan.vip/tags/evaluation/"/>
     
   </entry>
   
