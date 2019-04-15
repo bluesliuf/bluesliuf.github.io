@@ -1,0 +1,1154 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="data structure,tree,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bluesliuf" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/apple-touch-icon-next.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="本文主要用python实现二叉树的4种遍历算法，除层次遍历外，前序、中序和后序遍历分别包含递归和非递归2种实现方式。">
+<meta name="keywords" content="data structure,tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python实现二叉树遍历的递归和非递归算法">
+<meta property="og:url" content="https://liufan.vip/数据结构/2019-4-6-数据结构之树3/index.html">
+<meta property="og:site_name" content="Bluesliuf">
+<meta property="og:description" content="本文主要用python实现二叉树的4种遍历算法，除层次遍历外，前序、中序和后序遍历分别包含递归和非递归2种实现方式。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-15T13:36:09.210Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python实现二叉树遍历的递归和非递归算法">
+<meta name="twitter:description" content="本文主要用python实现二叉树的4种遍历算法，除层次遍历外，前序、中序和后序遍历分别包含递归和非递归2种实现方式。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liufan.vip/数据结构/2019-4-6-数据结构之树3/">
+
+
+
+
+
+  <title> Python实现二叉树遍历的递归和非递归算法 | Bluesliuf </title>
+</head>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4287ae00cf6dc3cd776333fe30decd6a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bluesliuf</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Though failed, Still keep smiling</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            个人简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/数据结构/2019-4-6-数据结构之树3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python实现二叉树遍历的递归和非递归算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-06T21:27:55+08:00">
+                2019-04-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-15T21:36:09+08:00">
+                2019-04-15
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要用python实现二叉树的4种遍历算法，除层次遍历外，前序、中序和后序遍历分别包含递归和非递归2种实现方式。<a id="more"></a></p>
+<h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------前序遍历 ------------</span></span><br><span class="line">   <span class="comment"># 递归算法</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">pre_order_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">       <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">           <span class="keyword">return</span></span><br><span class="line">       print(T.root, end=<span class="string">' '</span>)</span><br><span class="line">       self.pre_order_recursive(T.lchild)</span><br><span class="line">       self.pre_order_recursive(T.rchild)</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 非递归算法</span></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">pre_order_non_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">       <span class="string">"""借助栈实现前驱遍历</span></span><br><span class="line"><span class="string">       """</span></span><br><span class="line">       <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">           <span class="keyword">return</span></span><br><span class="line">       stack = []</span><br><span class="line">       <span class="keyword">while</span> T <span class="keyword">or</span> len(stack) &gt; <span class="number">0</span>:</span><br><span class="line">           <span class="keyword">if</span> T:</span><br><span class="line">               stack.append(T)</span><br><span class="line">               print(T.root, end=<span class="string">' '</span>)</span><br><span class="line">               T = T.lchild</span><br><span class="line">           <span class="keyword">else</span>:</span><br><span class="line">               T = stack[<span class="number">-1</span>]</span><br><span class="line">               stack.pop()</span><br><span class="line">               T = T.rchild</span><br></pre></td></tr></table></figure>
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------中序遍历 ------------</span></span><br><span class="line">    <span class="comment"># 递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mid_order_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.mid_order_recursive(T.lchild)</span><br><span class="line">        print(T.root, end=<span class="string">' '</span>)</span><br><span class="line">        self.mid_order_recursive(T.rchild)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 非递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mid_order_non_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="string">"""借助栈实现中序遍历</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        stack = []</span><br><span class="line">        <span class="keyword">while</span> T <span class="keyword">or</span> len(stack) &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> T:</span><br><span class="line">                stack.append(T)</span><br><span class="line">                T = T.lchild</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                T = stack.pop()</span><br><span class="line">                print(T.root, end=<span class="string">' '</span>)</span><br><span class="line">                T = T.rchild</span><br></pre></td></tr></table></figure>
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------后序遍历 ------------</span></span><br><span class="line">    <span class="comment"># 递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post_order_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.post_order_recursive(T.lchild)</span><br><span class="line">        self.post_order_recursive(T.rchild)</span><br><span class="line">        print(T.root, end=<span class="string">' '</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 非递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post_order_non_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="string">"""借助两个栈实现后序遍历</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        stack1 = []</span><br><span class="line">        stack2 = []</span><br><span class="line">        stack1.append(T)</span><br><span class="line">        <span class="keyword">while</span> stack1:</span><br><span class="line">            node = stack1.pop()</span><br><span class="line">            <span class="keyword">if</span> node.lchild:</span><br><span class="line">                stack1.append(node.lchild)</span><br><span class="line">            <span class="keyword">if</span> node.rchild:</span><br><span class="line">                stack1.append(node.rchild)</span><br><span class="line">            stack2.append(node)</span><br><span class="line">        <span class="keyword">while</span> stack2:</span><br><span class="line">            print(stack2.pop().root, end=<span class="string">' '</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----------层次遍历 ------------</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">level_order</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="string">"""借助队列（其实还是一个栈）实现层次遍历</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        stack = []</span><br><span class="line">        stack.append(T)</span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            node = stack.pop(<span class="number">0</span>)  <span class="comment"># 实现先进先出</span></span><br><span class="line">            print(node.root, end=<span class="string">' '</span>)</span><br><span class="line">            <span class="keyword">if</span> node.lchild:</span><br><span class="line">                stack.append(node.lchild)</span><br><span class="line">            <span class="keyword">if</span> node.rchild:</span><br><span class="line">                stack.append(node.rchild)</span><br></pre></td></tr></table></figure>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NodeTree</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, root=None, lchild=None, rchild=None)</span>:</span></span><br><span class="line">        <span class="string">"""创建二叉树</span></span><br><span class="line"><span class="string">        Argument:</span></span><br><span class="line"><span class="string">            lchild: BinTree</span></span><br><span class="line"><span class="string">                左子树</span></span><br><span class="line"><span class="string">            rchild: BinTree</span></span><br><span class="line"><span class="string">                右子树</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Return:</span></span><br><span class="line"><span class="string">            Tree</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.root = root</span><br><span class="line">        self.lchild = lchild</span><br><span class="line">        self.rchild = rchild</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinTree</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># -----------前序遍历 ------------</span></span><br><span class="line">    <span class="comment"># 递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pre_order_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        print(T.root, end=<span class="string">' '</span>)</span><br><span class="line">        self.pre_order_recursive(T.lchild)</span><br><span class="line">        self.pre_order_recursive(T.rchild)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 非递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pre_order_non_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="string">"""借助栈实现前驱遍历</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        stack = []</span><br><span class="line">        <span class="keyword">while</span> T <span class="keyword">or</span> len(stack) &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> T:</span><br><span class="line">                stack.append(T)</span><br><span class="line">                print(T.root, end=<span class="string">' '</span>)</span><br><span class="line">                T = T.lchild</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                T = stack[<span class="number">-1</span>]</span><br><span class="line">                stack.pop()</span><br><span class="line">                T = T.rchild</span><br><span class="line"></span><br><span class="line">    <span class="comment"># -----------中序遍历 ------------</span></span><br><span class="line">    <span class="comment"># 递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mid_order_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.mid_order_recursive(T.lchild)</span><br><span class="line">        print(T.root, end=<span class="string">' '</span>)</span><br><span class="line">        self.mid_order_recursive(T.rchild)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 非递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mid_order_non_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="string">"""借助栈实现中序遍历</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        stack = []</span><br><span class="line">        <span class="keyword">while</span> T <span class="keyword">or</span> len(stack) &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> T:</span><br><span class="line">                stack.append(T)</span><br><span class="line">                T = T.lchild</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                T = stack.pop()</span><br><span class="line">                print(T.root, end=<span class="string">' '</span>)</span><br><span class="line">                T = T.rchild</span><br><span class="line"></span><br><span class="line">    <span class="comment"># -----------后序遍历 ------------</span></span><br><span class="line">    <span class="comment"># 递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post_order_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.post_order_recursive(T.lchild)</span><br><span class="line">        self.post_order_recursive(T.rchild)</span><br><span class="line">        print(T.root, end=<span class="string">' '</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 非递归算法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post_order_non_recursive</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="string">"""借助两个栈实现后序遍历</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        stack1 = []</span><br><span class="line">        stack2 = []</span><br><span class="line">        stack1.append(T)</span><br><span class="line">        <span class="keyword">while</span> stack1:</span><br><span class="line">            node = stack1.pop()</span><br><span class="line">            <span class="keyword">if</span> node.lchild:</span><br><span class="line">                stack1.append(node.lchild)</span><br><span class="line">            <span class="keyword">if</span> node.rchild:</span><br><span class="line">                stack1.append(node.rchild)</span><br><span class="line">            stack2.append(node)</span><br><span class="line">        <span class="keyword">while</span> stack2:</span><br><span class="line">            print(stack2.pop().root, end=<span class="string">' '</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># -----------层次遍历 ------------</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">level_order</span><span class="params">(self, T)</span>:</span></span><br><span class="line">        <span class="string">"""借助队列（其实还是一个栈）实现层次遍历</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> T == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        stack = []</span><br><span class="line">        stack.append(T)</span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            node = stack.pop(<span class="number">0</span>)  <span class="comment"># 实现先进先出</span></span><br><span class="line">            print(node.root, end=<span class="string">' '</span>)</span><br><span class="line">            <span class="keyword">if</span> node.lchild:</span><br><span class="line">                stack.append(node.lchild)</span><br><span class="line">            <span class="keyword">if</span> node.rchild:</span><br><span class="line">                stack.append(node.rchild)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ----------- 前序遍历序列、中序遍历序列 —&gt; 重构二叉树 ------------</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tree_by_pre_mid</span><span class="params">(self, pre, mid)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(pre) != len(mid) <span class="keyword">or</span> len(pre) == <span class="number">0</span> <span class="keyword">or</span> len(mid) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        T = NodeTree(pre[<span class="number">0</span>])</span><br><span class="line">        index = mid.index(pre[<span class="number">0</span>])</span><br><span class="line">        T.lchild = self.tree_by_pre_mid(pre[<span class="number">1</span>:index + <span class="number">1</span>], mid[:index])</span><br><span class="line">        T.rchild = self.tree_by_pre_mid(pre[index + <span class="number">1</span>:], mid[index + <span class="number">1</span>:])</span><br><span class="line">        <span class="keyword">return</span> T</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ----------- 后序遍历序列、中序遍历序列 —&gt; 重构二叉树 ------------</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tree_by_post_mid</span><span class="params">(self, post, mid)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(post) != len(mid) <span class="keyword">or</span> len(post) == <span class="number">0</span> <span class="keyword">or</span> len(mid) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        T = NodeTree(post[<span class="number">-1</span>])</span><br><span class="line">        index = mid.index(post[<span class="number">-1</span>])</span><br><span class="line">        T.lchild = self.tree_by_post_mid(post[:index], mid[:index])</span><br><span class="line">        T.rchild = self.tree_by_post_mid(post[index:<span class="number">-1</span>], mid[index + <span class="number">1</span>:])</span><br><span class="line">        <span class="keyword">return</span> T</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># ----------- 测试：前序、中序、后序、层次遍历 -----------</span></span><br><span class="line">    <span class="comment"># 创建二叉树</span></span><br><span class="line">    nodeTree = NodeTree(<span class="number">1</span>,</span><br><span class="line">                        lchild=NodeTree(<span class="number">2</span>,</span><br><span class="line">                                        lchild=NodeTree(<span class="number">4</span>,</span><br><span class="line">                                                        rchild=NodeTree(<span class="number">7</span>))),</span><br><span class="line">                        rchild=NodeTree(<span class="number">3</span>,</span><br><span class="line">                                        lchild=NodeTree(<span class="number">5</span>),</span><br><span class="line">                                        rchild=NodeTree(<span class="number">6</span>)))</span><br><span class="line">    T = BinTree()</span><br><span class="line">    print(<span class="string">'前序遍历递归\t'</span>)</span><br><span class="line">    T.pre_order_recursive(nodeTree)  <span class="comment"># 前序遍历-递归</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line">    print(<span class="string">'前序遍历非递归\t'</span>)</span><br><span class="line">    T.pre_order_non_recursive(nodeTree)  <span class="comment"># 前序遍历-非递归</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line">    print(<span class="string">'中序遍历递归\t'</span>)</span><br><span class="line">    T.mid_order_recursive(nodeTree)  <span class="comment"># 中序遍历-递归</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line">    print(<span class="string">'中序遍历非递归\t'</span>)</span><br><span class="line">    T.mid_order_non_recursive(nodeTree)  <span class="comment"># 中序遍历-非递归</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line">    print(<span class="string">'后序遍历递归\t'</span>)</span><br><span class="line">    T.post_order_recursive(nodeTree)  <span class="comment"># 后序遍历-递归</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line">    print(<span class="string">'后序遍历非递归\t'</span>)</span><br><span class="line">    T.post_order_non_recursive(nodeTree)  <span class="comment"># 后序遍历-非递归</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line">    print(<span class="string">'层次遍历\t'</span>)</span><br><span class="line">    T.level_order(nodeTree)  <span class="comment"># 层次遍历</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'=========================================================================='</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ----------- 测试：由遍历序列构造二叉树 -----------</span></span><br><span class="line">    T = BinTree()</span><br><span class="line">    pre = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'I'</span>]</span><br><span class="line">    mid = [<span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>, <span class="string">'E'</span>, <span class="string">'D'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'F'</span>, <span class="string">'I'</span>]</span><br><span class="line">    post = [<span class="string">'C'</span>, <span class="string">'B'</span>, <span class="string">'E'</span>, <span class="string">'H'</span>, <span class="string">'G'</span>, <span class="string">'I'</span>, <span class="string">'F'</span>, <span class="string">'D'</span>, <span class="string">'A'</span>]</span><br><span class="line"></span><br><span class="line">    newT_pre_mid = T.tree_by_pre_mid(pre, mid)  <span class="comment"># 由前序序列、中序序列构造二叉树</span></span><br><span class="line">    T.post_order_recursive(newT_pre_mid)  <span class="comment"># 获取后序序列</span></span><br><span class="line">    print(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">    newT_post_mid = T.tree_by_post_mid(post, mid)  <span class="comment"># 由后序序列、中序序列构造二叉树</span></span><br><span class="line">    T.pre_order_recursive(newT_post_mid)  <span class="comment"># 获取前序序列</span></span><br></pre></td></tr></table></figure>
+<p><strong>运行结果</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">前序遍历递归	</span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> <span class="number">7</span> <span class="number">3</span> <span class="number">5</span> <span class="number">6</span> </span><br><span class="line"></span><br><span class="line">前序遍历非递归	</span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> <span class="number">7</span> <span class="number">3</span> <span class="number">5</span> <span class="number">6</span> </span><br><span class="line"></span><br><span class="line">中序遍历递归	</span><br><span class="line"><span class="number">4</span> <span class="number">7</span> <span class="number">2</span> <span class="number">1</span> <span class="number">5</span> <span class="number">3</span> <span class="number">6</span> </span><br><span class="line"></span><br><span class="line">中序遍历非递归	</span><br><span class="line"><span class="number">4</span> <span class="number">7</span> <span class="number">2</span> <span class="number">1</span> <span class="number">5</span> <span class="number">3</span> <span class="number">6</span> </span><br><span class="line"></span><br><span class="line">后序遍历递归	</span><br><span class="line"><span class="number">7</span> <span class="number">4</span> <span class="number">2</span> <span class="number">5</span> <span class="number">6</span> <span class="number">3</span> <span class="number">1</span> </span><br><span class="line"></span><br><span class="line">后序遍历非递归	</span><br><span class="line"><span class="number">7</span> <span class="number">4</span> <span class="number">2</span> <span class="number">5</span> <span class="number">6</span> <span class="number">3</span> <span class="number">1</span> </span><br><span class="line"></span><br><span class="line">层次遍历	</span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> </span><br><span class="line"></span><br><span class="line">==========================================================================</span><br><span class="line">C B E H G I F D A </span><br><span class="line"></span><br><span class="line">A B C D E F G H I</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/数据结构/2019-4-6-数据结构之树3/" title="Python实现二叉树遍历的递归和非递归算法">https://liufan.vip/数据结构/2019-4-6-数据结构之树3/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/data-structure/" rel="tag"><i class="fa fa-tag"></i> data structure</a>
+          
+            <a href="/tags/tree/" rel="tag"><i class="fa fa-tag"></i> tree</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/数据结构/2019-4-6-数据结构之树2/" rel="next" title="C语言实现二叉树遍历的递归和非递归算法">
+                <i class="fa fa-chevron-left"></i> C语言实现二叉树遍历的递归和非递归算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/数据结构/2019-4-7-线索二叉树/" rel="prev" title="线索二叉树">
+                线索二叉树 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
+          <p class="site-author-name" itemprop="name">bluesliuf</p>
+           
+              <p class="site-description motion-element" itemprop="description">From Zero to Hero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://blog.csdn.net/bluesliuf" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-copyright"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bluesliuf" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:bluesliuf@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/bluesliuf/" target="_blank" title="INS">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  INS
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前序遍历"><span class="nav-number">1.</span> <span class="nav-text">前序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中序遍历"><span class="nav-number">2.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后序遍历"><span class="nav-number">3.</span> <span class="nav-text">后序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次遍历"><span class="nav-number">4.</span> <span class="nav-text">层次遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整代码"><span class="nav-number">5.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bluesliuf</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

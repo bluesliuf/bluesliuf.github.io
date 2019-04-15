@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="machine learning,computer basis,">
+  <meta name="keywords" content="data structure,stack queue,">
 
 
 
@@ -101,25 +101,18 @@
 
 
 
-<meta name="description" content="昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。">
-<meta name="keywords" content="machine learning,computer basis">
+<meta name="description" content="本文主要用python语言实现栈和队列的基本操作。">
+<meta name="keywords" content="data structure,stack queue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="牛客笔试题之顺丰机器学习真题">
-<meta property="og:url" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/index.html">
+<meta property="og:title" content="Python实现栈和队列">
+<meta property="og:url" content="https://liufan.vip/数据结构/2019-3-31-Python实现栈和队列/index.html">
 <meta property="og:site_name" content="Bluesliuf">
-<meta property="og:description" content="昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。">
+<meta property="og:description" content="本文主要用python语言实现栈和队列的基本操作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/1.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/2.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/3.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/4.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/5.png">
-<meta property="og:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/6.png">
-<meta property="og:updated_time" content="2019-03-22T03:30:12.080Z">
+<meta property="og:updated_time" content="2019-04-15T13:37:04.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="牛客笔试题之顺丰机器学习真题">
-<meta name="twitter:description" content="昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。">
-<meta name="twitter:image" content="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/1.png">
+<meta name="twitter:title" content="Python实现栈和队列">
+<meta name="twitter:description" content="本文主要用python语言实现栈和队列的基本操作。">
 
 
 
@@ -147,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/">
+  <link rel="canonical" href="https://liufan.vip/数据结构/2019-3-31-Python实现栈和队列/">
 
 
 
 
 
-  <title> 牛客笔试题之顺丰机器学习真题 | Bluesliuf </title>
+  <title> Python实现栈和队列 | Bluesliuf </title>
 </head>
 
 
@@ -344,7 +337,7 @@
   
 
   <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/数据结构/2019-3-31-Python实现栈和队列/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bluesliuf">
@@ -365,7 +358,7 @@
             
             
               
-                牛客笔试题之顺丰机器学习真题
+                Python实现栈和队列
               
             
           </h1>
@@ -380,8 +373,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-22T09:48:30+08:00">
-                2019-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T21:20:55+08:00">
+                2019-03-31
               </time>
             
 
@@ -396,8 +389,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-22T11:30:12+08:00">
-                2019-03-22
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-15T21:37:04+08:00">
+                2019-04-15
               </time>
             
           </span>
@@ -415,8 +408,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/牛客笔试题/" itemprop="url" rel="index">
-                    <span itemprop="name">牛客笔试题</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
                   </a>
                 </span>
 
@@ -450,7 +443,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  221
                 </span>
               
 
@@ -466,7 +459,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  1
                 </span>
               
             </div>
@@ -485,158 +478,9 @@
       
 
       
-        <p>昨天做了一套顺丰人工智能和机器学习的真题，下面是对其中一些知识点的总结。</p>
-<a id="more"></a>
-<h3 id="Java中的String"><a href="#Java中的String" class="headerlink" title="Java中的String"></a>Java中的String</h3><p><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/1.png" alt=""><br><strong>解析：</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/2.png" alt=""></p>
-<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>链表的特性，使其在某些操作上比数组更加高效。</p>
-<ol>
-<li><strong>增删不必挪动元素</strong>。当进行插入和删除操作时，链表操作的时间复杂度仅为O(1)。</li>
-<li><strong>无需实现估计空间</strong>。链表在内存中不是连续存储的，所以可以充分利用内存中碎片空间。</li>
-</ol>
-<h3 id="UDP与TCP"><a href="#UDP与TCP" class="headerlink" title="UDP与TCP"></a>UDP与TCP</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">TCP</th>
-<th style="text-align:center">面向有连接</th>
-<th style="text-align:center">可靠</th>
-<th style="text-align:center">面向字节流</th>
-<th style="text-align:center">数据无边界</th>
-<th style="text-align:center">速度慢</th>
-<th style="text-align:center">一对一</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">UDP</td>
-<td style="text-align:center">无连接</td>
-<td style="text-align:center">不可靠会丢包</td>
-<td style="text-align:center">面向报文</td>
-<td style="text-align:center">有边界</td>
-<td style="text-align:center">速度块</td>
-<td style="text-align:center">一对一或一对多</td>
-</tr>
-</tbody>
-</table>
-<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p><strong>产生必要条件：</strong></p>
-<blockquote>
-<ol>
-<li>互斥</li>
-<li>请求与保持</li>
-<li>循环等待</li>
-<li>非剥夺</li>
-</ol>
-</blockquote>
-<h3 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h3><p>OSI（<code>Open System Interconnect</code>），即开放式系统互联。 一般都叫OSI参考模型，是ISO（国际标准化组织）组织在1985年研究的网络互连模型。它定义了网络互连的七层框架：<br><strong>物理层、数据链路层、网络层、传输层、会话层、表示层、应用层</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/3.png" alt=""></p>
-<p><strong>TCP/IP五层协议和OSI的七层协议对应关系如下，在每一层都工作着不同的设备：</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/4.png" alt=""></p>
-<p><strong>在每一层实现的协议也各不同，即每一层的服务也不同：</strong><br><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/5.png" alt=""></p>
-<h3 id="数据库索引"><a href="#数据库索引" class="headerlink" title="数据库索引"></a>数据库索引</h3><ol>
-<li>通过创建<strong>唯一性索引</strong>，可以保证数据库表中<strong>每一行数据的唯一性</strong></li>
-<li>当用户查询索引字段时，索引可以快速地执行检索操作，借助索引，在执行查询的时候不需要扫描整个表就可以快速地找到所需要的数据。</li>
-<li>创建索引和维护索引要耗费时间、空间,当对表中的数据进行增加、删除和修改的时候,会降低数据的维护速度</li>
-</ol>
-<h3 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h3><p><img src="/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/6.png" alt=""><br><strong>解析：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">numpy.repeat(a, repeats, axis=None)</span></span><br><span class="line"><span class="string">将a重复b次</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>x = np.array([[1,2],[3,4]])</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>np.repeat(x, 2)</span></span><br><span class="line"><span class="string">array([1, 1, 2, 2, 3, 3, 4, 4])</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>np.repeat(x, 3, axis=1)</span></span><br><span class="line"><span class="string">array([[1, 1, 1, 2, 2, 2],</span></span><br><span class="line"><span class="string">       [3, 3, 3, 4, 4, 4]])</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>np.repeat(x, [1, 2], axis=0)</span></span><br><span class="line"><span class="string">array([[1, 2],</span></span><br><span class="line"><span class="string">       [3, 4],</span></span><br><span class="line"><span class="string">       [3, 4]])</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">a = np.repeat(np.arange(<span class="number">5</span>).reshape([<span class="number">1</span>,<span class="number">-1</span>]),<span class="number">10</span>,axis = <span class="number">0</span>)+<span class="number">10.0</span></span><br><span class="line">b = np.random.randint(<span class="number">5</span>, size= a.shape) <span class="comment"># 生成[0,5)随机矩阵，大小和矩阵a相同</span></span><br><span class="line">c = np.argmin(a*b, axis=<span class="number">1</span>) <span class="comment">#矩阵a和b乘积，返回每行最小值位置</span></span><br><span class="line">b = np.zeros(a.shape) <span class="comment">#与矩阵a相同大小的全零矩阵</span></span><br><span class="line">print(<span class="string">"b变之前："</span>,str(b))</span><br><span class="line">print(<span class="string">"c的值："</span>,str(c))</span><br><span class="line">b[np.arange(b.shape[<span class="number">0</span>]), c] = <span class="number">1</span> <span class="comment">#将b中每一行的c位置处赋值为1</span></span><br><span class="line">print(<span class="string">"b变之后："</span>,str(b))</span><br><span class="line">print(b.shape)</span><br></pre></td></tr></table></figure></p>
-<p><strong>输出结果：</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">b变之前： [[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line">c的值： [<span class="number">0</span> <span class="number">3</span> <span class="number">4</span> <span class="number">3</span> <span class="number">1</span> <span class="number">3</span> <span class="number">4</span> <span class="number">2</span> <span class="number">2</span> <span class="number">0</span>]</span><br><span class="line">b变之后： [[<span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">1.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line">(<span class="number">10</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="RF-GBDT-XgBoost"><a href="#RF-GBDT-XgBoost" class="headerlink" title="RF GBDT XgBoost"></a>RF GBDT XgBoost</h3><p><strong>RF、GBDT、XgBoost</strong> 三者都是<strong>集成学习</strong>中的方法，其中RF属于<code>Bagging</code>方法，GBDT和XgBoost属于<code>Boosting</code>方法。过段时间会专门写一篇有关Bagging和Boosting介绍的博文。</p>
-<ol>
-<li><strong>RF（Random Forest）</strong><blockquote>
-<p>随机森林主要运用到的方法是bagging，采用Bootstrap的随机有放回的抽样，抽样出N份数据集，训练出N个决策树。然后根据N个决策树输出的结果决定最终结果（<strong>离散型的输出：取最多的类别，连续型的输出：取平均数</strong>）。</p>
-</blockquote>
-</li>
-</ol>
-<p><strong>优势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>容易理解和解释</li>
-<li>不需要太多的数据预处理工作</li>
-<li>隐含地创造了多个联合特征，并<strong>能够解决非线性问题</strong></li>
-<li>随机森林模型<strong>不容易过拟合</strong></li>
-<li>自带out-of-bag (oob)错误评估功能</li>
-<li>并行化容易实现</li>
-</ul>
-</blockquote>
-</blockquote>
-<p><strong>劣势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>不适合小样本，只适合大样本</li>
-<li>精度较低</li>
-<li>适合决策边界是矩形的，不适合对角线型的</li>
-</ul>
-</blockquote>
-</blockquote>
-<ol start="2">
-<li><strong>GBDT</strong><blockquote>
-<p>通过采用<strong>加法模型</strong>（即基函数的线性组合），以及不断<strong>减小训练过程产生的残差</strong>来达到将数据分类或者回归的算法。通过多轮迭代,每轮迭代产生一个弱分类器，每个分类器在上一轮分类器的残差基础上进行训练。<strong>对弱分类器的要求一般是足够简单，并且是低方差和高偏差的</strong>。一般选择<code>cart tree</code>且树的深度不会很深。</p>
-</blockquote>
-</li>
-</ol>
-<p><strong>优势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>精度高</li>
-<li><strong>能处理非线性数据</strong></li>
-<li><strong>能处理多特征类型</strong></li>
-<li>适合低维稠密数据</li>
-<li>模型可解释性好</li>
-<li><strong>不需要做特征的归一化，可以自动选择特征</strong></li>
-<li><strong>能适应多种损失函数</strong></li>
-</ul>
-</blockquote>
-</blockquote>
-<p><strong>劣势：</strong></p>
-<blockquote>
-<blockquote>
-<ul>
-<li>不太适合并发执行</li>
-<li>计算复杂度高</li>
-<li>不适用高维稀疏特征</li>
-</ul>
-</blockquote>
-</blockquote>
-<ol start="3">
-<li><strong>XgBoost</strong><blockquote>
-<p>简单来说<strong>XgBoost是GBDT的一种高效实现</strong>，主要具有以下几个优势：</p>
-<ul>
-<li><strong>显式的把树模型复杂度作为正则项加到优化目标中</strong>。</li>
-<li>实现了分裂点寻找近似算法。</li>
-<li>可以并行执行</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<p><strong>RF和GBDT的比较:</strong></p>
-<blockquote>
-<p><strong>相同点：</strong></p>
-<blockquote>
-<ul>
-<li>都是由多棵树组成</li>
-<li>最终的结果都是由多棵树一起决定</li>
-</ul>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>不同点：</strong></p>
-<blockquote>
-<ul>
-<li>组成RF的树可以是分类树，也可以是回归树；而<strong>GBDT只由回归树组成</strong></li>
-<li>组成RF的树可以并行生成；而<strong>GBDT只能是串行生成</strong></li>
-<li>对于最终的输出结果而言，RF采用多数投票等；而GBDT则是将所有结果累加起来，或者加权累加起来</li>
-<li>RF对异常值不敏感，<strong>GBDT对异常值非常敏感</strong></li>
-<li>RF对训练集一视同仁，GBDT是基于权值的弱分类器的集成</li>
-<li>RF是通过减少模型方差<code>(variance)</code>提高性能，GBDT是通过减少模型偏差<code>(bias)</code>提高性能</li>
-</ul>
-</blockquote>
-</blockquote>
-<h3 id="Boosting和Bagging的差别"><a href="#Boosting和Bagging的差别" class="headerlink" title="Boosting和Bagging的差别"></a>Boosting和Bagging的差别</h3><p><strong>过拟合的模型</strong>，通常<code>variance</code>比较大，这时应该用<strong>bagging</strong>对其进行修正。<br><strong>欠拟合的模型</strong>，通常<code>bias</code>比较大，这时应该可以用<strong>boosting</strong>进行修正。使用boosting时， 每一个模型可以简单一些。</p>
-<ol>
-<li><p><strong>bagging</strong>中的模型是<strong>强模型，偏差低，方差高。目标是降低方差(variance)</strong>。在bagging中，每个模型的bias和variance近似相同，但是互相相关性不太高，因此一般不能降低bias，而一定程度上能降低variance。<strong>典型的bagging是random forest (RF)</strong>。</p>
-</li>
-<li><p><strong>boosting</strong>中每个模型是<strong>弱模型，偏差高，方差低。目标是通过平均降低偏差(bias)</strong>。boosting的基本思想就是<strong>用贪心法最小化损失函数</strong>，显然能降低偏差，但是通常模型的相关性很强，因此不能显著降低variance。<strong>典型的Boosting是Adaboost，另外一个常用的并行Boosting算法是GBDT（gradient boosting decision tree）。这一类算法通常不容易出现过拟合</strong>。</p>
-</li>
-</ol>
+        <p>本文主要用python语言实现栈和队列的基本操作。<a id="more"></a></p>
+<h3 id="python实现栈的基本操作"><a href="#python实现栈的基本操作" class="headerlink" title="python实现栈的基本操作"></a>python实现栈的基本操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">以列表的形式简单实现栈</span></span><br><span class="line"><span class="string">栈：先进后出</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.stack = []  <span class="comment"># 初始化</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">not</span> bool(self.stack)  <span class="comment"># 判空</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        self.stack.append(value)  <span class="comment"># 入栈</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.stack:</span><br><span class="line">            <span class="keyword">return</span> self.stack.pop()  <span class="comment"># 出栈</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> LookupError(<span class="string">'stack is empty!'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.stack:</span><br><span class="line">            <span class="keyword">return</span> self.stack[<span class="number">-1</span>]  <span class="comment"># 获取栈顶元素</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> LookupError(<span class="string">'stack is empty'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">length</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.stack)  <span class="comment"># 获取栈内元素个数</span></span><br></pre></td></tr></table></figure>
+<h3 id="python实现队列的基本操作"><a href="#python实现队列的基本操作" class="headerlink" title="python实现队列的基本操作"></a>python实现队列的基本操作</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">以列表的形式简单实现队列</span></span><br><span class="line"><span class="string">队列：先进先出</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.<span class="built_in">queue</span> = []</span><br><span class="line"></span><br><span class="line">    def is_empty(self):</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">not</span> <span class="keyword">bool</span>(self.<span class="built_in">queue</span>)</span><br><span class="line"></span><br><span class="line">    def enqueue(self, items):</span><br><span class="line">        self.<span class="built_in">queue</span>.append(items)</span><br><span class="line">        <span class="keyword">return</span> True</span><br><span class="line"></span><br><span class="line">    def dequeue(self):</span><br><span class="line">        <span class="keyword">if</span> self.is_empty():</span><br><span class="line">            raise LookupError('queue is empty!')</span><br><span class="line">        <span class="keyword">return</span> self.<span class="built_in">queue</span>.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    def length(self):</span><br><span class="line">        <span class="keyword">return</span> len(self.<span class="built_in">queue</span>)</span><br><span class="line"></span><br><span class="line">    def show(self):</span><br><span class="line">        <span class="keyword">if</span> self.is_empty():</span><br><span class="line">            raise LookupError('queue is empty!')</span><br><span class="line">        <span class="keyword">return</span> self.<span class="built_in">queue</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -690,7 +534,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/" title="牛客笔试题之顺丰机器学习真题">https://liufan.vip/牛客笔试题/2019-3-22-牛客笔试题之顺丰机器学习真题/</a>
+      <a href="https://liufan.vip/数据结构/2019-3-31-Python实现栈和队列/" title="Python实现栈和队列">https://liufan.vip/数据结构/2019-3-31-Python实现栈和队列/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -706,9 +550,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
+            <a href="/tags/data-structure/" rel="tag"><i class="fa fa-tag"></i> data structure</a>
           
-            <a href="/tags/computer-basis/" rel="tag"><i class="fa fa-tag"></i> computer basis</a>
+            <a href="/tags/stack-queue/" rel="tag"><i class="fa fa-tag"></i> stack queue</a>
           
         </div>
       
@@ -721,8 +565,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/机器学习/2019-3-21-机器学习正则化之L0、L1与L2范数/" rel="next" title="机器学习正则化之L0、L1与L2范数">
-                <i class="fa fa-chevron-left"></i> 机器学习正则化之L0、L1与L2范数
+              <a href="/数据结构/2019-3-31-数据结构之栈和队列2/" rel="next" title="数据结构之栈和队列（二）">
+                <i class="fa fa-chevron-left"></i> 数据结构之栈和队列（二）
               </a>
             
           </div>
@@ -731,8 +575,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/机器学习/2019-3-22-准确率，精确率，召回率和F1值/" rel="prev" title="准确率，精确率，召回率和F1值">
-                准确率，精确率，召回率和F1值 <i class="fa fa-chevron-right"></i>
+              <a href="/数据结构/2019-4-3-数据结构之查找/" rel="prev" title="C语言实现七大查找算法（一）">
+                C语言实现七大查找算法（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -930,7 +774,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中的String"><span class="nav-number">1.</span> <span class="nav-text">Java中的String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表"><span class="nav-number">2.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP与TCP"><span class="nav-number">3.</span> <span class="nav-text">UDP与TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁"><span class="nav-number">4.</span> <span class="nav-text">死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI七层模型"><span class="nav-number">5.</span> <span class="nav-text">OSI七层模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库索引"><span class="nav-number">6.</span> <span class="nav-text">数据库索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Numpy"><span class="nav-number">7.</span> <span class="nav-text">Numpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RF-GBDT-XgBoost"><span class="nav-number">8.</span> <span class="nav-text">RF GBDT XgBoost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boosting和Bagging的差别"><span class="nav-number">9.</span> <span class="nav-text">Boosting和Bagging的差别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python实现栈的基本操作"><span class="nav-number">1.</span> <span class="nav-text">python实现栈的基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python实现队列的基本操作"><span class="nav-number">2.</span> <span class="nav-text">python实现队列的基本操作</span></a></li></ol></div>
             
 
           </div>
