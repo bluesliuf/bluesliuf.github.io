@@ -1,0 +1,1350 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="machine learning,deep learning,CNN,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bluesliuf" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/apple-touch-icon-next.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="本文主要介绍卷积神经网络（CNN）的发展演变，包含对每个网络的结构分析，创新点总结。">
+<meta name="keywords" content="machine learning,deep learning,CNN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CNN网络架构演进：从LeNet到DenseNet">
+<meta property="og:url" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/index.html">
+<meta property="og:site_name" content="Bluesliuf">
+<meta property="og:description" content="本文主要介绍卷积神经网络（CNN）的发展演变，包含对每个网络的结构分析，创新点总结。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/1.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/2.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/3.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/4.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/5.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/6.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/7.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/8.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/9.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/10.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/11.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/12.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/13.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/14.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/15.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/16.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/17.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/18.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/19.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/20.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/21.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/22.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/23.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/24.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/25.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/26.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/27.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/28.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/29.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/30.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/31.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/32.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/33.jpg">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/34.png">
+<meta property="og:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/35.png">
+<meta property="og:updated_time" content="2019-04-18T04:35:04.982Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CNN网络架构演进：从LeNet到DenseNet">
+<meta name="twitter:description" content="本文主要介绍卷积神经网络（CNN）的发展演变，包含对每个网络的结构分析，创新点总结。">
+<meta name="twitter:image" content="https://liufan.vip/深度学习/2019-4-18-CNN发展史/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liufan.vip/深度学习/2019-4-18-CNN发展史/">
+
+
+
+
+
+  <title> CNN网络架构演进：从LeNet到DenseNet | Bluesliuf </title>
+</head>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4287ae00cf6dc3cd776333fe30decd6a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bluesliuf</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Though failed, Still keep smiling</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            个人简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/深度学习/2019-4-18-CNN发展史/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CNN网络架构演进：从LeNet到DenseNet
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T09:32:37+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-18T12:35:04+08:00">
+                2019-04-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  7.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  26
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文主要介绍<strong>卷积神经网络（CNN）</strong>的发展演变，包含对每个网络的结构分析，创新点总结。<a id="more"></a>内容来自自己的收集整理，还有网易云课堂吴恩达的<a href="https://mooc.study.163.com/learn/2001281004?tid=2001392030&amp;_trace_c_p_k2_=12527b6483d246b3813f56326c2f7ed8#/learn/announce" target="_blank" rel="noopener">卷积神经网络</a>教学视频。</p>
+<h2 id="LeNet-5"><a href="#LeNet-5" class="headerlink" title="LeNet-5"></a>LeNet-5</h2><p>LeNet是LeCun在1998年提出，用于解决<strong>手写数字识别（0-9）</strong>的视觉任务。自那时起，CNN的最基本的架构就定下来了：<strong>卷积层、池化层、全连接层</strong>。如今各大深度学习框架中所使用的LeNet都是简化改进过的LeNet-5。和原始的LeNet有些许不同，比如把激活函数改为了现在很常用的<code>ReLu</code>。<br>LeNet-5跟现有的<code>conv-&gt;pool-&gt;ReLU</code>的套路不同，它使用的方式是<code>conv1-&gt;pool-&gt;conv2-&gt;pool2</code>再接全连接层，但是不变的是，卷积层后紧接池化层的模式依旧不变。</p>
+<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="/深度学习/2019-4-18-CNN发展史/1.png" alt=""></p>
+<p>LeNet-5一共有7个层，不包含输入层，分别是</p>
+<ol>
+<li><strong>2个卷积层</strong> （5x5，stride=1,num1=6,num2=16）</li>
+<li><strong>2个池化层</strong> （2x2，stride=2,type=average）</li>
+<li><strong>2个全连接层</strong> (120,84)</li>
+<li><strong>1个输出层</strong>10个类别（数字0-9的概率）</li>
+</ol>
+<p><strong>卷积大小的计算公式如下</strong><br><img src="/深度学习/2019-4-18-CNN发展史/2.png" alt=""></p>
+<h3 id="模型分析"><a href="#模型分析" class="headerlink" title="模型分析"></a>模型分析</h3><p>以下图改进后的LeNet-5，对其进行深入分析（<strong>原始LeNet5中图像大小是32*32</strong>）</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/3.png" alt=""></p>
+<p>首先输入图像是单通道的28*28大小的图像，用矩阵表示就是[1,28,28]</p>
+<ol>
+<li>第一个<strong>卷积层Conv1</strong>所用的卷积核尺寸为5*5，滑动步长为1，卷积核数目为20，那么经过该层后图像尺寸变为24，28-5+1=24，输出矩阵为[20,24,24]。</li>
+<li>第一个<strong>池化层Pool1</strong>核尺寸为2*2，步长2，这是没有重叠的max pooling，池化操作后，图像尺寸减半，变为12×12，输出矩阵为[20,12,12]。</li>
+<li>第二个<strong>卷积层Conv2</strong>的卷积核尺寸为5*5，步长1，卷积核数目为50，卷积后图像尺寸变为8,这是因为12-5+1=8，输出矩阵为[50,8,8].</li>
+<li>第二个<strong>池化层Pool2</strong>核尺寸为2*2，步长2，这是没有重叠的max pooling，池化操作后，图像尺寸减半，变为4×4，输出矩阵为[50,4,4]。</li>
+<li>pool2后面接<strong>全连接层FC1</strong>，神经元数目为500，再接relu激活函数。</li>
+<li>再接<strong>FC2</strong>，神经元个数为10，得到10维的特征向量，用于10个数字的分类训练，送入softmax分类，得到分类结果的概率<strong>output</strong>。</li>
+</ol>
+<h3 id="模型特性"><a href="#模型特性" class="headerlink" title="模型特性"></a>模型特性</h3><ol>
+<li>使用三个层作为一个系列：<strong>卷积，池化，非线性</strong></li>
+<li>使用<strong>卷积提取空间特征</strong></li>
+<li>使用映射到空间均值下采样（subsample）</li>
+<li>双曲线（tanh）或S型（sigmoid）形式<strong>非线性</strong></li>
+<li>多层神经网络（MLP）作为最后的分类器</li>
+<li>层与层之间的稀疏连接矩阵避免大的计算成本</li>
+</ol>
+<h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><p>AlexNet在2012年<strong>ImageNet</strong>竞赛中以超过第二名10.9个百分点的绝对优势一举夺冠，从此深度学习和卷积神经网络名声鹊起，深度学习的研究如雨后春笋般出现，AlexNet的出现可谓是卷积神经网络的王者归来。</p>
+<h3 id="模型结构-1"><a href="#模型结构-1" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="/深度学习/2019-4-18-CNN发展史/4.png" alt=""></p>
+<p>一共有8个层，<strong>前5层是卷积层，后三层是全连接层</strong>，最终softmax输出是1000类。(此处层数不算池化层)<br>1)    <strong>Conv1</strong>（11x11，stride=4,num=96）<br>2)    <strong>Conv2</strong>（5x5，stride=1,num=256，pad=2）<br>3)    <strong>Conv3-5</strong>（3x3，stride=1,num3=num4=384，num5=256,pad=1）<br>4)    <strong>FC6-8</strong> (num6=num7=4096,num8=1000)</p>
+<h3 id="模型分析-1"><a href="#模型分析-1" class="headerlink" title="模型分析"></a>模型分析</h3><p><strong>Conv1</strong><br><img src="/深度学习/2019-4-18-CNN发展史/5.png" alt=""></p>
+<p>第一层输入数据为原始图像的<strong>227x227x3</strong>的图像（最开始是224x224x3，为后续处理方便必须进行调整）,这个图像被<strong>11x11x3</strong>（3代表深度，例如RGB的3通道）的卷积核进行卷积运算，卷积核对原始图像的每次卷积都会生成一个新的像素。卷积核的步长为4个像素，朝着横向和纵向这两个方向进行卷积。由此，会生成新的像素；<strong>（227-11）/4+1=55</strong>个像素，由于第一层有96个卷积核，所以就会形成55<em>55</em>96个像素层，系统是采用<strong>双GPU</strong>处理，因此分为<strong>2组数据：55x55x48的像素层数据</strong>。<br>重叠pool池化层：这些像素层还需要经过pool运算（池化运算）的处理，池化运算的尺度由预先设定为<strong>3x3</strong>，运算的<strong>步长为2</strong>，则池化后的图像的尺寸为：<strong>（55-3）/2+1=27</strong>。即经过池化处理过的规模为<strong>27x27x96</strong>。<br>局部响应归一化层(LRN)：最后经过局部响应归一化处理，归一化运算的尺度为5x5；第一层卷积层结束后形成的图像层的规模为<strong>27x27x96</strong>。分别由96个卷积核对应生成，这96层数据氛围2组，每组48个像素层，每组在独立的GPU下运算。</p>
+<p><strong>Conv2</strong><br><img src="/深度学习/2019-4-18-CNN发展史/6.png" alt=""></p>
+<p>第二层输入数据为第一层输出的27x27x96的像素层（为方便后续处理，这对每幅像素层进行<strong>像素填充pad=2</strong>），分为2组像素数据，两组像素数据分别在两个不同的GPU中进行运算。每组像素数据被<strong>5x5x48</strong>的卷积核进行卷积运算，同理按照第一层的方式进行：<strong>（27-5+2x2）/1+1=27</strong>个像素，一共有256个卷积核，这样也就有了<strong>27x27x128</strong>两组像素层。<br>重叠pool池化层：同样经过池化运算，池化后的图像尺寸为<strong>（27-3）/2+1=13</strong>，即池化后像素的规模为<strong>2组13x13x128</strong>的像素层。<br>局部响应归一化层(LRN)：最后经归一化处理，分别对应2组128个卷积核所运算形成。每组在一个GPU上进行运算。即共256个卷积核，共2个GPU进行运算。</p>
+<p><strong>Conv3</strong><br><img src="/深度学习/2019-4-18-CNN发展史/7.png" alt=""></p>
+<p>第三层输入数据为第二层输出的<strong>两组13x13x128</strong>的像素层（为方便后续处理，这对每幅像素层进行像素<strong>填充pad=1</strong>），分为2组像素数据，两组像素数据分别在两个不同的GPU中进行运算。每组像素数据被<strong>3x3x128</strong>的卷积核（两组，一共也就有3x3x256）进行卷积运算，同理按照第一层的方式进行：<strong>（13-3+1x2）/1+1=13</strong>个像素，一共有384个卷积核，这样也就有了<strong>13x13x192</strong>两组像素层。</p>
+<p><strong>Conv4</strong><br><img src="/深度学习/2019-4-18-CNN发展史/8.png" alt=""></p>
+<p>第四层输入数据为第三层输出的<strong>两组13x13x192</strong>的像素层（为方便后续处理，这对每幅像素层进行像素<strong>填充pad=1</strong>），分为2组像素数据，两组像素数据分别在两个不同的GPU中进行运算。每组像素数据被<strong>3x3x192</strong>的卷积核进行卷积运算，同理按照第一层的方式进行：<strong>（13-3+1x2）/1+1=13</strong>个像素，一共有384个卷积核，这样也就有了<strong>13x13x192</strong>两组像素层。</p>
+<p><strong>Conv5</strong><br><img src="/深度学习/2019-4-18-CNN发展史/9.png" alt=""></p>
+<p>第五层输入数据为第四层输出的<strong>两组13x13x192</strong>的像素层（为方便后续处理，这对每幅像素层进行像素<strong>填充pad=1</strong>），分为2组像素数据，两组像素数据分别在两个不同的GPU中进行运算。每组像素数据被<strong>3x3x192</strong>的卷积核进行卷积运算，同理按照第一层的方式进行：<strong>（13-3+1x2）/1+1=13</strong>个像素，一共有256个卷积核，这样也就有了13x13x128两组像素层。<br>重叠pool池化层：进过池化运算，池化后像素的尺寸为（13-3）/2+1=6，即池化后像素的规模变成了<strong>两组6x6x128</strong>的像素层，共6x6x256规模的像素层。</p>
+<p><strong>FC6</strong><br><img src="/深度学习/2019-4-18-CNN发展史/10.png" alt=""></p>
+<p>第6层输入数据的尺寸是6x6x256，采用6x6x256尺寸的滤波器对第六层的输入数据进行卷积运算；每个6x6x256尺寸的滤波器对第六层的输入数据进行卷积运算生成一个运算结果，通过一个神经元输出这个运算结果；共有4096个6x6x256尺寸的滤波器对输入数据进行卷积，通过<strong>4096个神经元</strong>的输出运算结果；然后通过<strong>ReLU</strong>激活函数以及<strong>dropout</strong>运算输出4096个本层的输出结果值。</p>
+<p><strong>FC7</strong><br><img src="/深度学习/2019-4-18-CNN发展史/11.png" alt=""></p>
+<p>第6层输出的4096个数据与第7层的<strong>4096个神经元</strong>进行全连接，然后经由<strong>ReLU</strong>和<strong>Dropout</strong>进行处理后生成4096个数据。</p>
+<p><strong>FC8</strong><br><img src="/深度学习/2019-4-18-CNN发展史/12.png" alt=""></p>
+<p>第7层输入的<strong>4096个数据与第8层的1000个神经元</strong>进行全连接，经过训练后输出被训练的数值。</p>
+<h3 id="各层训练参数"><a href="#各层训练参数" class="headerlink" title="各层训练参数"></a>各层训练参数</h3><p><strong>前五层：卷积层</strong><br><img src="/深度学习/2019-4-18-CNN发展史/13.png" alt=""></p>
+<p><strong>后三层：全连接层</strong><br><img src="/深度学习/2019-4-18-CNN发展史/14.png" alt=""></p>
+<h3 id="新技术点"><a href="#新技术点" class="headerlink" title="新技术点"></a>新技术点</h3><ol>
+<li><strong>ReLU作为激活函数</strong><br>ReLU为非饱和函数，论文中验证其效果在较深的网络超过了Sigmoid，成功<strong>解决了Sigmoid在网络较深时的梯度弥散问题</strong>。</li>
+<li><strong>Dropout避免模型过拟合</strong><br>在训练时使用Dropout随机忽略一部分神经元，以<strong>避免模型过拟合</strong>。在Alexnet的最后几个全连接层中使用了Dropout。</li>
+<li><strong>重叠的最大池化</strong><br>之前的CNN中普遍使用平均池化，而Alexnet全部使用<strong>最大池化</strong>，<strong>避免平均池化的模糊化效果</strong>。并且，<strong>池化的步长小于核尺寸</strong>，这样使得池化层的输出之间会有<strong>重叠和覆盖，提升了特征的丰富性</strong>。</li>
+<li><strong>提出LRN层</strong><br>对局部神经元的活动创建竞争机制，使得其中响应比较大的值变得相对更大，并抑制其他反馈较小的神经元，增强了模型的泛化能力。</li>
+<li><strong>GPU加速</strong></li>
+<li><strong>数据增强</strong><br>随机从256*256的原始图像中截取224x224大小的区域（以及水平翻转的镜像），相当于增强了（256-224）x（256-224）x2=2048倍的数据量。使用了<strong>数据增强后，减轻过拟合，提升泛化能力</strong>。避免因为原始数据量的大小使得参数众多的CNN陷入过拟合中。</li>
+</ol>
+<h2 id="ZF-Net"><a href="#ZF-Net" class="headerlink" title="ZF-Net"></a>ZF-Net</h2><p>ZFNet是<strong>2013 ImageNet</strong>分类任务的冠军，其网络结构没什么改进，只是调了调参，性能较Alex提升了不少。差异表现在</p>
+<ol>
+<li>AlexNet用了两块GPU的稀疏连接结构，而ZFNet只用了一块 GPU 的稠密连接结构。</li>
+<li>除此之外，ZF-Net将AlexNet<strong>第一层卷积核由11变成7，步长由4变为2</strong>。</li>
+</ol>
+<h3 id="模型结构-2"><a href="#模型结构-2" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="/深度学习/2019-4-18-CNN发展史/15.png" alt=""></p>
+<h2 id="VGG-Nets"><a href="#VGG-Nets" class="headerlink" title="VGG-Nets"></a>VGG-Nets</h2><p>VGG-Nets是由牛津大学VGG（Visual Geometry Group）提出，是<strong>2014年ImageNet</strong>竞赛定位任务的第一名和分类任务的第二名的中的基础网络。VGG可以看成是<strong>加深版本的AlexNet. 都是conv layer + FC layer</strong>，在当时看来这是一个非常深的网络了，因为层数高达十多层，当然以现在的目光看来VGG真的称不上是一个very deep的网络。</p>
+<h3 id="模型结构-3"><a href="#模型结构-3" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="/深度学习/2019-4-18-CNN发展史/16.png" alt=""></p>
+<p>上面表格是描述的是VGG-Net的网络结构以及诞生过程。<strong>为了解决初始化（权重初始化）等问题，VGG采用的是一种Pre-training的方式</strong>，这种方式在经典的神经网络中经常见得到，就是先训练一部分小网络，然后再确保这部分网络稳定之后，再在这基础上逐渐加深。表1从左到右体现的就是这个过程，并且当<strong>网络处于D阶段的时候，效果是最优的，即VGG-16</strong>。E阶段得到的网络就是VGG-19。<strong>VGG-16的16指的是conv+fc的总层数是16，是不包括max pool的层数</strong>！</p>
+<h3 id="VGG16"><a href="#VGG16" class="headerlink" title="VGG16"></a>VGG16</h3><p>网络使用的<strong>统一的卷积核大小：3x3，stride=1，padding=same，统一的Max-Pool： 2x2，stride=2</strong>。</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/17.png" alt=""></p>
+<p>由上图看出，VGG-16的结构非常整洁，深度较AlexNet深得多，里面包含<strong>多个conv-&gt;conv-&gt;max_pool</strong>这类的结构,VGG的卷积层都是<strong>same的卷积</strong>，即卷积过后的输出图像的尺寸与输入是一致的，它的下采样完全是由<strong>max pooling</strong>来实现。<br>VGG网络后接3个全连接层，filter的个数（卷积后的输出通道数）从64开始，然后每进行一个pooling后其成倍的增加，128、512，VGG的<strong>主要贡献是使用小尺寸的filter，及有规则的卷积-池化操作</strong>。</p>
+<h3 id="闪光点"><a href="#闪光点" class="headerlink" title="闪光点"></a>闪光点</h3><ol>
+<li>卷积层使用更小的filter尺寸和间隔<br><strong>3×3卷积核的优点：</strong></li>
+<li>多个3×3的卷基层<strong>比一个大尺寸filter卷基层有更多的非线性</strong>，使得判决函数更加具有判决性</li>
+<li>多个3×3的卷积层<strong>比一个大尺寸的filter有更少的参数</strong>，假设卷基层的输入和输出的特征图大小相同为C，那么三个3×3的卷积层参数个数3×（3×3×C×C）=27CC；一个7×7的卷积层参数为49CC；所以<strong>可以把三个3×3的filter看成是一个7×7filter的分解</strong>（中间层有非线性的分解）</li>
+<li>C中1*1卷积核的优点：<strong>在不影响输入输出维数的情况下，对输入进行线性形变</strong>，然后通过Relu进行非线性处理，增加网络的非线性表达能力。</li>
+<li>使用了Multi-Scale的方法做<strong>数据增强</strong>，将原始图像缩放到不同尺寸S，然后再随机裁切224´224的图片，这样能增加很多数据量，对于防止模型过拟合有很不错的效果。</li>
+</ol>
+<h2 id="Network-in-Network"><a href="#Network-in-Network" class="headerlink" title="Network in Network"></a>Network in Network</h2><p>NIN的结构和传统的神经网络中多层的结构有些类似，后者的多层是跨越了不同尺寸的感受野（通过层与层中间加pool层），从而在更高尺度上提取出特征；<strong>NIN结构是在同一个尺度上的多层（中间没有pool层），从而在相同的感受野范围能提取更强的非线性</strong>。<strong>使用 1×1 卷积为卷积层的特征提供更组合性的能力</strong>，这个想法之后被用到一些最近的架构中，例如 <strong>ResNet、Inception</strong> 及其衍生技术。</p>
+<h3 id="模型结构-4"><a href="#模型结构-4" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="/深度学习/2019-4-18-CNN发展史/18.png" alt=""></p>
+<h3 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h3><ol>
+<li><strong>提出了抽象能力更高的 Mlpconv 层</strong><br>一般用 CNN 进行特征提取时，其实就隐含地假设了特征是线性可分的， 可实际问题往往是难以线性可分的。一般来说我们所要提取的特征一般是高度非线性的。NIN提出在每个局部感受野中进行更加复杂的运算，提出了对卷积层的改进算法：MLP 卷积层。</li>
+<li><strong>提出了 Global Average Pooling（全局平均池化）层</strong><br>另一方面，传统的 CNN 最后一层都是全连接层，参数个数非常之多，容易引起过拟合。NIN提出采<strong>用了全局均值池化替代全连接层</strong>。与传统的全连接层不同，NIN对每个特征图一整张图片进行全局均值池化，这样每张特征图都可以得到一个输出。这样采用均值池化，<strong>连参数都省了，可以大大减小网络参数，避免过拟合</strong>。</li>
+</ol>
+<p><img src="/深度学习/2019-4-18-CNN发展史/19.png" alt=""></p>
+<p>上图左侧是是传统的卷积层结构（线性卷积），在一个尺度上只有一次卷积；右图是Network in Network结构（NIN结构），先进行一次普通的卷积（比如3x3），紧跟再进行一次1x1的卷积，对于某个像素点来说1x1卷积等效于该像素点在所有特征上进行一次全连接的计算，所以右侧图的1x1卷积画成了全连接层的形式，需要注意的是<strong>NIN结构中无论是第一个3x3卷积还是新增的1x1卷积，后面都紧跟着激活函数（比如relu）。将两个卷积串联，就能组合出更多的非线性特征</strong>。</p>
+<h2 id="GoogLeNet（从Inception-v1到v4的演进）"><a href="#GoogLeNet（从Inception-v1到v4的演进）" class="headerlink" title="GoogLeNet（从Inception v1到v4的演进）"></a>GoogLeNet（从Inception v1到v4的演进）</h2><p>GoogLeNet在<strong>2014的ImageNet</strong>分类任务上击败了VGG-Nets夺得冠军。跟AlexNet,VGG-Nets这种单纯依靠加深网络结构进而改进网络性能的思路不一样，它另辟幽径，在<strong>加深网络</strong>的同时（22层），也在网络结构上做了创新，<strong>引入Inception结构代替了单纯的卷积+激活的传统操作</strong>。</p>
+<p>获得高质量模型最保险的做法就是<strong>增加模型的深度（层数）或者是其宽度</strong>（层核或者神经元数），但是这里一般设计思路的情况下会出现如下的缺陷：</p>
+<ol>
+<li><strong>参数太多，若训练数据集有限，容易过拟合</strong>；</li>
+<li><strong>网络越大计算复杂度越大，难以应用</strong>；</li>
+<li><strong>网络越深，梯度越往后穿越容易消失，难以优化模型</strong>。</li>
+</ol>
+<p>解决上述问题的根本方法是<strong>将全连接甚至一般的卷积都转化为稀疏连接</strong>。为了打破网络对称性和提高学习能力，传统的网络都使用了随机稀疏连接。但是，<strong>计算机软硬件对非均匀稀疏数据的计算效率很差</strong>，所以在AlexNet中又重新启用了全连接层，目的是为了更好地优化并行运算。现在的问题是有没有一种方法：<font color="#FF0000">既能保持网络结构的稀疏性，又能利用密集矩阵的高计算性能。</font></p>
+<h3 id="Inception模块（V1）"><a href="#Inception模块（V1）" class="headerlink" title="Inception模块（V1）"></a>Inception模块（V1）</h3><p>Inception架构的主要思想是<strong>设计一个稀疏网络结构，但是能够产生稠密的数据，既能增加神经网络表现，又能保证计算资源的使用效率</strong>。</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/20.png" alt=""></p>
+<ol>
+<li><strong>采用不同大小的卷积</strong>核意味着不同大小的感受野，最后拼接意味着不同尺度特征的融合； </li>
+<li>之所以卷积核大小采用1x1、3x3和5x5，主要是为了方便对齐。设定卷积步长stride=1之后，只要分别设定padding =0、1、2，采用same卷积可以得到相同维度的特征，然后这些<strong>特征直接拼接</strong>在一起； </li>
+<li>该结构将CNN中常用的卷积（1x1，3x3，5x5）、池化操作（3x3）堆叠在一起（卷积、池化后的尺寸相同，将通道相加），一方面<strong>增加了网络的宽度，另一方面也增加了网络对尺度的适应性</strong>。</li>
+</ol>
+<p>然而上面这个Inception原始版本，所有的卷积核都在上一层的所有输出上来做，而那个<strong>5x5的卷积核所需的计算量就太大了，约需要1.2亿次的计算量</strong>(下图左边所示)，造成了特征图的厚度很大。如果在5x5卷积前加一个1x1卷积，计算量将大大减少，如下图所示：</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/21.png" alt=""></p>
+<p><strong>1x1卷积的主要目的是为了减少维度，还用于修正线性激活（ReLU）</strong>。<br>比如，上一层的输出为100x100x128，经过具有256个通道的5x5卷积层之后(stride=1，pad=2)，输出数据为100x100x256，其中，卷积层的参数为<strong>128x5x5x256= 819200</strong>。而假如上一层输出先经过具有32个通道的1x1卷积层，再经过具有256个输出的5x5卷积层，那么输出数据仍为为100x100x256，但卷积参数量已经减少为<strong>128x1x1x32 + 32x5x5x256= 204800</strong>，大约减少了4倍。<br>为了避免这种情况，<font color="#FF0000">在3x3前、5x5前、max pooling后分别加上了1x1的卷积核，以起到了降低特征图厚度的作用</font>，这也就<strong>形成了Inception v1的网络结构，如下图所示：</strong></p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/22.png" alt=""></p>
+<h3 id="InceptionV1创新点"><a href="#InceptionV1创新点" class="headerlink" title="InceptionV1创新点"></a>InceptionV1创新点</h3><ol>
+<li><strong>GoogLeNet采用了Inception（V1）模块化（9个）的结构</strong>，共22层，方便增添和修改； </li>
+<li>网络最后<strong>采用了average pooling来代替全连接层</strong>，想法来自NIN,参数量仅为AlexNet的1/12,性能优于AlexNet，。但是，<strong>实际在最后还是加了一个全连接层，主要是为了方便finetune</strong>； </li>
+<li>虽然移除了全连接，但是网络中<strong>依然使用了Dropout</strong> ; </li>
+<li>为了<strong>避免梯度消失，网络额外增加了2个辅助的softmax用于向前传导梯度</strong>。辅助分类器是将中间某一层的输出用作分类，并按一个较小的权重（0.3）加到最终分类结果中，这样相当于做了<strong>模型融合</strong>，同时给网络增加了反向传播的梯度信号，也提供了额外的正则化，对于整个网络的训练很有裨益。而在<strong>实际测试的时候，这两个额外的softmax会被去掉</strong>。</li>
+</ol>
+<h3 id="InceptionV2"><a href="#InceptionV2" class="headerlink" title="InceptionV2"></a>InceptionV2</h3><p>大尺寸的卷积核可以带来更大的感受野，也意味着更多的参数，比如5x5卷积核参数是3x3卷积核的25/9=2.78倍。<br>为此，作者提出可以<strong>用2个连续的3x3卷积层(stride=1)组成的小网络来代替单个的5x5卷积层</strong>，这便是Inception V2结构，<strong>保持感受野范围的同时又减少了参数量</strong>，如下图：</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/23.png" alt=""></p>
+<h3 id="InceptionV2创新点"><a href="#InceptionV2创新点" class="headerlink" title="InceptionV2创新点"></a>InceptionV2创新点</h3><ol>
+<li>卷积分解，<strong>将单个的5x5卷积层用2个连续的3x3卷积层组成的小网络来代替，在保持感受野范围的同时又减少了参数量</strong>，也加深了网络。</li>
+<li>提出了著名的<strong>Batch Normalization (BN)</strong>方法。BN会对每一个mini-batch数据的内部进行标准化（normalization）,使<strong>输出规范到N（0，1）的正态分布</strong>，加快了网络的训练速度,还可以增大学习率。</li>
+<li><strong>BN某种意义上起到了正则化的作用，所以可以减少或者取消dropout</strong>，简化网络结构。V2在训练达到V1准确率时快了14倍，最后收敛的准确率也比V1高。</li>
+</ol>
+<h3 id="InceptionV3"><a href="#InceptionV3" class="headerlink" title="InceptionV3"></a>InceptionV3</h3><p>大卷积核完全可以由一系列的3x3卷积核来替代，那能不能分解的更小一点呢。<br>文章考虑了<strong>nx1卷积核</strong>，如下图所示的取代3x3卷积：<br>于是，<strong>任意nxn的卷积都可以通过1xn卷积后接nx1卷积来替代</strong>。实际上，作者发现在网络的前期使用这种分解效果并不好，还有<strong>在中度大小的feature map上使用效果才会更好</strong>，对于mxm大小的feature map,建议<strong>m在12到20之间</strong>。<br>用nx1卷积来代替大卷积核，这里设定<strong>n=7来应对17x17大小的feature map</strong>。该结构被正式用在GoogLeNet V2中。</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/24.png" alt=""></p>
+<h3 id="InceptionV3创新点"><a href="#InceptionV3创新点" class="headerlink" title="InceptionV3创新点"></a>InceptionV3创新点</h3><ol>
+<li><strong>将一个较大的二维卷积拆成两个较小的一维卷积</strong>（7x7拆成了7x1和1x7，3x3拆成了1x3和3x1），一方面<strong>节约了大量参数，加速运算并减轻了过拟合</strong>），同时网络深度进一步增加，<strong>增加了网络的非线性</strong>（每增加一层都要进行ReLU）。</li>
+<li>网络输入从224x224变为了299x299</li>
+<li><strong>优化了Inception Module的结构</strong>，主要有三种不同的结构（35x35、17x17、8x8），见下图。</li>
+</ol>
+<p><img src="/深度学习/2019-4-18-CNN发展史/25.png" alt=""></p>
+<h3 id="InceptionV4"><a href="#InceptionV4" class="headerlink" title="InceptionV4"></a>InceptionV4</h3><p>Inception V4研究了<strong>Inception模块与残差连接的结合</strong>。Inception V4主要利用残差连接（Residual Connection）来改进V3结构，得到Inception-ResNet-v1，Inception-ResNet-v2，Inception-v4网络。</p>
+<p>ResNet的残差结构 ——————————-&gt; 与Inception相结合</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/26.png" alt=""></p>
+<h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><p>理论上，深的网络一般会比浅的网络效果好，如果要进一步地提升模型的准确率，最直接的方法就是把网络设计得越深越好，这样模型的准确率也就会越来越准确。<br>事实上呢？看下面一个例子，对常规的网络（plain network，也称平原网络）直接堆叠很多层次，经对图像识别结果进行检验，训练集、测试集的误差结果如下图：</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/27.png" alt=""></p>
+<p>从上面两个图可以看出，在网络很深的时候（56层相比20层），模型效果却越来越差了（误差率越高），并不是网络越深越好。<br>通过实验可以发现：随着网络层级的不断增加，模型精度不断得到提升，而当网络层级增加到一定的数目以后，训练精度和测试精度迅速下降，这说明<strong>当网络变得很深以后，深度网络就变得更加难以训练了</strong>。</p>
+<h3 id="残差模块——Residual-bloack"><a href="#残差模块——Residual-bloack" class="headerlink" title="残差模块——Residual bloack"></a>残差模块——Residual bloack</h3><p>前面描述了一个实验结果现象，在不断加神经网络的深度时，模型准确率会先上升然后达到饱和，再持续增加深度时则会导致准确率下降。那么我们作这样一个假设：<strong>假设现有一个比较浅的网络（Shallow Net）已达到了饱和的准确率，这时在它后面再加上几个恒等映射层（Identity mapping，也即y=x，输出等于输入），这样就增加了网络的深度，并且起码误差不会增加</strong>，也即更深的网络不应该带来训练集上误差的上升。而这里提到的使用恒等映射直接将前一层输出传到后面的思想，便是著名深度残差网络ResNet的灵感来源。</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/28.png" alt=""></p>
+<p><strong>a[l+2] 加上了 a[l]的残差块</strong>，即：残差网络中，<strong>直接将a[l]向后拷贝到神经网络的更深层</strong>，在ReLU非线性激活前面加上a[l]，a[l]的信息直接达到网络深层。使用残差块能够训练更深层的网络，构建一个ResNet网络就是通过将很多这样的残差块堆积在一起，形成一个深度神经网络。</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/29.png" alt=""></p>
+<p>上图中是用5个残差块连接在一起构成的残差网络，用梯度下降算法训练一个神经网络，若没有残差，会发现随着网络加深，训练误差先减少后增加，理论上训练误差越来越小比较好。而对于残差网络来讲，随着层数增加，训练误差越来越减小，这种方式能够到达网络更深层，<strong>有助于解决梯度消失和梯度爆炸的问题</strong>，让我们训练更深网络同时又能保证良好的性能。</p>
+<p>ResNet引入了残差网络结构（residual network），通过这种残差网络结构，可以把网络层弄的很深（据说目前可以达到1000多层），并且最终的分类效果也非常好，残差网络的基本结构如下图所示，很明显，该图是带有<strong>跳跃结构的</strong>：</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/30.png" alt=""></p>
+<p>假定某段神经网络的<strong>输入是x</strong>，期望<strong>输出是H(x)</strong>，即<strong>H(x)是期望的复杂潜在映射</strong>，如果是要学习这样的模型，则训练难度会比较大；<br>在上图的残差网络结构图中，通过<strong>“shortcut connections（捷径连接）”</strong>的方式，直接把输入x传到输出作为初始结果，输出结果为<strong>H(x)=F(x)+x</strong>，当<strong>F(x)=0时，那么H(x)=x，也就是上面所提到的恒等映射</strong>。于是，ResNet相当于将学习目标改变了，不再是学习一个完整的输出，而是<strong>目标值H(X)和x的差值，也就是所谓的残差F(x) := H(x)-x</strong>，因此，后面的训练目标就是要将残差结果逼近于0，使到随着网络加深，准确率不下降。</p>
+<h3 id="残差网络"><a href="#残差网络" class="headerlink" title="残差网络"></a>残差网络</h3><p>“shortcut connections（捷径连接）”是实线，有一些是虚线，有什么区别呢？</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/31.png" alt=""></p>
+<p>因为经过“shortcut connections（捷径连接）”后，H(x)=F(x)+x，如果<strong>F(x)和x的通道相同，则可直接相加，那么通道不同怎么相加呢</strong>。上图中的实线、虚线就是为了区分这两种情况的：</p>
+<ol>
+<li><strong>实线</strong>的Connection部分，表示<strong>通道相同</strong>，如左图的第一个粉色矩形和第三个粉色矩形，都是3<em>3</em>64的特征图，由于通道相同，所以采用计算方式为<strong>H(x)=F(x)+x</strong>。</li>
+<li><strong>虚线</strong>的Connection部分，表示<strong>通道不同</strong>，如左图的第一个绿色矩形和第三个绿色矩形，分别是3<em>3</em>64和3<em>3</em>128的特征图，通道不同，采用的计算方式为<strong>H(x)=F(x)+Wx</strong>，其中W是卷积操作，用来调整 x维度的。</li>
+</ol>
+<h3 id="残差学习单元"><a href="#残差学习单元" class="headerlink" title="残差学习单元"></a>残差学习单元</h3><p>除了上面提到的两层残差学习单元，还有三层的残差学习单元，如下图所示：</p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/32.png" alt=""></p>
+<p>实际中，考虑计算的成本，对残差块做了计算优化，即将<strong>两个3x3的卷积层替换为1x1 + 3x3 + 1x1</strong>, 如上图。新结构中的<strong>中间3x3的卷积层首先在一个降维1x1卷积层下减少了计算</strong>，然后在<strong>另一个1x1的卷积层下做了还原，既保持了精度又减少了计算量</strong>。</p>
+<h3 id="创新点-1"><a href="#创新点-1" class="headerlink" title="创新点"></a>创新点</h3><ol>
+<li>引入残差单元，简化学习目标和难度，加快训练速度，<strong>模型加深时，不会产生退化问题</strong></li>
+<li>引入残差单元，能够有效<strong>解决训练过程中梯度消失和梯度爆炸问题</strong></li>
+</ol>
+<h2 id="DenseNet"><a href="#DenseNet" class="headerlink" title="DenseNet"></a>DenseNet</h2><h3 id="模型结构-5"><a href="#模型结构-5" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="/深度学习/2019-4-18-CNN发展史/33.jpg" alt=""></p>
+<h3 id="创新点-2"><a href="#创新点-2" class="headerlink" title="创新点"></a>创新点</h3><ol>
+<li><strong>密集连接</strong>，具体来说就是每个层都会接受其前面所有层作为其额外的输入，缓解梯度消失问题</li>
+<li>加强特征传播，鼓励<strong>特征复用</strong>，极大的减少了参数量。</li>
+</ol>
+<h2 id="CNN发展总结"><a href="#CNN发展总结" class="headerlink" title="CNN发展总结"></a>CNN发展总结</h2><p><img src="/深度学习/2019-4-18-CNN发展史/34.png" alt=""></p>
+<p><img src="/深度学习/2019-4-18-CNN发展史/35.png" alt=""></p>
+<p><strong>CNN 的演化路径可以总结为以下几个方向：</strong></p>
+<ol>
+<li>进化之路一： 网络结构加深</li>
+<li>进化之路二： 加强卷积功能</li>
+<li>进化之路三： 从分类到检测</li>
+<li>进化之路四： 新增功能模块</li>
+</ol>
+<p>本文主要介绍的CNN用在分类上的经典网络，关于CNN在<strong>目标检测</strong>（R-CNN系列）和<strong>图像分割</strong>（FCN）的应用，以后会有所介绍。</p>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/深度学习/2019-4-18-CNN发展史/" title="CNN网络架构演进：从LeNet到DenseNet">https://liufan.vip/深度学习/2019-4-18-CNN发展史/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine learning</a>
+          
+            <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
+          
+            <a href="/tags/CNN/" rel="tag"><i class="fa fa-tag"></i> CNN</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/在线编程/2019-4-16-剑指offer5/" rel="next" title="剑指offer（五）">
+                <i class="fa fa-chevron-left"></i> 剑指offer（五）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
+          <p class="site-author-name" itemprop="name">bluesliuf</p>
+           
+              <p class="site-description motion-element" itemprop="description">From Zero to Hero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://blog.csdn.net/bluesliuf" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-copyright"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bluesliuf" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:bluesliuf@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/bluesliuf/" target="_blank" title="INS">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  INS
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeNet-5"><span class="nav-number">1.</span> <span class="nav-text">LeNet-5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型结构"><span class="nav-number">1.1.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型分析"><span class="nav-number">1.2.</span> <span class="nav-text">模型分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型特性"><span class="nav-number">1.3.</span> <span class="nav-text">模型特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AlexNet"><span class="nav-number">2.</span> <span class="nav-text">AlexNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型结构-1"><span class="nav-number">2.1.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型分析-1"><span class="nav-number">2.2.</span> <span class="nav-text">模型分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#各层训练参数"><span class="nav-number">2.3.</span> <span class="nav-text">各层训练参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新技术点"><span class="nav-number">2.4.</span> <span class="nav-text">新技术点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZF-Net"><span class="nav-number">3.</span> <span class="nav-text">ZF-Net</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型结构-2"><span class="nav-number">3.1.</span> <span class="nav-text">模型结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VGG-Nets"><span class="nav-number">4.</span> <span class="nav-text">VGG-Nets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型结构-3"><span class="nav-number">4.1.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG16"><span class="nav-number">4.2.</span> <span class="nav-text">VGG16</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闪光点"><span class="nav-number">4.3.</span> <span class="nav-text">闪光点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Network-in-Network"><span class="nav-number">5.</span> <span class="nav-text">Network in Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型结构-4"><span class="nav-number">5.1.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创新点"><span class="nav-number">5.2.</span> <span class="nav-text">创新点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GoogLeNet（从Inception-v1到v4的演进）"><span class="nav-number">6.</span> <span class="nav-text">GoogLeNet（从Inception v1到v4的演进）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inception模块（V1）"><span class="nav-number">6.1.</span> <span class="nav-text">Inception模块（V1）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InceptionV1创新点"><span class="nav-number">6.2.</span> <span class="nav-text">InceptionV1创新点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InceptionV2"><span class="nav-number">6.3.</span> <span class="nav-text">InceptionV2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InceptionV2创新点"><span class="nav-number">6.4.</span> <span class="nav-text">InceptionV2创新点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InceptionV3"><span class="nav-number">6.5.</span> <span class="nav-text">InceptionV3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InceptionV3创新点"><span class="nav-number">6.6.</span> <span class="nav-text">InceptionV3创新点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InceptionV4"><span class="nav-number">6.7.</span> <span class="nav-text">InceptionV4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ResNet"><span class="nav-number">7.</span> <span class="nav-text">ResNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#残差模块——Residual-bloack"><span class="nav-number">7.1.</span> <span class="nav-text">残差模块——Residual bloack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#残差网络"><span class="nav-number">7.2.</span> <span class="nav-text">残差网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#残差学习单元"><span class="nav-number">7.3.</span> <span class="nav-text">残差学习单元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创新点-1"><span class="nav-number">7.4.</span> <span class="nav-text">创新点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DenseNet"><span class="nav-number">8.</span> <span class="nav-text">DenseNet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型结构-5"><span class="nav-number">8.1.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创新点-2"><span class="nav-number">8.2.</span> <span class="nav-text">创新点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CNN发展总结"><span class="nav-number">9.</span> <span class="nav-text">CNN发展总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bluesliuf</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
