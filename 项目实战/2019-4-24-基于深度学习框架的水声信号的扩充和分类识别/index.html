@@ -1,0 +1,1236 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="deep learning,CNN,GAN,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bluesliuf" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/apple-touch-icon-next.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="现如今，基于声音信号的海上目标识别是进行海量探测和目标识别的可靠方法，也是水声信号处理领域的重要研究内容。">
+<meta name="keywords" content="deep learning,CNN,GAN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于深度学习框架的水声信号的扩充和分类识别">
+<meta property="og:url" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/index.html">
+<meta property="og:site_name" content="Bluesliuf">
+<meta property="og:description" content="现如今，基于声音信号的海上目标识别是进行海量探测和目标识别的可靠方法，也是水声信号处理领域的重要研究内容。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/1.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/2.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/3.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/4.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/5.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/7.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/6.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/8.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/9.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/10.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/11.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/12.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/13.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/14.png">
+<meta property="og:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/15.png">
+<meta property="og:updated_time" content="2019-04-24T13:49:13.162Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于深度学习框架的水声信号的扩充和分类识别">
+<meta name="twitter:description" content="现如今，基于声音信号的海上目标识别是进行海量探测和目标识别的可靠方法，也是水声信号处理领域的重要研究内容。">
+<meta name="twitter:image" content="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/">
+
+
+
+
+
+  <title> 基于深度学习框架的水声信号的扩充和分类识别 | Bluesliuf </title>
+</head>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4287ae00cf6dc3cd776333fe30decd6a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bluesliuf</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Though failed, Still keep smiling</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            个人简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基于深度学习框架的水声信号的扩充和分类识别
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T10:15:01+08:00">
+                2019-04-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-24T21:49:13+08:00">
+                2019-04-24
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目实战/" itemprop="url" rel="index">
+                    <span itemprop="name">项目实战</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>现如今，基于声音信号的海上目标识别是进行海量探测和目标识别的可靠方法，也是水声信号处理领域的重要研究内容。<a id="more"></a></p>
+<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p>原始数据包含15类的水下音频数据，每类里面包含长度不等的一段音频数据。</p>
+<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>训练一个模型，对这15类目标进行识别分类。</p>
+<h3 id="思考方法"><a href="#思考方法" class="headerlink" title="思考方法"></a>思考方法</h3><ol>
+<li>最开始尝试直接用语音识别的模型（<code>LSTM</code>）对其分类，后来发现效果很差，考虑到可能是水下环境复杂，原始音频数据包含大量噪音。</li>
+<li>于是开始考虑其他方法。最后通过查阅资料发现，在水声领域，通常可以将音频信号数据转换为谱图进行处理，于是尝试将原始音频数据先转换为谱图，再用<code>CNN</code>对其进行分类识别。</li>
+<li><code>CNN</code>的方法相比于<code>LSTM</code>，在准确率上有所提升，但还是不够好。又考虑到原始数据由于安全保密或者是收集困难等原因，数据集数量不多，而大量的训练数据集是保证深度学习方法性能的关键。遂最终又引入了<code>GAN</code>网络。先对转换后的频谱做了扩充，然后再用<code>CNN</code>网络对其识别分类，准确率相较于仅用<code>CNN</code>，又有了不错的提升。</li>
+</ol>
+<h2 id="项目实现过程"><a href="#项目实现过程" class="headerlink" title="项目实现过程"></a>项目实现过程</h2><p><strong>整个实现流程如下图所示</strong></p>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/1.png" alt=""></p>
+<ol>
+<li>（a）是 .wav格式的原始样本</li>
+<li>（b）是通过频谱进行的数据预处理和基于CNN的频谱选择，从而确保样本可以被神经网络识别。 </li>
+<li>（c）由GAN进行数据集扩展，额外的CNN是为了确保生成频谱的质量</li>
+<li>（d）对网络进行评估并选择最佳网络。</li>
+</ol>
+<h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>在水声领域，常见的频谱图有很多，例如<code>Lofar</code>、<code>Audio</code>、<code>Demon</code>、<code>Histogram</code>等，我们尝试将原始音频转换为了各种谱图存储，每种谱图都包含15类。部分转换后的频谱如下图所示：</p>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/2.png" alt=""></p>
+<p>为了找到最好的频谱图，我们直接选择了<code>AlexNet</code>网络，针对每种转换好的频谱，为其划分好训练集和测试集，各训练了一个分类模型。通过比较在测试集上的准确率，我们发现<code>Lofar</code>频谱的识别率最高，于是选定它为原始音频转换后的频谱。</p>
+<p><strong>Lofar频谱的转换</strong></p>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/3.png" alt=""></p>
+<p>将原始音频转换为Lofar频谱，主要是通过<code>STFT</code>(快速傅里叶变换)实现的。</p>
+<ol>
+<li>对于每一类的音频，对其做<code>STFT</code>后，先找到具有特征的频率段，</li>
+<li>然后将数据根据能量差值转换为对应的灰度值，</li>
+<li>每隔1s选取一段音频，重复步骤1和2，最终每类音频得到<strong>1000</strong>张灰度的<code>Lofar</code>谱图</li>
+</ol>
+<h3 id="CNN网络"><a href="#CNN网络" class="headerlink" title="CNN网络"></a>CNN网络</h3><p>得到每类的<code>Lofar</code>频谱后，我们设计了一个CNN网络来训练分类模型。网络结构图和参数设置如下所示：<br><strong>网络模型</strong><br><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/4.png" alt=""></p>
+<p><strong>参数设置</strong><br><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/5.png" alt=""></p>
+<p>最终测试集在上述分类模型中取得了<strong>75.7%</strong>的识别率。</p>
+<h3 id="GAN网络"><a href="#GAN网络" class="headerlink" title="GAN网络"></a>GAN网络</h3><p>在引入<code>GAN</code>网络前，我们也尝试了原始的数据增广的方法，例如<strong>旋转、反转、亮度增强、添加噪音等</strong>，如下图所示，但是这些方法生成的数据都有很大的局限性，即图片缺乏多样性，训练出来的分类模型准确率基本没有提升。</p>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/7.png" alt=""></p>
+<h4 id="原始GAN"><a href="#原始GAN" class="headerlink" title="原始GAN"></a>原始GAN</h4><p>为了进一步提升识别准确率，我们引入了<code>GAN</code>生成式对抗网络。生成式对抗网络主要由2部分组成：</p>
+<ol>
+<li><strong>生成模型G</strong>：一个二分类器，估计一个样本来自训练数据（真实）的概率。若样本来自真实数据，输出大概率值，否则输出小概率值。</li>
+<li><strong>判别模型D</strong>：捕捉生成数据的分布。用服从某一分布（<strong>均匀分布、高斯分布</strong>）的噪音向量$z$去生成一个类似真实训练数据的分布。</li>
+</ol>
+<p>G要尽量最小化D的输出值，D要最大化输出值，两者相互对抗。所以<strong>原始GAN模型函数</strong>可以表示如下：<br>$$<br>\min \limits_{G}\max\limits_{D}GAN(D,G)=E_{x\sim P_{data}(x)}[logD(x)]+E_{z\sim p_z(z)}[log(1-D(G(z)))]<br>$$</p>
+<p><strong>GAN模型示意图</strong></p>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/6.png" alt=""></p>
+<p>如果1用于表示实际样本，则0是假样本。 对于来自实际样本的数据，D应尽可能地输出概率值1。 对于来自世代的假样本，D应该尽量输出0的概率值。它们相互竞争并最终达到一定的<strong>稳定状态</strong>：即G的分布尽可能接近实际样本的分布。</p>
+<h4 id="CGAN"><a href="#CGAN" class="headerlink" title="CGAN"></a>CGAN</h4><p>在本项目中，我们的数据共有15类，如果使用原始的GAN网络，我们需要针对每一个类别的Lofar谱图训练一个生成模型，这样太过麻烦。最终我们选择了<code>CGAN</code>网络。</p>
+<p><strong>CGAN</strong>网络将原始GAN网络从无监督变为有监督。<font color="#FF0000">生成器和判别器都增加了额外信息y为条件</font>，y可以是任意信息，例如<strong>类别信息（标签）</strong>或者是其他模态的数据。相比于原始GAN，<strong>CGAN的模型函数</strong>可以表示如下（<strong>只是多了标签数据y</strong>）：<br>$$<br>\min \limits_{G}\max\limits_{D}GAN(D,G)=E_{x\sim P_{data}(x|y)}[logD(x)]+E_{z\sim p_z(z)}[log(1-D(G(z|y)))]<br>$$</p>
+<p><strong>CGAN模型示意图</strong></p>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/8.png" alt=""></p>
+<p>生成式模型G中，先验输入噪音$P(z)$和条件信息$y$联合组成了联合隐层表征。</p>
+<h4 id="CGAN网络设计"><a href="#CGAN网络设计" class="headerlink" title="CGAN网络设计"></a>CGAN网络设计</h4><p><strong>网络模型</strong><br><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/9.png" alt=""></p>
+<p><strong>参数设置</strong><br><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/10.png" alt=""><br><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/11.png" alt=""></p>
+<p>我们输入15种类型的LOFAR频谱，每种频谱包含1000个样本到设计的CGAN网络中，并且一些超参设置如下：<code>batch_size=64，learning_rate=0.0001，epoches=40</code>。</p>
+<p>训练后，我们的方法可以利用G模型不仅可以生成某种特定的光谱样本，而且还能生成各种光谱样本。 在下图中展示了一些原始和生成的样本，其中<code>（a）</code>和<code>（b）</code>对应于单个类，而<code>（c）</code>和<code>（d）</code>对应于各种类。</p>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/12.png" alt=""></p>
+<p> 相比之下，我们发现由我们的网络生成的数据包含共同的特征线，并且在某些情况下，所有这些特征线都清晰地显示并且具有比原始训练样本更突出的特征线。</p>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/13.png" alt=""></p>
+<p> 除此之外，我们也对原始样本和该图中生成的样本之间进行了更深入和更详细的比较。最后，我们可以发现生成的样本具有丰富的多样性，其中包含与<code>（a）</code>中的原始样本相似的样本，以及包括具有一定噪声的样本，并且所有上述样本都在<code>（b）</code>中示出。<br> <code>（b）</code>中的顶部样本与原始样本类似，底部包含一些噪声，但都具有明显的光谱特征。 使用生成的样本作为训练数据可以极大地改善训练样本的多样性，从而在一定程度上避免过度拟合问题。</p>
+<h3 id="图像质量验证"><a href="#图像质量验证" class="headerlink" title="图像质量验证"></a>图像质量验证</h3><p>上面只是通过观察得到的结果，为了进一步验证我们的网络生成的样本是高质量的，我们使用G模型为每个类生成3000个样本，然后将它们与原始样本混合并进入<code>AlexNet</code>分类网络进行训练。主要进行了以下实验：</p>
+<ol>
+<li>我们的方法使用80％的原始样本进行训练，并验证剩余的20％。</li>
+<li>同时，我们还应用上述模型对15种类型的生成样本进行分类和识别。</li>
+<li>此外，我们将原始样本和生成样本混合，其中80％用于训练，其余20％用于验证。</li>
+</ol>
+<p><strong>实验结果如下所示</strong>：</p>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/14.png" alt=""></p>
+<p>上述实验表明混合数据所获得的性能比仅用原始数据集训练的性能高出15％以上。这证明了我们的CGAN网络可以生成高质量的lofar谱，从而解决了水声信号领域数据样本不足的问题。生成的谱图可以用于提高水声信号分类和识别任务的准确性和稳定性。</p>
+<h2 id="CNN网络选取"><a href="#CNN网络选取" class="headerlink" title="CNN网络选取"></a>CNN网络选取</h2><p>确定了生成的样本具有较高的质量后，我们用<code>G</code>模型为每类Lofar谱图生成了3000个样本，除了将其输入到我们设计的CNN网络之外，我们也和其他的一些CNN网络（LeNet、AlexNet、VGG16）做了对比，最终我们的设计的网络模型识别率较高。</p>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>如果希望再进一步提升识别率，可以从以下2方面做出改进：</p>
+<ol>
+<li><strong>其他的GAN模型</strong>。CGAN只是使用了真实图片的类别信息，可以考虑其他的衍生GAN模型，例如<strong>InfoGAN    WGAN    WGAN-GP     BEGAN……</strong>，也许能生成质量更高的样本</li>
+<li><strong>去噪</strong>。水下环境复杂，原始的音频数据包含较多的噪音。可以考虑先对原始数据进行去噪，得到高质量数据后，再转换为谱图用CNN分类</li>
+</ol>
+<p><img src="/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/15.png" alt=""></p>
+<p>当然，也可以把上述2点结合，先去噪，再尝试其他的GAN模型，也许能得到更好的结果。</p>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/" title="基于深度学习框架的水声信号的扩充和分类识别">https://liufan.vip/项目实战/2019-4-24-基于深度学习框架的水声信号的扩充和分类识别/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/deep-learning/" rel="tag"><i class="fa fa-tag"></i> deep learning</a>
+          
+            <a href="/tags/CNN/" rel="tag"><i class="fa fa-tag"></i> CNN</a>
+          
+            <a href="/tags/GAN/" rel="tag"><i class="fa fa-tag"></i> GAN</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/数据结构/2019-4-5-数据结构之排序/" rel="next" title="C语言实现八大排序算法（一）">
+                <i class="fa fa-chevron-left"></i> C语言实现八大排序算法（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/数据结构/2019-4-5-数据结构之排序2/" rel="prev" title="C语言实现八大排序算法（二）">
+                C语言实现八大排序算法（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
+          <p class="site-author-name" itemprop="name">bluesliuf</p>
+           
+              <p class="site-description motion-element" itemprop="description">From Zero to Hero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://blog.csdn.net/bluesliuf" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-copyright"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bluesliuf" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:bluesliuf@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/bluesliuf/" target="_blank" title="INS">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  INS
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目简介"><span class="nav-number">1.</span> <span class="nav-text">项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据集"><span class="nav-number">1.1.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目的"><span class="nav-number">1.2.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考方法"><span class="nav-number">1.3.</span> <span class="nav-text">思考方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目实现过程"><span class="nav-number">2.</span> <span class="nav-text">项目实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据预处理"><span class="nav-number">2.1.</span> <span class="nav-text">数据预处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN网络"><span class="nav-number">2.2.</span> <span class="nav-text">CNN网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GAN网络"><span class="nav-number">2.3.</span> <span class="nav-text">GAN网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原始GAN"><span class="nav-number">2.3.1.</span> <span class="nav-text">原始GAN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CGAN"><span class="nav-number">2.3.2.</span> <span class="nav-text">CGAN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CGAN网络设计"><span class="nav-number">2.3.3.</span> <span class="nav-text">CGAN网络设计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像质量验证"><span class="nav-number">2.4.</span> <span class="nav-text">图像质量验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CNN网络选取"><span class="nav-number">3.</span> <span class="nav-text">CNN网络选取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展"><span class="nav-number">4.</span> <span class="nav-text">拓展</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bluesliuf</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
