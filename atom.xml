@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-04-18T13:56:28.811Z</updated>
+  <updated>2019-04-25T03:58:27.316Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FaceNet在FPGA等硬件平台上的实现</title>
+    <link href="https://liufan.vip/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/2019-4-25-FaceNet%E5%9C%A8FPGA%E7%AD%89%E7%A1%AC%E4%BB%B6%E5%B9%B3%E5%8F%B0%E4%B8%8A%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://liufan.vip/项目实战/2019-4-25-FaceNet在FPGA等硬件平台上的实现/</id>
+    <published>2019-04-20T00:56:28.000Z</published>
+    <updated>2019-04-25T03:58:27.316Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍将训练好的网络模型，移植到FPGA等硬件平台上所必须的准备工作。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="项目实战" scheme="https://liufan.vip/categories/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
+    
+    
+      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
+    
+      <category term="parameter extraction" scheme="https://liufan.vip/tags/parameter-extraction/"/>
+    
+      <category term="parameter quantization" scheme="https://liufan.vip/tags/parameter-quantization/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机视觉常见问题（含解答）</title>
@@ -420,28 +444,6 @@
     <summary type="html">
     
       &lt;p&gt;在前面的博文中，我们介绍了5种查找算法，本文主要介绍哈希表及哈希查找算法。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="数据结构" scheme="https://liufan.vip/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="data structure" scheme="https://liufan.vip/tags/data-structure/"/>
-    
-      <category term="searching" scheme="https://liufan.vip/tags/searching/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言实现七大查找算法（一）</title>
-    <link href="https://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-4-3-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%9F%A5%E6%89%BE/"/>
-    <id>https://liufan.vip/数据结构/2019-4-3-数据结构之查找/</id>
-    <published>2019-04-03T01:59:20.000Z</published>
-    <updated>2019-04-17T07:42:36.717Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文主要介绍数据结构中的查找算法，主要介绍&lt;strong&gt;顺序查找&lt;/strong&gt;、&lt;strong&gt;折半查找（二分查找）&lt;/strong&gt;、&lt;strong&gt;树表查找&lt;/strong&gt;、&lt;strong&gt;分块查找&lt;/strong&gt;、&lt;strong&gt;哈希查找（散列）&lt;/strong&gt;。&lt;/p&gt;
     
     </summary>
     
