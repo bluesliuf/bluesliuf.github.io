@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://liufan.vip/"/>
-  <updated>2019-04-25T03:58:27.316Z</updated>
+  <updated>2019-05-03T08:07:15.574Z</updated>
   <id>https://liufan.vip/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Opencv100问 (一)</title>
+    <link href="https://liufan.vip/Opencv/2019-5-1-Opencv100%E9%97%AE%E9%97%AE1/"/>
+    <id>https://liufan.vip/Opencv/2019-5-1-Opencv100问问1/</id>
+    <published>2019-05-01T00:56:28.000Z</published>
+    <updated>2019-05-03T08:07:15.574Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要介绍opencv中常见的一些图像处理操作。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Opencv" scheme="https://liufan.vip/categories/Opencv/"/>
+    
+    
+      <category term="deep learning" scheme="https://liufan.vip/tags/deep-learning/"/>
+    
+      <category term="Image processing" scheme="https://liufan.vip/tags/Image-processing/"/>
+    
+  </entry>
   
   <entry>
     <title>FaceNet在FPGA等硬件平台上的实现</title>
@@ -422,28 +444,6 @@
     <summary type="html">
     
       &lt;p&gt;上一篇博文主要介绍了哈希查找算法，本文主要介绍&lt;strong&gt;树表查找算法&lt;/strong&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="数据结构" scheme="https://liufan.vip/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="data structure" scheme="https://liufan.vip/tags/data-structure/"/>
-    
-      <category term="searching" scheme="https://liufan.vip/tags/searching/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言实现七大查找算法（二）</title>
-    <link href="https://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-4-3-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%9F%A5%E6%89%BE2/"/>
-    <id>https://liufan.vip/数据结构/2019-4-3-数据结构之查找2/</id>
-    <published>2019-04-03T09:00:30.000Z</published>
-    <updated>2019-04-17T07:42:46.485Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在前面的博文中，我们介绍了5种查找算法，本文主要介绍哈希表及哈希查找算法。&lt;/p&gt;
     
     </summary>
     
