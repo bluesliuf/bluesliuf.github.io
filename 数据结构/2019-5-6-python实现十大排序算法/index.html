@@ -1,0 +1,1167 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="data structure,sort,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bluesliuf" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/apple-touch-icon-next.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="之前在这C语言实现八大排序算法（一）和C语言实现八大排序算法（二）2篇文章中，已经详细介绍了各种排序算法的思想，参考资料主要是用C语言实现的。本文主要用python语言再次实现十大排序算法。">
+<meta name="keywords" content="data structure,sort">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python实现十大排序算法">
+<meta property="og:url" content="https://liufan.vip/数据结构/2019-5-6-python实现十大排序算法/index.html">
+<meta property="og:site_name" content="Bluesliuf">
+<meta property="og:description" content="之前在这C语言实现八大排序算法（一）和C语言实现八大排序算法（二）2篇文章中，已经详细介绍了各种排序算法的思想，参考资料主要是用C语言实现的。本文主要用python语言再次实现十大排序算法。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://liufan.vip/数据结构/2019-5-6-python实现十大排序算法/1.png">
+<meta property="og:updated_time" content="2019-05-07T04:07:30.433Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python实现十大排序算法">
+<meta name="twitter:description" content="之前在这C语言实现八大排序算法（一）和C语言实现八大排序算法（二）2篇文章中，已经详细介绍了各种排序算法的思想，参考资料主要是用C语言实现的。本文主要用python语言再次实现十大排序算法。">
+<meta name="twitter:image" content="https://liufan.vip/数据结构/2019-5-6-python实现十大排序算法/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://liufan.vip/数据结构/2019-5-6-python实现十大排序算法/">
+
+
+
+
+
+  <title> Python实现十大排序算法 | Bluesliuf </title>
+</head>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  
+   <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4287ae00cf6dc3cd776333fe30decd6a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bluesliuf</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Though failed, Still keep smiling</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            个人简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liufan.vip/数据结构/2019-5-6-python实现十大排序算法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bluesliuf">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bluesliuf">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python实现十大排序算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T08:56:28+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-07T12:07:30+08:00">
+                2019-05-07
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前在这<a href="http://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-4-5-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%8E%92%E5%BA%8F/">C语言实现八大排序算法（一）</a>和<a href="http://liufan.vip/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2019-4-5-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%8E%92%E5%BA%8F2/">C语言实现八大排序算法（二）</a>2篇文章中，已经详细介绍了各种排序算法的思想，参考资料主要是用C语言实现的。<strong>本文主要用python语言再次实现十大排序算法</strong>。<a id="more"></a></p>
+<p><strong>十大排序算法的复杂度及稳定性分析如下表所示：</strong><br><img src="/数据结构/2019-5-6-python实现十大排序算法/1.png" alt=""></p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">1. 从第一个元素开始，该元素可以认为已经被排序</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2.取出下一个元素，在已经排序的元素序列中从后向前扫描</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3.如果该元素（已排序）大于新元素，将该元素移到下一位置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">4.重复步骤3，直到找到已排序的元素小于或者等于新元素的位置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">5.将新元素插入到该位置中</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">6.重复步骤2</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span><span class="params">(list)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(list)):</span><br><span class="line">        print(<span class="string">"第&#123;&#125;轮："</span>.format(i))</span><br><span class="line">        key=list[i]</span><br><span class="line">        j=i<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> list[j]&gt;key:</span><br><span class="line">                list[j+<span class="number">1</span>]=list[j]</span><br><span class="line">                list[j]=key</span><br><span class="line">            j-=<span class="number">1</span></span><br><span class="line">        print(list)</span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line"></span><br><span class="line">a=[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">6</span>]</span><br><span class="line">result=insert_sort(a)</span><br><span class="line"><span class="comment">#print(result)</span></span><br></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">第<span class="number">1</span>轮：</span><br><span class="line">[<span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">2</span>轮：</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">3</span>轮：</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">4</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">5</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">6</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">7</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">1.希尔排序是把记录按下标的一定量分组，对每组使用直接插入算法排序；</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2.随着增量逐渐减少，每组包1含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法被终止。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shell_sort</span><span class="params">(list)</span>:</span></span><br><span class="line">    <span class="comment"># 设定步长</span></span><br><span class="line">    step = int(len(list)/<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">while</span> step &gt; <span class="number">0</span>:</span><br><span class="line">        print(step)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(step, len(list)):</span><br><span class="line">            <span class="comment"># 类似插入排序, 当前值与指定步长之前的值比较, 符合条件则交换位置</span></span><br><span class="line">            <span class="keyword">while</span> i &gt;= step <span class="keyword">and</span> list[i-step] &gt; list[i]:</span><br><span class="line">                list[i], list[i-step] = list[i-step], list[i]</span><br><span class="line">                i -= step</span><br><span class="line">        step = int(step/<span class="number">2</span>)</span><br><span class="line">        print(list)</span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line"></span><br><span class="line">a=[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">6</span>]</span><br><span class="line">result=shell_sort(a)</span><br><span class="line"><span class="comment">#print(result)</span></span><br></pre></td></tr></table></figure>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"><span class="number">2</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"><span class="number">1</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3.针对所有的元素重复以上的步骤，除了最后一个。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(list)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> flag</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(list)<span class="number">-1</span>):</span><br><span class="line">        print(<span class="string">"第&#123;&#125;轮："</span>.format(i))</span><br><span class="line">        flag=<span class="keyword">False</span>                         <span class="comment">#本次冒泡是否发生交换的标志</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(list)-i<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> list[j]&gt;list[j+<span class="number">1</span>]:</span><br><span class="line">                list[j],list[j+<span class="number">1</span>]=list[j+<span class="number">1</span>],list[j]</span><br><span class="line">                flag=<span class="keyword">True</span></span><br><span class="line">        print(list)</span><br><span class="line">        <span class="keyword">if</span> flag==<span class="keyword">False</span>:                    <span class="comment">#未交换，数组已经有序，无须冒泡</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">a=[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">6</span>]</span><br><span class="line">result=bubble_sort(a)</span><br></pre></td></tr></table></figure>
+<h3 id="结果-2"><a href="#结果-2" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">第<span class="number">0</span>轮：</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">1</span>轮：</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">2</span>轮：</span><br><span class="line">[<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">3</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">4</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">1.从数列中挑出一个元素，称为 “基准”（pivot）；</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2.重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）；</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3.对所有两个小数列重复第二步，直至各区间只有一个数。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span><span class="params">(list,start,end)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> start&gt;=end:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    low=start</span><br><span class="line">    high=end</span><br><span class="line">    base=list[start]</span><br><span class="line">    <span class="keyword">while</span> low&lt;high:</span><br><span class="line">        <span class="keyword">while</span> low&lt;high <span class="keyword">and</span> list[high]&gt;=base:  <span class="comment">#从后向前找第一个小于基准值的数</span></span><br><span class="line">            high-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> low&lt;high:</span><br><span class="line">            list[low]=list[high]</span><br><span class="line">            low+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> low&lt;high <span class="keyword">and</span> list[low]&lt;base:    <span class="comment">#从前向后找第一个大于基准值的数</span></span><br><span class="line">            low+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> low&lt;high:</span><br><span class="line">            list[high]=list[low]</span><br><span class="line">            high-=<span class="number">1</span></span><br><span class="line">    list[low]=base                           <span class="comment">#填坑</span></span><br><span class="line"></span><br><span class="line">    quicksort(list,start,low<span class="number">-1</span>)              <span class="comment">#递归排序</span></span><br><span class="line">    quicksort(list,low+<span class="number">1</span>,end)</span><br><span class="line"></span><br><span class="line">a=[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">6</span>]</span><br><span class="line">quicksort(a,<span class="number">0</span>,len(a)<span class="number">-1</span>)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<h3 id="结果-3"><a href="#结果-3" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string"> 选择排序的基本思想：比较 + 交换。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">第一趟，在待排序记录r1 到 r[n]中选出最小的记录，将它与r1交换；</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">第二趟，在待排序记录r2 到 r[n]中选出最小的记录，将它与r2交换；</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">以此类推，第 i 趟，在待排序记录ri 到 r[n]中选出最小的记录，将它与r[i]交换,使有序序列不断增长直到全部排序完毕。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">select_sort</span><span class="params">(list)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(list)):</span><br><span class="line">        print(<span class="string">"第&#123;&#125;轮："</span>.format(i))</span><br><span class="line">        min=i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,len(list)):</span><br><span class="line">            <span class="keyword">if</span> list[min]&gt;list[j]:</span><br><span class="line">                min=j</span><br><span class="line">        list[min],list[i]=list[i],list[min]          <span class="comment">#每轮找出最小的交换</span></span><br><span class="line">        print(list)</span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line"></span><br><span class="line">a=[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">6</span>]</span><br><span class="line">result=select_sort(a)</span><br><span class="line"><span class="comment">#print(result)</span></span><br></pre></td></tr></table></figure>
+<h3 id="结果-4"><a href="#结果-4" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">第<span class="number">0</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">1</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">2</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">3</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">4</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>]</span><br><span class="line">第<span class="number">5</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">6</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">7</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><h3 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">大根堆：每个节点的值都大于或等于其子节点的值，用于升序排列；</span></span><br><span class="line"><span class="string">小根堆：每个节点的值都小于或等于其子节点的值，用于降序排列。</span></span><br><span class="line"><span class="string">以大根堆为例，每次将最大元素放置在堆顶</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">adjust_heap</span><span class="params">(lists, i, size)</span>:</span>                      <span class="comment">#向下调整大根堆</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param lists: 数组元素</span></span><br><span class="line"><span class="string">    :param i:     当前结点</span></span><br><span class="line"><span class="string">    :param size:  数组长度</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># 非叶子结点的左右两个孩子</span></span><br><span class="line">    lchild = <span class="number">2</span> * i + <span class="number">1</span></span><br><span class="line">    rchild = <span class="number">2</span> * i + <span class="number">2</span></span><br><span class="line">    <span class="comment"># 在当前结点、左孩子、右孩子中找到最大元素的索引</span></span><br><span class="line">    max = i</span><br><span class="line">    <span class="keyword">if</span> i &lt; size // <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">if</span> lchild &lt; size <span class="keyword">and</span> lists[lchild] &gt; lists[max]:</span><br><span class="line">            max = lchild</span><br><span class="line">        <span class="keyword">if</span> rchild &lt; size <span class="keyword">and</span> lists[rchild] &gt; lists[max]:</span><br><span class="line">            max = rchild</span><br><span class="line">        <span class="comment"># 如果最大元素的索引不是当前结点，把大的结点交换到上面，继续调整堆</span></span><br><span class="line">        <span class="keyword">if</span> max != i:</span><br><span class="line">            <span class="comment"># 第 2 个参数传入 max 的索引是交换前大数字对应的索引</span></span><br><span class="line">            <span class="comment"># 交换后该索引对应的是小数字，应该把该小数字向下调整</span></span><br><span class="line">            lists[max], lists[i] = lists[i], lists[max]</span><br><span class="line">            adjust_heap(lists, max, size)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_heap</span><span class="params">(lists, size)</span>:</span>                    <span class="comment">#建立大根堆</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, (size//<span class="number">2</span>))[::<span class="number">-1</span>]:         <span class="comment"># 从倒数第一个非叶子结点开始建立大根堆</span></span><br><span class="line">        adjust_heap(lists, i, size)             <span class="comment"># 对所有非叶子结点进行堆的调整</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heap_sort</span><span class="params">(lists)</span>:</span></span><br><span class="line">    size = len(lists)</span><br><span class="line">    build_heap(lists, size)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, size)[::<span class="number">-1</span>]:</span><br><span class="line">        lists[<span class="number">0</span>], lists[i] = lists[i], lists[<span class="number">0</span>]     <span class="comment"># 每次根结点都是最大的数，最大数放到后面</span></span><br><span class="line">        adjust_heap(lists, <span class="number">0</span>, i)       <span class="comment"># 交换完后还需要继续调整堆，只需调整根节点，此时数组的 size 不包括已经排序好的数</span></span><br><span class="line">        print(<span class="string">"第&#123;&#125;轮："</span>.format(size-i))</span><br><span class="line">        print(lists)                     <span class="comment"># 由于每次大的都会放到后面，因此最后的 lists 是从小到大排列</span></span><br><span class="line"></span><br><span class="line">a=[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">6</span>]</span><br><span class="line">result=heap_sort(a)</span><br></pre></td></tr></table></figure>
+<h3 id="结果-5"><a href="#结果-5" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">第<span class="number">1</span>轮：</span><br><span class="line">[<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">2</span>轮：</span><br><span class="line">[<span class="number">6</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">3</span>轮：</span><br><span class="line">[<span class="number">5</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">4</span>轮：</span><br><span class="line">[<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">5</span>轮：</span><br><span class="line">[<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">6</span>轮：</span><br><span class="line">[<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">7</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">第<span class="number">8</span>轮：</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">1.申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2.设定两个指针，最初位置分别为两个已经排序序列的起始位置</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3.比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置；</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">4.重复步骤③直到某一指针达到序列尾；</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">5.将另一序列剩下的所有元素直接复制到合并序列尾。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(left_list,right_list)</span>:</span></span><br><span class="line">    left_index=<span class="number">0</span></span><br><span class="line">    right_index=<span class="number">0</span></span><br><span class="line">    merge_list=[]</span><br><span class="line">    <span class="keyword">while</span> left_index&lt;len(left_list) <span class="keyword">and</span> right_index&lt;len(right_list):</span><br><span class="line">        <span class="keyword">if</span> left_list[left_index]&lt;right_list[right_index]:   <span class="comment">#哪一部分小，就添加到合并的列表中</span></span><br><span class="line">            merge_list.append(left_list[left_index])</span><br><span class="line">            left_index+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            merge_list.append(right_list[right_index])</span><br><span class="line">            right_index+=<span class="number">1</span></span><br><span class="line">    merge_list+=left_list[left_index:]                   <span class="comment">#将剩余的部分添加到合并列表中</span></span><br><span class="line">    merge_list+=right_list[right_index:]</span><br><span class="line">    <span class="keyword">return</span> merge_list</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(list)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(list)&lt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> list</span><br><span class="line">    mid_index=len(list)//<span class="number">2</span>            <span class="comment">#拆分数组为两部分</span></span><br><span class="line">    left_list=merge_sort(list[:mid_index])</span><br><span class="line">    right_list=merge_sort(list[mid_index:])</span><br><span class="line">    <span class="keyword">return</span> merge(left_list,right_list)</span><br><span class="line"></span><br><span class="line">a=[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">6</span>]</span><br><span class="line">result=merge_sort(a)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+<h3 id="结果-6"><a href="#结果-6" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h3 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">   将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零。</span></span><br><span class="line"><span class="string">   然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后，数列就变成一个有序序列。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">radix_sort</span><span class="params">(list)</span>:</span></span><br><span class="line">    i = <span class="number">0</span> <span class="comment"># 记录当前正在排拿一位，最低位为1</span></span><br><span class="line">    max_num = max(list)  <span class="comment"># 最大值</span></span><br><span class="line">    j = len(str(max_num))  <span class="comment"># 记录最大值的位数</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; j:</span><br><span class="line">        bucket_list =[[] <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>)] <span class="comment">#初始化桶数组</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> list:</span><br><span class="line">            bucket_list[int(x / (<span class="number">10</span>**i)) % <span class="number">10</span>].append(x) <span class="comment"># 找到位置放入桶数组</span></span><br><span class="line">        print(<span class="string">"第&#123;&#125;轮："</span>.format(i+<span class="number">1</span>))</span><br><span class="line">        print(bucket_list)</span><br><span class="line">        list.clear()</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> bucket_list:   <span class="comment"># 放回原序列</span></span><br><span class="line">            <span class="keyword">for</span> y <span class="keyword">in</span> x:</span><br><span class="line">                list.append(y)</span><br><span class="line">        print(list)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = [<span class="number">334</span>,<span class="number">5</span>,<span class="number">67</span>,<span class="number">345</span>,<span class="number">7</span>,<span class="number">5345</span>,<span class="number">99</span>,<span class="number">4</span>,<span class="number">23</span>,<span class="number">78</span>,<span class="number">45</span>,<span class="number">1</span>,<span class="number">453</span>,<span class="number">3424</span>]</span><br><span class="line">result=radix_sort(a)</span><br><span class="line"><span class="comment"># print(result)</span></span><br></pre></td></tr></table></figure>
+<h3 id="结果-7"><a href="#结果-7" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第<span class="number">1</span>轮：</span><br><span class="line">[[], [<span class="number">1</span>], [], [<span class="number">23</span>, <span class="number">453</span>], [<span class="number">334</span>, <span class="number">4</span>, <span class="number">3424</span>], [<span class="number">5</span>, <span class="number">345</span>, <span class="number">5345</span>, <span class="number">45</span>], [], [<span class="number">67</span>, <span class="number">7</span>], [<span class="number">78</span>], [<span class="number">99</span>]]</span><br><span class="line">[<span class="number">1</span>, <span class="number">23</span>, <span class="number">453</span>, <span class="number">334</span>, <span class="number">4</span>, <span class="number">3424</span>, <span class="number">5</span>, <span class="number">345</span>, <span class="number">5345</span>, <span class="number">45</span>, <span class="number">67</span>, <span class="number">7</span>, <span class="number">78</span>, <span class="number">99</span>]</span><br><span class="line">第<span class="number">2</span>轮：</span><br><span class="line">[[<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>], [], [<span class="number">23</span>, <span class="number">3424</span>], [<span class="number">334</span>], [<span class="number">345</span>, <span class="number">5345</span>, <span class="number">45</span>], [<span class="number">453</span>], [<span class="number">67</span>], [<span class="number">78</span>], [], [<span class="number">99</span>]]</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">23</span>, <span class="number">3424</span>, <span class="number">334</span>, <span class="number">345</span>, <span class="number">5345</span>, <span class="number">45</span>, <span class="number">453</span>, <span class="number">67</span>, <span class="number">78</span>, <span class="number">99</span>]</span><br><span class="line">第<span class="number">3</span>轮：</span><br><span class="line">[[<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="number">67</span>, <span class="number">78</span>, <span class="number">99</span>], [], [], [<span class="number">334</span>, <span class="number">345</span>, <span class="number">5345</span>], [<span class="number">3424</span>, <span class="number">453</span>], [], [], [], [], []]</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="number">67</span>, <span class="number">78</span>, <span class="number">99</span>, <span class="number">334</span>, <span class="number">345</span>, <span class="number">5345</span>, <span class="number">3424</span>, <span class="number">453</span>]</span><br><span class="line">第<span class="number">4</span>轮：</span><br><span class="line">[[<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="number">67</span>, <span class="number">78</span>, <span class="number">99</span>, <span class="number">334</span>, <span class="number">345</span>, <span class="number">453</span>], [], [], [<span class="number">3424</span>], [], [<span class="number">5345</span>], [], [], [], []]</span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="number">67</span>, <span class="number">78</span>, <span class="number">99</span>, <span class="number">334</span>, <span class="number">345</span>, <span class="number">453</span>, <span class="number">3424</span>, <span class="number">5345</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h2><h3 id="代码-8"><a href="#代码-8" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">1.找到给定序列的最小值与最大值</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2.创建一个长度为最大值-最小值+1的数组，初始化都为0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">然后遍历原序列，记录每个数据出现的次数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">此时数组中已经记录好每个值的数量，自然也就是有序的了</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_sort</span><span class="params">(list)</span>:</span></span><br><span class="line">    <span class="comment"># 找到最大最小值</span></span><br><span class="line">    min_num = min(list)</span><br><span class="line">    max_num = max(list)</span><br><span class="line">    <span class="comment"># 计数列表，即桶的个数</span></span><br><span class="line">    count_list = [<span class="number">0</span>]*(max_num-min_num+<span class="number">1</span>)</span><br><span class="line">    print(count_list)</span><br><span class="line">    <span class="comment"># 将元素值作为键值存储在桶中，记录其出现的次数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> list:</span><br><span class="line">        count_list[i-min_num] += <span class="number">1</span>   <span class="comment">#最小值作为一个偏移量存在，因为数据可能存在负数的</span></span><br><span class="line">    print(count_list)</span><br><span class="line">    list.clear()</span><br><span class="line">    <span class="comment"># 填回</span></span><br><span class="line">    <span class="keyword">for</span> ind,i <span class="keyword">in</span> enumerate(count_list):  <span class="comment">#ind为索引，i为数据</span></span><br><span class="line">        <span class="keyword">while</span> i != <span class="number">0</span>:</span><br><span class="line">            list.append(ind+min_num)     <span class="comment">#数据的真实值</span></span><br><span class="line">            i -= <span class="number">1</span>                       <span class="comment">#该数据出现的次数</span></span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line"></span><br><span class="line">a = [<span class="number">34</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">34</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">23</span>,<span class="number">12</span>,<span class="number">1</span>]</span><br><span class="line">result=count_sort(a)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+<h3 id="结果-8"><a href="#结果-8" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">23</span>, <span class="number">34</span>, <span class="number">34</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><h3 id="代码-9"><a href="#代码-9" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">桶排序与计数排序类似，但可以解决非整数的排序</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1.桶排序相当于把计数数组划分为按顺序的几个部分</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2.每一部分叫做一个桶，它来存放处于该范围内的数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3.然后再对每个桶内部进行排序，可以使用其他排序方法如快速排序</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">4.最后整个桶数组就是排列好的数据，再将其返回给原序列</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bucket_sort</span><span class="params">(list)</span>:</span></span><br><span class="line"></span><br><span class="line">    min_num = min(list)</span><br><span class="line">    max_num = max(list)</span><br><span class="line">    <span class="comment"># 桶的大小</span></span><br><span class="line">    bucket_range = (max_num-min_num) / len(list)</span><br><span class="line">    <span class="comment"># 桶数组</span></span><br><span class="line">    count_list = [ [] <span class="keyword">for</span> i <span class="keyword">in</span> range(len(list) + <span class="number">1</span>)]</span><br><span class="line">    print(count_list)</span><br><span class="line">    <span class="comment"># 向桶数组填数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> list:</span><br><span class="line">        count_list[int((i-min_num)//bucket_range)].append(i)</span><br><span class="line">    print(count_list)</span><br><span class="line">    list.clear()</span><br><span class="line">    <span class="comment"># 回填，这里桶内部排序直接调用了sorted</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> count_list:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> sorted(i):</span><br><span class="line">            list.append(j)</span><br><span class="line">        print(list)</span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line"></span><br><span class="line">a = [<span class="number">37</span>,<span class="number">5</span>,<span class="number">7.8</span>,<span class="number">37</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">23</span>,<span class="number">12</span>,<span class="number">1</span>]</span><br><span class="line">result=bucket_sort(a)</span><br><span class="line"><span class="comment">#print(result)</span></span><br></pre></td></tr></table></figure>
+<h3 id="结果-9"><a href="#结果-9" class="headerlink" title="结果"></a>结果</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[[], [], [], [], [], [], [], [], [], []]</span><br><span class="line">[[<span class="number">1</span>], [<span class="number">5</span>, <span class="number">7.8</span>, <span class="number">5</span>], [<span class="number">9</span>, <span class="number">12</span>], [], [], [<span class="number">23</span>], [], [], [], [<span class="number">37</span>, <span class="number">37</span>]]</span><br><span class="line">[<span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7.8</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7.8</span>, <span class="number">9</span>, <span class="number">12</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7.8</span>, <span class="number">9</span>, <span class="number">12</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7.8</span>, <span class="number">9</span>, <span class="number">12</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7.8</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">23</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7.8</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">23</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7.8</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">23</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7.8</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">23</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">7.8</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">23</span>, <span class="number">37</span>, <span class="number">37</span>]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+	<div>
+      
+        
+
+
+      
+	</div>
+	
+	<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束------</div>
+    
+</div>
+
+
+    
+    </div>
+	
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="bluesliuf wechat" style="width: 200px; max-width: 100%;">
+    <div>坚持技术分享，欢迎大家扫码交流！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      bluesliuf
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://liufan.vip/数据结构/2019-5-6-python实现十大排序算法/" title="Python实现十大排序算法">https://liufan.vip/数据结构/2019-5-6-python实现十大排序算法/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/data-structure/" rel="tag"><i class="fa fa-tag"></i> data structure</a>
+          
+            <a href="/tags/sort/" rel="tag"><i class="fa fa-tag"></i> sort</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Opencv/2019-5-1-Opencv100问问1/" rel="next" title="Opencv100问 (一)">
+                <i class="fa fa-chevron-left"></i> Opencv100问 (一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM0NS8xODg5Mg=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bluesliuf">
+          <p class="site-author-name" itemprop="name">bluesliuf</p>
+           
+              <p class="site-description motion-element" itemprop="description">From Zero to Hero</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://blog.csdn.net/bluesliuf" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-copyright"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bluesliuf" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:bluesliuf@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  E-Mail
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/bluesliuf/" target="_blank" title="INS">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  INS
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">1.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果"><span class="nav-number">1.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#希尔排序"><span class="nav-number">2.</span> <span class="nav-text">希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-1"><span class="nav-number">2.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果-1"><span class="nav-number">2.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-number">3.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-2"><span class="nav-number">3.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果-2"><span class="nav-number">3.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-number">4.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-3"><span class="nav-number">4.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果-3"><span class="nav-number">4.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">5.</span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-4"><span class="nav-number">5.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果-4"><span class="nav-number">5.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆排序"><span class="nav-number">6.</span> <span class="nav-text">堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-5"><span class="nav-number">6.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果-5"><span class="nav-number">6.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">7.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-6"><span class="nav-number">7.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果-6"><span class="nav-number">7.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基数排序"><span class="nav-number">8.</span> <span class="nav-text">基数排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-7"><span class="nav-number">8.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果-7"><span class="nav-number">8.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计数排序"><span class="nav-number">9.</span> <span class="nav-text">计数排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-8"><span class="nav-number">9.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果-8"><span class="nav-number">9.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#桶排序"><span class="nav-number">10.</span> <span class="nav-text">桶排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-9"><span class="nav-number">10.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果-9"><span class="nav-number">10.2.</span> <span class="nav-text">结果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bluesliuf</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
